@@ -18,10 +18,15 @@ export default function CommonAnimals() {
           <li><strong>Asinus</strong> – Donkey</li>
         </ul>
       </div>
-      <div className="text-center mt-8 space-x-4">
+      <div className="text-center mt-8 flex flex-wrap justify-center gap-4">
+        <Link href="/vocabulary/animals/common/flashcards">
+          <button className="px-6 py-3 bg-violet-600 text-white rounded hover:bg-violet-700">
+            Flashcards
+          </button>
+        </Link>
         <Link href="/vocabulary/animals/common/test">
           <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
-            Test Yourself
+            Quiz
           </button>
         </Link>
         <Link href="/vocabulary/animals">
