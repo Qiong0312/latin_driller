@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -24,6 +25,13 @@ export default function Home() {
             <strong>Neuter:</strong> These are often objects or things that do not have a specific gender, like <em>templum</em> ("temple") or <em>bellum</em> ("war"). Many neuter nouns end in -um in the nominative singular.
           </li>
         </ul>
+      </div>
+      <div className="text-center mt-8">
+        <Link href="/test">
+          <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
+            Test Yourself
+          </button>
+        </Link>
       </div>
     </div>
   );
