@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Cases() {
   return (
     <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
@@ -34,6 +36,13 @@ export default function Cases() {
         <p>
           The particular ending of a word indicates its case and, consequently, its function in the sentence. For example: <em>Marcus Brūtī librum habet.</em> The -ī in <em>Brūtī</em> shows that it is the genitive case (possessive); the -um in <em>librum</em> marks the accusative (object of the action of having). Thus, the sentence means "Marcus has Brutus's book."
         </p>
+      </div>
+      <div className="text-center mt-8">
+        <Link href="/cases/test">
+          <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
+            Test Yourself
+          </button>
+        </Link>
       </div>
     </div>
   );

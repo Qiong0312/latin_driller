@@ -35,7 +35,7 @@ export default function RootLayout({
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/"
+                  href="/grammatical-gender"
                   className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
                 >
                   Grammatical Gender

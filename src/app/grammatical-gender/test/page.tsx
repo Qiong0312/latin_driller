@@ -106,7 +106,7 @@ const questions = [
   }
 ];
 
-export default function TestPage() {
+export default function GrammaticalGenderTestPage() {
   const [answers, setAnswers] = useState<number[]>(Array(20).fill(-1));
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);
@@ -158,7 +158,7 @@ export default function TestPage() {
     return (
       <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
         <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">
-          Test Results
+          Grammatical Gender Test Results
         </h1>
         <p className="text-2xl font-bold text-center mb-8 text-black dark:text-zinc-50">
           Score: {score} out of 20
@@ -176,8 +176,8 @@ export default function TestPage() {
           })}
         </div>
         <div className="text-center mt-8">
-          <Link href="/" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
-            Back to Lesson
+          <Link href="/grammatical-gender" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
+            Back to Grammatical Gender Lesson
           </Link>
         </div>
       </div>
