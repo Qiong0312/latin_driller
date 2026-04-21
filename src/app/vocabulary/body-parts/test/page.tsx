@@ -225,7 +225,7 @@ export default function BodyPartsTestPage() {
           })}
         </div>
         <div className="text-center mt-8">
-          <Link href="/body-parts" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
+          <Link href="/vocabulary/body-parts" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
             Back to Body Parts Lesson
           </Link>
         </div>

@@ -200,7 +200,7 @@ export default function GrammaticalGenderTestPage() {
           })}
         </div>
         <div className="text-center mt-8">
-          <Link href="/grammatical-gender" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
+          <Link href="/grammar/grammatical-gender" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
             Back to Grammatical Gender Lesson
           </Link>
         </div>

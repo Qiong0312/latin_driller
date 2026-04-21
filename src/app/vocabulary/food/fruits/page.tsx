@@ -17,12 +17,12 @@ export default function Fruits() {
         </ul>
       </div>
       <div className="text-center mt-8 space-x-4">
-        <Link href="/food/fruits/test">
+        <Link href="/vocabulary/food/fruits/test">
           <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
             Test Yourself
           </button>
         </Link>
-        <Link href="/food">
+        <Link href="/vocabulary/food">
           <button className="px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
             Back to Food
           </button>

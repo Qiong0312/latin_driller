@@ -38,7 +38,7 @@ export default function RootLayout({
                 <ul className="space-y-1 ml-4">
                   <li>
                     <Link
-                      href="/grammatical-gender"
+                      href="/grammar/grammatical-gender"
                       className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
                     >
                       Grammatical Gender
@@ -46,7 +46,7 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
-                      href="/cases"
+                      href="/grammar/cases"
                       className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
                     >
                       Cases
@@ -59,7 +59,7 @@ export default function RootLayout({
                 <ul className="space-y-1 ml-4">
                   <li>
                     <Link
-                      href="/animals"
+                      href="/vocabulary/animals"
                       className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
                     >
                       Animals
@@ -67,7 +67,7 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
-                      href="/food"
+                      href="/vocabulary/food"
                       className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
                     >
                       Food
@@ -75,7 +75,7 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
-                      href="/body-parts"
+                      href="/vocabulary/body-parts"
                       className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
                     >
                       Body Parts

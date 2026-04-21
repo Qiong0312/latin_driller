@@ -145,7 +145,7 @@ export default function FaceBodyPartsTestPage() {
           })}
         </div>
         <div className="text-center mt-8">
-          <Link href="/body-parts/face" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
+          <Link href="/vocabulary/body-parts/face" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
             Back to Lesson
           </Link>
         </div>

@@ -15,12 +15,12 @@ export default function InternalBodyParts() {
         </ul>
       </div>
       <div className="text-center mt-8 space-x-4">
-        <Link href="/body-parts/internal/test">
+        <Link href="/vocabulary/body-parts/internal/test">
           <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
             Test Yourself
           </button>
         </Link>
-        <Link href="/body-parts">
+        <Link href="/vocabulary/body-parts">
           <button className="px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
             Back to Body Parts
           </button>

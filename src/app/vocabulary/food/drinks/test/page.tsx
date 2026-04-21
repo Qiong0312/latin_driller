@@ -125,7 +125,7 @@ export default function DrinksTestPage() {
           })}
         </div>
         <div className="text-center mt-8">
-          <Link href="/food/drinks" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
+          <Link href="/vocabulary/food/drinks" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
             Back to Lesson
           </Link>
         </div>

@@ -12,21 +12,21 @@ export default function BodyParts() {
         </p>
 
         <div className="space-y-4">
-          <Link href="/body-parts/basic">
+          <Link href="/vocabulary/body-parts/basic">
             <div className="p-4 bg-purple-50 dark:bg-purple-900 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-800 cursor-pointer transition">
               <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🧍 Basic Body Parts</h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Head, arms, legs, chest, and more</p>
             </div>
           </Link>
 
-          <Link href="/body-parts/face">
+          <Link href="/vocabulary/body-parts/face">
             <div className="p-4 bg-indigo-50 dark:bg-indigo-900 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-800 cursor-pointer transition">
               <h3 className="text-xl font-semibold text-black dark:text-zinc-50">😊 Face Parts</h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Eyes, nose, ears, mouth, and teeth</p>
             </div>
           </Link>
 
-          <Link href="/body-parts/internal">
+          <Link href="/vocabulary/body-parts/internal">
             <div className="p-4 bg-pink-50 dark:bg-pink-900 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-800 cursor-pointer transition">
               <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🫀 Internal Organs</h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Heart, lungs, liver, and kidneys</p>

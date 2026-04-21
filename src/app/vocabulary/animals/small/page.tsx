@@ -16,12 +16,12 @@ export default function SmallCreatures() {
         </ul>
       </div>
       <div className="text-center mt-8 space-x-4">
-        <Link href="/animals/small/test">
+        <Link href="/vocabulary/animals/small/test">
           <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
             Test Yourself
           </button>
         </Link>
-        <Link href="/animals">
+        <Link href="/vocabulary/animals">
           <button className="px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
             Back to Animals
           </button>
