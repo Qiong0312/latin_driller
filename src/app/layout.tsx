@@ -73,6 +73,14 @@ export default function RootLayout({
                       Food
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/body-parts"
+                      className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
+                    >
+                      Body Parts
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
