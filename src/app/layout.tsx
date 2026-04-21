@@ -41,6 +41,14 @@ export default function RootLayout({
                   Grammatical Gender
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/cases"
+                  className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
+                >
+                  Cases
+                </Link>
+              </li>
             </ul>
           </nav>
         </aside>
