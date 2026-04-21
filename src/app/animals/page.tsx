@@ -8,88 +8,45 @@ export default function Animals() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-6">
         <p>
-          Here are some common Latin words for animals. Latin animal names often reflect their characteristics or origins, and many English words for animals are derived from Latin.
+          Learn Latin animal vocabulary step by step. Choose a category below to begin:
         </p>
 
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🐾 Animalia Communia (Common Animals)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>Canis</strong> – Dog</li>
-              <li><strong>Feles</strong> – Cat</li>
-              <li><strong>Equus</strong> – Horse</li>
-              <li><strong>Vacca</strong> – Cow</li>
-              <li><strong>Porcus</strong> – Pig</li>
-              <li><strong>Ovis</strong> – Sheep</li>
-              <li><strong>Capra</strong> – Goat</li>
-              <li><strong>Asinus</strong> – Donkey</li>
-            </ul>
-          </div>
+        <div className="space-y-4">
+          <Link href="/animals/common">
+            <div className="p-4 bg-blue-50 dark:bg-blue-900 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐾 Common Animals</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Learn about dogs, cats, horses, and farm animals</p>
+            </div>
+          </Link>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🐅 Animalia Fera (Wild Animals)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>Leo</strong> – Lion</li>
-              <li><strong>Tigris</strong> – Tiger</li>
-              <li><strong>Ursus</strong> – Bear</li>
-              <li><strong>Lupus</strong> – Wolf</li>
-              <li><strong>Vulpes</strong> – Fox</li>
-              <li><strong>Cervus</strong> – Deer</li>
-              <li><strong>Elephantus</strong> – Elephant</li>
-            </ul>
-          </div>
+          <Link href="/animals/wild">
+            <div className="p-4 bg-orange-50 dark:bg-orange-900 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐅 Wild Animals</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Discover lions, tigers, bears, and more</p>
+            </div>
+          </Link>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🐦 Aves (Birds)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>Avis</strong> – Bird</li>
-              <li><strong>Aquila</strong> – Eagle</li>
-              <li><strong>Columba</strong> – Dove / Pigeon</li>
-              <li><strong>Corvus</strong> – Crow</li>
-              <li><strong>Passer</strong> – Sparrow</li>
-              <li><strong>Gallina</strong> – Hen</li>
-              <li><strong>Gallus</strong> – Rooster</li>
-            </ul>
-          </div>
+          <Link href="/animals/birds">
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900 rounded-lg hover:bg-yellow-100 dark:hover:bg-yellow-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐦 Birds</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Explore eagles, crows, sparrows, and others</p>
+            </div>
+          </Link>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🐟 Animalia Marina (Sea Animals)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>Piscis</strong> – Fish</li>
-              <li><strong>Delphinus</strong> – Dolphin</li>
-              <li><strong>Cetus</strong> – Whale</li>
-              <li><strong>Canis Marinus</strong> – Shark</li>
-            </ul>
-          </div>
+          <Link href="/animals/sea">
+            <div className="p-4 bg-cyan-50 dark:bg-cyan-900 rounded-lg hover:bg-cyan-100 dark:hover:bg-cyan-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐟 Sea Animals</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Study fish, dolphins, whales, and sharks</p>
+            </div>
+          </Link>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🐍 Animalia Parva (Small Creatures)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>Mus</strong> – Mouse</li>
-              <li><strong>Rana</strong> – Frog</li>
-              <li><strong>Serpens</strong> – Snake</li>
-              <li><strong>Apis</strong> – Bee</li>
-              <li><strong>Formica</strong> – Ant</li>
-            </ul>
-          </div>
+          <Link href="/animals/small">
+            <div className="p-4 bg-green-50 dark:bg-green-900 rounded-lg hover:bg-green-100 dark:hover:bg-green-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐍 Small Creatures</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Learn about mice, frogs, snakes, and insects</p>
+            </div>
+          </Link>
         </div>
-      </div>
-      <div className="text-center mt-8">
-        <Link href="/animals/test">
-          <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
-            Test Yourself
-          </button>
-        </Link>
       </div>
     </div>
   );

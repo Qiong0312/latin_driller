@@ -8,83 +8,45 @@ export default function Food() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-6">
         <p>
-          Here are some common Latin words for food and drink. Many English words related to food are derived from Latin, and learning these basic terms will help you understand both ancient Roman cuisine and modern food vocabulary.
+          Learn Latin food vocabulary step by step. Choose a category below to begin:
         </p>
 
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🍞 Basic Foods (Cibus Communis)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>panis</strong> – bread</li>
-              <li><strong>caseus</strong> – cheese</li>
-              <li><strong>ovum</strong> – egg</li>
-              <li><strong>cibus</strong> – food</li>
-              <li><strong>cena</strong> – dinner / meal</li>
-            </ul>
-          </div>
+        <div className="space-y-4">
+          <Link href="/food/basic">
+            <div className="p-4 bg-amber-50 dark:bg-amber-900 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🍞 Basic Foods</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Learn bread, cheese, eggs, and meals</p>
+            </div>
+          </Link>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🍎 Fruits (Fructus)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>malum</strong> – apple</li>
-              <li><strong>pirum</strong> – pear</li>
-              <li><strong>uva</strong> – grape</li>
-              <li><strong>ficus</strong> – fig</li>
-              <li><strong>cerasum</strong> – cherry</li>
-              <li><strong>prunum</strong> – plum</li>
-            </ul>
-          </div>
+          <Link href="/food/fruits">
+            <div className="p-4 bg-red-50 dark:bg-red-900 rounded-lg hover:bg-red-100 dark:hover:bg-red-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🍎 Fruits</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Explore apples, pears, grapes, and more</p>
+            </div>
+          </Link>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🥕 Vegetables (Holera)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>carota</strong> – carrot</li>
-              <li><strong>lactuca</strong> – lettuce</li>
-              <li><strong>cepa</strong> – onion</li>
-              <li><strong>allium</strong> – garlic</li>
-              <li><strong>fungus</strong> – mushroom</li>
-            </ul>
-          </div>
+          <Link href="/food/vegetables">
+            <div className="p-4 bg-green-50 dark:bg-green-900 rounded-lg hover:bg-green-100 dark:hover:bg-green-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🥕 Vegetables</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Study carrots, lettuce, onions, and vegetables</p>
+            </div>
+          </Link>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🍖 Meat & Protein (Caro)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>caro</strong> – meat</li>
-              <li><strong>porcus</strong> – pork / pig</li>
-              <li><strong>bos</strong> – cow / beef</li>
-              <li><strong>gallina</strong> – chicken</li>
-              <li><strong>piscis</strong> – fish</li>
-            </ul>
-          </div>
+          <Link href="/food/meat">
+            <div className="p-4 bg-pink-50 dark:bg-pink-900 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🍖 Meat & Protein</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Learn meat, pork, beef, chicken, and fish</p>
+            </div>
+          </Link>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4 text-black dark:text-zinc-50">
-              🍯 Drinks & Others (Potus et Alia)
-            </h2>
-            <ul className="list-disc list-inside space-y-2 pl-6">
-              <li><strong>aqua</strong> – water</li>
-              <li><strong>lac</strong> – milk</li>
-              <li><strong>vinum</strong> – wine</li>
-              <li><strong>mel</strong> – honey</li>
-              <li><strong>sal</strong> – salt</li>
-            </ul>
-          </div>
+          <Link href="/food/drinks">
+            <div className="p-4 bg-blue-50 dark:bg-blue-900 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-800 cursor-pointer transition">
+              <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🍯 Drinks & Others</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Discover water, milk, wine, honey, and salt</p>
+            </div>
+          </Link>
         </div>
-      </div>
-      <div className="text-center mt-8">
-        <Link href="/food/test">
-          <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
-            Test Yourself
-          </button>
-        </Link>
       </div>
     </div>
   );
