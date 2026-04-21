@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const questions = [
@@ -56,11 +56,27 @@ const questions = [
   }
 ];
 
+function shuffleArray(array: any[]) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default function CasesTestPage() {
-  const [answers, setAnswers] = useState<number[]>(Array(10).fill(-1));
+  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [answers, setAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);
   const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    const shuffled = shuffleArray(questions);
+    setShuffledQuestions(shuffled);
+    setAnswers(Array(shuffled.length).fill(-1));
+  }, []);
 
   const handleAnswerChange = (optionIndex: number) => {
     const newAnswers = [...answers];
@@ -69,7 +85,7 @@ export default function CasesTestPage() {
   };
 
   const nextQuestion = () => {
-    if (currentQuestion < 9) {
+    if (currentQuestion < shuffledQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     }
   };
@@ -82,7 +98,7 @@ export default function CasesTestPage() {
 
   const calculateScore = () => {
     let correct = 0;
-    questions.forEach((q, index) => {
+    shuffledQuestions.forEach((q, index) => {
       if (answers[index] === q.correct) {
         correct++;
       }
@@ -92,7 +108,7 @@ export default function CasesTestPage() {
   };
 
   const getCurrentQuestion = () => {
-    return questions[currentQuestion];
+    return shuffledQuestions[currentQuestion];
   };
 
   const getOptionClass = (optionIndex: number) => {
@@ -104,6 +120,14 @@ export default function CasesTestPage() {
     return '';
   };
 
+  if (shuffledQuestions.length === 0) {
+    return (
+      <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+        <p className="text-center">Loading questions...</p>
+      </div>
+    );
+  }
+
   if (scored) {
     return (
       <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
@@ -111,10 +135,10 @@ export default function CasesTestPage() {
           Cases Test Results
         </h1>
         <p className="text-2xl font-bold text-center mb-8 text-black dark:text-zinc-50">
-          Score: {score} out of 10
+          Score: {score} out of {shuffledQuestions.length}
         </p>
         <div className="space-y-4">
-          {questions.map((q, index) => {
+          {shuffledQuestions.map((q, index) => {
             const isCorrect = answers[index] === q.correct;
             return (
               <div key={index} className={`p-4 rounded ${isCorrect ? 'bg-green-100 dark:bg-green-900' : 'bg-red-100 dark:bg-red-900'}`}>
@@ -145,11 +169,11 @@ export default function CasesTestPage() {
         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
           <div
             className="bg-blue-500 h-2 rounded-full"
-            style={{ width: `${((currentQuestion + 1) / 10) * 100}%` }}
+            style={{ width: `${((currentQuestion + 1) / shuffledQuestions.length) * 100}%` }}
           ></div>
         </div>
         <p className="text-center text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-          Question {currentQuestion + 1} of 10
+          Question {currentQuestion + 1} of {shuffledQuestions.length}
         </p>
       </div>
       <div className="mb-6">
@@ -178,7 +202,7 @@ export default function CasesTestPage() {
         >
           Previous
         </button>
-        {currentQuestion === 9 ? (
+        {currentQuestion === shuffledQuestions.length - 1 ? (
           <button
             onClick={calculateScore}
             className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
