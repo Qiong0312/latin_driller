@@ -98,16 +98,39 @@ export default function CommonAnimalsFlashcardsPage() {
       <h1 className="text-4xl font-bold text-center mb-2 text-black dark:text-zinc-50">
         Common Animals — Flashcards
       </h1>
-      <p className="text-center text-sm text-zinc-600 dark:text-zinc-400 mb-6">
-        Order is randomized each visit. Use “Shuffle deck” for a new order.
-        {englishFirstMode && (
-          <span className="block mt-1 text-violet-600 dark:text-violet-400">
-            Flip-all mode: English side first — tap the card to reveal Latin.
-          </span>
-        )}
+      <p className="text-center text-sm text-zinc-600 dark:text-zinc-400 mb-5">
+        Order is randomized each visit. Use “Shuffle deck” for a new order. Use “Flip all cards” to flip all cards.
       </p>
 
-      <div className="mb-4">
+      <div className="mb-5 flex justify-center">
+        <div
+          className="inline-flex rounded-xl border border-violet-200 bg-violet-50/80 p-1 shadow-sm dark:border-violet-800 dark:bg-violet-950/40"
+          role="group"
+          aria-label="Deck actions"
+        >
+          <button
+            type="button"
+            onClick={toggleEnglishFirstMode}
+            aria-pressed={englishFirstMode}
+            className="rounded-lg px-4 py-2 text-sm font-medium text-violet-950 transition hover:bg-white/90 dark:text-violet-100 dark:hover:bg-violet-900/80"
+          >
+            Flip all cards
+          </button>
+          <span
+            className="my-1.5 w-px shrink-0 bg-violet-200 dark:bg-violet-700"
+            aria-hidden
+          />
+          <button
+            type="button"
+            onClick={reshuffle}
+            className="rounded-lg px-4 py-2 text-sm font-medium text-violet-950 transition hover:bg-white/90 dark:text-violet-100 dark:hover:bg-violet-900/80"
+          >
+            Shuffle deck
+          </button>
+        </div>
+      </div>
+
+      <div className="mb-5">
         <div className="w-full rounded-full h-2 bg-zinc-100 dark:bg-zinc-800">
           <div
             className="bg-violet-300 h-2 rounded-full transition-all dark:bg-violet-600"
@@ -119,7 +142,7 @@ export default function CommonAnimalsFlashcardsPage() {
         </p>
       </div>
 
-      <div className="mb-8 flex w-full items-center justify-center gap-1 sm:gap-3">
+      <div className="mb-10 flex w-full items-center justify-center gap-1 sm:gap-3">
         <button
           type="button"
           onClick={goPrev}
@@ -186,42 +209,20 @@ export default function CommonAnimalsFlashcardsPage() {
         </button>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-        <button
-          type="button"
-          onClick={toggleEnglishFirstMode}
-          aria-pressed={englishFirstMode}
-          className={`px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition ${
-            englishFirstMode
-              ? 'bg-amber-200 text-amber-950 hover:bg-amber-300 dark:bg-amber-900 dark:text-amber-100 dark:hover:bg-amber-800'
-              : 'bg-zinc-200 text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600'
-          }`}
-        >
-          Flip all cards
-        </button>
-        <button
-          type="button"
-          onClick={reshuffle}
-          className="px-4 py-2 rounded-lg bg-violet-200 text-violet-950 text-sm font-medium shadow-sm transition hover:bg-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-violet-800"
-        >
-          Shuffle deck
-        </button>
-      </div>
-
-      <div className="text-center mt-10 space-x-4">
+      <footer className="mt-2 flex w-full flex-col items-center justify-between gap-3 border-t border-zinc-200 pt-6 dark:border-zinc-800 sm:flex-row sm:items-center">
         <Link
           href="/vocabulary/animals/common"
-          className="inline-block px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
+          className="text-sm text-zinc-600 underline-offset-4 transition hover:text-zinc-900 hover:underline dark:text-zinc-400 dark:hover:text-zinc-200"
         >
-          Back to lesson
+          ← Back to lesson
         </Link>
         <Link
           href="/vocabulary/animals/common/test"
-          className="inline-block px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700"
+          className="text-sm font-medium text-sky-700 underline-offset-4 transition hover:underline dark:text-sky-400"
         >
-          Quiz
+          Take quiz →
         </Link>
-      </div>
+      </footer>
     </div>
   );
 }
