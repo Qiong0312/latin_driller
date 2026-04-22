@@ -15,7 +15,12 @@ export default function BasicFoods() {
           <li><strong>cena</strong> – dinner / meal</li>
         </ul>
       </div>
-      <div className="text-center mt-8 space-x-4">
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <Link href="/vocabulary/food/basic/flashcards">
+          <button className="px-6 py-3 rounded-lg bg-emerald-200 text-emerald-950 shadow-sm transition hover:bg-emerald-300 dark:bg-emerald-900 dark:text-emerald-100 dark:hover:bg-emerald-800">
+            Flashcards
+          </button>
+        </Link>
         <Link href="/vocabulary/food/basic/test">
           <button className="px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700">
             Quiz
