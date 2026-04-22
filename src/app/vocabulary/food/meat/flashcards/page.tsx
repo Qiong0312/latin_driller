@@ -4,7 +4,7 @@ const cards = [
   { latin: 'caro', english: 'Meat', icon: '🥩' },
   { latin: 'porcus', english: 'Pork / pig', icon: '/flashcard-icons/porcus.png' },
   { latin: 'bos', english: 'Cow / beef', icon: '🐄' },
-  { latin: 'gallina', english: 'Chicken', icon: '🐔' },
+  { latin: 'gallina', english: 'Chicken', icon: '/flashcard-icons/gallina.png' },
   { latin: 'piscis', english: 'Fish', icon: '🐟' },
 ];
 

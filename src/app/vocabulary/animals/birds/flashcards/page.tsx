@@ -1,13 +1,13 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'Avis', english: 'Bird', icon: '🐦' },
-  { latin: 'Aquila', english: 'Eagle', icon: '🦅' },
-  { latin: 'Columba', english: 'Dove / pigeon', icon: '🕊️' },
-  { latin: 'Corvus', english: 'Crow', icon: '🐦‍⬛' },
-  { latin: 'Passer', english: 'Sparrow', icon: '🐦' },
-  { latin: 'Gallina', english: 'Hen', icon: '🐔' },
-  { latin: 'Gallus', english: 'Rooster', icon: '🐓' },
+  { latin: 'Avis', english: 'Bird', icon: '/flashcard-icons/avis.png' },
+  { latin: 'Aquila', english: 'Eagle', icon: '/flashcard-icons/aquila.png' },
+  { latin: 'Columba', english: 'Dove / pigeon', icon: '/flashcard-icons/columba.png' },
+  { latin: 'Corvus', english: 'Crow', icon: '/flashcard-icons/corvus.png' },
+  { latin: 'Passer', english: 'Sparrow', icon: '/flashcard-icons/passer.png' },
+  { latin: 'Gallina', english: 'Hen', icon: '/flashcard-icons/gallina.png' },
+  { latin: 'Gallus', english: 'Rooster', icon: '/flashcard-icons/gallus.png' },
 ];
 
 export default function BirdsFlashcardsPage() {
