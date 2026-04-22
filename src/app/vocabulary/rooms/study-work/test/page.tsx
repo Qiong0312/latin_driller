@@ -10,8 +10,8 @@ import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'the Study and Work lesson',
-  outsideCategoryEnglish: ['shark', 'onion', 'eagle', 'bedroom', 'milk', 'tiger', 'carrot', 'river'],
+  categoryLabel: 'Study & Work',
+  outsideCategoryLatin: ['canis marinus', 'cepa', 'aquila', 'cubiculum', 'lac', 'tigris', 'carota', 'fluvius'],
   entries: [
     { latin: 'bibliotheca', english: 'library' },
     { latin: 'officina', english: 'workshop / workroom' },

@@ -10,8 +10,8 @@ import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'the Living and Sleeping Areas lesson',
-  outsideCategoryEnglish: ['lion', 'apple', 'kitchen', 'garden', 'river', 'horse', 'bread', 'nose'],
+  categoryLabel: 'Living & Sleeping Areas',
+  outsideCategoryLatin: ['leo', 'malum', 'culina', 'hortus', 'fluvius', 'equus', 'panis', 'nasus'],
   entries: [
     { latin: 'cubiculum', english: 'bedroom' },
     { latin: 'dormitorium', english: 'sleeping room / dormitory' },

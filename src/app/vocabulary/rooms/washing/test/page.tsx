@@ -10,8 +10,8 @@ import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'the Washing and Bathing lesson',
-  outsideCategoryEnglish: ['lion', 'kitchen', 'eagle', 'grape', 'heart', 'wolf', 'book', 'moon'],
+  categoryLabel: 'Washing & Bathing',
+  outsideCategoryLatin: ['leo', 'culina', 'aquila', 'uva', 'cor', 'lupus', 'liber', 'luna'],
   entries: [
     { latin: 'balneum', english: 'bath / bathroom' },
     { latin: 'lavatorium', english: 'washing room' },

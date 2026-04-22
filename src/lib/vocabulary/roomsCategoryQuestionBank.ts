@@ -6,8 +6,8 @@ import { buildVocabularyQuestionBank, type QuizQuestion } from '@/lib/buildVocab
  */
 export const ROOMS_CATEGORY_ALL_QUESTIONS: QuizQuestion[] = [
   ...buildVocabularyQuestionBank({
-    categoryLabel: 'the Living and Sleeping Areas lesson',
-    outsideCategoryEnglish: ['lion', 'apple', 'kitchen', 'garden', 'river', 'horse', 'bread', 'nose'],
+    categoryLabel: 'Living & Sleeping Areas',
+    outsideCategoryLatin: ['leo', 'malum', 'culina', 'hortus', 'fluvius', 'equus', 'panis', 'nasus'],
     entries: [
       { latin: 'cubiculum', english: 'bedroom' },
       { latin: 'dormitorium', english: 'sleeping room / dormitory' },
@@ -15,16 +15,16 @@ export const ROOMS_CATEGORY_ALL_QUESTIONS: QuizQuestion[] = [
     ],
   }),
   ...buildVocabularyQuestionBank({
-    categoryLabel: 'the Eating and Cooking lesson',
-    outsideCategoryEnglish: ['lion', 'bedroom', 'garden', 'shark', 'finger', 'bread', 'horse', 'cloud'],
+    categoryLabel: 'Eating & Cooking',
+    outsideCategoryLatin: ['leo', 'cubiculum', 'hortus', 'canis marinus', 'digitus', 'panis', 'equus', 'nubes'],
     entries: [
       { latin: 'culina', english: 'kitchen' },
       { latin: 'triclinium', english: 'dining room (Roman style)' },
     ],
   }),
   ...buildVocabularyQuestionBank({
-    categoryLabel: 'the General House Spaces lesson',
-    outsideCategoryEnglish: ['dolphin', 'apple', 'onion', 'eagle', 'milk', 'tiger', 'bread', 'heart'],
+    categoryLabel: 'General House Spaces',
+    outsideCategoryLatin: ['delphinus', 'malum', 'cepa', 'aquila', 'lac', 'tigris', 'panis', 'cor'],
     entries: [
       { latin: 'atrium', english: 'main hall / central room' },
       { latin: 'tablinum', english: 'study / office (Roman house)' },
@@ -33,24 +33,24 @@ export const ROOMS_CATEGORY_ALL_QUESTIONS: QuizQuestion[] = [
     ],
   }),
   ...buildVocabularyQuestionBank({
-    categoryLabel: 'the Washing and Bathing lesson',
-    outsideCategoryEnglish: ['lion', 'kitchen', 'eagle', 'grape', 'heart', 'wolf', 'book', 'moon'],
+    categoryLabel: 'Washing & Bathing',
+    outsideCategoryLatin: ['leo', 'culina', 'aquila', 'uva', 'cor', 'lupus', 'liber', 'luna'],
     entries: [
       { latin: 'balneum', english: 'bath / bathroom' },
       { latin: 'lavatorium', english: 'washing room' },
     ],
   }),
   ...buildVocabularyQuestionBank({
-    categoryLabel: 'the Study and Work lesson',
-    outsideCategoryEnglish: ['shark', 'onion', 'eagle', 'bedroom', 'milk', 'tiger', 'carrot', 'river'],
+    categoryLabel: 'Study & Work',
+    outsideCategoryLatin: ['canis marinus', 'cepa', 'aquila', 'cubiculum', 'lac', 'tigris', 'carota', 'fluvius'],
     entries: [
       { latin: 'bibliotheca', english: 'library' },
       { latin: 'officina', english: 'workshop / workroom' },
     ],
   }),
   ...buildVocabularyQuestionBank({
-    categoryLabel: 'the Outdoor and Extra Spaces lesson',
-    outsideCategoryEnglish: ['lion', 'kitchen', 'eagle', 'bedroom', 'milk', 'finger', 'bread', 'wolf'],
+    categoryLabel: 'Outdoor / Extra Spaces',
+    outsideCategoryLatin: ['leo', 'culina', 'aquila', 'cubiculum', 'lac', 'digitus', 'panis', 'lupus'],
     entries: [
       { latin: 'hortus', english: 'garden' },
       { latin: 'peristylium', english: 'courtyard with columns' },

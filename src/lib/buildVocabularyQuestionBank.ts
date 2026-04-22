@@ -12,7 +12,7 @@ export type VocabEntry = {
 type BuildVocabularyQuestionBankArgs = {
   entries: VocabEntry[];
   categoryLabel: string;
-  outsideCategoryEnglish: string[];
+  outsideCategoryLatin: string[];
 };
 
 function shuffle<T>(arr: T[]): T[] {
@@ -39,12 +39,12 @@ function buildOptions(correct: string, distractors: string[]): { options: string
  * Builds a larger, mixed-format vocabulary bank:
  * - English -> Latin
  * - Latin -> English
- * - Category recognition (English)
+ * - Category recognition with Latin answer options
  */
 export function buildVocabularyQuestionBank({
   entries,
   categoryLabel,
-  outsideCategoryEnglish,
+  outsideCategoryLatin,
 }: BuildVocabularyQuestionBankArgs): QuizQuestion[] {
   const englishPool = entries.map((e) => e.english);
   const latinPool = entries.map((e) => e.latin);
@@ -68,9 +68,9 @@ export function buildVocabularyQuestionBank({
 
   const categoryCandidates = entries.slice(0, Math.min(entries.length, 6));
   for (const e of categoryCandidates) {
-    const cat = buildOptions(e.english, outsideCategoryEnglish);
+    const cat = buildOptions(e.latin, outsideCategoryLatin);
     bank.push({
-      question: `Which one belongs to ${categoryLabel}?`,
+      question: `Which Latin word belong to ${categoryLabel}?`,
       options: cat.options,
       correct: cat.correct,
     });

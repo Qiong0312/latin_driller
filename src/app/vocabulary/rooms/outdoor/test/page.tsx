@@ -10,8 +10,8 @@ import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'the Outdoor and Extra Spaces lesson',
-  outsideCategoryEnglish: ['lion', 'kitchen', 'eagle', 'bedroom', 'milk', 'finger', 'bread', 'wolf'],
+  categoryLabel: 'Outdoor / Extra Spaces',
+  outsideCategoryLatin: ['leo', 'culina', 'aquila', 'cubiculum', 'lac', 'digitus', 'panis', 'lupus'],
   entries: [
     { latin: 'hortus', english: 'garden' },
     { latin: 'peristylium', english: 'courtyard with columns' },

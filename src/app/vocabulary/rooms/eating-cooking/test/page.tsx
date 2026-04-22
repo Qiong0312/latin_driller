@@ -10,8 +10,8 @@ import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'the Eating and Cooking lesson',
-  outsideCategoryEnglish: ['lion', 'bedroom', 'garden', 'shark', 'finger', 'bread', 'horse', 'cloud'],
+  categoryLabel: 'Eating & Cooking',
+  outsideCategoryLatin: ['leo', 'cubiculum', 'hortus', 'canis marinus', 'digitus', 'panis', 'equus', 'nubes'],
   entries: [
     { latin: 'culina', english: 'kitchen' },
     { latin: 'triclinium', english: 'dining room (Roman style)' },

@@ -10,8 +10,8 @@ import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'the General House Spaces lesson',
-  outsideCategoryEnglish: ['dolphin', 'apple', 'onion', 'eagle', 'milk', 'tiger', 'bread', 'heart'],
+  categoryLabel: 'General House Spaces',
+  outsideCategoryLatin: ['delphinus', 'malum', 'cepa', 'aquila', 'lac', 'tigris', 'panis', 'cor'],
   entries: [
     { latin: 'atrium', english: 'main hall / central room' },
     { latin: 'tablinum', english: 'study / office (Roman house)' },
