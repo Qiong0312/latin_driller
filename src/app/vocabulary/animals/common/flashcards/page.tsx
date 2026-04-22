@@ -104,7 +104,7 @@ export default function CommonAnimalsFlashcardsPage() {
 
       <div className="mb-5 flex justify-center">
         <div
-          className="inline-flex rounded-xl border border-violet-200 bg-violet-50/80 p-1 shadow-sm dark:border-violet-800 dark:bg-violet-950/40"
+          className="inline-flex rounded-xl border border-pink-200 bg-pink-50/80 p-1 shadow-sm dark:border-pink-800 dark:bg-pink-950/40"
           role="group"
           aria-label="Deck actions"
         >
@@ -112,18 +112,18 @@ export default function CommonAnimalsFlashcardsPage() {
             type="button"
             onClick={toggleEnglishFirstMode}
             aria-pressed={englishFirstMode}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-violet-950 transition hover:bg-white/90 dark:text-violet-100 dark:hover:bg-violet-900/80"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-pink-950 transition hover:bg-white/90 dark:text-pink-100 dark:hover:bg-pink-900/80"
           >
             Flip all cards
           </button>
           <span
-            className="my-1.5 w-px shrink-0 bg-violet-200 dark:bg-violet-700"
+            className="my-1.5 w-px shrink-0 bg-pink-200 dark:bg-pink-700"
             aria-hidden
           />
           <button
             type="button"
             onClick={reshuffle}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-violet-950 transition hover:bg-white/90 dark:text-violet-100 dark:hover:bg-violet-900/80"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-pink-950 transition hover:bg-white/90 dark:text-pink-100 dark:hover:bg-pink-900/80"
           >
             Shuffle deck
           </button>
@@ -133,7 +133,7 @@ export default function CommonAnimalsFlashcardsPage() {
       <div className="mb-5">
         <div className="w-full rounded-full h-2 bg-zinc-100 dark:bg-zinc-800">
           <div
-            className="bg-violet-300 h-2 rounded-full transition-all dark:bg-violet-600"
+            className="bg-pink-300 h-2 rounded-full transition-all dark:bg-pink-600"
             style={{ width: `${((index + 1) / deck.length) * 100}%` }}
           />
         </div>
@@ -165,7 +165,7 @@ export default function CommonAnimalsFlashcardsPage() {
         <button
           type="button"
           onClick={() => setIsFlipped((f) => !f)}
-          className="min-w-0 flex-1 cursor-pointer rounded-2xl border-2 border-violet-200 bg-transparent p-0 text-left shadow-md transition hover:border-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 dark:border-violet-800 dark:hover:border-violet-600 max-w-md"
+          className="min-w-0 flex-1 cursor-pointer rounded-2xl border-2 border-pink-200 bg-transparent p-0 text-left shadow-md transition hover:border-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500 dark:border-pink-800 dark:hover:border-pink-600 max-w-md"
           aria-label="Flip flashcard"
         >
           <div className="perspective-[1200px] w-full">
@@ -174,13 +174,13 @@ export default function CommonAnimalsFlashcardsPage() {
               style={{ transform: `rotateY(${isFlipped ? 180 : 0}deg)` }}
             >
               <div
-                className="absolute inset-0 flex flex-col rounded-2xl border border-violet-100 bg-gradient-to-b from-violet-50 to-white [backface-visibility:hidden] dark:border-violet-900 dark:from-violet-950/40 dark:to-zinc-900"
+                className="absolute inset-0 flex flex-col rounded-2xl border border-pink-100 bg-gradient-to-b from-pink-50 to-white [backface-visibility:hidden] dark:border-pink-900 dark:from-pink-950/40 dark:to-zinc-900"
                 style={{ transform: 'rotateY(0deg)' }}
               >
                 {frontContent}
               </div>
               <div
-                className="absolute inset-0 flex flex-col rounded-2xl border border-violet-100 bg-gradient-to-b from-violet-50 to-white [backface-visibility:hidden] dark:border-violet-900 dark:from-violet-950/40 dark:to-zinc-900"
+                className="absolute inset-0 flex flex-col rounded-2xl border border-pink-100 bg-gradient-to-b from-pink-50 to-white [backface-visibility:hidden] dark:border-pink-900 dark:from-pink-950/40 dark:to-zinc-900"
                 style={{ transform: 'rotateY(180deg)' }}
               >
                 {backContent}
@@ -194,7 +194,7 @@ export default function CommonAnimalsFlashcardsPage() {
           onClick={goNext}
           disabled={index === deck.length - 1}
           aria-label="Next card"
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-violet-200 bg-violet-50 text-violet-900 shadow-sm transition hover:bg-violet-100 disabled:cursor-not-allowed disabled:opacity-40 dark:border-violet-700 dark:bg-violet-950 dark:text-violet-100 dark:hover:bg-violet-900 sm:h-12 sm:w-12"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-pink-200 bg-pink-50 text-pink-900 shadow-sm transition hover:bg-pink-100 disabled:cursor-not-allowed disabled:opacity-40 dark:border-pink-700 dark:bg-pink-950 dark:text-pink-100 dark:hover:bg-pink-900 sm:h-12 sm:w-12"
         >
           <svg
             className="h-6 w-6 sm:h-7 sm:w-7"

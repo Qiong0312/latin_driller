@@ -20,7 +20,7 @@ export default function CommonAnimals() {
       </div>
       <div className="text-center mt-8 flex flex-wrap justify-center gap-4">
         <Link href="/vocabulary/animals/common/flashcards">
-          <button className="px-6 py-3 rounded-lg bg-violet-200 text-violet-950 shadow-sm transition hover:bg-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-violet-800">
+          <button className="px-6 py-3 rounded-lg bg-pink-200 text-pink-950 shadow-sm transition hover:bg-pink-300 dark:bg-pink-900 dark:text-pink-100 dark:hover:bg-pink-800">
             Flashcards
           </button>
         </Link>
