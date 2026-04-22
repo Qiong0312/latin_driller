@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import Link from 'next/link';
 
 const cards = [
@@ -26,17 +26,32 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 export default function CommonAnimalsFlashcardsPage() {
-  const [deck, setDeck] = useState<Card[]>([]);
+  const [deck, setDeck] = useState<Card[]>(() => shuffleArray(cards));
   const [index, setIndex] = useState(0);
+  /** false = Latin on front first; true = icon + English on front first (“Flip all cards” mode). */
+  const [englishFirstMode, setEnglishFirstMode] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const reshuffle = useCallback(() => {
     setDeck(shuffleArray(cards));
     setIndex(0);
+    setIsFlipped(false);
   }, []);
 
-  useEffect(() => {
-    reshuffle();
-  }, [reshuffle]);
+  const goPrev = () => {
+    setIndex((i) => Math.max(0, i - 1));
+    setIsFlipped(false);
+  };
+
+  const goNext = () => {
+    setIndex((i) => Math.min(deck.length - 1, i + 1));
+    setIsFlipped(false);
+  };
+
+  const toggleEnglishFirstMode = () => {
+    setEnglishFirstMode((v) => !v);
+    setIsFlipped(false);
+  };
 
   const current = deck[index];
 
@@ -48,6 +63,36 @@ export default function CommonAnimalsFlashcardsPage() {
     );
   }
 
+  const latinSide = (
+    <div className="relative h-full min-h-[260px] w-full px-6 py-8">
+      <p className="absolute left-1/2 top-1/2 w-[calc(100%-3rem)] -translate-x-1/2 -translate-y-1/2 text-center text-5xl font-bold leading-tight tracking-wide text-black sm:text-6xl dark:text-zinc-50">
+        {current.latin}
+      </p>
+      <p className="absolute bottom-4 left-0 right-0 text-center text-xs text-zinc-500 dark:text-zinc-400">
+        click to flip
+      </p>
+    </div>
+  );
+
+  const englishSide = (
+    <div className="relative h-full min-h-[260px] w-full px-6 py-8">
+      <div className="absolute left-1/2 top-1/2 flex w-[calc(100%-3rem)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-5 text-center">
+        <div className="text-8xl leading-none sm:text-9xl" aria-hidden>
+          {current.icon}
+        </div>
+        <p className="text-3xl font-semibold leading-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
+          {current.english}
+        </p>
+      </div>
+      <p className="absolute bottom-4 left-0 right-0 text-center text-xs text-zinc-500 dark:text-zinc-400">
+        click to flip
+      </p>
+    </div>
+  );
+
+  const frontContent = englishFirstMode ? englishSide : latinSide;
+  const backContent = englishFirstMode ? latinSide : englishSide;
+
   return (
     <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
       <h1 className="text-4xl font-bold text-center mb-2 text-black dark:text-zinc-50">
@@ -55,6 +100,11 @@ export default function CommonAnimalsFlashcardsPage() {
       </h1>
       <p className="text-center text-sm text-zinc-600 dark:text-zinc-400 mb-6">
         Order is randomized each visit. Use “Shuffle deck” for a new order.
+        {englishFirstMode && (
+          <span className="block mt-1 text-violet-600 dark:text-violet-400">
+            Flip-all mode: English side first — tap the card to reveal Latin.
+          </span>
+        )}
       </p>
 
       <div className="mb-4">
@@ -69,46 +119,92 @@ export default function CommonAnimalsFlashcardsPage() {
         </p>
       </div>
 
-      <div
-        className="mx-auto mb-8 max-w-md rounded-2xl border-2 border-violet-200 dark:border-violet-800 bg-gradient-to-b from-violet-50 to-white dark:from-violet-950/40 dark:to-zinc-900 px-8 py-10 text-center shadow-md"
-        role="region"
-        aria-label={`Flashcard: ${current.latin}, ${current.english}`}
-      >
-        <div className="text-7xl mb-6" aria-hidden>
-          {current.icon}
-        </div>
-        <p className="text-3xl font-bold tracking-wide text-black dark:text-zinc-50 mb-2">
-          {current.latin}
-        </p>
-        <p className="text-xl text-zinc-700 dark:text-zinc-300">{current.english}</p>
+      <div className="mb-8 flex w-full items-center justify-center gap-1 sm:gap-3">
+        <button
+          type="button"
+          onClick={goPrev}
+          disabled={index === 0}
+          aria-label="Previous card"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-sm transition hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 sm:h-12 sm:w-12"
+        >
+          <svg
+            className="h-6 w-6 sm:h-7 sm:w-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            aria-hidden
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setIsFlipped((f) => !f)}
+          className="min-w-0 flex-1 cursor-pointer rounded-2xl border-2 border-violet-200 bg-transparent p-0 text-left shadow-md transition hover:border-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-500 dark:border-violet-800 dark:hover:border-violet-600 max-w-md"
+          aria-label="Flip flashcard"
+        >
+          <div className="perspective-[1200px] w-full">
+            <div
+              className="relative min-h-[260px] w-full transition-transform duration-500 [transform-style:preserve-3d]"
+              style={{ transform: `rotateY(${isFlipped ? 180 : 0}deg)` }}
+            >
+              <div
+                className="absolute inset-0 flex flex-col rounded-2xl border border-violet-100 bg-gradient-to-b from-violet-50 to-white [backface-visibility:hidden] dark:border-violet-900 dark:from-violet-950/40 dark:to-zinc-900"
+                style={{ transform: 'rotateY(0deg)' }}
+              >
+                {frontContent}
+              </div>
+              <div
+                className="absolute inset-0 flex flex-col rounded-2xl border border-violet-100 bg-gradient-to-b from-violet-50 to-white [backface-visibility:hidden] dark:border-violet-900 dark:from-violet-950/40 dark:to-zinc-900"
+                style={{ transform: 'rotateY(180deg)' }}
+              >
+                {backContent}
+              </div>
+            </div>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          onClick={goNext}
+          disabled={index === deck.length - 1}
+          aria-label="Next card"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-violet-200 bg-violet-50 text-violet-900 shadow-sm transition hover:bg-violet-100 disabled:cursor-not-allowed disabled:opacity-40 dark:border-violet-700 dark:bg-violet-950 dark:text-violet-100 dark:hover:bg-violet-900 sm:h-12 sm:w-12"
+        >
+          <svg
+            className="h-6 w-6 sm:h-7 sm:w-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            aria-hidden
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+        <button
+          type="button"
+          onClick={toggleEnglishFirstMode}
+          aria-pressed={englishFirstMode}
+          className={`px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition ${
+            englishFirstMode
+              ? 'bg-amber-200 text-amber-950 hover:bg-amber-300 dark:bg-amber-900 dark:text-amber-100 dark:hover:bg-amber-800'
+              : 'bg-zinc-200 text-zinc-900 hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600'
+          }`}
+        >
+          Flip all cards
+        </button>
         <button
           type="button"
           onClick={reshuffle}
           className="px-4 py-2 rounded-lg bg-violet-200 text-violet-950 text-sm font-medium shadow-sm transition hover:bg-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-violet-800"
         >
           Shuffle deck
-        </button>
-      </div>
-
-      <div className="flex justify-between items-center gap-4">
-        <button
-          type="button"
-          onClick={() => setIndex((i) => Math.max(0, i - 1))}
-          disabled={index === 0}
-          className="px-4 py-2 rounded-lg bg-zinc-100 text-zinc-800 text-sm font-medium shadow-sm transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
-        >
-          Previous
-        </button>
-        <button
-          type="button"
-          onClick={() => setIndex((i) => Math.min(deck.length - 1, i + 1))}
-          disabled={index === deck.length - 1}
-          className="px-4 py-2 rounded-lg bg-violet-200 text-violet-950 text-sm font-medium shadow-sm transition hover:bg-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-violet-800 disabled:opacity-50"
-        >
-          Next
         </button>
       </div>
 
