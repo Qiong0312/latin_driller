@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
+import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 
 const questions = [
   {
@@ -42,15 +43,6 @@ const questions = [
   }
 ];
 
-function shuffleArray(array: any[]) {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
 export default function BirdsTestPage() {
   const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -59,7 +51,7 @@ export default function BirdsTestPage() {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    const shuffled = shuffleArray(questions);
+    const shuffled = prepareQuizDeck(questions);
     setShuffledQuestions(shuffled);
     setAnswers(Array(shuffled.length).fill(-1));
   }, []);
