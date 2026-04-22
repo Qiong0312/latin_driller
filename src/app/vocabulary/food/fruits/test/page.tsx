@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 
 const questions = [
   {
@@ -156,48 +157,36 @@ export default function FruitsTestPage() {
           Question {currentQuestion + 1} of {shuffledQuestions.length}
         </p>
       </div>
-      <div className="mb-6">
-        <p className="text-lg mb-4 text-zinc-800 dark:text-zinc-200">{currentQuestion + 1}. {currentQ.question}</p>
-        <div className="space-y-2">
-          {currentQ.options.map((option, oIndex) => (
-            <label key={oIndex} className={`block p-3 rounded cursor-pointer border ${getOptionClass(oIndex)} ${answers[currentQuestion] === oIndex ? 'border-blue-500' : 'border-gray-300 dark:border-gray-600'}`}>
-              <input
-                type="radio"
-                name="answer"
-                value={oIndex}
-                checked={answers[currentQuestion] === oIndex}
-                onChange={() => handleAnswerChange(oIndex)}
-                className="mr-2"
-              />
-              {String.fromCharCode(65 + oIndex)}. {option}
-            </label>
-          ))}
+      <TestQuestionNavLayout
+        onPrev={prevQuestion}
+        prevDisabled={currentQuestion === 0}
+        renderRight={
+          currentQuestion === shuffledQuestions.length - 1 ? (
+            <TestScoreSubmitButton onClick={calculateScore} />
+          ) : (
+            <TestNextQuestionButton onClick={nextQuestion} />
+          )
+        }
+      >
+        <div>
+          <p className="text-lg mb-4 text-zinc-800 dark:text-zinc-200">{currentQuestion + 1}. {currentQ.question}</p>
+          <div className="space-y-2">
+            {currentQ.options.map((option, oIndex) => (
+              <label key={oIndex} className={`block p-3 rounded cursor-pointer border ${getOptionClass(oIndex)} ${answers[currentQuestion] === oIndex ? 'border-blue-500' : 'border-gray-300 dark:border-gray-600'}`}>
+                <input
+                  type="radio"
+                  name="answer"
+                  value={oIndex}
+                  checked={answers[currentQuestion] === oIndex}
+                  onChange={() => handleAnswerChange(oIndex)}
+                  className="mr-2"
+                />
+                {String.fromCharCode(65 + oIndex)}. {option}
+              </label>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="flex justify-between">
-        <button
-          onClick={prevQuestion}
-          disabled={currentQuestion === 0}
-          className="px-4 py-2 rounded-lg bg-zinc-100 text-zinc-800 text-sm font-medium shadow-sm transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
-        >
-          Previous
-        </button>
-        {currentQuestion === shuffledQuestions.length - 1 ? (
-          <button
-            onClick={calculateScore}
-            className="px-6 py-2 rounded-lg bg-sky-200 text-sky-950 text-sm font-medium shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700"
-          >
-            Score Test
-          </button>
-        ) : (
-          <button
-            onClick={nextQuestion}
-            className="px-4 py-2 rounded-lg bg-sky-200 text-sky-950 text-sm font-medium shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700"
-          >
-            Next
-          </button>
-        )}
-      </div>
+      </TestQuestionNavLayout>
     </div>
   );
 }
