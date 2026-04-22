@@ -1,3 +1,10 @@
+import {
+  areAllVocabularySubLessonsDone,
+  getVocabularyCategoryForSubLesson,
+  getVocabularySubLessonsForCategory,
+  isVocabularyCategoryPath,
+} from '@/lib/vocabularyCategoryTree';
+
 const STORAGE_KEY = 'latin_driller_progress_v1';
 
 export const PROGRESS_EVENT = 'latin-driller-progress';
@@ -207,20 +214,61 @@ export function isLessonDone(lessonPath: string): boolean {
   if (!lessonPath) {
     return false;
   }
-  return loadProgress().lessonsDone[normLessonPath(lessonPath)] === true;
+  const path = normLessonPath(lessonPath);
+  const data = loadProgress();
+  if (data.lessonsDone[path] === true) {
+    return true;
+  }
+  if (isVocabularyCategoryPath(path)) {
+    const subs = getVocabularySubLessonsForCategory(path);
+    return areAllVocabularySubLessonsDone(subs, (p) => data.lessonsDone[p] === true);
+  }
+  return false;
 }
 
+/**
+ * Mark a lesson or vocabulary category hub as done. For vocabulary categories:
+ * - Marking a **category** done marks every sub-lesson under it; unmarking clears the category and all subs.
+ * - Marking a **sub-lesson** done sets the **category** done when all its sub-lessons are done; unmarking a sub clears the category.
+ */
 export function setLessonDone(lessonPath: string, done: boolean): void {
   if (typeof window === 'undefined' || !lessonPath) {
     return;
   }
   const path = normLessonPath(lessonPath);
   const data = loadProgress();
-  if (done) {
-    data.lessonsDone[path] = true;
+
+  if (isVocabularyCategoryPath(path)) {
+    const subs = getVocabularySubLessonsForCategory(path);
+    if (done) {
+      data.lessonsDone[path] = true;
+      for (const s of subs) {
+        data.lessonsDone[s] = true;
+      }
+    } else {
+      delete data.lessonsDone[path];
+      for (const s of subs) {
+        delete data.lessonsDone[s];
+      }
+    }
   } else {
-    delete data.lessonsDone[path];
+    const cat = getVocabularyCategoryForSubLesson(path);
+    if (done) {
+      data.lessonsDone[path] = true;
+    } else {
+      delete data.lessonsDone[path];
+      if (cat) {
+        delete data.lessonsDone[cat];
+      }
+    }
+    if (cat && done) {
+      const subs = getVocabularySubLessonsForCategory(cat);
+      if (subs.every((s) => data.lessonsDone[s] === true)) {
+        data.lessonsDone[cat] = true;
+      }
+    }
   }
+
   markActivityToday(data);
   saveProgress(data);
 }

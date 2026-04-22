@@ -1,290 +1,150 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
-import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
-import { usePathname } from 'next/navigation';
-import { recordQuizResult } from '@/lib/localProgress';
+import { CategoryVocabularyTest, CATEGORY_QUIZ_MAX_QUESTIONS } from '@/components/CategoryVocabularyTest';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 
-const questions = [
+const questions: QuizQuestion[] = [
   {
     question: 'What is the Latin word for "bread"?',
     options: ['panis', 'caseus', 'ovum', 'cibus'],
-    correct: 0
+    correct: 0,
   },
   {
     question: 'Which food is "caseus"?',
     options: ['bread', 'cheese', 'egg', 'food'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'What does "ovum" mean?',
     options: ['bread', 'cheese', 'egg', 'meal'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'What is the Latin word for "food"?',
     options: ['panis', 'cibus', 'cena', 'caro'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'Which word means "dinner" or "meal"?',
     options: ['panis', 'cibus', 'cena', 'ovum'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'What is the Latin word for "apple"?',
     options: ['pirum', 'malum', 'uva', 'ficus'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'Which fruit is "pirum"?',
     options: ['apple', 'pear', 'grape', 'fig'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'What does "uva" mean?',
     options: ['apple', 'pear', 'grape', 'cherry'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'Which fruit is "ficus"?',
     options: ['grape', 'cherry', 'fig', 'plum'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'What is the Latin word for "cherry"?',
     options: ['uva', 'ficus', 'cerasum', 'prunum'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'Which fruit is "prunum"?',
     options: ['cherry', 'plum', 'apple', 'pear'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'What is the Latin word for "carrot"?',
     options: ['lactuca', 'carota', 'cepa', 'allium'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'Which vegetable is "lactuca"?',
     options: ['carrot', 'lettuce', 'onion', 'garlic'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'What does "cepa" mean?',
     options: ['lettuce', 'garlic', 'onion', 'mushroom'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'Which vegetable is "allium"?',
     options: ['onion', 'garlic', 'carrot', 'lettuce'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'What is the Latin word for "mushroom"?',
     options: ['carota', 'cepa', 'fungus', 'lactuca'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'What is the Latin word for "meat"?',
     options: ['piscis', 'gallina', 'caro', 'bos'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'Which meat is "porcus"?',
     options: ['beef', 'pork', 'chicken', 'fish'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'What does "bos" mean?',
     options: ['pig', 'cow', 'chicken', 'meat'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'Which protein is "gallina"?',
     options: ['fish', 'chicken', 'beef', 'pork'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'What is the Latin word for "fish"?',
     options: ['caro', 'porcus', 'gallina', 'piscis'],
-    correct: 3
+    correct: 3,
   },
   {
     question: 'What is the Latin word for "water"?',
     options: ['lac', 'vinum', 'aqua', 'mel'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'Which drink is "lac"?',
     options: ['water', 'milk', 'wine', 'honey'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'What does "vinum" mean?',
     options: ['milk', 'wine', 'honey', 'salt'],
-    correct: 1
+    correct: 1,
   },
   {
     question: 'Which item is "mel"?',
     options: ['wine', 'salt', 'honey', 'water'],
-    correct: 2
+    correct: 2,
   },
   {
     question: 'What is the Latin word for "salt"?',
     options: ['aqua', 'lac', 'vinum', 'sal'],
-    correct: 3
-  }
+    correct: 3,
+  },
 ];
 
 export default function FoodTestPage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
-  const [answers, setAnswers] = useState<number[]>([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [scored, setScored] = useState(false);
-  const [score, setScore] = useState(0);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const shuffled = prepareQuizDeck(questions);
-    setShuffledQuestions(shuffled);
-    setAnswers(Array(shuffled.length).fill(-1));
-  }, []);
-
-  const handleAnswerChange = (optionIndex: number) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = optionIndex;
-    setAnswers(newAnswers);
-  };
-
-  const nextQuestion = () => {
-    if (currentQuestion < shuffledQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
-
-  const prevQuestion = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
-
-  const calculateScore = () => {
-    let correct = 0;
-    shuffledQuestions.forEach((q, index) => {
-      if (answers[index] === q.correct) {
-        correct++;
-      }
-    });
-    setScore(correct);
-    setScored(true);
-    if (pathname) {
-      recordQuizResult(pathname, correct, shuffledQuestions.length);
-    }
-  };
-
-  const getCurrentQuestion = () => {
-    return shuffledQuestions[currentQuestion];
-  };
-
-  const getOptionClass = (optionIndex: number) => {
-    if (!scored) return '';
-    const isSelected = answers[currentQuestion] === optionIndex;
-    const isCorrect = getCurrentQuestion().correct === optionIndex;
-    if (isCorrect) return 'bg-green-200 dark:bg-green-800';
-    if (isSelected && !isCorrect) return 'bg-red-200 dark:bg-red-800';
-    return '';
-  };
-
-  if (shuffledQuestions.length === 0) {
-    return (
-      <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
-        <p className="text-center">Loading questions...</p>
-      </div>
-    );
-  }
-
-  if (scored) {
-    return (
-      <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
-        <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">
-          Food Test Results
-        </h1>
-        <p className="text-2xl font-bold text-center mb-8 text-black dark:text-zinc-50">
-          Score: {score} out of {shuffledQuestions.length}
-        </p>
-        <div className="space-y-4">
-          {shuffledQuestions.map((q, index) => {
-            const isCorrect = answers[index] === q.correct;
-            return (
-              <div key={index} className={`p-4 rounded ${isCorrect ? 'bg-green-100 dark:bg-green-900' : 'bg-red-100 dark:bg-red-900'}`}>
-                <p className="font-medium">{index + 1}. {q.question}</p>
-                <p className="text-sm">Your answer: {q.options[answers[index]] || 'Not answered'}</p>
-                {!isCorrect && <p className="text-sm">Correct answer: {q.options[q.correct]}</p>}
-              </div>
-            );
-          })}
-        </div>
-        <div className="text-center mt-8">
-          <Link href="/vocabulary/food" className="inline-block px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600">
-            Back to Food Lesson
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  const currentQ = getCurrentQuestion();
-
   return (
-    <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
-      <h1 className="text-4xl font-bold text-center mb-4 text-black dark:text-zinc-50">
-        Food Test
-      </h1>
-      <div className="mb-4">
-        <div className="w-full rounded-full h-2 bg-zinc-100 dark:bg-zinc-800">
-          <div
-            className="bg-sky-300 h-2 rounded-full dark:bg-sky-600"
-            style={{ width: `${((currentQuestion + 1) / shuffledQuestions.length) * 100}%` }}
-          ></div>
-        </div>
-        <p className="text-center text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-          Question {currentQuestion + 1} of {shuffledQuestions.length}
-        </p>
-      </div>
-      <TestQuestionNavLayout
-        onPrev={prevQuestion}
-        prevDisabled={currentQuestion === 0}
-        renderRight={
-          currentQuestion === shuffledQuestions.length - 1 ? (
-            <TestScoreSubmitButton onClick={calculateScore} />
-          ) : (
-            <TestNextQuestionButton onClick={nextQuestion} />
-          )
-        }
-      >
-        <div>
-          <p className="text-lg mb-4 text-zinc-800 dark:text-zinc-200">{currentQuestion + 1}. {currentQ.question}</p>
-          <div className="space-y-2">
-            {currentQ.options.map((option, oIndex) => (
-              <label key={oIndex} className={`block p-3 rounded cursor-pointer border ${getOptionClass(oIndex)} ${answers[currentQuestion] === oIndex ? 'border-blue-500' : 'border-gray-300 dark:border-gray-600'}`}>
-                <input
-                  type="radio"
-                  name="answer"
-                  value={oIndex}
-                  checked={answers[currentQuestion] === oIndex}
-                  onChange={() => handleAnswerChange(oIndex)}
-                  className="mr-2"
-                />
-                {String.fromCharCode(65 + oIndex)}. {option}
-              </label>
-            ))}
-          </div>
-        </div>
-      </TestQuestionNavLayout>
-    </div>
+    <CategoryVocabularyTest
+      title="Food — All lessons quiz"
+      resultsHeading="Food — Quiz results"
+      backToCategoryHref="/vocabulary/food"
+      backToCategoryLabel="Back to Cibus (Food)"
+      questions={questions}
+      maxQuestions={CATEGORY_QUIZ_MAX_QUESTIONS}
+    />
   );
 }

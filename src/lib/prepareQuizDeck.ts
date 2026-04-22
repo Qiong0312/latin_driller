@@ -1,5 +1,8 @@
-/** Upper bound on how many questions each quiz run includes (random subset of the bank). */
+/** Upper bound for a single sub-lesson quiz run (random subset of the bank). */
 export const QUIZ_MAX_QUESTIONS = 5;
+
+/** Upper bound for a big-category quiz (e.g. all Animals) drawing from sub-lesson questions. */
+export const CATEGORY_QUIZ_MAX_QUESTIONS = 20;
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
