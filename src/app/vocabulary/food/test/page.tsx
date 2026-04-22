@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
+import { usePathname } from 'next/navigation';
+import { recordQuizResult } from '@/lib/localProgress';
 
 const questions = [
   {
@@ -144,6 +146,7 @@ export default function FoodTestPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);
   const [score, setScore] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const shuffled = prepareQuizDeck(questions);
@@ -178,6 +181,9 @@ export default function FoodTestPage() {
     });
     setScore(correct);
     setScored(true);
+    if (pathname) {
+      recordQuizResult(pathname, correct, shuffledQuestions.length);
+    }
   };
 
   const getCurrentQuestion = () => {

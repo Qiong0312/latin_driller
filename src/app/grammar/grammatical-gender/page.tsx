@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LessonDoneButton } from "@/components/LessonDoneButton";
 
 export default function GrammaticalGender() {
   return (
@@ -25,12 +26,13 @@ export default function GrammaticalGender() {
           </li>
         </ul>
       </div>
-      <div className="text-center mt-8">
+      <div className="text-center mt-8 flex flex-col items-center gap-4">
         <Link href="/grammar/grammatical-gender/test">
           <button className="px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700">
             Quiz
           </button>
         </Link>
+        <LessonDoneButton lessonPath="/grammar/grammatical-gender" />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { LocalProgressSummary } from "@/components/LocalProgressSummary";
 
 export default function Home() {
   return (
@@ -13,6 +13,9 @@ export default function Home() {
         <p>
           Choose a lesson from the sidebar to begin learning.
         </p>
+      </div>
+      <div className="mt-8">
+        <LocalProgressSummary />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LessonDoneButton } from "@/components/LessonDoneButton";
 
 export default function Cases() {
   return (
@@ -37,12 +38,13 @@ export default function Cases() {
           The particular ending of a word indicates its case and, consequently, its function in the sentence. For example: <em>Marcus Brūtī librum habet.</em> The -ī in <em>Brūtī</em> shows that it is the genitive case (possessive); the -um in <em>librum</em> marks the accusative (object of the action of having). Thus, the sentence means "Marcus has Brutus's book."
         </p>
       </div>
-      <div className="text-center mt-8">
+      <div className="text-center mt-8 flex flex-col items-center gap-4">
         <Link href="/grammar/cases/test">
           <button className="px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700">
             Quiz
           </button>
         </Link>
+        <LessonDoneButton lessonPath="/grammar/cases" />
       </div>
     </div>
   );

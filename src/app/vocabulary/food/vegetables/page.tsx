@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LessonDoneButton } from "@/components/LessonDoneButton";
 
 export default function Vegetables() {
   return (
@@ -15,22 +16,25 @@ export default function Vegetables() {
           <li><strong>fungus</strong> – mushroom</li>
         </ul>
       </div>
-      <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <Link href="/vocabulary/food/vegetables/flashcards">
-          <button className="px-6 py-3 rounded-lg bg-emerald-200 text-emerald-950 shadow-sm transition hover:bg-emerald-300 dark:bg-emerald-900 dark:text-emerald-100 dark:hover:bg-emerald-800">
-            Flashcards
-          </button>
-        </Link>
-        <Link href="/vocabulary/food/vegetables/test">
-          <button className="px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700">
-            Quiz
-          </button>
-        </Link>
-        <Link href="/vocabulary/food">
-          <button className="px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600">
-            Back to Food
-          </button>
-        </Link>
+      <div className="mt-8 flex flex-col items-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link href="/vocabulary/food/vegetables/flashcards">
+            <button className="px-6 py-3 rounded-lg bg-emerald-200 text-emerald-950 shadow-sm transition hover:bg-emerald-300 dark:bg-emerald-900 dark:text-emerald-100 dark:hover:bg-emerald-800">
+              Flashcards
+            </button>
+          </Link>
+          <Link href="/vocabulary/food/vegetables/test">
+            <button className="px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700">
+              Quiz
+            </button>
+          </Link>
+          <Link href="/vocabulary/food">
+            <button className="px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600">
+              Back to Food
+            </button>
+          </Link>
+        </div>
+        <LessonDoneButton lessonPath="/vocabulary/food/vegetables" />
       </div>
     </div>
   );

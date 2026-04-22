@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { recordFlashcardSession } from '@/lib/localProgress';
 
 export type VocabularyFlashcard = {
   latin: string;
@@ -32,10 +34,17 @@ export function VocabularyFlashcards({
   backToLessonHref,
   quizHref,
 }: VocabularyFlashcardsProps) {
+  const pathname = usePathname();
   const [deck, setDeck] = useState<VocabularyFlashcard[]>(() => shuffleArray(initialCards));
   const [index, setIndex] = useState(0);
   const [englishFirstMode, setEnglishFirstMode] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
+
+  useEffect(() => {
+    if (pathname) {
+      recordFlashcardSession(pathname);
+    }
+  }, [pathname]);
 
   const reshuffle = useCallback(() => {
     setDeck(shuffleArray(initialCards));

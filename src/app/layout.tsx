@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { ProgressStorageHint } from "@/components/ProgressStorageHint";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -84,6 +85,7 @@ export default function RootLayout({
                 </ul>
               </div>
             </div>
+            <ProgressStorageHint />
           </nav>
         </aside>
         <main className="flex-1 p-4">
