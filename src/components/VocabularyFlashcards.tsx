@@ -8,8 +8,24 @@ import { recordFlashcardSession } from '@/lib/localProgress';
 export type VocabularyFlashcard = {
   latin: string;
   english: string;
+  /**
+   * Visual on the answer side: emoji text, or an image.
+   * Use an image when no emoji fits: put files in `public/` and reference
+   * `/flashcard-icons/your.svg` (leading `/`), a full `https://...` URL, or a `data:` URI.
+   */
   icon: string;
 };
+
+/** True if `icon` should render as an `<img>` (path, http(s) URL, or data URI). */
+export function isVocabularyFlashcardImageIcon(icon: string): boolean {
+  if (!icon) return false;
+  return (
+    icon.startsWith('/') ||
+    icon.startsWith('http://') ||
+    icon.startsWith('https://') ||
+    icon.startsWith('data:')
+  );
+}
 
 export type VocabularyFlashcardsProps = {
   /** Full `<h1>` text, e.g. "Birds — Flashcards" */
@@ -78,29 +94,37 @@ export function VocabularyFlashcards({
   }
 
   const latinSide = (
-    <div className="relative h-full min-h-[260px] w-full px-6 py-8">
-      <p className="absolute left-1/2 top-1/2 w-[calc(100%-3rem)] -translate-x-1/2 -translate-y-1/2 text-center text-5xl font-bold leading-tight tracking-wide text-black sm:text-6xl dark:text-zinc-50">
-        {current.latin}
-      </p>
-      <p className="absolute bottom-4 left-0 right-0 text-center text-xs text-zinc-500 dark:text-zinc-400">
-        click to flip
-      </p>
+    <div className="flex h-full min-h-[280px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
+      <div className="flex min-h-0 flex-1 items-center justify-center">
+        <p className="w-full text-center text-5xl font-bold leading-tight tracking-wide text-black sm:text-6xl dark:text-zinc-50">
+          {current.latin}
+        </p>
+      </div>
+      <p className="shrink-0 pt-1 text-center text-xs text-zinc-500 dark:text-zinc-400">click to flip</p>
     </div>
   );
 
   const englishSide = (
-    <div className="relative h-full min-h-[260px] w-full px-6 py-8">
-      <div className="absolute left-1/2 top-1/2 flex w-[calc(100%-3rem)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-5 text-center">
-        <div className="text-8xl leading-none sm:text-9xl" aria-hidden>
-          {current.icon}
+    <div className="flex h-full min-h-[280px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
+      <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-4 text-center sm:gap-5">
+        <div className="flex shrink-0 items-center justify-center" aria-hidden>
+          {isVocabularyFlashcardImageIcon(current.icon) ? (
+            <img
+              src={current.icon}
+              alt=""
+              className="max-h-32 w-auto max-w-[min(100%,20rem)] object-contain sm:max-h-40"
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <span className="text-8xl leading-none sm:text-9xl">{current.icon}</span>
+          )}
         </div>
-        <p className="text-3xl font-semibold leading-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
+        <p className="max-w-full text-3xl font-semibold leading-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
           {current.english}
         </p>
       </div>
-      <p className="absolute bottom-4 left-0 right-0 text-center text-xs text-zinc-500 dark:text-zinc-400">
-        click to flip
-      </p>
+      <p className="shrink-0 pt-1 text-center text-xs text-zinc-500 dark:text-zinc-400">click to flip</p>
     </div>
   );
 
@@ -178,7 +202,7 @@ export function VocabularyFlashcards({
         >
           <div className="perspective-[1200px] w-full">
             <div
-              className="relative min-h-[260px] w-full transition-transform duration-500 [transform-style:preserve-3d]"
+              className="relative min-h-[280px] w-full transition-transform duration-500 [transform-style:preserve-3d]"
               style={{ transform: `rotateY(${isFlipped ? 180 : 0}deg)` }}
             >
               <div

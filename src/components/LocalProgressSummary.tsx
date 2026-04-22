@@ -24,6 +24,12 @@ const VOCAB_LESSONS = [
   '/vocabulary/body-parts/basic',
   '/vocabulary/body-parts/face',
   '/vocabulary/body-parts/internal',
+  '/vocabulary/rooms/living-sleeping',
+  '/vocabulary/rooms/eating-cooking',
+  '/vocabulary/rooms/general',
+  '/vocabulary/rooms/washing',
+  '/vocabulary/rooms/study-work',
+  '/vocabulary/rooms/outdoor',
 ] as const;
 
 const STREAK_MILESTONES = [1, 3, 5, 10, 20, 30, 60, 100] as const;

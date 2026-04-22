@@ -94,6 +94,14 @@ export default function RootLayout({
                       Body Parts
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/vocabulary/rooms"
+                      className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
+                    >
+                      Rooms
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>

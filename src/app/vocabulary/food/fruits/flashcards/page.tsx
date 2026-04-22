@@ -6,7 +6,7 @@ const cards = [
   { latin: 'uva', english: 'Grape', icon: '🍇' },
   { latin: 'ficus', english: 'Fig', icon: '🌳' },
   { latin: 'cerasum', english: 'Cherry', icon: '🍒' },
-  { latin: 'prunum', english: 'Plum', icon: '🍑' },
+  { latin: 'prunum', english: 'Plum', icon: '🟣' },
 ];
 
 export default function FruitsFlashcardsPage() {

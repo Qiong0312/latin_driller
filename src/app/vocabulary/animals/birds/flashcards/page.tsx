@@ -5,7 +5,7 @@ const cards = [
   { latin: 'Aquila', english: 'Eagle', icon: '🦅' },
   { latin: 'Columba', english: 'Dove / pigeon', icon: '🕊️' },
   { latin: 'Corvus', english: 'Crow', icon: '🐦‍⬛' },
-  { latin: 'Passer', english: 'Sparrow', icon: '🪶' },
+  { latin: 'Passer', english: 'Sparrow', icon: '🐦' },
   { latin: 'Gallina', english: 'Hen', icon: '🐔' },
   { latin: 'Gallus', english: 'Rooster', icon: '🐓' },
 ];

@@ -3,7 +3,7 @@ import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 const cards = [
   { latin: 'cor', english: 'Heart', icon: '🫀' },
   { latin: 'pulmo', english: 'Lung', icon: '🫁' },
-  { latin: 'hepar', english: 'Liver', icon: '🍖' },
+  { latin: 'hepar', english: 'Liver', icon: '🥩' },
   { latin: 'ren', english: 'Kidney', icon: '🫘' },
 ];
 
