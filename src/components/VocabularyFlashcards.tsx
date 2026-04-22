@@ -53,12 +53,12 @@ export function VocabularyFlashcards({
   }, [initialCards]);
 
   const goPrev = () => {
-    setIndex((i) => Math.max(0, i - 1));
+    setIndex((i) => (i - 1 + deck.length) % deck.length);
     setIsFlipped(false);
   };
 
   const goNext = () => {
-    setIndex((i) => Math.min(deck.length - 1, i + 1));
+    setIndex((i) => (i + 1) % deck.length);
     setIsFlipped(false);
   };
 
@@ -155,9 +155,8 @@ export function VocabularyFlashcards({
         <button
           type="button"
           onClick={goPrev}
-          disabled={index === 0}
           aria-label="Previous card"
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-sm transition hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 sm:h-12 sm:w-12"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 sm:h-12 sm:w-12"
         >
           <svg
             className="h-6 w-6 sm:h-7 sm:w-7"
@@ -201,9 +200,8 @@ export function VocabularyFlashcards({
         <button
           type="button"
           onClick={goNext}
-          disabled={index === deck.length - 1}
           aria-label="Next card"
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-900 shadow-sm transition hover:bg-emerald-100 disabled:cursor-not-allowed disabled:opacity-40 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100 dark:hover:bg-emerald-900 sm:h-12 sm:w-12"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-900 shadow-sm transition hover:bg-emerald-100 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-100 dark:hover:bg-emerald-900 sm:h-12 sm:w-12"
         >
           <svg
             className="h-6 w-6 sm:h-7 sm:w-7"
