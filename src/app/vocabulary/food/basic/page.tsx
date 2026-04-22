@@ -17,12 +17,12 @@ export default function BasicFoods() {
       </div>
       <div className="text-center mt-8 space-x-4">
         <Link href="/vocabulary/food/basic/test">
-          <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
+          <button className="px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700">
             Quiz
           </button>
         </Link>
         <Link href="/vocabulary/food">
-          <button className="px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
+          <button className="px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600">
             Back to Food
           </button>
         </Link>

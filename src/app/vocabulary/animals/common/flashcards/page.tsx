@@ -58,9 +58,9 @@ export default function CommonAnimalsFlashcardsPage() {
       </p>
 
       <div className="mb-4">
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+        <div className="w-full rounded-full h-2 bg-zinc-100 dark:bg-zinc-800">
           <div
-            className="bg-violet-500 h-2 rounded-full transition-all"
+            className="bg-violet-300 h-2 rounded-full transition-all dark:bg-violet-600"
             style={{ width: `${((index + 1) / deck.length) * 100}%` }}
           />
         </div>
@@ -87,7 +87,7 @@ export default function CommonAnimalsFlashcardsPage() {
         <button
           type="button"
           onClick={reshuffle}
-          className="px-4 py-2 rounded bg-violet-600 text-white hover:bg-violet-700"
+          className="px-4 py-2 rounded-lg bg-violet-200 text-violet-950 text-sm font-medium shadow-sm transition hover:bg-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-violet-800"
         >
           Shuffle deck
         </button>
@@ -98,7 +98,7 @@ export default function CommonAnimalsFlashcardsPage() {
           type="button"
           onClick={() => setIndex((i) => Math.max(0, i - 1))}
           disabled={index === 0}
-          className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded disabled:opacity-50"
+          className="px-4 py-2 rounded-lg bg-zinc-100 text-zinc-800 text-sm font-medium shadow-sm transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
         >
           Previous
         </button>
@@ -106,7 +106,7 @@ export default function CommonAnimalsFlashcardsPage() {
           type="button"
           onClick={() => setIndex((i) => Math.min(deck.length - 1, i + 1))}
           disabled={index === deck.length - 1}
-          className="px-4 py-2 bg-violet-500 text-white rounded hover:bg-violet-600 disabled:opacity-50"
+          className="px-4 py-2 rounded-lg bg-violet-200 text-violet-950 text-sm font-medium shadow-sm transition hover:bg-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-violet-800 disabled:opacity-50"
         >
           Next
         </button>
@@ -115,13 +115,13 @@ export default function CommonAnimalsFlashcardsPage() {
       <div className="text-center mt-10 space-x-4">
         <Link
           href="/vocabulary/animals/common"
-          className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600"
+          className="inline-block px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
         >
           Back to lesson
         </Link>
         <Link
           href="/vocabulary/animals/common/test"
-          className="inline-block px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="inline-block px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700"
         >
           Quiz
         </Link>

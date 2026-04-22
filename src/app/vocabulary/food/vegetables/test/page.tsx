@@ -125,7 +125,7 @@ export default function VegetablesTestPage() {
           })}
         </div>
         <div className="text-center mt-8">
-          <Link href="/vocabulary/food/vegetables" className="inline-block px-6 py-3 bg-gray-500 text-white rounded hover:bg-gray-600">
+          <Link href="/vocabulary/food/vegetables" className="inline-block px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600">
             Back to Lesson
           </Link>
         </div>
@@ -141,9 +141,9 @@ export default function VegetablesTestPage() {
         Vegetables Test
       </h1>
       <div className="mb-4">
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+        <div className="w-full rounded-full h-2 bg-zinc-100 dark:bg-zinc-800">
           <div
-            className="bg-blue-500 h-2 rounded-full"
+            className="bg-sky-300 h-2 rounded-full dark:bg-sky-600"
             style={{ width: `${((currentQuestion + 1) / shuffledQuestions.length) * 100}%` }}
           ></div>
         </div>
@@ -173,21 +173,21 @@ export default function VegetablesTestPage() {
         <button
           onClick={prevQuestion}
           disabled={currentQuestion === 0}
-          className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded disabled:opacity-50"
+          className="px-4 py-2 rounded-lg bg-zinc-100 text-zinc-800 text-sm font-medium shadow-sm transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
         >
           Previous
         </button>
         {currentQuestion === shuffledQuestions.length - 1 ? (
           <button
             onClick={calculateScore}
-            className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="px-6 py-2 rounded-lg bg-sky-200 text-sky-950 text-sm font-medium shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700"
           >
             Score Test
           </button>
         ) : (
           <button
             onClick={nextQuestion}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="px-4 py-2 rounded-lg bg-sky-200 text-sky-950 text-sm font-medium shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700"
           >
             Next
           </button>

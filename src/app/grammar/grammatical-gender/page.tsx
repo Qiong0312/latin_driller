@@ -27,7 +27,7 @@ export default function GrammaticalGender() {
       </div>
       <div className="text-center mt-8">
         <Link href="/grammar/grammatical-gender/test">
-          <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">
+          <button className="px-6 py-3 rounded-lg bg-sky-200 text-sky-950 shadow-sm transition hover:bg-sky-300 dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700">
             Quiz
           </button>
         </Link>
