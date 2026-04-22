@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { AppUsageTracker } from "@/components/AppUsageTracker";
 import { ProgressStorageHint } from "@/components/ProgressStorageHint";
 import "./globals.css";
 
@@ -30,9 +31,18 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex bg-zinc-50 dark:bg-black font-sans">
+        <AppUsageTracker />
         <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4">
           <nav>
             <h2 className="text-xl font-bold mb-4 text-black dark:text-zinc-50">Latin Lessons</h2>
+            <div className="mb-4">
+              <Link
+                href="/dashboard"
+                className="block rounded bg-zinc-100 px-3 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
+              >
+                My Progress
+              </Link>
+            </div>
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold mb-2 text-black dark:text-zinc-50">Grammar</h3>

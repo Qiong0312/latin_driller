@@ -9,6 +9,8 @@ export type QuizProgressEntry = {
   lastTotal: number;
   lastAt: string;
   attempts: number;
+  totalCorrect?: number;
+  totalQuestions?: number;
 };
 
 export type FlashcardProgressEntry = {
@@ -22,6 +24,10 @@ export type LocalProgressV1 = {
   flashcards: Record<string, FlashcardProgressEntry>;
   /** User explicitly marked these lesson paths (e.g. /vocabulary/animals/common) as “done for me.” */
   lessonsDone: Record<string, true>;
+  /** Local-day keys in YYYY-MM-DD for usage/streak tracking. */
+  activityDays: Record<string, true>;
+  /** Local random account nickname (e.g. pinkangryflamingo). */
+  profileName?: string;
 };
 
 const emptyState = (): LocalProgressV1 => ({
@@ -29,7 +35,66 @@ const emptyState = (): LocalProgressV1 => ({
   quizzes: {},
   flashcards: {},
   lessonsDone: {},
+  activityDays: {},
 });
+
+function localDayKey(date = new Date()): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
+function markActivityToday(data: LocalProgressV1): void {
+  data.activityDays[localDayKey()] = true;
+}
+
+const NAME_COLORS = [
+  'pink',
+  'blue',
+  'green',
+  'purple',
+  'gold',
+  'silver',
+  'orange',
+  'teal',
+  'crimson',
+  'indigo',
+] as const;
+
+const NAME_EMOTIONS = [
+  'happy',
+  'angry',
+  'calm',
+  'brave',
+  'proud',
+  'curious',
+  'eager',
+  'mighty',
+  'cheerful',
+  'fierce',
+] as const;
+
+const NAME_ANIMALS = [
+  'flamingo',
+  'tiger',
+  'otter',
+  'eagle',
+  'fox',
+  'wolf',
+  'falcon',
+  'dolphin',
+  'rabbit',
+  'panther',
+] as const;
+
+function pick<T>(arr: readonly T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)] as T;
+}
+
+function makeRandomProfileName(): string {
+  return `${pick(NAME_COLORS)}${pick(NAME_EMOTIONS)}${pick(NAME_ANIMALS)}`;
+}
 
 function parse(raw: string | null): LocalProgressV1 {
   if (!raw) {
@@ -38,7 +103,11 @@ function parse(raw: string | null): LocalProgressV1 {
   try {
     const data = JSON.parse(raw) as LocalProgressV1;
     if (data?.version === 1 && data.quizzes && data.flashcards) {
-      return { ...data, lessonsDone: data.lessonsDone ?? {} };
+      return {
+        ...data,
+        lessonsDone: data.lessonsDone ?? {},
+        activityDays: data.activityDays ?? {},
+      };
     }
   } catch {
     /* ignore */
@@ -99,7 +168,10 @@ export function recordQuizResult(quizPath: string, score: number, total: number)
     lastTotal: total,
     lastAt: at,
     attempts: (prev?.attempts ?? 0) + 1,
+    totalCorrect: (prev?.totalCorrect ?? 0) + score,
+    totalQuestions: (prev?.totalQuestions ?? 0) + total,
   };
+  markActivityToday(data);
   saveProgress(data);
 }
 
@@ -125,6 +197,7 @@ export function recordFlashcardSession(flashPath: string): void {
     visits: (was?.visits ?? 0) + 1,
     lastAt: at,
   };
+  markActivityToday(data);
   saveProgress(data);
 }
 
@@ -148,7 +221,45 @@ export function setLessonDone(lessonPath: string, done: boolean): void {
   } else {
     delete data.lessonsDone[path];
   }
+  markActivityToday(data);
   saveProgress(data);
+}
+
+/** Mark that the user used the app today (once/day). */
+export function touchUsageToday(): void {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  const data = loadProgress();
+  const key = localDayKey();
+  if (data.activityDays[key]) {
+    return;
+  }
+  data.activityDays[key] = true;
+  saveProgress(data);
+}
+
+export function getOrCreateProfileName(): string {
+  if (typeof window === 'undefined') {
+    return 'locallearner';
+  }
+  const data = loadProgress();
+  if (data.profileName) {
+    return data.profileName;
+  }
+  data.profileName = makeRandomProfileName();
+  saveProgress(data);
+  return data.profileName;
+}
+
+export function rerollProfileName(): string {
+  if (typeof window === 'undefined') {
+    return 'locallearner';
+  }
+  const data = loadProgress();
+  data.profileName = makeRandomProfileName();
+  saveProgress(data);
+  return data.profileName;
 }
 
 export function getProgressCounts(): {
@@ -160,6 +271,9 @@ export function getProgressCounts(): {
 
 export function hasAnyStoredProgress(): boolean {
   const d = loadProgress();
+  if (Object.keys(d.activityDays).length > 0) {
+    return true;
+  }
   if (Object.keys(d.lessonsDone).length > 0) {
     return true;
   }

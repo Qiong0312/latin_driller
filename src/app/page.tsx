@@ -1,5 +1,3 @@
-import { LocalProgressSummary } from "@/components/LocalProgressSummary";
-
 export default function Home() {
   return (
     <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
@@ -13,9 +11,10 @@ export default function Home() {
         <p>
           Choose a lesson from the sidebar to begin learning.
         </p>
-      </div>
-      <div className="mt-8">
-        <LocalProgressSummary />
+        <p>
+          Open <strong>Dashboard</strong> in the sidebar to view your milestones, streak, lesson completion, and quiz
+          progress.
+        </p>
       </div>
     </div>
   );
