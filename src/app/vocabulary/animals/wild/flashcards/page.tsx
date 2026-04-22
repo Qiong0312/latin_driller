@@ -1,9 +1,9 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'Leo', english: 'Lion', icon: '🦁' },
-  { latin: 'Tigris', english: 'Tiger', icon: '🐯' },
-  { latin: 'Ursus', english: 'Bear', icon: '🐻' },
+  { latin: 'Leo', english: 'Lion', icon: '/flashcard-icons/leo.png' },
+  { latin: 'Tigris', english: 'Tiger', icon: '/flashcard-icons/tigris.png' },
+  { latin: 'Ursus', english: 'Bear', icon: '/flashcard-icons/ursus.png' },
   { latin: 'Lupus', english: 'Wolf', icon: '🐺' },
   { latin: 'Vulpes', english: 'Fox', icon: '🦊' },
   { latin: 'Cervus', english: 'Deer', icon: '🦌' },

@@ -2,7 +2,7 @@ import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
   { latin: 'caro', english: 'Meat', icon: '🥩' },
-  { latin: 'porcus', english: 'Pork / pig', icon: '🐷' },
+  { latin: 'porcus', english: 'Pork / pig', icon: '/flashcard-icons/porcus.png' },
   { latin: 'bos', english: 'Cow / beef', icon: '🐄' },
   { latin: 'gallina', english: 'Chicken', icon: '🐔' },
   { latin: 'piscis', english: 'Fish', icon: '🐟' },
