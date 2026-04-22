@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useLayoutEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { recordFlashcardSession } from '@/lib/localProgress';
@@ -51,10 +51,17 @@ export function VocabularyFlashcards({
   quizHref,
 }: VocabularyFlashcardsProps) {
   const pathname = usePathname();
-  const [deck, setDeck] = useState<VocabularyFlashcard[]>(() => shuffleArray(initialCards));
+  // Same order on server and first client render — shuffling is random and must not run during SSR/initial state or hydration will mismatch.
+  const [deck, setDeck] = useState<VocabularyFlashcard[]>(initialCards);
   const [index, setIndex] = useState(0);
   const [englishFirstMode, setEnglishFirstMode] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
+
+  useLayoutEffect(() => {
+    setDeck(shuffleArray(initialCards));
+    setIndex(0);
+    setIsFlipped(false);
+  }, [initialCards]);
 
   useEffect(() => {
     if (pathname) {
