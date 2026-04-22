@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
+import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 
 export default function FaceBodyParts() {
   return (
@@ -38,6 +39,7 @@ export default function FaceBodyParts() {
             </button>
           </Link>
         </div>
+        <LessonQuizMedalCard quizPath="/vocabulary/body-parts/face/test" />
         <LessonDoneButton lessonPath="/vocabulary/body-parts/face" />
       </div>
     </div>

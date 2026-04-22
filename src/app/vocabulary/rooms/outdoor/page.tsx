@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
+import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 
 export default function RoomsOutdoor() {
   return (
@@ -35,6 +36,7 @@ export default function RoomsOutdoor() {
             </button>
           </Link>
         </div>
+        <LessonQuizMedalCard quizPath="/vocabulary/rooms/outdoor/test" />
         <LessonDoneButton lessonPath="/vocabulary/rooms/outdoor" />
       </div>
     </div>

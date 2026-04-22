@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
+import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 
 export default function SmallCreatures() {
   return (
@@ -34,6 +35,7 @@ export default function SmallCreatures() {
             </button>
           </Link>
         </div>
+        <LessonQuizMedalCard quizPath="/vocabulary/animals/small/test" />
         <LessonDoneButton lessonPath="/vocabulary/animals/small" />
       </div>
     </div>

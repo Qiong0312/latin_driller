@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
+import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 
 export default function GrammaticalGender() {
   return (
@@ -32,6 +33,7 @@ export default function GrammaticalGender() {
             Quiz
           </button>
         </Link>
+        <LessonQuizMedalCard quizPath="/grammar/grammatical-gender/test" />
         <LessonDoneButton lessonPath="/grammar/grammatical-gender" />
       </div>
     </div>

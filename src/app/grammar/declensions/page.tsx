@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
+import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 
 function DataTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -133,6 +134,7 @@ export default function Declensions() {
             Quiz
           </button>
         </Link>
+        <LessonQuizMedalCard quizPath="/grammar/declensions/test" />
         <LessonDoneButton lessonPath="/grammar/declensions" />
       </div>
     </div>
