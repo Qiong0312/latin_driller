@@ -126,7 +126,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: 'Which animal is "Columba"?',
-    options: ['Eagle', 'Crow', 'Dove', 'Sparrow'],
+    options: ['Eagle', 'Crow', 'Pigeon', 'Sparrow'],
     correct: 2,
   },
   {
