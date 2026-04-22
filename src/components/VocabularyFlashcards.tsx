@@ -101,7 +101,7 @@ export function VocabularyFlashcards({
   }
 
   const latinSide = (
-    <div className="flex h-full min-h-[280px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
+    <div className="flex h-full min-h-[320px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
       <div className="flex min-h-0 flex-1 items-center justify-center">
         <p className="w-full text-center text-5xl font-bold leading-tight tracking-wide text-black sm:text-6xl dark:text-zinc-50">
           {current.latin}
@@ -112,14 +112,14 @@ export function VocabularyFlashcards({
   );
 
   const englishSide = (
-    <div className="flex h-full min-h-[280px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
-      <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-4 text-center sm:gap-5">
+    <div className="flex h-full min-h-[320px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
+      <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-3 text-center sm:gap-4">
         <div className="flex shrink-0 items-center justify-center" aria-hidden>
           {isVocabularyFlashcardImageIcon(current.icon) ? (
             <img
               src={current.icon}
               alt=""
-              className="max-h-32 w-auto max-w-[min(100%,20rem)] object-contain sm:max-h-40"
+              className="max-h-28 w-auto max-w-[min(100%,20rem)] object-contain sm:max-h-36"
               loading="lazy"
               decoding="async"
             />
@@ -209,7 +209,7 @@ export function VocabularyFlashcards({
         >
           <div className="perspective-[1200px] w-full">
             <div
-              className="relative min-h-[280px] w-full transition-transform duration-500 [transform-style:preserve-3d]"
+              className="relative min-h-[320px] w-full transition-transform duration-500 [transform-style:preserve-3d]"
               style={{ transform: `rotateY(${isFlipped ? 180 : 0}deg)` }}
             >
               <div
