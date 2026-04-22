@@ -25,6 +25,8 @@ export type FlashcardProgressEntry = {
   lastAt: string;
 };
 
+export type QuizMedalTier = 'none' | 'bronze' | 'silver' | 'gold';
+
 export type LocalProgressV1 = {
   version: 1;
   quizzes: Record<string, QuizProgressEntry>;
@@ -146,6 +148,88 @@ function ratio(score: number, total: number): number {
     return 0;
   }
   return score / total;
+}
+
+function isQuizPath(path: string): boolean {
+  return path.endsWith('/test');
+}
+
+function averagePercentFromQuizEntry(entry: QuizProgressEntry): number | null {
+  const attempts = entry.attempts || 0;
+  const inferredTotal = attempts * (entry.lastTotal || 0);
+  const totalQuestions = entry.totalQuestions ?? inferredTotal;
+  if (totalQuestions <= 0) {
+    return null;
+  }
+  const inferredCorrect = attempts * (entry.lastScore || 0);
+  const totalCorrect = entry.totalCorrect ?? inferredCorrect;
+  return (totalCorrect / totalQuestions) * 100;
+}
+
+export function quizMedalTierFromAverage(averagePercent: number | null): QuizMedalTier {
+  if (averagePercent === null) {
+    return 'none';
+  }
+  if (averagePercent >= 98) {
+    return 'gold';
+  }
+  if (averagePercent >= 85) {
+    return 'silver';
+  }
+  if (averagePercent >= 70) {
+    return 'bronze';
+  }
+  return 'none';
+}
+
+export function getQuizMedalStatus(quizPath: string): {
+  averagePercent: number | null;
+  medal: QuizMedalTier;
+} {
+  if (!quizPath) {
+    return { averagePercent: null, medal: 'none' };
+  }
+  const entry = loadProgress().quizzes[quizPath];
+  if (!entry) {
+    return { averagePercent: null, medal: 'none' };
+  }
+  const averagePercent = averagePercentFromQuizEntry(entry);
+  return {
+    averagePercent,
+    medal: quizMedalTierFromAverage(averagePercent),
+  };
+}
+
+export function getAllQuizMedalCounts(): { bronze: number; silver: number; gold: number } {
+  const out = { bronze: 0, silver: 0, gold: 0 };
+  const quizzes = loadProgress().quizzes;
+  for (const [path, entry] of Object.entries(quizzes)) {
+    if (!isQuizPath(path)) {
+      continue;
+    }
+    const tier = quizMedalTierFromAverage(averagePercentFromQuizEntry(entry));
+    if (tier === 'bronze') out.bronze += 1;
+    if (tier === 'silver') out.silver += 1;
+    if (tier === 'gold') out.gold += 1;
+  }
+  return out;
+}
+
+/**
+ * Trophy conversion:
+ * - 20 gold medals => 1 bronze trophy
+ * - 10 bronze trophies => 1 silver trophy
+ * - 5 silver trophies => 1 gold trophy
+ */
+export function getQuizTrophyCounts(goldMedals: number): {
+  bronzeTrophies: number;
+  silverTrophies: number;
+  goldTrophies: number;
+} {
+  const bronzeTrophies = Math.floor(goldMedals / 20);
+  const silverTrophies = Math.floor(bronzeTrophies / 10);
+  const goldTrophies = Math.floor(silverTrophies / 5);
+  return { bronzeTrophies, silverTrophies, goldTrophies };
 }
 
 /** Call when a quiz is scored. Updates best result by percentage (then by raw score on tie). */

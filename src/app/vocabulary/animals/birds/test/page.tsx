@@ -6,6 +6,7 @@ import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } 
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
+import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = [
   {
@@ -121,6 +122,7 @@ export default function BirdsTestPage() {
         <p className="text-2xl font-bold text-center mb-8 text-black dark:text-zinc-50">
           Score: {score} out of {shuffledQuestions.length}
         </p>
+        <QuizMedalSummary quizPath={pathname} />
         <div className="space-y-4">
           {shuffledQuestions.map((q, index) => {
             const isCorrect = answers[index] === q.correct;

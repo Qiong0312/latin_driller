@@ -3,6 +3,8 @@
 import { useSyncExternalStore } from 'react';
 import {
   clearAllLocalProgress,
+  getAllQuizMedalCounts,
+  getQuizTrophyCounts,
   hasAnyStoredProgress,
   loadProgress,
   PROGRESS_EVENT,
@@ -33,9 +35,6 @@ const VOCAB_LESSONS = [
 ] as const;
 
 const STREAK_MILESTONES = [1, 3, 5, 10, 20, 30, 60, 100] as const;
-const QUIZ_MILESTONES = [
-  1, 3, 5, 10, 20, 30, 40, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000,
-] as const;
 
 type QuizNode = {
   attempts: number;
@@ -198,8 +197,8 @@ export function LocalProgressSummary() {
     group.questions += stat.questions;
   }
 
-  const quizHits = QUIZ_MILESTONES.filter((m) => totalQuizAttempts >= m);
-  const topQuizMilestone = quizHits[quizHits.length - 1] ?? 0;
+  const medalCounts = getAllQuizMedalCounts();
+  const trophyCounts = getQuizTrophyCounts(medalCounts.gold);
 
   return (
     <div className="space-y-4 text-left text-sm text-zinc-700 dark:text-zinc-200">
@@ -242,13 +241,18 @@ export function LocalProgressSummary() {
       <section className="rounded-lg border border-sky-200 bg-sky-50/70 p-4 dark:border-sky-900 dark:bg-sky-950/30">
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">3) Quiz Progress</h3>
         <p className="mt-2">Total quizzes taken: <strong>{totalQuizAttempts}</strong></p>
-        <p className="mt-1 text-lg font-bold text-sky-700 dark:text-sky-300">
-          {topQuizMilestone > 0
-            ? `🎯 Milestone: ${topQuizMilestone} ${topQuizMilestone === 1 ? 'Quiz' : 'Quizzes'}`
-            : '🎯 Milestone: Not reached yet'}
+        <p className="mt-2 text-lg font-bold text-sky-700 dark:text-sky-300">
+          🏅 Medals: 🥉 {medalCounts.bronze} | 🥈 {medalCounts.silver} | 🥇 {medalCounts.gold}
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
-          Milestone = total number of quizzes you have used the app.
+          One medal per lesson quiz path, based on average score: Bronze (70%+), Silver (85%+), Gold (98%+).
+        </p>
+        <p className="mt-1 text-lg font-bold text-sky-700 dark:text-sky-300">
+          🏆 Trophies: 🟤🏆 {trophyCounts.bronzeTrophies} | ⚪🏆 {trophyCounts.silverTrophies} | 🟡🏆 {trophyCounts.goldTrophies}
+        </p>
+        <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
+          Trophy conversion: 20 gold medals {'->'} 1 bronze trophy; 10 bronze trophies {'->'} 1 silver trophy; 5
+          silver trophies {'->'} 1 gold trophy.
         </p>
         <div className="mt-3 space-y-2">
           {Object.keys(quizTree).length === 0 && (
