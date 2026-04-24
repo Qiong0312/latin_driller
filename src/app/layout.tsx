@@ -81,6 +81,14 @@ export default function RootLayout({
                       Present Tense Active
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/grammar/adjectives"
+                      className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
+                    >
+                      Adjectives
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div>

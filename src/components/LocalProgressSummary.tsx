@@ -19,6 +19,7 @@ const GRAMMAR_LESSONS = [
   '/grammar/cases',
   '/grammar/declensions',
   '/grammar/present-tense-active',
+  '/grammar/adjectives',
 ] as const;
 const VOCAB_LESSONS = [
   '/vocabulary/animals/common',
