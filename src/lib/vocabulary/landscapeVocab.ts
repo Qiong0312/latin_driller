@@ -2,7 +2,7 @@ import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 
 const empty = '';
 
-/** Flashcard with SVG placeholder (add later in `public/flashcard-icons/`). */
+/** Flashcard with SVG placeholder (add later as `public/flashcard-icons/landscape/<lemma>.svg`). */
 export function withEmptyIcon(
   items: { latin: string; english: string }[],
 ): VocabularyFlashcard[] {

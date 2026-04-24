@@ -1,15 +1,15 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'facies', english: 'Face', icon: '/flashcard-icons/facies.svg' },
-  { latin: 'frons', english: 'Forehead', icon: '/flashcard-icons/frons.svg' },
-  { latin: 'oculus', english: 'Eye', icon: '/flashcard-icons/oculus.svg' },
-  { latin: 'cilium', english: 'Eyelash', icon: '/flashcard-icons/cilium.svg' },
-  { latin: 'nasus', english: 'Nose', icon: '/flashcard-icons/nasus.svg' },
-  { latin: 'aures', english: 'Ears', icon: '/flashcard-icons/aures.svg' },
-  { latin: 'maxilla', english: 'Jaw', icon: '/flashcard-icons/maxilla.svg' },
-  { latin: 'dents', english: 'Tooth / teeth', icon: '/flashcard-icons/dents.svg' },
-  { latin: 'lingua', english: 'Tongue', icon: '/flashcard-icons/lingua.svg' },
+  { latin: 'facies', english: 'Face', icon: '/flashcard-icons/body-parts/facies.svg' },
+  { latin: 'frons', english: 'Forehead', icon: '/flashcard-icons/body-parts/frons.svg' },
+  { latin: 'oculus', english: 'Eye', icon: '/flashcard-icons/body-parts/oculus.svg' },
+  { latin: 'cilium', english: 'Eyelash', icon: '/flashcard-icons/body-parts/cilium.svg' },
+  { latin: 'nasus', english: 'Nose', icon: '/flashcard-icons/body-parts/nasus.svg' },
+  { latin: 'aures', english: 'Ears', icon: '/flashcard-icons/body-parts/aures.svg' },
+  { latin: 'maxilla', english: 'Jaw', icon: '/flashcard-icons/body-parts/maxilla.svg' },
+  { latin: 'dents', english: 'Tooth / teeth', icon: '/flashcard-icons/body-parts/dents.svg' },
+  { latin: 'lingua', english: 'Tongue', icon: '/flashcard-icons/body-parts/lingua.svg' },
 ];
 
 export default function FacePartsFlashcardsPage() {

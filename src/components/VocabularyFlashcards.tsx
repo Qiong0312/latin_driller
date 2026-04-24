@@ -10,8 +10,8 @@ export type VocabularyFlashcard = {
   english: string;
   /**
    * Visual on the answer side: emoji text, or an image.
-   * Use an image when no emoji fits: put files in `public/` and reference
-   * `/flashcard-icons/your.svg` (leading `/`), a full `https://...` URL, or a `data:` URI.
+   * Use an image when no emoji fits: put files in `public/flashcard-icons/{category}/` and reference
+   * e.g. `/flashcard-icons/landscape/terra.svg` (leading `/`), a full `https://...` URL, or a `data:` URI.
    */
   icon: string;
 };

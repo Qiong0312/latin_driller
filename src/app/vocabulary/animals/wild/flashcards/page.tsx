@@ -1,13 +1,13 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'Leo', english: 'Lion', icon: '/flashcard-icons/leo.svg' },
-  { latin: 'Tigris', english: 'Tiger', icon: '/flashcard-icons/tigris.svg' },
-  { latin: 'Ursus', english: 'Bear', icon: '/flashcard-icons/ursus.svg' },
-  { latin: 'Lupus', english: 'Wolf', icon: '/flashcard-icons/lupus.svg' },
-  { latin: 'Vulpes', english: 'Fox', icon: '/flashcard-icons/vulpes.svg' },
-  { latin: 'Cervus', english: 'Deer', icon: '/flashcard-icons/cervus.svg' },
-  { latin: 'Elephantus', english: 'Elephant', icon: '/flashcard-icons/elephantus.svg' },
+  { latin: 'Leo', english: 'Lion', icon: '/flashcard-icons/animals/leo.svg' },
+  { latin: 'Tigris', english: 'Tiger', icon: '/flashcard-icons/animals/tigris.svg' },
+  { latin: 'Ursus', english: 'Bear', icon: '/flashcard-icons/animals/ursus.svg' },
+  { latin: 'Lupus', english: 'Wolf', icon: '/flashcard-icons/animals/lupus.svg' },
+  { latin: 'Vulpes', english: 'Fox', icon: '/flashcard-icons/animals/vulpes.svg' },
+  { latin: 'Cervus', english: 'Deer', icon: '/flashcard-icons/animals/cervus.svg' },
+  { latin: 'Elephantus', english: 'Elephant', icon: '/flashcard-icons/animals/elephantus.svg' },
 ];
 
 export default function WildAnimalsFlashcardsPage() {

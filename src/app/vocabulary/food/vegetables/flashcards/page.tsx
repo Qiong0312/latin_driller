@@ -1,11 +1,11 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'carota', english: 'Carrot', icon: '/flashcard-icons/carota.svg' },
-  { latin: 'lactuca', english: 'Lettuce', icon: '/flashcard-icons/lactuca.svg' },
-  { latin: 'cepa', english: 'Onion', icon: '/flashcard-icons/cepa.svg' },
-  { latin: 'allium', english: 'Garlic', icon: '/flashcard-icons/allium.svg' },
-  { latin: 'fungus', english: 'Mushroom', icon: '/flashcard-icons/fungus.svg' },
+  { latin: 'carota', english: 'Carrot', icon: '/flashcard-icons/food/carota.svg' },
+  { latin: 'lactuca', english: 'Lettuce', icon: '/flashcard-icons/food/lactuca.svg' },
+  { latin: 'cepa', english: 'Onion', icon: '/flashcard-icons/food/cepa.svg' },
+  { latin: 'allium', english: 'Garlic', icon: '/flashcard-icons/food/allium.svg' },
+  { latin: 'fungus', english: 'Mushroom', icon: '/flashcard-icons/food/fungus.svg' },
 ];
 
 export default function VegetablesFlashcardsPage() {

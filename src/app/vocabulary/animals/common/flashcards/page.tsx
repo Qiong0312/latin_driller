@@ -1,14 +1,14 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'Canis', english: 'Dog', icon: '/flashcard-icons/canis.svg' },
-  { latin: 'Feles', english: 'Cat', icon: '/flashcard-icons/feles.svg' },
-  { latin: 'Equus', english: 'Horse', icon: '/flashcard-icons/equus.svg' },
-  { latin: 'Vacca', english: 'Cow', icon: '/flashcard-icons/vacca.svg' },
-  { latin: 'Porcus', english: 'Pig', icon: '/flashcard-icons/porcus.svg' },
-  { latin: 'Ovis', english: 'Sheep', icon: '/flashcard-icons/ovis.svg' },
-  { latin: 'Capra', english: 'Goat', icon: '/flashcard-icons/capra.svg' },
-  { latin: 'Asinus', english: 'Donkey', icon: '/flashcard-icons/asinus.svg' },
+  { latin: 'Canis', english: 'Dog', icon: '/flashcard-icons/animals/canis.svg' },
+  { latin: 'Feles', english: 'Cat', icon: '/flashcard-icons/animals/feles.svg' },
+  { latin: 'Equus', english: 'Horse', icon: '/flashcard-icons/animals/equus.svg' },
+  { latin: 'Vacca', english: 'Cow', icon: '/flashcard-icons/animals/vacca.svg' },
+  { latin: 'Porcus', english: 'Pig', icon: '/flashcard-icons/animals/porcus.svg' },
+  { latin: 'Ovis', english: 'Sheep', icon: '/flashcard-icons/animals/ovis.svg' },
+  { latin: 'Capra', english: 'Goat', icon: '/flashcard-icons/animals/capra.svg' },
+  { latin: 'Asinus', english: 'Donkey', icon: '/flashcard-icons/animals/asinus.svg' },
 ];
 
 export default function CommonAnimalsFlashcardsPage() {
