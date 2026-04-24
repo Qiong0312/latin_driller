@@ -8,6 +8,8 @@ import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
+const QUESTIONS_PER_QUIZ = 10;
+
 const questions = [
   {
     question: 'Which Latin case is used to indicate the subject of a sentence, or the person/thing performing the action?',
@@ -70,7 +72,7 @@ export default function CasesTestPage() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const shuffled = prepareQuizDeck(questions);
+    const shuffled = prepareQuizDeck(questions, QUESTIONS_PER_QUIZ);
     setShuffledQuestions(shuffled);
     setAnswers(Array(shuffled.length).fill(-1));
   }, []);

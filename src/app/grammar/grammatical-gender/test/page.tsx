@@ -8,6 +8,8 @@ import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
+const QUESTIONS_PER_QUIZ = 10;
+
 const questions = [
   {
     question: 'What does "grammatical gender" mean in Latin?',
@@ -120,7 +122,7 @@ export default function GrammaticalGenderTestPage() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const shuffled = prepareQuizDeck(questions);
+    const shuffled = prepareQuizDeck(questions, QUESTIONS_PER_QUIZ);
     setShuffledQuestions(shuffled);
     setAnswers(Array(shuffled.length).fill(-1));
   }, []);

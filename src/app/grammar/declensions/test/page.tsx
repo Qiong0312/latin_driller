@@ -8,6 +8,8 @@ import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
+const QUESTIONS_PER_QUIZ = 10;
+
 const questions = [
   {
     question: 'Which ending would you use for the Genitive Plural of a 1st declension noun like puella?',
@@ -80,7 +82,7 @@ export default function DeclensionsTestPage() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const shuffled = prepareQuizDeck(questions, questions.length);
+    const shuffled = prepareQuizDeck(questions, QUESTIONS_PER_QUIZ);
     setShuffledQuestions(shuffled);
     setAnswers(Array(shuffled.length).fill(-1));
   }, []);
