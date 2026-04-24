@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useSyncExternalStore } from 'react';
+import { MedalIconImg } from '@/components/ProgressAwardIcons';
 import { getQuizMedalStatus, isLessonDone, PROGRESS_EVENT, type QuizMedalTier } from '@/lib/localProgress';
 
 function subscribe(onChange: () => void) {
@@ -19,13 +20,6 @@ function subscribe(onChange: () => void) {
 
 function doneSnapshot(lessonPath: string): string {
   return isLessonDone(lessonPath) ? '1' : '0';
-}
-
-function medalIcon(medal: QuizMedalTier): string {
-  if (medal === 'gold') return '🥇';
-  if (medal === 'silver') return '🥈';
-  if (medal === 'bronze') return '🥉';
-  return '';
 }
 
 type VocabularySubLessonCardProps = {
@@ -50,7 +44,7 @@ export function VocabularySubLessonCard({ href, lessonPath, cardClassName, child
     () => '{"done":false,"medal":"none"}',
   );
   const { done, medal } = JSON.parse(status) as { done: boolean; medal: QuizMedalTier };
-  const icon = medalIcon(medal);
+  const showMedal = medal !== 'none';
 
   return (
     <Link href={href} className="block">
@@ -58,10 +52,11 @@ export function VocabularySubLessonCard({ href, lessonPath, cardClassName, child
         <div className="min-w-0 flex-1">{children}</div>
         <div className="flex shrink-0 items-center gap-2 pr-0.5">
           <span
-            className={`inline-flex h-6 w-6 items-center justify-center text-xl leading-none ${icon ? '' : 'opacity-0'}`}
-            aria-label={icon ? `Quiz medal: ${medal}` : undefined}
+            className={`inline-flex h-6 w-6 items-center justify-center ${showMedal ? '' : 'opacity-0'}`}
+            aria-label={showMedal ? `Quiz medal: ${medal}` : undefined}
+            aria-hidden={!showMedal}
           >
-            {icon || '•'}
+            {showMedal ? <MedalIconImg tier={medal} className="h-6 w-6" /> : '•'}
           </span>
           <span
             className={`inline-flex h-6 w-6 items-center justify-center text-2xl leading-none text-emerald-600 dark:text-emerald-400 ${done ? '' : 'opacity-0'}`}

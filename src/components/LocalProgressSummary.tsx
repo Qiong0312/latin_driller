@@ -1,6 +1,7 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
+import { MedalIconImg, TrophyIconImg } from '@/components/ProgressAwardIcons';
 import {
   clearAllLocalProgress,
   getAllQuizMedalCounts,
@@ -241,14 +242,44 @@ export function LocalProgressSummary() {
       <section className="rounded-lg border border-sky-200 bg-sky-50/70 p-4 dark:border-sky-900 dark:bg-sky-950/30">
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">3) Quiz Progress</h3>
         <p className="mt-2">Total quizzes taken: <strong>{totalQuizAttempts}</strong></p>
-        <p className="mt-2 text-lg font-bold text-sky-700 dark:text-sky-300">
-          🏅 Medals: 🥉 {medalCounts.bronze} | 🥈 {medalCounts.silver} | 🥇 {medalCounts.gold}
+        <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
+          <span className="mr-1">Medals:</span>
+          <span className="inline-flex items-center gap-1">
+            <MedalIconImg tier="bronze" className="h-5 w-5" /> {medalCounts.bronze}
+          </span>
+          <span className="text-sky-400" aria-hidden>
+            |
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <MedalIconImg tier="silver" className="h-5 w-5" /> {medalCounts.silver}
+          </span>
+          <span className="text-sky-400" aria-hidden>
+            |
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <MedalIconImg tier="gold" className="h-5 w-5" /> {medalCounts.gold}
+          </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
           One medal per lesson quiz path, based on average score: Bronze (70%+), Silver (85%+), Gold (98%+).
         </p>
-        <p className="mt-1 text-lg font-bold text-sky-700 dark:text-sky-300">
-          🏆 Trophies: 🟤🏆 {trophyCounts.bronzeTrophies} | ⚪🏆 {trophyCounts.silverTrophies} | 🟡🏆 {trophyCounts.goldTrophies}
+        <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
+          <span className="mr-1">Trophies:</span>
+          <span className="inline-flex items-center gap-1">
+            <TrophyIconImg kind="bronze" className="h-5 w-5" /> {trophyCounts.bronzeTrophies}
+          </span>
+          <span className="text-sky-400" aria-hidden>
+            |
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <TrophyIconImg kind="silver" className="h-5 w-5" /> {trophyCounts.silverTrophies}
+          </span>
+          <span className="text-sky-400" aria-hidden>
+            |
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <TrophyIconImg kind="gold" className="h-5 w-5" /> {trophyCounts.goldTrophies}
+          </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
           Trophy conversion: 20 gold medals {'->'} 1 bronze trophy; 10 bronze trophies {'->'} 1 silver trophy; 5
