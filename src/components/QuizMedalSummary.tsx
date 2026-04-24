@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from 'react';
 import { MedalIconImg } from '@/components/ProgressAwardIcons';
+import { useIsHydrated } from '@/hooks/useIsHydrated';
 import { getQuizMedalStatus, PROGRESS_EVENT, type QuizMedalTier } from '@/lib/localProgress';
 
 function subscribe(onChange: () => void) {
@@ -37,17 +38,20 @@ function medalStyles(medal: QuizMedalTier): string {
   return 'border-zinc-300 bg-zinc-50 text-zinc-700 dark:border-zinc-600 dark:bg-zinc-900/40 dark:text-zinc-300';
 }
 
+const SERVER_MEDAL = '{"averagePercent":null,"medal":"none"}';
+
 export function QuizMedalSummary({ quizPath }: { quizPath: string | null }) {
+  const hydrated = useIsHydrated();
   const key = useSyncExternalStore(
     subscribe,
     () => {
       const status = getQuizMedalStatus(quizPath ?? '');
       return JSON.stringify(status);
     },
-    () => '{"averagePercent":null,"medal":"none"}',
+    () => SERVER_MEDAL,
   );
 
-  const status = JSON.parse(key) as { averagePercent: number | null; medal: QuizMedalTier };
+  const status = JSON.parse(hydrated ? key : SERVER_MEDAL) as { averagePercent: number | null; medal: QuizMedalTier };
   const avg =
     status.averagePercent === null
       ? 'N/A'

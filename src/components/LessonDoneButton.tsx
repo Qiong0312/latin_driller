@@ -1,6 +1,7 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
+import { useIsHydrated } from '@/hooks/useIsHydrated';
 import {
   isLessonDone,
   PROGRESS_EVENT,
@@ -28,12 +29,13 @@ function snapshot(lessonPath: string): string {
  * Manual “I’m done with this lesson” control. Stored in localStorage; not implied by quiz/flashcards.
  */
 export function LessonDoneButton({ lessonPath }: { lessonPath: string }) {
+  const hydrated = useIsHydrated();
   const p = useSyncExternalStore(
     subscribe,
     () => snapshot(lessonPath),
     () => '0',
   );
-  const done = p === '1';
+  const done = (hydrated ? p : '0') === '1';
 
   return (
     <div className="flex max-w-md flex-col items-center gap-1.5 text-center">

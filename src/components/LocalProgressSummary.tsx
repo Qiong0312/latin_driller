@@ -1,7 +1,8 @@
 'use client';
 
-import { useSyncExternalStore } from 'react';
+import { useMemo, useSyncExternalStore } from 'react';
 import { MedalIconImg, TrophyIconImg } from '@/components/ProgressAwardIcons';
+import { useIsHydrated } from '@/hooks/useIsHydrated';
 import {
   clearAllLocalProgress,
   getAllQuizMedalCounts,
@@ -122,6 +123,15 @@ function quizGroup(path: string): 'Grammar' | 'Vocabulary' | null {
   return null;
 }
 
+const SERVER_SNAPSHOT = '{"lessonsDone":{},"quizzes":{},"activityDays":{},"hasAny":false}';
+
+type ProgressSnapshot = {
+  lessonsDone: Record<string, true>;
+  quizzes: Record<string, QuizProgressEntry>;
+  activityDays: Record<string, true>;
+  hasAny: boolean;
+};
+
 function buildSnapshotKey(): string {
   const d = loadProgress();
   return JSON.stringify({
@@ -133,13 +143,14 @@ function buildSnapshotKey(): string {
 }
 
 export function LocalProgressSummary() {
-  const key = useSyncExternalStore(subscribe, buildSnapshotKey, () => '{"lessonsDone":{},"quizzes":{},"activityDays":{},"hasAny":false}');
-  const data = JSON.parse(key) as {
-    lessonsDone: Record<string, true>;
-    quizzes: Record<string, QuizProgressEntry>;
-    activityDays: Record<string, true>;
-    hasAny: boolean;
-  };
+  const hydrated = useIsHydrated();
+  const key = useSyncExternalStore(subscribe, buildSnapshotKey, () => SERVER_SNAPSHOT);
+  const data = useMemo((): ProgressSnapshot => {
+    if (!hydrated) {
+      return JSON.parse(SERVER_SNAPSHOT) as ProgressSnapshot;
+    }
+    return JSON.parse(key) as ProgressSnapshot;
+  }, [hydrated, key]);
 
   const grammarDone = GRAMMAR_LESSONS.filter((p) => data.lessonsDone[p]).length;
   const vocabDone = VOCAB_LESSONS.filter((p) => data.lessonsDone[p]).length;
@@ -198,8 +209,14 @@ export function LocalProgressSummary() {
     group.questions += stat.questions;
   }
 
-  const medalCounts = getAllQuizMedalCounts();
-  const trophyCounts = getQuizTrophyCounts(medalCounts.gold);
+  const medalCounts = useMemo(
+    () => (hydrated ? getAllQuizMedalCounts() : { bronze: 0, silver: 0, gold: 0 }),
+    [hydrated, key],
+  );
+  const trophyCounts = useMemo(
+    () => (hydrated ? getQuizTrophyCounts(medalCounts.gold) : { bronzeTrophies: 0, silverTrophies: 0, goldTrophies: 0 }),
+    [hydrated, medalCounts.gold],
+  );
 
   return (
     <div className="space-y-4 text-left text-sm text-zinc-700 dark:text-zinc-200">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
+import { useIsHydrated } from '@/hooks/useIsHydrated';
 import {
   getOrCreateProfileName,
   PROGRESS_EVENT,
@@ -25,7 +26,9 @@ function snapshotName(): string {
 }
 
 export function DashboardIdentity() {
-  const name = useSyncExternalStore(subscribe, snapshotName, () => 'locallearner');
+  const hydrated = useIsHydrated();
+  const fromStore = useSyncExternalStore(subscribe, snapshotName, () => 'locallearner');
+  const name = hydrated ? fromStore : 'locallearner';
 
   return (
     <div className="mb-6 rounded-lg border border-zinc-200 bg-zinc-50/80 p-4 text-center dark:border-zinc-700 dark:bg-zinc-900/50">

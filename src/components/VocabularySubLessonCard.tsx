@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useSyncExternalStore } from 'react';
 import { MedalIconImg } from '@/components/ProgressAwardIcons';
+import { useIsHydrated } from '@/hooks/useIsHydrated';
 import { getQuizMedalStatus, isLessonDone, PROGRESS_EVENT, type QuizMedalTier } from '@/lib/localProgress';
 
 function subscribe(onChange: () => void) {
@@ -22,6 +23,8 @@ function doneSnapshot(lessonPath: string): string {
   return isLessonDone(lessonPath) ? '1' : '0';
 }
 
+const SERVER_STATUS = '{"done":false,"medal":"none"}';
+
 type VocabularySubLessonCardProps = {
   href: string;
   lessonPath: string;
@@ -33,7 +36,8 @@ type VocabularySubLessonCardProps = {
  * Sub-lesson row on a vocabulary category hub: shows a tick on the right when the lesson is marked done.
  */
 export function VocabularySubLessonCard({ href, lessonPath, cardClassName, children }: VocabularySubLessonCardProps) {
-  const status = useSyncExternalStore(
+  const hydrated = useIsHydrated();
+  const key = useSyncExternalStore(
     subscribe,
     () => {
       const done = doneSnapshot(lessonPath) === '1';
@@ -41,9 +45,9 @@ export function VocabularySubLessonCard({ href, lessonPath, cardClassName, child
       const medal = getQuizMedalStatus(quizPath).medal;
       return JSON.stringify({ done, medal });
     },
-    () => '{"done":false,"medal":"none"}',
+    () => SERVER_STATUS,
   );
-  const { done, medal } = JSON.parse(status) as { done: boolean; medal: QuizMedalTier };
+  const { done, medal } = JSON.parse(hydrated ? key : SERVER_STATUS) as { done: boolean; medal: QuizMedalTier };
   const showMedal = medal !== 'none';
 
   return (
