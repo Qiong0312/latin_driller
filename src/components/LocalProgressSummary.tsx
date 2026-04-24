@@ -8,6 +8,7 @@ import {
   getAllQuizMedalCounts,
   getQuizTrophyCounts,
   hasAnyStoredProgress,
+  isLessonDone,
   loadProgress,
   PROGRESS_EVENT,
   QuizProgressEntry,
@@ -164,8 +165,14 @@ export function LocalProgressSummary() {
     return JSON.parse(key) as ProgressSnapshot;
   }, [hydrated, key]);
 
-  const grammarDone = GRAMMAR_LESSONS.filter((p) => data.lessonsDone[p]).length;
-  const vocabDone = VOCAB_LESSONS.filter((p) => data.lessonsDone[p]).length;
+  const grammarDone = useMemo(
+    () => (hydrated ? GRAMMAR_LESSONS.filter((p) => isLessonDone(p)).length : 0),
+    [hydrated, key],
+  );
+  const vocabDone = useMemo(
+    () => (hydrated ? VOCAB_LESSONS.filter((p) => isLessonDone(p)).length : 0),
+    [hydrated, key],
+  );
   const totalLessonsDone = grammarDone + vocabDone;
   const totalLessons = GRAMMAR_LESSONS.length + VOCAB_LESSONS.length;
   const lessonTitle = lessonAchievement(totalLessonsDone, totalLessons);
@@ -268,7 +275,7 @@ export function LocalProgressSummary() {
             : 'Next milestone: All milestone tiers completed'}
         </p>
         <p className="mt-1 text-lg font-bold text-amber-700 dark:text-amber-300">
-          {topStreakMilestone > 0 ? `🏅 Streak Badge: ${topStreakMilestone}-Day` : 'No streak milestone yet'}
+          {topStreakMilestone > 0 ? `🏅 Streak Badge: ${topStreakMilestone}-Day` : '🏅 Streak Badge: Not reached yet'}
         </p>
         <p className="text-xs text-amber-800/90 dark:text-amber-200/90">
           Streak Badge = continuous days in a row. It resets when a day is missed.
