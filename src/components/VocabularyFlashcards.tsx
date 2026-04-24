@@ -129,13 +129,14 @@ export function VocabularyFlashcards({
   const englishSide = (
     <div className="flex h-full min-h-[320px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
       <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-3 text-center sm:gap-4">
-        <div className="flex shrink-0 items-center justify-center" aria-hidden>
+        <div className="flex min-w-0 shrink-0 items-center justify-center" aria-hidden>
           {isVocabularyFlashcardImageIcon(current.icon) ? (
+            /* Eager load: answer face is a 3D back; lazy images often never load. */
             <img
               src={current.icon}
               alt=""
-              className="max-h-28 w-auto max-w-[min(100%,20rem)] object-contain sm:max-h-36"
-              loading="lazy"
+              className="h-auto max-h-28 w-auto min-w-0 max-w-[min(100%,20rem)] object-contain [transform:translateZ(1px)] sm:max-h-36 dark:invert"
+              loading="eager"
               decoding="async"
             />
           ) : (
