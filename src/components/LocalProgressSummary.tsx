@@ -97,6 +97,13 @@ function lessonAchievement(done: number, total: number): { title: string; icon: 
   return { title: 'Novice Explorer', icon: '🧭', pct };
 }
 
+function nextMilestoneTarget(current: number): number | null {
+  for (const step of STREAK_MILESTONES) {
+    if (current < step) return step;
+  }
+  return null;
+}
+
 function normalizeQuizStats(entry: QuizProgressEntry) {
   const attempts = entry.attempts || 0;
   const inferredTotal = attempts * (entry.lastTotal || 0);
@@ -188,6 +195,8 @@ export function LocalProgressSummary() {
 
   const streakHits = STREAK_MILESTONES.filter((m) => currentStreak >= m);
   const topStreakMilestone = streakHits[streakHits.length - 1] ?? 0;
+  const nextDaysMilestone = nextMilestoneTarget(daysUsed);
+  const nextStreakBadge = nextMilestoneTarget(currentStreak);
 
   const quizTree: Record<string, QuizNode> = {};
   let totalQuizAttempts = 0;
@@ -248,11 +257,21 @@ export function LocalProgressSummary() {
         <p className="text-xs text-amber-800/90 dark:text-amber-200/90">
           Milestone = total number of days you have used the app.
         </p>
+        <p className="mt-1 text-xs text-amber-800/90 dark:text-amber-200/90">
+          {nextDaysMilestone
+            ? `Next milestone: ${nextDaysMilestone} days (${nextDaysMilestone - daysUsed} to go)`
+            : 'Next milestone: All milestone tiers completed'}
+        </p>
         <p className="mt-1 text-lg font-bold text-amber-700 dark:text-amber-300">
           {topStreakMilestone > 0 ? `🏅 Streak Badge: ${topStreakMilestone}-Day` : 'No streak milestone yet'}
         </p>
         <p className="text-xs text-amber-800/90 dark:text-amber-200/90">
           Streak Badge = continuous days in a row. It resets when a day is missed.
+        </p>
+        <p className="mt-1 text-xs text-amber-800/90 dark:text-amber-200/90">
+          {nextStreakBadge
+            ? `Next streak badge: ${nextStreakBadge}-Day (${nextStreakBadge - currentStreak} to go)`
+            : 'Next streak badge: All badge tiers completed'}
         </p>
       </section>
 
@@ -261,20 +280,20 @@ export function LocalProgressSummary() {
         <p className="mt-2">Total quizzes taken: <strong>{totalQuizAttempts}</strong></p>
         <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
           <span className="mr-1">Medals:</span>
-          <span className="inline-flex items-center gap-1">
-            <MedalIconImg tier="bronze" className="h-5 w-5" /> {medalCounts.bronze}
+          <span className="inline-flex items-center gap-2">
+            <MedalIconImg tier="bronze" className="h-9 w-9" /> {medalCounts.bronze}
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
-          <span className="inline-flex items-center gap-1">
-            <MedalIconImg tier="silver" className="h-5 w-5" /> {medalCounts.silver}
+          <span className="inline-flex items-center gap-2">
+            <MedalIconImg tier="silver" className="h-9 w-9" /> {medalCounts.silver}
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
-          <span className="inline-flex items-center gap-1">
-            <MedalIconImg tier="gold" className="h-5 w-5" /> {medalCounts.gold}
+          <span className="inline-flex items-center gap-2">
+            <MedalIconImg tier="gold" className="h-9 w-9" /> {medalCounts.gold}
           </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
@@ -282,20 +301,20 @@ export function LocalProgressSummary() {
         </p>
         <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
           <span className="mr-1">Trophies:</span>
-          <span className="inline-flex items-center gap-1">
-            <TrophyIconImg kind="bronze" className="h-5 w-5" /> {trophyCounts.bronzeTrophies}
+          <span className="inline-flex items-center gap-2">
+            <TrophyIconImg kind="bronze" className="h-9 w-9" /> {trophyCounts.bronzeTrophies}
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
-          <span className="inline-flex items-center gap-1">
-            <TrophyIconImg kind="silver" className="h-5 w-5" /> {trophyCounts.silverTrophies}
+          <span className="inline-flex items-center gap-2">
+            <TrophyIconImg kind="silver" className="h-9 w-9" /> {trophyCounts.silverTrophies}
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
-          <span className="inline-flex items-center gap-1">
-            <TrophyIconImg kind="gold" className="h-5 w-5" /> {trophyCounts.goldTrophies}
+          <span className="inline-flex items-center gap-2">
+            <TrophyIconImg kind="gold" className="h-9 w-9" /> {trophyCounts.goldTrophies}
           </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
