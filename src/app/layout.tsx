@@ -73,6 +73,14 @@ export default function RootLayout({
                       Declensions
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/grammar/present-tense-active"
+                      className="block p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-zinc-200"
+                    >
+                      Present Tense Active
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div>

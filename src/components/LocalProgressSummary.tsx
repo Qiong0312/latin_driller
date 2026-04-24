@@ -13,7 +13,12 @@ import {
   QuizProgressEntry,
 } from '@/lib/localProgress';
 
-const GRAMMAR_LESSONS = ['/grammar/grammatical-gender', '/grammar/cases', '/grammar/declensions'] as const;
+const GRAMMAR_LESSONS = [
+  '/grammar/grammatical-gender',
+  '/grammar/cases',
+  '/grammar/declensions',
+  '/grammar/present-tense-active',
+] as const;
 const VOCAB_LESSONS = [
   '/vocabulary/animals/common',
   '/vocabulary/animals/wild',
