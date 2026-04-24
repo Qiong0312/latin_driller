@@ -1,15 +1,15 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'facies', english: 'Face', icon: '🙂' },
-  { latin: 'frons', english: 'Forehead', icon: '🔝' },
-  { latin: 'oculus', english: 'Eye', icon: '👁️' },
-  { latin: 'cilium', english: 'Eyelash', icon: '✨' },
-  { latin: 'nasus', english: 'Nose', icon: '👃' },
-  { latin: 'aures', english: 'Ears', icon: '👂' },
-  { latin: 'maxilla', english: 'Jaw', icon: '🦴' },
-  { latin: 'dents', english: 'Tooth / teeth', icon: '🦷' },
-  { latin: 'lingua', english: 'Tongue', icon: '👅' },
+  { latin: 'facies', english: 'Face', icon: '/flashcard-icons/facies.svg' },
+  { latin: 'frons', english: 'Forehead', icon: '/flashcard-icons/frons.svg' },
+  { latin: 'oculus', english: 'Eye', icon: '/flashcard-icons/oculus.svg' },
+  { latin: 'cilium', english: 'Eyelash', icon: '/flashcard-icons/cilium.svg' },
+  { latin: 'nasus', english: 'Nose', icon: '/flashcard-icons/nasus.svg' },
+  { latin: 'aures', english: 'Ears', icon: '/flashcard-icons/aures.svg' },
+  { latin: 'maxilla', english: 'Jaw', icon: '/flashcard-icons/maxilla.svg' },
+  { latin: 'dents', english: 'Tooth / teeth', icon: '/flashcard-icons/dents.svg' },
+  { latin: 'lingua', english: 'Tongue', icon: '/flashcard-icons/lingua.svg' },
 ];
 
 export default function FacePartsFlashcardsPage() {

@@ -1,18 +1,18 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'corpus', english: 'Body', icon: '🧍' },
-  { latin: 'caput', english: 'Head', icon: '👤' },
-  { latin: 'collum', english: 'Neck', icon: '🧣' },
-  { latin: 'umerus', english: 'Shoulder', icon: '👔' },
-  { latin: 'brachium', english: 'Arm', icon: '💪' },
-  { latin: 'manus', english: 'Hand', icon: '🖐️' },
-  { latin: 'digitus', english: 'Finger', icon: '👆' },
-  { latin: 'pectus', english: 'Chest', icon: '👕' },
-  { latin: 'venter', english: 'Belly / stomach', icon: '⭕' },
-  { latin: 'tergum', english: 'Back', icon: '🎒' },
-  { latin: 'crus', english: 'Leg', icon: '🦵' },
-  { latin: 'pes', english: 'Foot', icon: '🦶' },
+  { latin: 'corpus', english: 'Body', icon: '/flashcard-icons/corpus.svg' },
+  { latin: 'caput', english: 'Head', icon: '/flashcard-icons/caput.svg' },
+  { latin: 'collum', english: 'Neck', icon: '/flashcard-icons/collum.svg' },
+  { latin: 'umerus', english: 'Shoulder', icon: '/flashcard-icons/umerus.svg' },
+  { latin: 'brachium', english: 'Arm', icon: '/flashcard-icons/brachium.svg' },
+  { latin: 'manus', english: 'Hand', icon: '/flashcard-icons/manus.svg' },
+  { latin: 'digitus', english: 'Finger', icon: '/flashcard-icons/digitus.svg' },
+  { latin: 'pectus', english: 'Chest', icon: '/flashcard-icons/pectus.svg' },
+  { latin: 'venter', english: 'Belly / stomach', icon: '/flashcard-icons/venter.svg' },
+  { latin: 'tergum', english: 'Back', icon: '/flashcard-icons/tergum.svg' },
+  { latin: 'crus', english: 'Leg', icon: '/flashcard-icons/crus.svg' },
+  { latin: 'pes', english: 'Foot', icon: '/flashcard-icons/pes.svg' },
 ];
 
 export default function BasicBodyPartsFlashcardsPage() {
