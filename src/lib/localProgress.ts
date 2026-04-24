@@ -69,6 +69,16 @@ const NAME_COLORS = [
   'teal',
   'crimson',
   'indigo',
+  'scarlet',
+  'violet',
+  'amber',
+  'azure',
+  'jade',
+  'coral',
+  'ivory',
+  'onyx',
+  'copper',
+  'bronze',
 ] as const;
 
 const NAME_EMOTIONS = [
@@ -82,6 +92,16 @@ const NAME_EMOTIONS = [
   'mighty',
   'cheerful',
   'fierce',
+  'fearless',
+  'gentle',
+  'quiet',
+  'playful',
+  'steady',
+  'joyful',
+  'bold',
+  'clever',
+  'kind',
+  'witty',
 ] as const;
 
 const NAME_ANIMALS = [
@@ -95,6 +115,62 @@ const NAME_ANIMALS = [
   'dolphin',
   'rabbit',
   'panther',
+  'lynx',
+  'sparrow',
+  'raven',
+  'orca',
+  'badger',
+  'hawk',
+  'puma',
+  'gecko',
+  'bison',
+  'heron',
+] as const;
+
+const NAME_TRAITS = [
+  'swift',
+  'silent',
+  'wild',
+  'bright',
+  'bold',
+  'lucky',
+  'clever',
+  'storm',
+  'ember',
+  'frost',
+  'steady',
+  'nimble',
+  'sharp',
+  'mellow',
+  'radiant',
+  'sturdy',
+  'glowing',
+  'fearless',
+  'wandering',
+  'vivid',
+] as const;
+
+const NAME_PLACES = [
+  'forest',
+  'mountain',
+  'river',
+  'valley',
+  'sky',
+  'ocean',
+  'desert',
+  'island',
+  'meadow',
+  'canyon',
+  'harbor',
+  'tundra',
+  'jungle',
+  'cliff',
+  'lagoon',
+  'prairie',
+  'glacier',
+  'grove',
+  'summit',
+  'coast',
 ] as const;
 
 function pick<T>(arr: readonly T[]): T {
@@ -102,7 +178,16 @@ function pick<T>(arr: readonly T[]): T {
 }
 
 function makeRandomProfileName(): string {
-  return `${pick(NAME_COLORS)}${pick(NAME_EMOTIONS)}${pick(NAME_ANIMALS)}`;
+  // Use multiple formats so generated names are less predictable than one fixed pattern.
+  const variants = [
+    () => `${pick(NAME_COLORS)}${pick(NAME_EMOTIONS)}${pick(NAME_ANIMALS)}`,
+    () => `${pick(NAME_TRAITS)}${pick(NAME_ANIMALS)}`,
+    () => `${pick(NAME_EMOTIONS)}${pick(NAME_PLACES)}`,
+    () => `${pick(NAME_COLORS)}${pick(NAME_TRAITS)}${pick(NAME_ANIMALS)}`,
+    () => `${pick(NAME_ANIMALS)}${pick(NAME_TRAITS)}`,
+    () => `${pick(NAME_PLACES)}${pick(NAME_ANIMALS)}`,
+  ] as const;
+  return pick(variants)();
 }
 
 function parse(raw: string | null): LocalProgressV1 {
