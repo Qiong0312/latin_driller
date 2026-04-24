@@ -1,10 +1,10 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'Piscis', english: 'Fish', icon: '🐟' },
-  { latin: 'Delphinus', english: 'Dolphin', icon: '🐬' },
-  { latin: 'Cetus', english: 'Whale', icon: '🐋' },
-  { latin: 'Canis Marinus', english: 'Shark', icon: '🦈' },
+  { latin: 'Piscis', english: 'Fish', icon: '/flashcard-icons/piscis.svg' },
+  { latin: 'Delphinus', english: 'Dolphin', icon: '/flashcard-icons/delphinus.svg' },
+  { latin: 'Cetus', english: 'Whale', icon: '/flashcard-icons/cetus.svg' },
+  { latin: 'Canis Marinus', english: 'Shark', icon: '/flashcard-icons/canis-marinus.svg' },
 ];
 
 export default function SeaAnimalsFlashcardsPage() {
