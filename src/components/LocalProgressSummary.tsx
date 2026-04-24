@@ -279,7 +279,7 @@ export function LocalProgressSummary() {
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">3) Quiz Progress</h3>
         <p className="mt-2">Total quizzes taken: <strong>{totalQuizAttempts}</strong></p>
         <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
-          <span className="mr-1">Medals:</span>
+          <span className="mr-1 inline-block w-24 shrink-0">Medals:</span>
           <span className="inline-flex items-center gap-2">
             <MedalIconImg tier="bronze" className="h-9 w-9" /> {medalCounts.bronze}
           </span>
@@ -300,7 +300,7 @@ export function LocalProgressSummary() {
           One medal per lesson quiz path, based on average score: Bronze (70%+), Silver (85%+), Gold (98%+).
         </p>
         <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
-          <span className="mr-1">Trophies:</span>
+          <span className="mr-1 inline-block w-24 shrink-0">Trophies:</span>
           <span className="inline-flex items-center gap-2">
             <TrophyIconImg kind="bronze" className="h-9 w-9" /> {trophyCounts.bronzeTrophies}
           </span>
