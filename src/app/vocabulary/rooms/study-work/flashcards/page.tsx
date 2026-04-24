@@ -1,8 +1,8 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'bibliotheca', english: 'library', icon: '📚' },
-  { latin: 'officina', english: 'workshop / workroom', icon: '🔧' },
+  { latin: 'bibliotheca', english: 'library', icon: '/flashcard-icons/bibliotheca.svg' },
+  { latin: 'officina', english: 'workshop / workroom', icon: '/flashcard-icons/officina.svg' },
 ];
 
 export default function RoomsStudyWorkFlashcardsPage() {

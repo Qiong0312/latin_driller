@@ -1,9 +1,9 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'cubiculum', english: 'bedroom', icon: '🏠' },
-  { latin: 'dormitorium', english: 'sleeping room / dormitory', icon: '🛌' },
-  { latin: 'lectus', english: 'bed', icon: '🛏️' },
+  { latin: 'cubiculum', english: 'bedroom', icon: '/flashcard-icons/cubiculum.svg' },
+  { latin: 'dormitorium', english: 'sleeping room / dormitory', icon: '/flashcard-icons/dormitorium.svg' },
+  { latin: 'lectus', english: 'bed', icon: '/flashcard-icons/lectus.svg' },
 ];
 
 export default function RoomsLivingSleepingFlashcardsPage() {

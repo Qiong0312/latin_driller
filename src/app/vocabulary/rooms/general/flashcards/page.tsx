@@ -1,10 +1,10 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'atrium', english: 'main hall / central room', icon: '🔆' },
-  { latin: 'tablinum', english: 'study / office (Roman house)', icon: '📜' },
-  { latin: 'cella', english: 'small room / chamber', icon: '🚪' },
-  { latin: 'camera', english: 'room / chamber', icon: '🏠' },
+  { latin: 'atrium', english: 'main hall / central room', icon: '/flashcard-icons/atrium.svg' },
+  { latin: 'tablinum', english: 'study / office (Roman house)', icon: '/flashcard-icons/tablinum.svg' },
+  { latin: 'cella', english: 'small room / chamber', icon: '/flashcard-icons/cella.svg' },
+  { latin: 'camera', english: 'room / chamber', icon: '/flashcard-icons/camera.svg' },
 ];
 
 export default function RoomsGeneralFlashcardsPage() {

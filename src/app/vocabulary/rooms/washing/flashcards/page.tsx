@@ -1,8 +1,8 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'balneum', english: 'bath / bathroom', icon: '🛁' },
-  { latin: 'lavatorium', english: 'washing room', icon: '🧼' },
+  { latin: 'balneum', english: 'bath / bathroom', icon: '/flashcard-icons/balneum.svg' },
+  { latin: 'lavatorium', english: 'washing room', icon: '/flashcard-icons/lavatorium.svg' },
 ];
 
 export default function RoomsWashingFlashcardsPage() {
