@@ -41,21 +41,23 @@ export default function AdjectivesPage() {
           case with the word they modify.
         </p>
         <p>
-          Example: “good books” is <em>libri boni</em>, but “I have good books” is <em>libros bonos habeo</em>.
-          Since <em>libros</em> is accusative plural masculine, the adjective must match as <em>bonos</em>.
+          Example: &ldquo;good books&rdquo; is <em>librī bonī</em>, but &ldquo;I have good books&rdquo; is{' '}
+          <em>librōs bonōs habeō</em>. Since <em>librōs</em> is accusative plural masculine, the adjective must
+          match as <em>bonōs</em>.
         </p>
 
         <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Three adjective grades</h2>
         <p>
-          A Latin adjective has three grades: positive, comparative, and superlative. Example: <em>peritus</em>
-          ("skilled"), <em>peritior</em> ("more skilled"), and <em>peritissimus</em> ("most skilled").
+          A Latin adjective has three grades: positive, comparative, and superlative. Example: <em>perītus</em>{' '}
+          (&ldquo;skilled&rdquo;), <em>perītior</em> (&ldquo;more skilled&rdquo;), and <em>perītissimus</em> (
+          &ldquo;most skilled&rdquo;).
         </p>
         <DataTable
           headers={["Grade", "Form", "Meaning"]}
           rows={[
-            ["Positive", "peritus", "skilled"],
-            ["Comparative", "peritior", "more skilled"],
-            ["Superlative", "peritissimus", "most skilled"],
+            ["Positive", "perītus", "skilled"],
+            ["Comparative", "perītior", "more skilled"],
+            ["Superlative", "perītissimus", "most skilled"],
           ]}
         />
 
@@ -63,19 +65,20 @@ export default function AdjectivesPage() {
         <DataTable
           headers={["Rule", "Example"]}
           rows={[
-            ["positive = base form", "peritus"],
-            ["comparative = add -ior", "peritior"],
-            ["superlative = add -issimus", "peritissimus"],
+            ["positive = base form", "perītus"],
+            ["comparative = add -ior", "perītior"],
+            ["superlative = add -issimus", "perītissimus"],
           ]}
         />
 
         <p>
           When no direct comparison is being made, comparative and superlative can also carry intensity meanings:
-          <em>peritior</em> can mean "somewhat/rather skilled," and <em>peritissimus</em> can mean "very skilled."
+          <em> perītior</em> can mean &ldquo;somewhat/rather skilled,&rdquo; and <em>perītissimus</em> can mean
+          &ldquo;very skilled.&rdquo;
         </p>
         <p>
           The superlative can therefore indicate either the highest degree or simply a very high degree. For example,
-          <em> iustissimus</em> may mean both "the most just" and "very just."
+          <em> iūstissimus</em> may mean both &ldquo;the most just&rdquo; and &ldquo;very just.&rdquo;
         </p>
       </div>
 
