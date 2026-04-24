@@ -281,19 +281,22 @@ export function LocalProgressSummary() {
         <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
           <span className="mr-1 inline-block w-24 shrink-0">Medals:</span>
           <span className="inline-flex items-center gap-2">
-            <MedalIconImg tier="bronze" className="h-9 w-9" /> {medalCounts.bronze}
+            <MedalIconImg tier="bronze" className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{medalCounts.bronze}</span>
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
           <span className="inline-flex items-center gap-2">
-            <MedalIconImg tier="silver" className="h-9 w-9" /> {medalCounts.silver}
+            <MedalIconImg tier="silver" className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{medalCounts.silver}</span>
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
           <span className="inline-flex items-center gap-2">
-            <MedalIconImg tier="gold" className="h-9 w-9" /> {medalCounts.gold}
+            <MedalIconImg tier="gold" className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{medalCounts.gold}</span>
           </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
@@ -302,19 +305,22 @@ export function LocalProgressSummary() {
         <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
           <span className="mr-1 inline-block w-24 shrink-0">Trophies:</span>
           <span className="inline-flex items-center gap-2">
-            <TrophyIconImg kind="bronze" className="h-9 w-9" /> {trophyCounts.bronzeTrophies}
+            <TrophyIconImg kind="bronze" className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{trophyCounts.bronzeTrophies}</span>
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
           <span className="inline-flex items-center gap-2">
-            <TrophyIconImg kind="silver" className="h-9 w-9" /> {trophyCounts.silverTrophies}
+            <TrophyIconImg kind="silver" className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{trophyCounts.silverTrophies}</span>
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
           <span className="inline-flex items-center gap-2">
-            <TrophyIconImg kind="gold" className="h-9 w-9" /> {trophyCounts.goldTrophies}
+            <TrophyIconImg kind="gold" className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{trophyCounts.goldTrophies}</span>
           </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
