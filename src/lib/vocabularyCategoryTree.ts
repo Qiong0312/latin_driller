@@ -27,6 +27,14 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/rooms/study-work',
     '/vocabulary/rooms/outdoor',
   ],
+  '/vocabulary/landscape': [
+    '/vocabulary/landscape/land',
+    '/vocabulary/landscape/mountains',
+    '/vocabulary/landscape/water',
+    '/vocabulary/landscape/plants',
+    '/vocabulary/landscape/sky-weather',
+    '/vocabulary/landscape/elements',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

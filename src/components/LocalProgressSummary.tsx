@@ -41,6 +41,12 @@ const VOCAB_LESSONS = [
   '/vocabulary/rooms/washing',
   '/vocabulary/rooms/study-work',
   '/vocabulary/rooms/outdoor',
+  '/vocabulary/landscape/land',
+  '/vocabulary/landscape/mountains',
+  '/vocabulary/landscape/water',
+  '/vocabulary/landscape/plants',
+  '/vocabulary/landscape/sky-weather',
+  '/vocabulary/landscape/elements',
 ] as const;
 
 const STREAK_MILESTONES = [1, 3, 5, 10, 20, 30, 60, 100] as const;
