@@ -181,11 +181,11 @@ function makeRandomProfileName(): string {
   // Use multiple formats so generated names are less predictable than one fixed pattern.
   const variants = [
     () => `${pick(NAME_COLORS)}${pick(NAME_EMOTIONS)}${pick(NAME_ANIMALS)}`,
-    () => `${pick(NAME_TRAITS)}${pick(NAME_ANIMALS)}`,
-    () => `${pick(NAME_EMOTIONS)}${pick(NAME_PLACES)}`,
+    () => `${pick(NAME_TRAITS)}${pick(NAME_ANIMALS)}${pick(NAME_PLACES)}`,
+    () => `${pick(NAME_EMOTIONS)}${pick(NAME_PLACES)}${pick(NAME_ANIMALS)}`,
     () => `${pick(NAME_COLORS)}${pick(NAME_TRAITS)}${pick(NAME_ANIMALS)}`,
-    () => `${pick(NAME_ANIMALS)}${pick(NAME_TRAITS)}`,
-    () => `${pick(NAME_PLACES)}${pick(NAME_ANIMALS)}`,
+    () => `${pick(NAME_ANIMALS)}${pick(NAME_TRAITS)}${pick(NAME_COLORS)}`,
+    () => `${pick(NAME_PLACES)}${pick(NAME_ANIMALS)}${pick(NAME_EMOTIONS)}`,
   ] as const;
   return pick(variants)();
 }
