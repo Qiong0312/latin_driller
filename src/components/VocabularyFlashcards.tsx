@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect, useLayoutEffect } from 'react';
+import { useState, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { recordFlashcardSession } from '@/lib/localProgress';
@@ -44,6 +44,11 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
+/** Stable when card *content* is unchanged; avoids re-shuffle loops if `cards` is a new array every render. */
+function vocabularyCardsContentKey(cards: VocabularyFlashcard[]): string {
+  return cards.map((c) => `${c.latin}\u0000${c.english}\u0000${c.icon}`).join('\n');
+}
+
 export function VocabularyFlashcards({
   title,
   cards: initialCards,
@@ -57,11 +62,21 @@ export function VocabularyFlashcards({
   const [englishFirstMode, setEnglishFirstMode] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const cardsContentKey = useMemo(
+    () => vocabularyCardsContentKey(initialCards),
+    [initialCards]
+  );
+
+  const cardsRef = useRef(initialCards);
+  cardsRef.current = initialCards;
+
+  // Depend only on `cardsContentKey`: the `cards` prop may be a new array every render, which would
+  // retrigger this every time and can freeze the tab. Ref always holds the latest deck for shuffling.
   useLayoutEffect(() => {
-    setDeck(shuffleArray(initialCards));
+    setDeck(shuffleArray(cardsRef.current));
     setIndex(0);
     setIsFlipped(false);
-  }, [initialCards]);
+  }, [cardsContentKey]);
 
   useEffect(() => {
     if (pathname) {
@@ -70,10 +85,10 @@ export function VocabularyFlashcards({
   }, [pathname]);
 
   const reshuffle = useCallback(() => {
-    setDeck(shuffleArray(initialCards));
+    setDeck(shuffleArray(cardsRef.current));
     setIndex(0);
     setIsFlipped(false);
-  }, [initialCards]);
+  }, []);
 
   const goPrev = () => {
     setIndex((i) => (i - 1 + deck.length) % deck.length);
