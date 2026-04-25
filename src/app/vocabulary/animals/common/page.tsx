@@ -11,13 +11,13 @@ export default function CommonAnimals() {
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li><strong>Canis</strong> – Dog</li>
-          <li><strong>Feles</strong> – Cat</li>
+          <li><strong>Fēlīs</strong> – Cat</li>
           <li><strong>Equus</strong> – Horse</li>
           <li><strong>Vacca</strong> – Cow</li>
           <li><strong>Porcus</strong> – Pig</li>
           <li><strong>Ovis</strong> – Sheep</li>
           <li><strong>Capra</strong> – Goat</li>
-          <li><strong>Asinus</strong> – Donkey</li>
+          <li><strong>Asīnus</strong> – Donkey</li>
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

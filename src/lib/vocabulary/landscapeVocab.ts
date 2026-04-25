@@ -2,7 +2,7 @@ import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 
 const empty = '';
 
-/** Flashcard with SVG placeholder (add later as `public/flashcard-icons/landscape/<lemma>.svg`). */
+/** Flashcard with SVG placeholder (add later as `public/flashcard-icons/land-landscape/<lemma>.svg`). */
 export function withEmptyIcon(
   items: { latin: string; english: string }[],
 ): VocabularyFlashcard[] {
@@ -12,17 +12,17 @@ export function withEmptyIcon(
 export const LANDSCAPE_LAND: { latin: string; english: string }[] = [
   { latin: 'terra', english: 'earth / land' },
   { latin: 'mundus', english: 'world' },
-  { latin: 'regio', english: 'region / area' },
+  { latin: 'rēgĭō', english: 'region / area' },
   { latin: 'locus', english: 'place' },
-  { latin: 'campus', english: 'field / plain' },
-  { latin: 'ager', english: 'farmland / field' },
+  { latin: 'cāmpus', english: 'field / plain' },
+  { latin: 'āger', english: 'farmland / field' },
 ];
 
 export const LANDSCAPE_MOUNTAINS: { latin: string; english: string }[] = [
   { latin: 'mōns', english: 'mountain' },
   { latin: 'collis', english: 'hill' },
   { latin: 'vallis', english: 'valley' },
-  { latin: 'saxum', english: 'rock' },
+  { latin: 'sāxum', english: 'rock' },
   { latin: 'rūpēs', english: 'cliff' },
 ];
 
@@ -31,23 +31,23 @@ export const LANDSCAPE_WATER: { latin: string; english: string }[] = [
   { latin: 'fluvius', english: 'river' },
   { latin: 'rīvus', english: 'stream' },
   { latin: 'lacus', english: 'lake' },
-  { latin: 'mare', english: 'sea' },
+  { latin: 'māre', english: 'sea' },
   { latin: 'ūnda', english: 'wave' },
 ];
 
 export const LANDSCAPE_PLANTS: { latin: string; english: string }[] = [
   { latin: 'arbor', english: 'tree' },
-  { latin: 'silva', english: 'forest / wood' },
+  { latin: 'sīlva', english: 'forest / wood' },
   { latin: 'folium', english: 'leaf' },
   { latin: 'flōs', english: 'flower' },
-  { latin: 'herba', english: 'grass / herb' },
+  { latin: 'hērba', english: 'grass / herb' },
 ];
 
 export const LANDSCAPE_SKY: { latin: string; english: string }[] = [
   { latin: 'caelum', english: 'sky' },
   { latin: 'sōl', english: 'sun' },
   { latin: 'lūna', english: 'moon' },
-  { latin: 'stella', english: 'star' },
+  { latin: 'stēlla', english: 'star' },
   { latin: 'nūbēs', english: 'cloud' },
   { latin: 'ventus', english: 'wind' },
   { latin: 'pluvia', english: 'rain' },

@@ -11,10 +11,19 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
   categoryLabel: 'Study & Work',
-  outsideCategoryLatin: ['canis marinus', 'cepa', 'aquila', 'cubiculum', 'lac', 'tigris', 'carota', 'fluvius'],
+  outsideCategoryLatin: [
+    'canis mārīnus',
+    'cēpa',
+    'aquila',
+    'cūbiculum',
+    'lac',
+    'tigris',
+    'cārōta',
+    'fluvius',
+  ],
   entries: [
-    { latin: 'bibliotheca', english: 'library' },
-    { latin: 'officina', english: 'workshop / workroom' },
+    { latin: 'bibliothēca', english: 'library' },
+    { latin: 'officīna', english: 'workshop / workroom' },
   ],
 });
 

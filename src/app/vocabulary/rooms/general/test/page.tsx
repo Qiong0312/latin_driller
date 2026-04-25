@@ -11,12 +11,12 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
   categoryLabel: 'General House Spaces',
-  outsideCategoryLatin: ['delphinus', 'malum', 'cepa', 'aquila', 'lac', 'tigris', 'panis', 'cor'],
+  outsideCategoryLatin: ['Delphīnus', 'mālum', 'cēpa', 'aquila', 'lac', 'tigris', 'pānis', 'cor'],
   entries: [
-    { latin: 'atrium', english: 'main hall / central room' },
-    { latin: 'tablinum', english: 'study / office (Roman house)' },
+    { latin: 'ātrium', english: 'main hall / central room' },
+    { latin: 'tāblīnum', english: 'study / office (Roman house)' },
     { latin: 'cella', english: 'small room / chamber' },
-    { latin: 'camera', english: 'room / chamber' },
+    { latin: 'camēra', english: 'room / chamber' },
   ],
 });
 

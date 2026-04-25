@@ -11,7 +11,7 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "bird"?',
-    options: ['Aquila', 'Avis', 'Corvus', 'Passer'],
+    options: ['Aquila', 'Āvis', 'Corvus', 'Passer'],
     correct: 1
   },
   {

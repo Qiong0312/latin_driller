@@ -10,10 +10,10 @@ export default function Meat() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>caro</strong> – meat</li>
-          <li><strong>porcus</strong> – pork / pig</li>
-          <li><strong>bos</strong> – cow / beef</li>
-          <li><strong>gallina</strong> – chicken</li>
+          <li><strong>cō</strong> – meat</li>
+          <li><strong>pōrcus</strong> – pork / pig</li>
+          <li><strong>bōs</strong> – cow / beef</li>
+          <li><strong>gallīna</strong> – chicken</li>
           <li><strong>piscis</strong> – fish</li>
         </ul>
       </div>

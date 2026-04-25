@@ -1,11 +1,11 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'panis', english: 'Bread', icon: '/flashcard-icons/food/panis.svg' },
-  { latin: 'caseus', english: 'Cheese', icon: '/flashcard-icons/food/caseus.svg' },
-  { latin: 'ovum', english: 'Egg', icon: '/flashcard-icons/food/ovum.svg' },
+  { latin: 'pānis', english: 'Bread', icon: '/flashcard-icons/food/panis.svg' },
+  { latin: 'cāseus', english: 'Cheese', icon: '/flashcard-icons/food/caseus.svg' },
+  { latin: 'ōvum', english: 'Egg', icon: '/flashcard-icons/food/ovum.svg' },
   { latin: 'cibus', english: 'Food', icon: '/flashcard-icons/food/cibus.svg' },
-  { latin: 'cena', english: 'Dinner / meal', icon: '/flashcard-icons/food/cena.svg' },
+  { latin: 'cēna', english: 'Dinner / meal', icon: '/flashcard-icons/food/cena.svg' },
 ];
 
 export default function BasicFoodsFlashcardsPage() {

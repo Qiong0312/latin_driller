@@ -11,16 +11,16 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "mouse"?',
-    options: ['Rana', 'Mus', 'Serpens', 'Formica'],
+    options: ['Rāna', 'Mūs', 'Serpēns', 'Formīca'],
     correct: 1
   },
   {
-    question: 'Which creature is "Rana"?',
+    question: 'Which creature is "Rāna"?',
     options: ['Mouse', 'Frog', 'Snake', 'Ant'],
     correct: 1
   },
   {
-    question: 'What does "Serpens" mean?',
+    question: 'What does "Serpēns" mean?',
     options: ['Mouse', 'Frog', 'Snake', 'Bee'],
     correct: 2
   },
@@ -31,7 +31,7 @@ const questions = [
   },
   {
     question: 'What is the Latin word for "ant"?',
-    options: ['Mus', 'Apis', 'Formica', 'Serpens'],
+    options: ['Mūs', 'Apis', 'Formīca', 'Serpēns'],
     correct: 2
   }
 ];

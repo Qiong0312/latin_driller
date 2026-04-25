@@ -11,22 +11,22 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "fish"?',
-    options: ['Cetus', 'Delphinus', 'Piscis', 'Canis Marinus'],
+    options: ['Cētus', 'Delphīnus', 'Piscis', 'Canis mārīnus'],
     correct: 2
   },
   {
-    question: 'Which animal is "Delphinus"?',
+    question: 'Which animal is "Delphīnus"?',
     options: ['Fish', 'Dolphin', 'Whale', 'Shark'],
     correct: 1
   },
   {
-    question: 'What does "Cetus" mean?',
+    question: 'What does "Cētus" mean?',
     options: ['Fish', 'Dolphin', 'Whale', 'Shark'],
     correct: 2
   },
   {
     question: 'What is the Latin word for "shark"?',
-    options: ['Piscis', 'Delphinus', 'Cetus', 'Canis Marinus'],
+    options: ['Piscis', 'Delphīnus', 'Cētus', 'Canis mārīnus'],
     correct: 3
   }
 ];

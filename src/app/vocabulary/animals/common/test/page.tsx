@@ -11,11 +11,11 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "dog"?',
-    options: ['Canis', 'Feles', 'Equus', 'Vacca'],
+    options: ['Canis', 'Fēlīs', 'Equus', 'Vacca'],
     correct: 0
   },
   {
-    question: 'Which animal is "Feles"?',
+    question: 'Which animal is "Fēlīs"?',
     options: ['Dog', 'Cat', 'Horse', 'Cow'],
     correct: 1
   },
@@ -26,7 +26,7 @@ const questions = [
   },
   {
     question: 'What is the Latin word for "cow"?',
-    options: ['Equus', 'Vacca', 'Asinus', 'Capra'],
+    options: ['Equus', 'Vacca', 'Asīnus', 'Capra'],
     correct: 1
   },
   {
@@ -41,11 +41,11 @@ const questions = [
   },
   {
     question: 'What is the Latin word for "goat"?',
-    options: ['Ovis', 'Capra', 'Asinus', 'Porcus'],
+    options: ['Ovis', 'Capra', 'Asīnus', 'Porcus'],
     correct: 1
   },
   {
-    question: 'Which animal is "Asinus"?',
+    question: 'Which animal is "Asīnus"?',
     options: ['Horse', 'Goat', 'Donkey', 'Sheep'],
     correct: 2
   }

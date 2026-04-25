@@ -10,7 +10,7 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = [
   {
-    question: 'Which animal is "Leo"?',
+    question: 'Which animal is "Lēo"?',
     options: ['Tiger', 'Lion', 'Bear', 'Wolf'],
     correct: 1
   },
@@ -40,7 +40,7 @@ const questions = [
     correct: 2
   },
   {
-    question: 'Which animal is "Elephantus"?',
+    question: 'Which animal is "Ēlēphāntus"?',
     options: ['Deer', 'Elephant', 'Wolf', 'Fox'],
     correct: 1
   }

@@ -11,11 +11,11 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
   categoryLabel: 'Living & Sleeping Areas',
-  outsideCategoryLatin: ['leo', 'malum', 'culina', 'hortus', 'fluvius', 'equus', 'panis', 'nasus'],
+  outsideCategoryLatin: ['lēo', 'mālum', 'culīna', 'hortus', 'fluvius', 'equus', 'pānis', 'nāsus'],
   entries: [
-    { latin: 'cubiculum', english: 'bedroom' },
-    { latin: 'dormitorium', english: 'sleeping room / dormitory' },
-    { latin: 'lectus', english: 'bed' },
+    { latin: 'cūbiculum', english: 'bedroom' },
+    { latin: 'dormitōrium', english: 'sleeping room / dormitory' },
+    { latin: 'lēctus', english: 'bed' },
   ],
 });
 

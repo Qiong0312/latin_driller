@@ -11,16 +11,16 @@ export default function RoomsGeneral() {
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li>
-            <strong>atrium</strong> – main hall / central room
+            <strong>ātrium</strong> – main hall / central room
           </li>
           <li>
-            <strong>tablinum</strong> – study / office (Roman house)
+            <strong>tāblīnum</strong> – study / office (Roman house)
           </li>
           <li>
             <strong>cella</strong> – small room / chamber
           </li>
           <li>
-            <strong>camera</strong> – room / chamber (later Latin, more general)
+            <strong>camēra</strong> – room / chamber (later Latin, more general)
           </li>
         </ul>
       </div>

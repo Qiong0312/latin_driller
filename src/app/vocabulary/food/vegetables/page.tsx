@@ -10,10 +10,10 @@ export default function Vegetables() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>carota</strong> – carrot</li>
-          <li><strong>lactuca</strong> – lettuce</li>
-          <li><strong>cepa</strong> – onion</li>
-          <li><strong>allium</strong> – garlic</li>
+          <li><strong>cārōta</strong> – carrot</li>
+          <li><strong>lactūca</strong> – lettuce</li>
+          <li><strong>cēpa</strong> – onion</li>
+          <li><strong>āllium</strong> – garlic</li>
           <li><strong>fungus</strong> – mushroom</li>
         </ul>
       </div>

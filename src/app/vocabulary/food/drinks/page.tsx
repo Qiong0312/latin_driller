@@ -12,9 +12,9 @@ export default function Drinks() {
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li><strong>aqua</strong> – water</li>
           <li><strong>lac</strong> – milk</li>
-          <li><strong>vinum</strong> – wine</li>
-          <li><strong>mel</strong> – honey</li>
-          <li><strong>sal</strong> – salt</li>
+          <li><strong>vīnum</strong> – wine</li>
+          <li><strong>mēl</strong> – honey</li>
+          <li><strong>sāl</strong> – salt</li>
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

@@ -10,12 +10,12 @@ export default function Fruits() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>malum</strong> – apple</li>
-          <li><strong>pirum</strong> – pear</li>
-          <li><strong>uva</strong> – grape</li>
-          <li><strong>ficus</strong> – fig</li>
-          <li><strong>cerasum</strong> – cherry</li>
-          <li><strong>prunum</strong> – plum</li>
+          <li><strong>mālum</strong> – apple</li>
+          <li><strong>pīrum</strong> – pear</li>
+          <li><strong>ūva</strong> – grape</li>
+          <li><strong>fīcus</strong> – fig</li>
+          <li><strong>cērāsum</strong> – cherry</li>
+          <li><strong>prūnum</strong> – plum</li>
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

@@ -11,27 +11,27 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "bread"?',
-    options: ['panis', 'caseus', 'ovum', 'cibus'],
+    options: ['pānis', 'cāseus', 'ōvum', 'cibus'],
     correct: 0
   },
   {
-    question: 'Which food is "caseus"?',
+    question: 'Which food is "cāseus"?',
     options: ['bread', 'cheese', 'egg', 'food'],
     correct: 1
   },
   {
-    question: 'What does "ovum" mean?',
+    question: 'What does "ōvum" mean?',
     options: ['bread', 'cheese', 'egg', 'meal'],
     correct: 2
   },
   {
     question: 'What is the Latin word for "food"?',
-    options: ['panis', 'cibus', 'cena', 'caseus'],
+    options: ['pānis', 'cibus', 'cēna', 'cāseus'],
     correct: 1
   },
   {
     question: 'Which word means "dinner" or "meal"?',
-    options: ['panis', 'cibus', 'cena', 'ovum'],
+    options: ['pānis', 'cibus', 'cēna', 'ōvum'],
     correct: 2
   }
 ];

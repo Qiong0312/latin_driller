@@ -11,21 +11,21 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "heart"?',
-    options: ['pulmo', 'cor', 'hepar', 'ren'],
+    options: ['pulmō', 'cor', 'hēpar', 'rēn'],
     correct: 1
   },
   {
-    question: 'Which organ is "pulmo"?',
+    question: 'Which organ is "pulmō"?',
     options: ['heart', 'lung', 'liver', 'kidney'],
     correct: 1
   },
   {
-    question: 'What does "hepar" mean?',
+    question: 'What does "hēpar" mean?',
     options: ['lung', 'liver', 'kidney', 'heart'],
     correct: 1
   },
   {
-    question: 'Which organ is "ren"?',
+    question: 'Which organ is "rēn"?',
     options: ['heart', 'lung', 'liver', 'kidney'],
     correct: 3
   }

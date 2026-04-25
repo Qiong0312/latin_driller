@@ -11,11 +11,11 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "face"?',
-    options: ['frons', 'facies', 'oculus', 'nasus'],
+    options: ['frōns', 'faciēs', 'oculus', 'nāsus'],
     correct: 1
   },
   {
-    question: 'Which part is "frons"?',
+    question: 'Which part is "frōns"?',
     options: ['face', 'forehead', 'eye', 'nose'],
     correct: 1
   },
@@ -25,17 +25,17 @@ const questions = [
     correct: 1
   },
   {
-    question: 'Which body part is "cilium"?',
+    question: 'Which body part is "cīlium"?',
     options: ['eye', 'eyelash', 'nose', 'ear'],
     correct: 1
   },
   {
     question: 'What is the Latin word for "nose"?',
-    options: ['frons', 'oculus', 'nasus', 'aures'],
+    options: ['frōns', 'oculus', 'nāsus', 'aurēs'],
     correct: 2
   },
   {
-    question: 'Which part is "aures"?',
+    question: 'Which part is "aurēs"?',
     options: ['nose', 'ear', 'jaw', 'tooth'],
     correct: 1
   },
@@ -45,13 +45,13 @@ const questions = [
     correct: 1
   },
   {
-    question: 'Which part is "dens"?',
+    question: 'Which part is "dēns"?',
     options: ['jaw', 'tooth', 'tongue', 'lip'],
     correct: 1
   },
   {
     question: 'What is the Latin word for "tongue"?',
-    options: ['maxilla', 'dens', 'lingua', 'labium'],
+    options: ['maxilla', 'dēns', 'lingua', 'labium'],
     correct: 2
   }
 ];

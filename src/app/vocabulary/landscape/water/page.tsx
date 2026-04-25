@@ -7,7 +7,7 @@ const items: [string, string][] = [
   ["fluvius", "river"],
   ["rīvus", "stream"],
   ["lacus", "lake"],
-  ["mare", "sea"],
+  ["māre", "sea"],
   ["ūnda", "wave"],
 ];
 

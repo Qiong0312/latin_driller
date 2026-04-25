@@ -2,7 +2,7 @@ import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
   { latin: 'hortus', english: 'garden', icon: '/flashcard-icons/rooms/hortus.svg' },
-  { latin: 'peristylium', english: 'courtyard with columns', icon: '/flashcard-icons/rooms/peristylium.svg' },
+  { latin: 'peristȳlium', english: 'courtyard with columns', icon: '/flashcard-icons/rooms/peristylium.svg' },
 ];
 
 export default function RoomsOutdoorFlashcardsPage() {

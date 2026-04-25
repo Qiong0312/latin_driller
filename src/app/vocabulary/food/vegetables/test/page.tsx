@@ -11,27 +11,27 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "carrot"?',
-    options: ['lactuca', 'carota', 'cepa', 'allium'],
+    options: ['lactūca', 'cārōta', 'cēpa', 'āllium'],
     correct: 1
   },
   {
-    question: 'Which vegetable is "lactuca"?',
+    question: 'Which vegetable is "lactūca"?',
     options: ['carrot', 'lettuce', 'onion', 'garlic'],
     correct: 1
   },
   {
-    question: 'What does "cepa" mean?',
+    question: 'What does "cēpa" mean?',
     options: ['lettuce', 'garlic', 'onion', 'mushroom'],
     correct: 2
   },
   {
-    question: 'Which vegetable is "allium"?',
+    question: 'Which vegetable is "āllium"?',
     options: ['onion', 'garlic', 'carrot', 'lettuce'],
     correct: 1
   },
   {
     question: 'What is the Latin word for "mushroom"?',
-    options: ['carota', 'cepa', 'fungus', 'lactuca'],
+    options: ['cārōta', 'cēpa', 'fungus', 'lactūca'],
     correct: 2
   }
 ];

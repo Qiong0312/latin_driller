@@ -11,7 +11,7 @@ export type VocabularyFlashcard = {
   /**
    * Visual on the answer side: emoji text, or an image.
    * Use an image when no emoji fits: put files in `public/flashcard-icons/{category}/` and reference
-   * e.g. `/flashcard-icons/landscape/terra.svg` (leading `/`), a full `https://...` URL, or a `data:` URI.
+   * e.g. `/flashcard-icons/land-landscape/terra.svg` (leading `/`), a full `https://...` URL, or a `data:` URI.
    */
   icon: string;
 };

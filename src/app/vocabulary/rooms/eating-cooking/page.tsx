@@ -11,10 +11,10 @@ export default function RoomsEatingCooking() {
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li>
-            <strong>culina</strong> – kitchen
+            <strong>culīna</strong> – kitchen
           </li>
           <li>
-            <strong>triclinium</strong> – dining room (Roman style dining room)
+            <strong>trīclīnium</strong> – dining room (Roman style dining room)
           </li>
         </ul>
       </div>

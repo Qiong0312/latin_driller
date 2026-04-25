@@ -14,7 +14,7 @@ export default function RoomsOutdoor() {
             <strong>hortus</strong> – garden
           </li>
           <li>
-            <strong>peristylium</strong> – courtyard with columns
+            <strong>peristȳlium</strong> – courtyard with columns
           </li>
         </ul>
       </div>

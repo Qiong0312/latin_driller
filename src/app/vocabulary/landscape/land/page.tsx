@@ -5,10 +5,10 @@ import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 const items: [string, string][] = [
   ["terra", "earth / land"],
   ["mundus", "world"],
-  ["regio", "region / area"],
+  ["rēgĭō", "region / area"],
   ["locus", "place"],
-  ["campus", "field / plain"],
-  ["ager", "farmland / field"],
+  ["cāmpus", "field / plain"],
+  ["āger", "farmland / field"],
 ];
 
 export default function LandscapeLandPage() {

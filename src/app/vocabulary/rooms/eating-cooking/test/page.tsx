@@ -11,10 +11,10 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
   categoryLabel: 'Eating & Cooking',
-  outsideCategoryLatin: ['leo', 'cubiculum', 'hortus', 'canis marinus', 'digitus', 'panis', 'equus', 'nubes'],
+  outsideCategoryLatin: ['lēo', 'cūbiculum', 'hortus', 'canis mārīnus', 'digitus', 'pānis', 'equus', 'nūbēs'],
   entries: [
-    { latin: 'culina', english: 'kitchen' },
-    { latin: 'triclinium', english: 'dining room (Roman style)' },
+    { latin: 'culīna', english: 'kitchen' },
+    { latin: 'trīclīnium', english: 'dining room (Roman style)' },
   ],
 });
 

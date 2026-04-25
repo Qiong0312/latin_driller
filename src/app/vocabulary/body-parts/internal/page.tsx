@@ -11,9 +11,9 @@ export default function InternalBodyParts() {
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li><strong>cor</strong> – heart</li>
-          <li><strong>pulmo</strong> – lung</li>
-          <li><strong>hepar</strong> – liver</li>
-          <li><strong>ren</strong> – kidney</li>
+          <li><strong>pulmō</strong> – lung</li>
+          <li><strong>hēpar</strong> – liver</li>
+          <li><strong>rēn</strong> – kidney</li>
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

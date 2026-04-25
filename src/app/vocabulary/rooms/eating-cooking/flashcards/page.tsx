@@ -1,8 +1,8 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'culina', english: 'kitchen', icon: '/flashcard-icons/rooms/culina.svg' },
-  { latin: 'triclinium', english: 'dining room (Roman style)', icon: '/flashcard-icons/rooms/triclinium.svg' },
+  { latin: 'culīna', english: 'kitchen', icon: '/flashcard-icons/rooms/culina.svg' },
+  { latin: 'trīclīnium', english: 'dining room (Roman style)', icon: '/flashcard-icons/rooms/triclinium.svg' },
 ];
 
 export default function RoomsEatingCookingFlashcardsPage() {

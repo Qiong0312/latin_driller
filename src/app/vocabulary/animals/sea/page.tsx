@@ -11,9 +11,9 @@ export default function SeaAnimals() {
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li><strong>Piscis</strong> – Fish</li>
-          <li><strong>Delphinus</strong> – Dolphin</li>
-          <li><strong>Cetus</strong> – Whale</li>
-          <li><strong>Canis Marinus</strong> – Shark</li>
+          <li><strong>Delphīnus</strong> – Dolphin</li>
+          <li><strong>Cētus</strong> – Whale</li>
+          <li><strong>Canis mārīnus</strong> – Shark</li>
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

@@ -10,11 +10,11 @@ export default function BasicFoods() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>panis</strong> – bread</li>
-          <li><strong>caseus</strong> – cheese</li>
-          <li><strong>ovum</strong> – egg</li>
+          <li><strong>pānis</strong> – bread</li>
+          <li><strong>cāseus</strong> – cheese</li>
+          <li><strong>ōvum</strong> – egg</li>
           <li><strong>cibus</strong> – food</li>
-          <li><strong>cena</strong> – dinner / meal</li>
+          <li><strong>cēna</strong> – dinner / meal</li>
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

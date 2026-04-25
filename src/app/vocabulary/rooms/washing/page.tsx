@@ -14,7 +14,7 @@ export default function RoomsWashing() {
             <strong>balneum</strong> – bath / bathroom
           </li>
           <li>
-            <strong>lavatorium</strong> – washing room
+            <strong>lāvātōrium</strong> – washing room
           </li>
         </ul>
       </div>

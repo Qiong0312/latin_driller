@@ -6,11 +6,11 @@ import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 const questions: QuizQuestion[] = [
   {
     question: 'What is the Latin word for "body"?',
-    options: ['corpus', 'caput', 'collum', 'pectus'],
+    options: ['corpus', 'cāput', 'collum', 'pectus'],
     correct: 0,
   },
   {
-    question: 'Which body part is "caput"?',
+    question: 'Which body part is "cāput"?',
     options: ['neck', 'head', 'shoulder', 'chest'],
     correct: 1,
   },
@@ -26,11 +26,11 @@ const questions: QuizQuestion[] = [
   },
   {
     question: 'What is the Latin word for "arm"?',
-    options: ['umerus', 'brachium', 'manus', 'digitus'],
+    options: ['umerus', 'brāchium', 'mānus', 'digitus'],
     correct: 1,
   },
   {
-    question: 'Which body part is "manus"?',
+    question: 'Which body part is "mānus"?',
     options: ['arm', 'hand', 'finger', 'chest'],
     correct: 1,
   },
@@ -46,7 +46,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: 'What is the Latin word for "belly" or "stomach"?',
-    options: ['pectus', 'venter', 'tergum', 'crus'],
+    options: ['pectus', 'venter', 'tergum', 'crūs'],
     correct: 1,
   },
   {
@@ -55,18 +55,18 @@ const questions: QuizQuestion[] = [
     correct: 1,
   },
   {
-    question: 'What does "crus" mean?',
+    question: 'What does "crūs" mean?',
     options: ['back', 'leg', 'foot', 'body'],
     correct: 1,
   },
   {
     question: 'What is the Latin word for "foot"?',
-    options: ['crus', 'pes', 'digitus', 'manus'],
+    options: ['crūs', 'pēs', 'digitus', 'mānus'],
     correct: 1,
   },
   {
     question: 'What is the Latin word for "face"?',
-    options: ['caput', 'facies', 'oculus', 'auris'],
+    options: ['cāput', 'faciēs', 'oculus', 'āuris'],
     correct: 1,
   },
   {
@@ -75,22 +75,22 @@ const questions: QuizQuestion[] = [
     correct: 1,
   },
   {
-    question: 'What does "auris" mean?',
+    question: 'What does "āuris" mean?',
     options: ['eye', 'nose', 'ear', 'mouth'],
     correct: 2,
   },
   {
-    question: 'Which facial feature is "nasus"?',
+    question: 'Which facial feature is "nāsus"?',
     options: ['mouth', 'nose', 'tooth', 'tongue'],
     correct: 1,
   },
   {
     question: 'What is the Latin word for "mouth"?',
-    options: ['nasus', 'os', 'dens', 'lingua'],
+    options: ['nāsus', 'os', 'dēns', 'lingua'],
     correct: 1,
   },
   {
-    question: 'Which facial feature is "dens"?',
+    question: 'Which facial feature is "dēns"?',
     options: ['tongue', 'lip', 'tooth', 'forehead'],
     correct: 2,
   },
@@ -106,7 +106,7 @@ const questions: QuizQuestion[] = [
   },
   {
     question: 'What is the Latin word for "forehead"?',
-    options: ['labrum', 'frons', 'facies', 'oculus'],
+    options: ['labrum', 'frōns', 'faciēs', 'oculus'],
     correct: 1,
   },
   {

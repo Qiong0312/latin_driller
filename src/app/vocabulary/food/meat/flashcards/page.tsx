@@ -1,10 +1,10 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'caro', english: 'Meat', icon: '/flashcard-icons/food/caro.svg' },
-  { latin: 'porcus', english: 'Pork / pig', icon: '/flashcard-icons/food/porcus-pork.svg' },
-  { latin: 'bos', english: 'Cow / beef', icon: '/flashcard-icons/food/bos.svg' },
-  { latin: 'gallina', english: 'Chicken', icon: '/flashcard-icons/food/gallina-chicken.svg' },
+  { latin: 'cō', english: 'Meat', icon: '/flashcard-icons/food/caro.svg' },
+  { latin: 'pōrcus', english: 'Pork / pig', icon: '/flashcard-icons/food/porcus-pork.svg' },
+  { latin: 'bōs', english: 'Cow / beef', icon: '/flashcard-icons/food/bos.svg' },
+  { latin: 'gallīna', english: 'Chicken', icon: '/flashcard-icons/food/gallina-chicken.svg' },
   { latin: 'piscis', english: 'Fish', icon: '/flashcard-icons/food/piscis-fish.svg' },
 ];
 

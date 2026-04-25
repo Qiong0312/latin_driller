@@ -2,9 +2,9 @@ import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
   { latin: 'cor', english: 'Heart', icon: '/flashcard-icons/body-parts/cor.svg' },
-  { latin: 'pulmo', english: 'Lung', icon: '/flashcard-icons/body-parts/pulmo.svg' },
-  { latin: 'hepar', english: 'Liver', icon: '/flashcard-icons/body-parts/hepar.svg' },
-  { latin: 'ren', english: 'Kidney', icon: '/flashcard-icons/body-parts/ren.svg' },
+  { latin: 'pulmō', english: 'Lung', icon: '/flashcard-icons/body-parts/pulmo.svg' },
+  { latin: 'hēpar', english: 'Liver', icon: '/flashcard-icons/body-parts/hepar.svg' },
+  { latin: 'rēn', english: 'Kidney', icon: '/flashcard-icons/body-parts/ren.svg' },
 ];
 
 export default function InternalOrgansFlashcardsPage() {

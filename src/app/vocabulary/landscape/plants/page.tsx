@@ -4,10 +4,10 @@ import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 
 const items: [string, string][] = [
   ["arbor", "tree"],
-  ["silva", "forest / wood"],
+  ["sīlva", "forest / wood"],
   ["folium", "leaf"],
   ["flōs", "flower"],
-  ["herba", "grass / herb"],
+  ["hērba", "grass / herb"],
 ];
 
 export default function LandscapePlantsPage() {

@@ -6,7 +6,7 @@ const items: [string, string][] = [
   ["mōns", "mountain"],
   ["collis", "hill"],
   ["vallis", "valley"],
-  ["saxum", "rock"],
+  ["sāxum", "rock"],
   ["rūpēs", "cliff"],
 ];
 

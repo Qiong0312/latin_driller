@@ -10,14 +10,14 @@ export default function FaceBodyParts() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>facies</strong> – face</li>
-          <li><strong>frons</strong> – forehead</li>
+          <li><strong>faciēs</strong> – face</li>
+          <li><strong>frōns</strong> – forehead</li>
           <li><strong>oculus</strong> – eye</li>
-          <li><strong>cilium</strong> – eyelash</li>
-          <li><strong>nasus</strong> – nose</li>
-          <li><strong>aures</strong> – ears</li>
+          <li><strong>cīlium</strong> – eyelash</li>
+          <li><strong>nāsus</strong> – nose</li>
+          <li><strong>aurēs</strong> – ears</li>
           <li><strong>maxilla</strong> – jaw</li>
-          <li><strong>dents</strong> – tooth / teeth</li>
+          <li><strong>dēntēs</strong> – tooth / teeth</li>
           <li><strong>lingua</strong> – tongue</li>
         </ul>
       </div>

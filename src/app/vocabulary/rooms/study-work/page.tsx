@@ -11,10 +11,10 @@ export default function RoomsStudyWork() {
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li>
-            <strong>bibliotheca</strong> – library
+            <strong>bibliothēca</strong> – library
           </li>
           <li>
-            <strong>officina</strong> – workshop / workroom
+            <strong>officīna</strong> – workshop / workroom
           </li>
         </ul>
       </div>

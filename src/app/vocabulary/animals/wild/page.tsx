@@ -10,13 +10,13 @@ export default function WildAnimals() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>Leo</strong> – Lion</li>
+          <li><strong>Lēo</strong> – Lion</li>
           <li><strong>Tigris</strong> – Tiger</li>
           <li><strong>Ursus</strong> – Bear</li>
           <li><strong>Lupus</strong> – Wolf</li>
           <li><strong>Vulpes</strong> – Fox</li>
           <li><strong>Cervus</strong> – Deer</li>
-          <li><strong>Elephantus</strong> – Elephant</li>
+          <li><strong>Ēlēphāntus</strong> – Elephant</li>
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

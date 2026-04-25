@@ -10,7 +10,7 @@ export default function Birds() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>Avis</strong> – Bird</li>
+          <li><strong>Āvis</strong> – Bird</li>
           <li><strong>Aquila</strong> – Eagle</li>
           <li><strong>Columba</strong> – Dove / Pigeon</li>
           <li><strong>Corvus</strong> – Crow</li>

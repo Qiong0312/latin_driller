@@ -7,53 +7,62 @@ import { buildVocabularyQuestionBank, type QuizQuestion } from '@/lib/buildVocab
 export const ROOMS_CATEGORY_ALL_QUESTIONS: QuizQuestion[] = [
   ...buildVocabularyQuestionBank({
     categoryLabel: 'Living & Sleeping Areas',
-    outsideCategoryLatin: ['leo', 'malum', 'culina', 'hortus', 'fluvius', 'equus', 'panis', 'nasus'],
+    outsideCategoryLatin: ['lēo', 'mālum', 'culīna', 'hortus', 'fluvius', 'equus', 'pānis', 'nāsus'],
     entries: [
-      { latin: 'cubiculum', english: 'bedroom' },
-      { latin: 'dormitorium', english: 'sleeping room / dormitory' },
-      { latin: 'lectus', english: 'bed' },
+      { latin: 'cūbiculum', english: 'bedroom' },
+      { latin: 'dormitōrium', english: 'sleeping room / dormitory' },
+      { latin: 'lēctus', english: 'bed' },
     ],
   }),
   ...buildVocabularyQuestionBank({
     categoryLabel: 'Eating & Cooking',
-    outsideCategoryLatin: ['leo', 'cubiculum', 'hortus', 'canis marinus', 'digitus', 'panis', 'equus', 'nubes'],
+    outsideCategoryLatin: ['lēo', 'cūbiculum', 'hortus', 'canis mārīnus', 'digitus', 'pānis', 'equus', 'nūbēs'],
     entries: [
-      { latin: 'culina', english: 'kitchen' },
-      { latin: 'triclinium', english: 'dining room (Roman style)' },
+      { latin: 'culīna', english: 'kitchen' },
+      { latin: 'trīclīnium', english: 'dining room (Roman style)' },
     ],
   }),
   ...buildVocabularyQuestionBank({
     categoryLabel: 'General House Spaces',
-    outsideCategoryLatin: ['delphinus', 'malum', 'cepa', 'aquila', 'lac', 'tigris', 'panis', 'cor'],
+    outsideCategoryLatin: ['Delphīnus', 'mālum', 'cēpa', 'aquila', 'lac', 'tigris', 'pānis', 'cor'],
     entries: [
-      { latin: 'atrium', english: 'main hall / central room' },
-      { latin: 'tablinum', english: 'study / office (Roman house)' },
+      { latin: 'ātrium', english: 'main hall / central room' },
+      { latin: 'tāblīnum', english: 'study / office (Roman house)' },
       { latin: 'cella', english: 'small room / chamber' },
-      { latin: 'camera', english: 'room / chamber' },
+      { latin: 'camēra', english: 'room / chamber' },
     ],
   }),
   ...buildVocabularyQuestionBank({
     categoryLabel: 'Washing & Bathing',
-    outsideCategoryLatin: ['leo', 'culina', 'aquila', 'uva', 'cor', 'lupus', 'liber', 'luna'],
+    outsideCategoryLatin: ['lēo', 'culīna', 'aquila', 'ūva', 'cor', 'lupus', 'līber', 'lūna'],
     entries: [
       { latin: 'balneum', english: 'bath / bathroom' },
-      { latin: 'lavatorium', english: 'washing room' },
+      { latin: 'lāvātōrium', english: 'washing room' },
     ],
   }),
   ...buildVocabularyQuestionBank({
     categoryLabel: 'Study & Work',
-    outsideCategoryLatin: ['canis marinus', 'cepa', 'aquila', 'cubiculum', 'lac', 'tigris', 'carota', 'fluvius'],
+    outsideCategoryLatin: [
+      'canis mārīnus',
+      'cēpa',
+      'aquila',
+      'cūbiculum',
+      'lac',
+      'tigris',
+      'cārōta',
+      'fluvius',
+    ],
     entries: [
-      { latin: 'bibliotheca', english: 'library' },
-      { latin: 'officina', english: 'workshop / workroom' },
+      { latin: 'bibliothēca', english: 'library' },
+      { latin: 'officīna', english: 'workshop / workroom' },
     ],
   }),
   ...buildVocabularyQuestionBank({
     categoryLabel: 'Outdoor / Extra Spaces',
-    outsideCategoryLatin: ['leo', 'culina', 'aquila', 'cubiculum', 'lac', 'digitus', 'panis', 'lupus'],
+    outsideCategoryLatin: ['lēo', 'culīna', 'aquila', 'cūbiculum', 'lac', 'digitus', 'pānis', 'lupus'],
     entries: [
       { latin: 'hortus', english: 'garden' },
-      { latin: 'peristylium', english: 'courtyard with columns' },
+      { latin: 'peristȳlium', english: 'courtyard with columns' },
     ],
   }),
 ];

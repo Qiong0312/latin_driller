@@ -11,10 +11,10 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
   categoryLabel: 'Washing & Bathing',
-  outsideCategoryLatin: ['leo', 'culina', 'aquila', 'uva', 'cor', 'lupus', 'liber', 'luna'],
+  outsideCategoryLatin: ['lēo', 'culīna', 'aquila', 'ūva', 'cor', 'lupus', 'līber', 'lūna'],
   entries: [
     { latin: 'balneum', english: 'bath / bathroom' },
-    { latin: 'lavatorium', english: 'washing room' },
+    { latin: 'lāvātōrium', english: 'washing room' },
   ],
 });
 

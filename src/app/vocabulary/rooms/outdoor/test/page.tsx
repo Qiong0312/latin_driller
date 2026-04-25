@@ -11,10 +11,10 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 
 const questions = buildVocabularyQuestionBank({
   categoryLabel: 'Outdoor / Extra Spaces',
-  outsideCategoryLatin: ['leo', 'culina', 'aquila', 'cubiculum', 'lac', 'digitus', 'panis', 'lupus'],
+  outsideCategoryLatin: ['lēo', 'culīna', 'aquila', 'cūbiculum', 'lac', 'digitus', 'pānis', 'lupus'],
   entries: [
     { latin: 'hortus', english: 'garden' },
-    { latin: 'peristylium', english: 'courtyard with columns' },
+    { latin: 'peristȳlium', english: 'courtyard with columns' },
   ],
 });
 

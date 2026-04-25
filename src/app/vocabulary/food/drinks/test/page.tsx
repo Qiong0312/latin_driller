@@ -11,7 +11,7 @@ import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 const questions = [
   {
     question: 'What is the Latin word for "water"?',
-    options: ['lac', 'vinum', 'aqua', 'mel'],
+    options: ['lac', 'vīnum', 'aqua', 'mēl'],
     correct: 2
   },
   {
@@ -20,18 +20,18 @@ const questions = [
     correct: 1
   },
   {
-    question: 'What does "vinum" mean?',
+    question: 'What does "vīnum" mean?',
     options: ['milk', 'wine', 'honey', 'salt'],
     correct: 1
   },
   {
-    question: 'Which item is "mel"?',
+    question: 'Which item is "mēl"?',
     options: ['wine', 'salt', 'honey', 'water'],
     correct: 2
   },
   {
     question: 'What is the Latin word for "salt"?',
-    options: ['aqua', 'lac', 'vinum', 'sal'],
+    options: ['aqua', 'lac', 'vīnum', 'sāl'],
     correct: 3
   }
 ];

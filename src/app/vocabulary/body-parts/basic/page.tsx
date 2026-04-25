@@ -11,17 +11,17 @@ export default function BasicBodyParts() {
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li><strong>corpus</strong> – body</li>
-          <li><strong>caput</strong> – head</li>
+          <li><strong>cāput</strong> – head</li>
           <li><strong>collum</strong> – neck</li>
           <li><strong>umerus</strong> – shoulder</li>
-          <li><strong>brachium</strong> – arm</li>
-          <li><strong>manus</strong> – hand</li>
+          <li><strong>brāchium</strong> – arm</li>
+          <li><strong>mānus</strong> – hand</li>
           <li><strong>digitus</strong> – finger</li>
           <li><strong>pectus</strong> – chest</li>
           <li><strong>venter</strong> – belly / stomach</li>
           <li><strong>tergum</strong> – back</li>
-          <li><strong>crus</strong> – leg</li>
-          <li><strong>pes</strong> – foot</li>
+          <li><strong>crūs</strong> – leg</li>
+          <li><strong>pēs</strong> – foot</li>
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

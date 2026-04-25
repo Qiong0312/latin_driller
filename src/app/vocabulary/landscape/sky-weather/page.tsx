@@ -6,7 +6,7 @@ const items: [string, string][] = [
   ["caelum", "sky"],
   ["sōl", "sun"],
   ["lūna", "moon"],
-  ["stella", "star"],
+  ["stēlla", "star"],
   ["nūbēs", "cloud"],
   ["ventus", "wind"],
   ["pluvia", "rain"],

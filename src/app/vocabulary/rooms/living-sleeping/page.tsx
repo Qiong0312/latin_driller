@@ -11,13 +11,13 @@ export default function RoomsLivingSleeping() {
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
           <li>
-            <strong>cubiculum</strong> – bedroom
+            <strong>cūbiculum</strong> – bedroom
           </li>
           <li>
-            <strong>dormitorium</strong> – sleeping room / dormitory
+            <strong>dormitōrium</strong> – sleeping room / dormitory
           </li>
           <li>
-            <strong>lectus</strong> – bed (not a room, but useful)
+            <strong>lēctus</strong> – bed (not a room, but useful)
           </li>
         </ul>
       </div>

@@ -1,7 +1,7 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
 
 const cards = [
-  { latin: 'Avis', english: 'Bird', icon: '/flashcard-icons/animals/avis.svg' },
+  { latin: 'Āvis', english: 'Bird', icon: '/flashcard-icons/animals/avis.svg' },
   { latin: 'Aquila', english: 'Eagle', icon: '/flashcard-icons/animals/aquila.svg' },
   { latin: 'Columba', english: 'Dove / pigeon', icon: '/flashcard-icons/animals/columba.svg' },
   { latin: 'Corvus', english: 'Crow', icon: '/flashcard-icons/animals/corvus.svg' },
