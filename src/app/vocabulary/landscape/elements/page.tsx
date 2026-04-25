@@ -10,7 +10,7 @@ const items: [string, string][] = [
 
 export default function LandscapeElementsPage() {
   return (
-    <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+    <div className="app-panel">
       <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">🔥 Natural elements</h1>
       <ul className="list-inside list-disc space-y-2 pl-4 text-lg text-zinc-800 dark:text-zinc-200">
         {items.map(([la, en]) => (

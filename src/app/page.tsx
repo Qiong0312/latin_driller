@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+    <div className="app-panel">
       <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">
         Welcome to Latin Driller
       </h1>

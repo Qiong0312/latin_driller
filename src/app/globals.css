@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .app-panel {
+    @apply w-full max-w-4xl bg-white p-4 shadow-lg dark:bg-black sm:p-6 md:p-8;
+    @apply mx-2 rounded-lg sm:mx-4;
+  }
+}

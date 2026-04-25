@@ -107,7 +107,7 @@ export default function BirdsTestPage() {
 
   if (shuffledQuestions.length === 0) {
     return (
-      <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+      <div className="app-panel">
         <p className="text-center">Loading questions...</p>
       </div>
     );
@@ -115,7 +115,7 @@ export default function BirdsTestPage() {
 
   if (scored) {
     return (
-      <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+      <div className="app-panel">
         <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">
           Birds Test Results
         </h1>
@@ -147,7 +147,7 @@ export default function BirdsTestPage() {
   const currentQ = getCurrentQuestion();
 
   return (
-    <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+    <div className="app-panel">
       <h1 className="text-4xl font-bold text-center mb-4 text-black dark:text-zinc-50">
         Birds Test
       </h1>

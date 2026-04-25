@@ -109,7 +109,7 @@ export function VocabularyFlashcards({
 
   if (!current) {
     return (
-      <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+      <div className="app-panel">
         <p className="text-center text-zinc-800 dark:text-zinc-200">Loading flashcards…</p>
       </div>
     );
@@ -155,7 +155,7 @@ export function VocabularyFlashcards({
   const backContent = englishFirstMode ? latinSide : englishSide;
 
   return (
-    <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+    <div className="app-panel">
       <h1 className="text-4xl font-bold text-center mb-2 text-black dark:text-zinc-50">{title}</h1>
       <p className="text-center text-sm text-zinc-600 dark:text-zinc-400 mb-5">
         Order is randomized each visit. Use “Shuffle deck” for a new order. Use “Flip all cards” to flip all cards.

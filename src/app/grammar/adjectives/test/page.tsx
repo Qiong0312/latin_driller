@@ -147,7 +147,7 @@ export default function AdjectivesTestPage() {
 
   if (shuffledQuestions.length === 0) {
     return (
-      <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+      <div className="app-panel">
         <p className="text-center">Loading questions...</p>
       </div>
     );
@@ -155,7 +155,7 @@ export default function AdjectivesTestPage() {
 
   if (scored) {
     return (
-      <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+      <div className="app-panel">
         <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">Adjectives - Test results</h1>
         <p className="text-2xl font-bold text-center mb-8 text-black dark:text-zinc-50">
           Score: {score} out of {shuffledQuestions.length}
@@ -193,7 +193,7 @@ export default function AdjectivesTestPage() {
   const currentQ = getCurrentQuestion();
 
   return (
-    <div className="w-full max-w-4xl p-8 bg-white dark:bg-black shadow-lg rounded-lg mx-4">
+    <div className="app-panel">
       <h1 className="text-4xl font-bold text-center mb-4 text-black dark:text-zinc-50">Adjectives - Quiz</h1>
       <div className="mb-4">
         <div className="h-2 w-full rounded-full bg-zinc-100 dark:bg-zinc-800">
