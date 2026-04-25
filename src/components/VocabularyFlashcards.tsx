@@ -115,35 +115,37 @@ export function VocabularyFlashcards({
     );
   }
 
+  const latinTextClass =
+    "w-full min-w-0 max-w-full break-words text-balance text-center font-bold leading-snug tracking-wide [overflow-wrap:anywhere] " +
+    "text-2xl text-black min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl dark:text-zinc-50";
+
   const latinSide = (
-    <div className="flex h-full min-h-[320px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
-      <div className="flex min-h-0 flex-1 items-center justify-center">
-        <p className="w-full text-center text-5xl font-bold leading-tight tracking-wide text-black sm:text-6xl dark:text-zinc-50">
-          {current.latin}
-        </p>
+    <div className="flex h-full min-h-[300px] w-full min-w-0 flex-col px-3 py-4 sm:min-h-[320px] sm:px-6 sm:py-6">
+      <div className="flex min-h-0 min-w-0 flex-1 items-center justify-center overflow-x-hidden overflow-y-auto overscroll-contain">
+        <p className={latinTextClass}>{current.latin}</p>
       </div>
       <p className="shrink-0 pt-1 text-center text-xs text-zinc-500 dark:text-zinc-400">click to flip</p>
     </div>
   );
 
   const englishSide = (
-    <div className="flex h-full min-h-[320px] w-full min-w-0 flex-col px-4 py-5 sm:px-6 sm:py-6">
-      <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-3 text-center sm:gap-4">
-        <div className="flex min-w-0 shrink-0 items-center justify-center" aria-hidden>
+    <div className="flex h-full min-h-[300px] w-full min-w-0 flex-col px-3 py-4 sm:min-h-[320px] sm:px-6 sm:py-6">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center gap-2 overflow-x-hidden text-center sm:gap-4">
+        <div className="flex min-h-0 min-w-0 max-w-full shrink-0 items-center justify-center" aria-hidden>
           {isVocabularyFlashcardImageIcon(current.icon) ? (
             /* Eager load: answer face is a 3D back; lazy images often never load. */
             <img
               src={current.icon}
               alt=""
-              className="h-auto max-h-28 w-auto min-w-0 max-w-[min(100%,20rem)] object-contain [transform:translateZ(1px)] sm:max-h-36 dark:invert"
+              className="h-auto max-h-20 w-auto min-w-0 max-w-[min(100%,20rem)] object-contain [transform:translateZ(1px)] min-[400px]:max-h-24 sm:max-h-32 md:max-h-36 dark:invert"
               loading="eager"
               decoding="async"
             />
           ) : (
-            <span className="text-8xl leading-none sm:text-9xl">{current.icon}</span>
+            <span className="max-w-full text-5xl leading-none sm:text-7xl md:text-8xl lg:text-9xl">{current.icon}</span>
           )}
         </div>
-        <p className="max-w-full text-3xl font-semibold leading-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
+        <p className="max-w-full min-w-0 break-words text-balance text-lg font-semibold leading-snug [overflow-wrap:anywhere] text-zinc-800 sm:text-2xl md:text-3xl dark:text-zinc-100">
           {current.english}
         </p>
       </div>
@@ -223,19 +225,19 @@ export function VocabularyFlashcards({
           className="min-w-0 max-w-md flex-1 cursor-pointer rounded-2xl border-2 border-emerald-200 bg-transparent p-0 text-left shadow-md transition hover:border-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:border-emerald-800 dark:hover:border-emerald-600"
           aria-label="Flip flashcard"
         >
-          <div className="perspective-[1200px] w-full">
+          <div className="perspective-[1200px] w-full min-w-0">
             <div
-              className="relative min-h-[320px] w-full transition-transform duration-500 [transform-style:preserve-3d]"
+              className="relative min-h-[300px] w-full min-w-0 transition-transform duration-500 [transform-style:preserve-3d] sm:min-h-[320px]"
               style={{ transform: `rotateY(${isFlipped ? 180 : 0}deg)` }}
             >
               <div
-                className="absolute inset-0 flex flex-col rounded-2xl border border-emerald-100 bg-gradient-to-b from-emerald-50 to-white [backface-visibility:hidden] dark:border-emerald-900 dark:from-emerald-950/40 dark:to-zinc-900"
+                className="absolute inset-0 flex min-w-0 flex-col overflow-hidden rounded-2xl border border-emerald-100 bg-gradient-to-b from-emerald-50 to-white [backface-visibility:hidden] dark:border-emerald-900 dark:from-emerald-950/40 dark:to-zinc-900"
                 style={{ transform: 'rotateY(0deg)' }}
               >
                 {frontContent}
               </div>
               <div
-                className="absolute inset-0 flex flex-col rounded-2xl border border-emerald-100 bg-gradient-to-b from-emerald-50 to-white [backface-visibility:hidden] dark:border-emerald-900 dark:from-emerald-950/40 dark:to-zinc-900"
+                className="absolute inset-0 flex min-w-0 flex-col overflow-hidden rounded-2xl border border-emerald-100 bg-gradient-to-b from-emerald-50 to-white [backface-visibility:hidden] dark:border-emerald-900 dark:from-emerald-950/40 dark:to-zinc-900"
                 style={{ transform: 'rotateY(180deg)' }}
               >
                 {backContent}
