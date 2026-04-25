@@ -18,7 +18,7 @@ export default function Food() {
           <VocabularySubLessonCard
             href="/vocabulary/food/basic"
             lessonPath="/vocabulary/food/basic"
-            cardClassName="p-4 bg-amber-50 dark:bg-amber-900 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-amber-50 p-4 transition hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🍞 Basic Foods</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Learn bread, cheese, eggs, and meals</p>
@@ -27,7 +27,7 @@ export default function Food() {
           <VocabularySubLessonCard
             href="/vocabulary/food/fruits"
             lessonPath="/vocabulary/food/fruits"
-            cardClassName="p-4 bg-red-50 dark:bg-red-900 rounded-lg hover:bg-red-100 dark:hover:bg-red-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-red-50 p-4 transition hover:bg-red-100 dark:bg-red-950/40 dark:hover:bg-red-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🍎 Fruits</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Explore apples, pears, grapes, and more</p>
@@ -36,7 +36,7 @@ export default function Food() {
           <VocabularySubLessonCard
             href="/vocabulary/food/vegetables"
             lessonPath="/vocabulary/food/vegetables"
-            cardClassName="p-4 bg-green-50 dark:bg-green-900 rounded-lg hover:bg-green-100 dark:hover:bg-green-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-green-50 p-4 transition hover:bg-green-100 dark:bg-green-950/40 dark:hover:bg-green-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🥕 Vegetables</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Study carrots, lettuce, onions, and vegetables</p>
@@ -45,7 +45,7 @@ export default function Food() {
           <VocabularySubLessonCard
             href="/vocabulary/food/meat"
             lessonPath="/vocabulary/food/meat"
-            cardClassName="p-4 bg-pink-50 dark:bg-pink-900 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-pink-50 p-4 transition hover:bg-pink-100 dark:bg-pink-950/40 dark:hover:bg-pink-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🍖 Meat & Protein</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Learn meat, pork, beef, chicken, and fish</p>
@@ -54,7 +54,7 @@ export default function Food() {
           <VocabularySubLessonCard
             href="/vocabulary/food/drinks"
             lessonPath="/vocabulary/food/drinks"
-            cardClassName="p-4 bg-blue-50 dark:bg-blue-900 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-blue-50 p-4 transition hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🍯 Drinks & Others</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Discover water, milk, wine, honey, and salt</p>

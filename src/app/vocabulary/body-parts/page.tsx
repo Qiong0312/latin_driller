@@ -18,7 +18,7 @@ export default function BodyParts() {
           <VocabularySubLessonCard
             href="/vocabulary/body-parts/basic"
             lessonPath="/vocabulary/body-parts/basic"
-            cardClassName="p-4 bg-purple-50 dark:bg-purple-900 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-purple-50 p-4 transition hover:bg-purple-100 dark:bg-purple-950/40 dark:hover:bg-purple-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🧍 Basic Body Parts</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Head, arms, legs, chest, and more</p>
@@ -27,7 +27,7 @@ export default function BodyParts() {
           <VocabularySubLessonCard
             href="/vocabulary/body-parts/face"
             lessonPath="/vocabulary/body-parts/face"
-            cardClassName="p-4 bg-indigo-50 dark:bg-indigo-900 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-indigo-50 p-4 transition hover:bg-indigo-100 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">😊 Face Parts</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Eyes, nose, ears, mouth, and teeth</p>
@@ -36,7 +36,7 @@ export default function BodyParts() {
           <VocabularySubLessonCard
             href="/vocabulary/body-parts/internal"
             lessonPath="/vocabulary/body-parts/internal"
-            cardClassName="p-4 bg-pink-50 dark:bg-pink-900 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-pink-50 p-4 transition hover:bg-pink-100 dark:bg-pink-950/40 dark:hover:bg-pink-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🫀 Internal Organs</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Heart, lungs, liver, and kidneys</p>

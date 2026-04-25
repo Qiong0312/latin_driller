@@ -18,7 +18,7 @@ export default function Animals() {
           <VocabularySubLessonCard
             href="/vocabulary/animals/common"
             lessonPath="/vocabulary/animals/common"
-            cardClassName="p-4 bg-blue-50 dark:bg-blue-900 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-blue-50 p-4 transition hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐾 Common Animals</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Learn about dogs, cats, horses, and farm animals</p>
@@ -27,7 +27,7 @@ export default function Animals() {
           <VocabularySubLessonCard
             href="/vocabulary/animals/wild"
             lessonPath="/vocabulary/animals/wild"
-            cardClassName="p-4 bg-orange-50 dark:bg-orange-900 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-orange-50 p-4 transition hover:bg-orange-100 dark:bg-orange-950/40 dark:hover:bg-orange-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐅 Wild Animals</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Discover lions, tigers, bears, and more</p>
@@ -36,7 +36,7 @@ export default function Animals() {
           <VocabularySubLessonCard
             href="/vocabulary/animals/birds"
             lessonPath="/vocabulary/animals/birds"
-            cardClassName="p-4 bg-yellow-50 dark:bg-yellow-900 rounded-lg hover:bg-yellow-100 dark:hover:bg-yellow-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-yellow-50 p-4 transition hover:bg-yellow-100 dark:bg-yellow-950/40 dark:hover:bg-yellow-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐦 Birds</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Explore eagles, crows, sparrows, and others</p>
@@ -45,7 +45,7 @@ export default function Animals() {
           <VocabularySubLessonCard
             href="/vocabulary/animals/sea"
             lessonPath="/vocabulary/animals/sea"
-            cardClassName="p-4 bg-cyan-50 dark:bg-cyan-900 rounded-lg hover:bg-cyan-100 dark:hover:bg-cyan-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-cyan-50 p-4 transition hover:bg-cyan-100 dark:bg-cyan-950/40 dark:hover:bg-cyan-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐟 Sea Animals</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Study fish, dolphins, whales, and sharks</p>
@@ -54,7 +54,7 @@ export default function Animals() {
           <VocabularySubLessonCard
             href="/vocabulary/animals/small"
             lessonPath="/vocabulary/animals/small"
-            cardClassName="p-4 bg-green-50 dark:bg-green-900 rounded-lg hover:bg-green-100 dark:hover:bg-green-800 cursor-pointer transition"
+            cardClassName="cursor-pointer rounded-lg bg-green-50 p-4 transition hover:bg-green-100 dark:bg-green-950/40 dark:hover:bg-green-900/50"
           >
             <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🐍 Small Creatures</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Learn about mice, frogs, snakes, and insects</p>
