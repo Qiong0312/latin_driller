@@ -4,50 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { vocabAnimalsBirdsQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsBirds';
 
-const questions = [
-  {
-    question: 'What is the Latin word for "bird"?',
-    options: ['Aquila', 'Āvis', 'Corvus', 'Passer'],
-    correct: 1
-  },
-  {
-    question: 'Which animal is "Aquila"?',
-    options: ['Dove', 'Eagle', 'Crow', 'Sparrow'],
-    correct: 1
-  },
-  {
-    question: 'What does "Columba" mean?',
-    options: ['Eagle', 'Crow', 'Dove', 'Sparrow'],
-    correct: 2
-  },
-  {
-    question: 'Which bird is "Corvus"?',
-    options: ['Dove', 'Eagle', 'Crow', 'Sparrow'],
-    correct: 2
-  },
-  {
-    question: 'What is the Latin word for "sparrow"?',
-    options: ['Columba', 'Corvus', 'Passer', 'Gallina'],
-    correct: 2
-  },
-  {
-    question: 'Which animal is "Gallina"?',
-    options: ['Rooster', 'Hen', 'Dove', 'Crow'],
-    correct: 1
-  },
-  {
-    question: 'What does "Gallus" mean?',
-    options: ['Hen', 'Rooster', 'Dove', 'Crow'],
-    correct: 1
-  }
-];
+const questions = vocabAnimalsBirdsQuiz;
+
 
 export default function BirdsTestPage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);

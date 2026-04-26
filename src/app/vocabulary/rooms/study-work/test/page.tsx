@@ -4,28 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
-import { buildVocabularyQuestionBank, type QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { ROOMS_STUDY_WORK_QUIZ } from '@/lib/vocabulary/roomsSubLessonQuestionBanks';
 
-const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'Study & Work',
-  outsideCategoryLatin: [
-    'canis mārīnus',
-    'cēpa',
-    'aquila',
-    'cūbiculum',
-    'lac',
-    'tigris',
-    'cārōta',
-    'fluvius',
-  ],
-  entries: [
-    { latin: 'bibliothēca', english: 'library' },
-    { latin: 'officīna', english: 'workshop / workroom' },
-  ],
-});
+const questions = ROOMS_STUDY_WORK_QUIZ;
+
 
 export default function RoomsStudyWorkTestPage() {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);

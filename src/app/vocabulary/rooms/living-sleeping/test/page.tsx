@@ -4,20 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
-import { buildVocabularyQuestionBank, type QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { ROOMS_LIVING_SLEEPING_QUIZ } from '@/lib/vocabulary/roomsSubLessonQuestionBanks';
 
-const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'Living & Sleeping Areas',
-  outsideCategoryLatin: ['lēo', 'mālum', 'culīna', 'hortus', 'fluvius', 'equus', 'pānis', 'nāsus'],
-  entries: [
-    { latin: 'cūbiculum', english: 'bedroom' },
-    { latin: 'dormitōrium', english: 'sleeping room / dormitory' },
-    { latin: 'lēctus', english: 'bed' },
-  ],
-});
+const questions = ROOMS_LIVING_SLEEPING_QUIZ;
+
 
 export default function RoomsLivingSleepingTestPage() {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);

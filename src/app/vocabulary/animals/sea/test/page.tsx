@@ -4,35 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { vocabAnimalsSeaQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsSea';
 
-const questions = [
-  {
-    question: 'What is the Latin word for "fish"?',
-    options: ['Cētus', 'Delphīnus', 'Piscis', 'Canis mārīnus'],
-    correct: 2
-  },
-  {
-    question: 'Which animal is "Delphīnus"?',
-    options: ['Fish', 'Dolphin', 'Whale', 'Shark'],
-    correct: 1
-  },
-  {
-    question: 'What does "Cētus" mean?',
-    options: ['Fish', 'Dolphin', 'Whale', 'Shark'],
-    correct: 2
-  },
-  {
-    question: 'What is the Latin word for "shark"?',
-    options: ['Piscis', 'Delphīnus', 'Cētus', 'Canis mārīnus'],
-    correct: 3
-  }
-];
+const questions = vocabAnimalsSeaQuiz;
+
 
 export default function SeaAnimalsTestPage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);

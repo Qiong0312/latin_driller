@@ -4,40 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { vocabFoodDrinksQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodDrinks';
 
-const questions = [
-  {
-    question: 'What is the Latin word for "water"?',
-    options: ['lac', 'vīnum', 'aqua', 'mēl'],
-    correct: 2
-  },
-  {
-    question: 'Which drink is "lac"?',
-    options: ['water', 'milk', 'wine', 'honey'],
-    correct: 1
-  },
-  {
-    question: 'What does "vīnum" mean?',
-    options: ['milk', 'wine', 'honey', 'salt'],
-    correct: 1
-  },
-  {
-    question: 'Which item is "mēl"?',
-    options: ['wine', 'salt', 'honey', 'water'],
-    correct: 2
-  },
-  {
-    question: 'What is the Latin word for "salt"?',
-    options: ['aqua', 'lac', 'vīnum', 'sāl'],
-    correct: 3
-  }
-];
+const questions = vocabFoodDrinksQuiz;
+
 
 export default function DrinksTestPage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);

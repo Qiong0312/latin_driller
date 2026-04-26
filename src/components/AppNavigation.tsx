@@ -25,6 +25,11 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
               🏅 My Progress
             </Link>
           </li>
+          <li>
+            <Link href="/dashboard/daily/test" className={linkClass}>
+              🎯 Daily test
+            </Link>
+          </li>
         </ul>
         <div>
           <h3 className="mb-2 text-lg font-semibold text-black dark:text-zinc-50">Grammar</h3>

@@ -4,45 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { vocabFoodFruitsQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodFruits';
 
-const questions = [
-  {
-    question: 'What is the Latin word for "apple"?',
-    options: ['pīrum', 'mālum', 'ūva', 'fīcus'],
-    correct: 1
-  },
-  {
-    question: 'Which fruit is "pīrum"?',
-    options: ['apple', 'pear', 'grape', 'fig'],
-    correct: 1
-  },
-  {
-    question: 'What does "ūva" mean?',
-    options: ['apple', 'pear', 'grape', 'cherry'],
-    correct: 2
-  },
-  {
-    question: 'Which fruit is "fīcus"?',
-    options: ['grape', 'cherry', 'fig', 'plum'],
-    correct: 2
-  },
-  {
-    question: 'What is the Latin word for "cherry"?',
-    options: ['ūva', 'fīcus', 'cērāsum', 'prūnum'],
-    correct: 2
-  },
-  {
-    question: 'Which fruit is "prūnum"?',
-    options: ['cherry', 'plum', 'apple', 'pear'],
-    correct: 1
-  }
-];
+const questions = vocabFoodFruitsQuiz;
+
 
 export default function FruitsTestPage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);

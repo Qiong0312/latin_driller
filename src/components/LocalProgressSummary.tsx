@@ -13,41 +13,7 @@ import {
   PROGRESS_EVENT,
   QuizProgressEntry,
 } from '@/lib/localProgress';
-
-const GRAMMAR_LESSONS = [
-  '/grammar/grammatical-gender',
-  '/grammar/cases',
-  '/grammar/declensions',
-  '/grammar/present-tense-active',
-  '/grammar/adjectives',
-] as const;
-const VOCAB_LESSONS = [
-  '/vocabulary/animals/common',
-  '/vocabulary/animals/wild',
-  '/vocabulary/animals/birds',
-  '/vocabulary/animals/sea',
-  '/vocabulary/animals/small',
-  '/vocabulary/food/basic',
-  '/vocabulary/food/fruits',
-  '/vocabulary/food/vegetables',
-  '/vocabulary/food/meat',
-  '/vocabulary/food/drinks',
-  '/vocabulary/body-parts/basic',
-  '/vocabulary/body-parts/face',
-  '/vocabulary/body-parts/internal',
-  '/vocabulary/rooms/living-sleeping',
-  '/vocabulary/rooms/eating-cooking',
-  '/vocabulary/rooms/general',
-  '/vocabulary/rooms/washing',
-  '/vocabulary/rooms/study-work',
-  '/vocabulary/rooms/outdoor',
-  '/vocabulary/landscape/land',
-  '/vocabulary/landscape/mountains',
-  '/vocabulary/landscape/water',
-  '/vocabulary/landscape/plants',
-  '/vocabulary/landscape/sky-weather',
-  '/vocabulary/landscape/elements',
-] as const;
+import { GRAMMAR_LESSON_PATHS, VOCABULARY_LESSON_PATHS } from '@/lib/trackedLessons';
 
 const STREAK_MILESTONES = [1, 3, 5, 10, 20, 30, 60, 100] as const;
 
@@ -126,7 +92,10 @@ function normalizeQuizStats(entry: QuizProgressEntry) {
   return { attempts, correct, questions };
 }
 
-function quizGroup(path: string): 'Grammar' | 'Vocabulary' | null {
+function quizGroup(path: string): 'Grammar' | 'Vocabulary' | 'Daily test' | null {
+  if (path === '/dashboard/daily/test') {
+    return 'Daily test';
+  }
   const parts = path.split('/').filter(Boolean);
   if (parts.length < 2 || parts[parts.length - 1] !== 'test') {
     return null;
@@ -173,15 +142,15 @@ export function LocalProgressSummary() {
   }, [hydrated, key]);
 
   const grammarDone = useMemo(
-    () => (hydrated ? GRAMMAR_LESSONS.filter((p) => isLessonDone(p)).length : 0),
+    () => (hydrated ? GRAMMAR_LESSON_PATHS.filter((p) => isLessonDone(p)).length : 0),
     [hydrated, key],
   );
   const vocabDone = useMemo(
-    () => (hydrated ? VOCAB_LESSONS.filter((p) => isLessonDone(p)).length : 0),
+    () => (hydrated ? VOCABULARY_LESSON_PATHS.filter((p) => isLessonDone(p)).length : 0),
     [hydrated, key],
   );
   const totalLessonsDone = grammarDone + vocabDone;
-  const totalLessons = GRAMMAR_LESSONS.length + VOCAB_LESSONS.length;
+  const totalLessons = GRAMMAR_LESSON_PATHS.length + VOCABULARY_LESSON_PATHS.length;
   const lessonTitle = lessonAchievement(totalLessonsDone, totalLessons);
 
   const days = Object.keys(data.activityDays).sort();
@@ -251,8 +220,8 @@ export function LocalProgressSummary() {
       <section className="rounded-lg border border-emerald-200 bg-emerald-50/70 p-4 dark:border-emerald-900 dark:bg-emerald-950/30">
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">1) Lesson Progress</h3>
         <div className="mt-2 grid gap-2 sm:grid-cols-2">
-          <p>Grammar lessons done: <strong>{grammarDone}/{GRAMMAR_LESSONS.length}</strong></p>
-          <p>Vocabulary lessons done: <strong>{vocabDone}/{VOCAB_LESSONS.length}</strong></p>
+          <p>Grammar lessons done: <strong>{grammarDone}/{GRAMMAR_LESSON_PATHS.length}</strong></p>
+          <p>Vocabulary lessons done: <strong>{vocabDone}/{VOCABULARY_LESSON_PATHS.length}</strong></p>
         </div>
         <p className="mt-1 text-lg font-bold text-emerald-700 dark:text-emerald-300">
           {lessonTitle

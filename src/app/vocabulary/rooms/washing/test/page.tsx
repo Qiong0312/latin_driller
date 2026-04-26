@@ -4,19 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
-import { buildVocabularyQuestionBank, type QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { ROOMS_WASHING_QUIZ } from '@/lib/vocabulary/roomsSubLessonQuestionBanks';
 
-const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'Washing & Bathing',
-  outsideCategoryLatin: ['lēo', 'culīna', 'aquila', 'ūva', 'cor', 'lupus', 'līber', 'lūna'],
-  entries: [
-    { latin: 'balneum', english: 'bath / bathroom' },
-    { latin: 'lāvātōrium', english: 'washing room' },
-  ],
-});
+const questions = ROOMS_WASHING_QUIZ;
+
 
 export default function RoomsWashingTestPage() {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);

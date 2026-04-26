@@ -4,21 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
-import { buildVocabularyQuestionBank, type QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { ROOMS_GENERAL_QUIZ } from '@/lib/vocabulary/roomsSubLessonQuestionBanks';
 
-const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'General House Spaces',
-  outsideCategoryLatin: ['Delphīnus', 'mālum', 'cēpa', 'aquila', 'lac', 'tigris', 'pānis', 'cor'],
-  entries: [
-    { latin: 'ātrium', english: 'main hall / central room' },
-    { latin: 'tāblīnum', english: 'study / office (Roman house)' },
-    { latin: 'cella', english: 'small room / chamber' },
-    { latin: 'camēra', english: 'room / chamber' },
-  ],
-});
+const questions = ROOMS_GENERAL_QUIZ;
+
 
 export default function RoomsGeneralTestPage() {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);

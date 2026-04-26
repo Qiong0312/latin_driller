@@ -4,19 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
-import { buildVocabularyQuestionBank, type QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { ROOMS_OUTDOOR_QUIZ } from '@/lib/vocabulary/roomsSubLessonQuestionBanks';
 
-const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'Outdoor / Extra Spaces',
-  outsideCategoryLatin: ['lēo', 'culīna', 'aquila', 'cūbiculum', 'lac', 'digitus', 'pānis', 'lupus'],
-  entries: [
-    { latin: 'hortus', english: 'garden' },
-    { latin: 'peristȳlium', english: 'courtyard with columns' },
-  ],
-});
+const questions = ROOMS_OUTDOOR_QUIZ;
+
 
 export default function RoomsOutdoorTestPage() {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);

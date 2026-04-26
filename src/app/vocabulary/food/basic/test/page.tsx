@@ -4,40 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { vocabFoodBasicQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodBasic';
 
-const questions = [
-  {
-    question: 'What is the Latin word for "bread"?',
-    options: ['pānis', 'cāseus', 'ōvum', 'cibus'],
-    correct: 0
-  },
-  {
-    question: 'Which food is "cāseus"?',
-    options: ['bread', 'cheese', 'egg', 'food'],
-    correct: 1
-  },
-  {
-    question: 'What does "ōvum" mean?',
-    options: ['bread', 'cheese', 'egg', 'meal'],
-    correct: 2
-  },
-  {
-    question: 'What is the Latin word for "food"?',
-    options: ['pānis', 'cibus', 'cēna', 'cāseus'],
-    correct: 1
-  },
-  {
-    question: 'Which word means "dinner" or "meal"?',
-    options: ['pānis', 'cibus', 'cēna', 'ōvum'],
-    correct: 2
-  }
-];
+const questions = vocabFoodBasicQuiz;
+
 
 export default function BasicFoodsTestPage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);

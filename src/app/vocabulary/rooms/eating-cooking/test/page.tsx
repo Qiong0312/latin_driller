@@ -4,19 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
-import { buildVocabularyQuestionBank, type QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { ROOMS_EATING_COOKING_QUIZ } from '@/lib/vocabulary/roomsSubLessonQuestionBanks';
 
-const questions = buildVocabularyQuestionBank({
-  categoryLabel: 'Eating & Cooking',
-  outsideCategoryLatin: ['lēo', 'cūbiculum', 'hortus', 'canis mārīnus', 'digitus', 'pānis', 'equus', 'nūbēs'],
-  entries: [
-    { latin: 'culīna', english: 'kitchen' },
-    { latin: 'trīclīnium', english: 'dining room (Roman style)' },
-  ],
-});
+const questions = ROOMS_EATING_COOKING_QUIZ;
+
 
 export default function RoomsEatingCookingTestPage() {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);

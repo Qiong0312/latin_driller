@@ -4,40 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { vocabFoodVegetablesQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodVegetables';
 
-const questions = [
-  {
-    question: 'What is the Latin word for "carrot"?',
-    options: ['lactūca', 'cārōta', 'cēpa', 'āllium'],
-    correct: 1
-  },
-  {
-    question: 'Which vegetable is "lactūca"?',
-    options: ['carrot', 'lettuce', 'onion', 'garlic'],
-    correct: 1
-  },
-  {
-    question: 'What does "cēpa" mean?',
-    options: ['lettuce', 'garlic', 'onion', 'mushroom'],
-    correct: 2
-  },
-  {
-    question: 'Which vegetable is "āllium"?',
-    options: ['onion', 'garlic', 'carrot', 'lettuce'],
-    correct: 1
-  },
-  {
-    question: 'What is the Latin word for "mushroom"?',
-    options: ['cārōta', 'cēpa', 'fungus', 'lactūca'],
-    correct: 2
-  }
-];
+const questions = vocabFoodVegetablesQuiz;
+
 
 export default function VegetablesTestPage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);

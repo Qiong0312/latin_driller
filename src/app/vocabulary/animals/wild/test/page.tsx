@@ -4,50 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
+import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { vocabAnimalsWildQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsWild';
 
-const questions = [
-  {
-    question: 'Which animal is "Lēo"?',
-    options: ['Tiger', 'Lion', 'Bear', 'Wolf'],
-    correct: 1
-  },
-  {
-    question: 'What does "Tigris" mean?',
-    options: ['Lion', 'Tiger', 'Bear', 'Fox'],
-    correct: 1
-  },
-  {
-    question: 'Which animal is "Ursus"?',
-    options: ['Wolf', 'Bear', 'Fox', 'Deer'],
-    correct: 1
-  },
-  {
-    question: 'What is the Latin word for "wolf"?',
-    options: ['Ursus', 'Lupus', 'Vulpes', 'Cervus'],
-    correct: 1
-  },
-  {
-    question: 'Which animal is "Vulpes"?',
-    options: ['Wolf', 'Bear', 'Fox', 'Deer'],
-    correct: 2
-  },
-  {
-    question: 'What does "Cervus" mean?',
-    options: ['Bear', 'Wolf', 'Deer', 'Fox'],
-    correct: 2
-  },
-  {
-    question: 'Which animal is "Ēlēphāntus"?',
-    options: ['Deer', 'Elephant', 'Wolf', 'Fox'],
-    correct: 1
-  }
-];
+const questions = vocabAnimalsWildQuiz;
+
 
 export default function WildAnimalsTestPage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scored, setScored] = useState(false);
