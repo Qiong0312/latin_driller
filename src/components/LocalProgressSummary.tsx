@@ -1,11 +1,21 @@
 'use client';
 
 import { useMemo, useSyncExternalStore } from 'react';
+import {
+  CelestialMoonIcon,
+  CelestialStarIcon,
+  CelestialSunIcon,
+  StellarDustIcon,
+} from '@/components/DailyCelestialIcons';
 import { MedalIconImg, TrophyIconImg } from '@/components/ProgressAwardIcons';
 import { useIsHydrated } from '@/hooks/useIsHydrated';
 import {
   clearAllLocalProgress,
-  getAllQuizMedalCounts,
+  DAILY_DUST_PER_STAR,
+  DAILY_MOONS_PER_SUN,
+  DAILY_STARS_PER_MOON,
+  getDailyTestCelestialProgress,
+  getLessonQuizMedalCounts,
   getQuizTrophyCounts,
   hasAnyStoredProgress,
   isLessonDone,
@@ -13,7 +23,11 @@ import {
   PROGRESS_EVENT,
   QuizProgressEntry,
 } from '@/lib/localProgress';
-import { GRAMMAR_LESSON_PATHS, VOCABULARY_LESSON_PATHS } from '@/lib/trackedLessons';
+import {
+  DAILY_TEST_QUIZ_PATH,
+  GRAMMAR_LESSON_PATHS,
+  VOCABULARY_LESSON_PATHS,
+} from '@/lib/trackedLessons';
 
 const STREAK_MILESTONES = [1, 3, 5, 10, 20, 30, 60, 100] as const;
 
@@ -127,6 +141,7 @@ function buildSnapshotKey(): string {
     lessonsDone: d.lessonsDone,
     quizzes: d.quizzes,
     activityDays: d.activityDays,
+    dailyTestCelestial: d.dailyTestCelestial,
     hasAny: hasAnyStoredProgress(),
   });
 }
@@ -187,14 +202,14 @@ export function LocalProgressSummary() {
   const nextStreakBadge = nextMilestoneTarget(currentStreak);
 
   const quizTree: Record<string, QuizNode> = {};
-  let totalQuizAttempts = 0;
+  let totalLessonQuizAttempts = 0;
   for (const [path, entry] of Object.entries(data.quizzes)) {
     const groupName = quizGroup(path);
-    if (!groupName) {
+    if (!groupName || groupName === 'Daily test') {
       continue;
     }
     const stat = normalizeQuizStats(entry);
-    totalQuizAttempts += stat.attempts;
+    totalLessonQuizAttempts += stat.attempts;
 
     const group = (quizTree[groupName] ??= {
       attempts: 0,
@@ -206,13 +221,27 @@ export function LocalProgressSummary() {
     group.questions += stat.questions;
   }
 
-  const medalCounts = useMemo(
-    () => (hydrated ? getAllQuizMedalCounts() : { bronze: 0, silver: 0, gold: 0 }),
+  const dailyEntry = data.quizzes[DAILY_TEST_QUIZ_PATH];
+  const dailyTestStat = dailyEntry ? normalizeQuizStats(dailyEntry) : { attempts: 0, correct: 0, questions: 0 };
+
+  const lessonMedalCounts = useMemo(
+    () => (hydrated ? getLessonQuizMedalCounts() : { bronze: 0, silver: 0, gold: 0 }),
     [hydrated, key],
   );
-  const trophyCounts = useMemo(
-    () => (hydrated ? getQuizTrophyCounts(medalCounts.gold) : { bronzeTrophies: 0, silverTrophies: 0, goldTrophies: 0 }),
-    [hydrated, medalCounts.gold],
+  const lessonTrophyCounts = useMemo(
+    () =>
+      hydrated
+        ? getQuizTrophyCounts(lessonMedalCounts.gold)
+        : { bronzeTrophies: 0, silverTrophies: 0, goldTrophies: 0 },
+    [hydrated, lessonMedalCounts.gold],
+  );
+
+  const dailyCelestial = useMemo(
+    () =>
+      hydrated
+        ? getDailyTestCelestialProgress()
+        : { dust: 0, stars: 0, moons: 0, suns: 0 },
+    [hydrated, key],
   );
 
   return (
@@ -265,26 +294,26 @@ export function LocalProgressSummary() {
 
       <section className="rounded-lg border border-sky-200 bg-sky-50/70 p-4 dark:border-sky-900 dark:bg-sky-950/30">
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">3) Quiz Progress</h3>
-        <p className="mt-2">Total quizzes taken: <strong>{totalQuizAttempts}</strong></p>
+        <p className="mt-2">Total quizzes taken: <strong>{totalLessonQuizAttempts}</strong></p>
         <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
           <span className="mr-1 inline-block w-24 shrink-0">Medals:</span>
           <span className="inline-flex items-center gap-2">
             <MedalIconImg tier="bronze" className="h-9 w-9" />
-            <span className="inline-block w-10 text-right tabular-nums">{medalCounts.bronze}</span>
+            <span className="inline-block w-10 text-right tabular-nums">{lessonMedalCounts.bronze}</span>
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
           <span className="inline-flex items-center gap-2">
             <MedalIconImg tier="silver" className="h-9 w-9" />
-            <span className="inline-block w-10 text-right tabular-nums">{medalCounts.silver}</span>
+            <span className="inline-block w-10 text-right tabular-nums">{lessonMedalCounts.silver}</span>
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
           <span className="inline-flex items-center gap-2">
             <MedalIconImg tier="gold" className="h-9 w-9" />
-            <span className="inline-block w-10 text-right tabular-nums">{medalCounts.gold}</span>
+            <span className="inline-block w-10 text-right tabular-nums">{lessonMedalCounts.gold}</span>
           </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
@@ -294,21 +323,21 @@ export function LocalProgressSummary() {
           <span className="mr-1 inline-block w-24 shrink-0">Trophies:</span>
           <span className="inline-flex items-center gap-2">
             <TrophyIconImg kind="bronze" className="h-9 w-9" />
-            <span className="inline-block w-10 text-right tabular-nums">{trophyCounts.bronzeTrophies}</span>
+            <span className="inline-block w-10 text-right tabular-nums">{lessonTrophyCounts.bronzeTrophies}</span>
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
           <span className="inline-flex items-center gap-2">
             <TrophyIconImg kind="silver" className="h-9 w-9" />
-            <span className="inline-block w-10 text-right tabular-nums">{trophyCounts.silverTrophies}</span>
+            <span className="inline-block w-10 text-right tabular-nums">{lessonTrophyCounts.silverTrophies}</span>
           </span>
           <span className="text-sky-400" aria-hidden>
             |
           </span>
           <span className="inline-flex items-center gap-2">
             <TrophyIconImg kind="gold" className="h-9 w-9" />
-            <span className="inline-block w-10 text-right tabular-nums">{trophyCounts.goldTrophies}</span>
+            <span className="inline-block w-10 text-right tabular-nums">{lessonTrophyCounts.goldTrophies}</span>
           </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
@@ -317,7 +346,7 @@ export function LocalProgressSummary() {
         </p>
         <div className="mt-3 space-y-2">
           {Object.keys(quizTree).length === 0 && (
-            <p className="text-xs text-zinc-500 dark:text-zinc-400">No quiz attempts yet.</p>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400">No lesson quiz attempts yet.</p>
           )}
           {Object.entries(quizTree).map(([category, node]) => (
             <div key={category} className="rounded-md border border-sky-200/80 bg-white/70 p-3 dark:border-sky-800 dark:bg-zinc-900/40">
@@ -327,6 +356,58 @@ export function LocalProgressSummary() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="rounded-lg border border-violet-200 bg-violet-50/70 p-4 dark:border-violet-900 dark:bg-violet-950/30">
+        <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">4) Daily test</h3>
+        <p className="mt-2">Total daily tests taken: <strong>{dailyTestStat.attempts}</strong></p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-violet-700 dark:text-violet-300">
+          <span className="mr-1 inline-block w-24 shrink-0">Dust bank:</span>
+          <span className="inline-flex items-center gap-2">
+            <StellarDustIcon className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{dailyCelestial.dust}</span>
+            <span className="font-medium text-violet-600 dark:text-violet-300">/ {DAILY_DUST_PER_STAR}</span>
+          </span>
+        </p>
+        <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
+          Each daily test you finish adds stellar dust from that test’s score only: 0 below 70%; 1 at 70%+; 2 at 85%+; 3 at
+          98%+.
+        </p>
+        <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-violet-700 dark:text-violet-300">
+          <span className="mr-1 inline-block w-24 shrink-0">Rewards:</span>
+          <span className="inline-flex items-center gap-2">
+            <CelestialStarIcon className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{dailyCelestial.stars}</span>
+          </span>
+          <span className="text-violet-400" aria-hidden>
+            |
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <CelestialMoonIcon className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{dailyCelestial.moons}</span>
+          </span>
+          <span className="text-violet-400" aria-hidden>
+            |
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <CelestialSunIcon className="h-9 w-9" />
+            <span className="inline-block w-10 text-right tabular-nums">{dailyCelestial.suns}</span>
+          </span>
+        </p>
+        <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
+          Progression: {DAILY_DUST_PER_STAR} dust {'->'} 1 star; {DAILY_STARS_PER_MOON} stars {'->'} 1 moon;{' '}
+          {DAILY_MOONS_PER_SUN} moons {'->'} 1 sun.
+        </p>
+        {dailyTestStat.attempts > 0 ? (
+          <div className="mt-3 rounded-md border border-violet-200/80 bg-white/70 p-3 dark:border-violet-800 dark:bg-zinc-900/40">
+            <p className="font-medium text-zinc-900 dark:text-zinc-100">
+              Daily test: {dailyTestStat.attempts} attempt{dailyTestStat.attempts === 1 ? '' : 's'}, accuracy{' '}
+              {percent(dailyTestStat.correct, dailyTestStat.questions)}
+            </p>
+          </div>
+        ) : (
+          <p className="mt-3 text-xs text-zinc-500 dark:text-zinc-400">No daily test attempts yet.</p>
+        )}
       </section>
 
       {data.hasAny && (

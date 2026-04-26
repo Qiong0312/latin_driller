@@ -1,9 +1,24 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
+import {
+  CelestialMoonIcon,
+  CelestialStarIcon,
+  CelestialSunIcon,
+  StellarDustIcon,
+} from '@/components/DailyCelestialIcons';
 import { MedalIconImg } from '@/components/ProgressAwardIcons';
 import { useIsHydrated } from '@/hooks/useIsHydrated';
-import { getQuizMedalStatus, PROGRESS_EVENT, type QuizMedalTier } from '@/lib/localProgress';
+import {
+  DAILY_DUST_PER_STAR,
+  DAILY_MOONS_PER_SUN,
+  DAILY_STARS_PER_MOON,
+  getDailyTestRewardPanelSnapshot,
+  getQuizMedalStatus,
+  PROGRESS_EVENT,
+  type QuizMedalTier,
+} from '@/lib/localProgress';
+import { DAILY_TEST_QUIZ_PATH } from '@/lib/trackedLessons';
 
 function subscribe(onChange: () => void) {
   if (typeof window === 'undefined') {
@@ -39,17 +54,86 @@ function medalStyles(medal: QuizMedalTier): string {
 }
 
 const SERVER_MEDAL = '{"averagePercent":null,"medal":"none"}';
+const SERVER_DAILY = '{"scorePercent":null,"dustThisRun":0,"celestial":{"dust":0,"stars":0,"moons":0,"suns":0}}';
 
 export function QuizMedalSummary({ quizPath }: { quizPath: string | null }) {
   const hydrated = useIsHydrated();
+  const isDaily = quizPath === DAILY_TEST_QUIZ_PATH;
   const key = useSyncExternalStore(
     subscribe,
     () => {
-      const status = getQuizMedalStatus(quizPath ?? '');
-      return JSON.stringify(status);
+      if (isDaily) {
+        return JSON.stringify(getDailyTestRewardPanelSnapshot());
+      }
+      return JSON.stringify(getQuizMedalStatus(quizPath ?? ''));
     },
-    () => SERVER_MEDAL,
+    () => (isDaily ? SERVER_DAILY : SERVER_MEDAL),
   );
+
+  if (isDaily) {
+    const snap = JSON.parse(hydrated ? key : SERVER_DAILY) as {
+      scorePercent: number | null;
+      dustThisRun: number;
+      celestial: { dust: number; stars: number; moons: number; suns: number };
+    };
+    const avg =
+      snap.scorePercent === null
+        ? 'N/A'
+        : `${Math.round(snap.scorePercent * 10) / 10}%`;
+    const c = snap.celestial;
+    return (
+      <div className="mx-auto mb-5 flex w-full max-w-md flex-col gap-2 text-left text-sm text-violet-900 dark:text-violet-100">
+        <p className="text-center text-zinc-600 dark:text-zinc-300">
+          Score (this test): <strong>{avg}</strong>
+        </p>
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base font-bold text-violet-700 dark:text-violet-300">
+          <span className="inline-block w-24 shrink-0">This run:</span>
+          <span className="inline-flex items-center gap-2">
+            <StellarDustIcon className="h-8 w-8" />
+            <span>
+              <strong className="tabular-nums">{snap.dustThisRun}</strong> dust
+            </span>
+          </span>
+        </p>
+        <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
+          Each daily test adds dust from that test’s score only: 0 below 70%; 1 at 70%+; 2 at 85%+; 3 at 98%+.
+        </p>
+        <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-base font-bold text-violet-700 dark:text-violet-300">
+          <span className="inline-block w-24 shrink-0">Dust bank:</span>
+          <span className="inline-flex items-center gap-2">
+            <StellarDustIcon className="h-8 w-8" />
+            <span className="inline-block w-10 text-right tabular-nums">{c.dust}</span>
+            <span className="font-medium text-violet-600 dark:text-violet-300">/ {DAILY_DUST_PER_STAR}</span>
+          </span>
+        </p>
+        <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-base font-bold text-violet-700 dark:text-violet-300">
+          <span className="inline-block w-24 shrink-0">Rewards:</span>
+          <span className="inline-flex items-center gap-2">
+            <CelestialStarIcon className="h-8 w-8" />
+            <span className="inline-block w-10 text-right tabular-nums">{c.stars}</span>
+          </span>
+          <span className="text-violet-400" aria-hidden>
+            |
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <CelestialMoonIcon className="h-8 w-8" />
+            <span className="inline-block w-10 text-right tabular-nums">{c.moons}</span>
+          </span>
+          <span className="text-violet-400" aria-hidden>
+            |
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <CelestialSunIcon className="h-8 w-8" />
+            <span className="inline-block w-10 text-right tabular-nums">{c.suns}</span>
+          </span>
+        </p>
+        <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
+          Progression: {DAILY_DUST_PER_STAR} dust {'->'} 1 star; {DAILY_STARS_PER_MOON} stars {'->'} 1 moon; {DAILY_MOONS_PER_SUN}{' '}
+          moons {'->'} 1 sun.
+        </p>
+      </div>
+    );
+  }
 
   const status = JSON.parse(hydrated ? key : SERVER_MEDAL) as { averagePercent: number | null; medal: QuizMedalTier };
   const avg =
