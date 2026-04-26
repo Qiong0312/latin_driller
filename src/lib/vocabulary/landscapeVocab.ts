@@ -1,12 +1,23 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 
-const empty = '';
+/** Converts accented Latin into the corresponding SVG filename. */
+function toLandscapeIconSlug(latin: string): string {
+  return latin
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z]/g, '');
+}
 
-/** Flashcard with SVG placeholder (add later as `public/flashcard-icons/land-landscape/<lemma>.svg`). */
+function getLandscapeIconPath(latin: string): string {
+  return `/flashcard-icons/land-landscape/${toLandscapeIconSlug(latin)}.svg`;
+}
+
+/** Attaches matching land & landscape SVG icons by Latin lemma. */
 export function withEmptyIcon(
   items: { latin: string; english: string }[],
 ): VocabularyFlashcard[] {
-  return items.map((e) => ({ ...e, icon: empty }));
+  return items.map((e) => ({ ...e, icon: getLandscapeIconPath(e.latin) }));
 }
 
 export const LANDSCAPE_LAND: { latin: string; english: string }[] = [
