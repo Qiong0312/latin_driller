@@ -26,6 +26,12 @@ import {
   LANDSCAPE_WATER_QUIZ,
 } from '@/lib/vocabulary/landscapeCategoryQuestionBank';
 import {
+  MARKETPLACE_CARRYING_QUIZ,
+  MARKETPLACE_EQUIPMENT_QUIZ,
+  MARKETPLACE_MONEY_TRADE_QUIZ,
+  MARKETPLACE_PLACES_PEOPLE_QUIZ,
+} from '@/lib/vocabulary/marketplaceCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -65,6 +71,10 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/landscape/plants': LANDSCAPE_PLANTS_QUIZ,
   '/vocabulary/landscape/sky-weather': LANDSCAPE_SKY_QUIZ,
   '/vocabulary/landscape/elements': LANDSCAPE_ELEMENTS_QUIZ,
+  '/vocabulary/marketplace/places-people': MARKETPLACE_PLACES_PEOPLE_QUIZ,
+  '/vocabulary/marketplace/money-trade': MARKETPLACE_MONEY_TRADE_QUIZ,
+  '/vocabulary/marketplace/carrying': MARKETPLACE_CARRYING_QUIZ,
+  '/vocabulary/marketplace/equipment': MARKETPLACE_EQUIPMENT_QUIZ,
 };
 
 export function getQuizPoolForLesson(lessonPath: string): QuizQuestion[] | null {

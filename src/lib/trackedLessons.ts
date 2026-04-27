@@ -36,6 +36,10 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/landscape/plants',
   '/vocabulary/landscape/sky-weather',
   '/vocabulary/landscape/elements',
+  '/vocabulary/marketplace/places-people',
+  '/vocabulary/marketplace/money-trade',
+  '/vocabulary/marketplace/carrying',
+  '/vocabulary/marketplace/equipment',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

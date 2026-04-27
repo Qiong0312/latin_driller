@@ -89,6 +89,11 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
                 Land &amp; landscape
               </Link>
             </li>
+            <li>
+              <Link href="/vocabulary/marketplace" className={linkClass}>
+                Marketplace
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

@@ -131,20 +131,22 @@ export function VocabularyFlashcards({
   const englishSide = (
     <div className="flex h-full min-h-[300px] w-full min-w-0 flex-col px-3 py-4 sm:min-h-[320px] sm:px-6 sm:py-6">
       <div className="flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center gap-2 overflow-x-hidden text-center sm:gap-4">
-        <div className="flex min-h-0 min-w-0 max-w-full shrink-0 items-center justify-center" aria-hidden>
-          {isVocabularyFlashcardImageIcon(current.icon) ? (
-            /* Eager load: answer face is a 3D back; lazy images often never load. */
-            <img
-              src={current.icon}
-              alt=""
-              className="h-auto max-h-20 w-auto min-w-0 max-w-[min(100%,20rem)] object-contain [transform:translateZ(1px)] min-[400px]:max-h-24 sm:max-h-32 md:max-h-36 dark:invert"
-              loading="eager"
-              decoding="async"
-            />
-          ) : (
-            <span className="max-w-full text-5xl leading-none sm:text-7xl md:text-8xl lg:text-9xl">{current.icon}</span>
-          )}
-        </div>
+        {current.icon ? (
+          <div className="flex min-h-0 min-w-0 max-w-full shrink-0 items-center justify-center" aria-hidden>
+            {isVocabularyFlashcardImageIcon(current.icon) ? (
+              /* Eager load: answer face is a 3D back; lazy images often never load. */
+              <img
+                src={current.icon}
+                alt=""
+                className="h-auto max-h-20 w-auto min-w-0 max-w-[min(100%,20rem)] object-contain [transform:translateZ(1px)] min-[400px]:max-h-24 sm:max-h-32 md:max-h-36 dark:invert"
+                loading="eager"
+                decoding="async"
+              />
+            ) : (
+              <span className="max-w-full text-5xl leading-none sm:text-7xl md:text-8xl lg:text-9xl">{current.icon}</span>
+            )}
+          </div>
+        ) : null}
         <p className="max-w-full min-w-0 break-words text-balance text-lg font-semibold leading-snug [overflow-wrap:anywhere] text-zinc-800 sm:text-2xl md:text-3xl dark:text-zinc-100">
           {current.english}
         </p>
