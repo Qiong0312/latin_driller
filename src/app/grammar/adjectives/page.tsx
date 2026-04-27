@@ -49,7 +49,8 @@ export default function AdjectivesPage() {
         <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Three adjective grades</h2>
         <p>
           A Latin adjective has three grades: positive, comparative, and superlative. Example: <em>perītus</em>{' '}
-          (&ldquo;skilled&rdquo;), <em>perītior</em> (&ldquo;more skilled&rdquo;), and <em>perītissimus</em> (
+          (&ldquo;skilled&rdquo;), <em>perītior</em> (&ldquo;more skilled&rdquo;), and <em>perītissimus</em>{' '}
+          (
           &ldquo;most skilled&rdquo;).
         </p>
         <DataTable
@@ -70,15 +71,19 @@ export default function AdjectivesPage() {
             ["superlative = add -issimus", "perītissimus"],
           ]}
         />
+        <p>
+          Comparative and superlative adjectives still change their endings to match the noun in gender, number, and
+          case, just like the positive form.
+        </p>
 
         <p>
-          When no direct comparison is being made, comparative and superlative can also carry intensity meanings:
-          <em> perītior</em> can mean &ldquo;somewhat/rather skilled,&rdquo; and <em>perītissimus</em> can mean
+          When no direct comparison is being made, comparative and superlative can also carry intensity meanings:{' '}
+          <em>perītior</em> can mean &ldquo;somewhat/rather skilled,&rdquo; and <em>perītissimus</em>{' '}can mean
           &ldquo;very skilled.&rdquo;
         </p>
         <p>
-          The superlative can therefore indicate either the highest degree or simply a very high degree. For example,
-          <em> iūstissimus</em> may mean both &ldquo;the most just&rdquo; and &ldquo;very just.&rdquo;
+          The superlative can therefore indicate either the highest degree or simply a very high degree. For example,{' '}
+          <em>iūstissimus</em>{' '}may mean both &ldquo;the most just&rdquo; and &ldquo;very just.&rdquo;
         </p>
       </div>
 
