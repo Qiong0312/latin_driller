@@ -5,7 +5,7 @@ const CELESTIAL_SRC = {
   dust: '/progress-icons/star%20dust.svg',
   star: '/progress-icons/star.svg',
   moon: '/progress-icons/moon.svg',
-  sun: '/progress-icons/sun.svg',
+  planet: '/progress-icons/planet.svg',
 } as const;
 
 type IconProps = {
@@ -40,6 +40,11 @@ export function CelestialMoonIcon({ className = 'h-6 w-6' }: IconProps) {
   return celestialImg(CELESTIAL_SRC.moon, { className });
 }
 
+export function CelestialPlanetIcon({ className = 'h-6 w-6' }: IconProps) {
+  return celestialImg(CELESTIAL_SRC.planet, { className });
+}
+
+/** Backward-compatible alias. Prefer `CelestialPlanetIcon`. */
 export function CelestialSunIcon({ className = 'h-6 w-6' }: IconProps) {
-  return celestialImg(CELESTIAL_SRC.sun, { className });
+  return <CelestialPlanetIcon className={className} />;
 }

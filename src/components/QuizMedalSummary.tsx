@@ -3,8 +3,8 @@
 import { useSyncExternalStore } from 'react';
 import {
   CelestialMoonIcon,
+  CelestialPlanetIcon,
   CelestialStarIcon,
-  CelestialSunIcon,
   StellarDustIcon,
 } from '@/components/DailyCelestialIcons';
 import { MedalIconImg } from '@/components/ProgressAwardIcons';
@@ -123,13 +123,13 @@ export function QuizMedalSummary({ quizPath }: { quizPath: string | null }) {
             |
           </span>
           <span className="inline-flex items-center gap-2">
-            <CelestialSunIcon className="h-8 w-8" />
+            <CelestialPlanetIcon className="h-8 w-8" />
             <span className="inline-block w-10 text-right tabular-nums">{c.suns}</span>
           </span>
         </p>
         <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
           Progression: {DAILY_DUST_PER_STAR} dust {'->'} 1 star; {DAILY_STARS_PER_MOON} stars {'->'} 1 moon; {DAILY_MOONS_PER_SUN}{' '}
-          moons {'->'} 1 sun.
+          moons {'->'} 1 planet.
         </p>
       </div>
     );

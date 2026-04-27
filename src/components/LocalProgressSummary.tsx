@@ -3,8 +3,8 @@
 import { useMemo, useSyncExternalStore } from 'react';
 import {
   CelestialMoonIcon,
+  CelestialPlanetIcon,
   CelestialStarIcon,
-  CelestialSunIcon,
   StellarDustIcon,
 } from '@/components/DailyCelestialIcons';
 import { MedalIconImg, TrophyIconImg } from '@/components/ProgressAwardIcons';
@@ -390,13 +390,13 @@ export function LocalProgressSummary() {
             |
           </span>
           <span className="inline-flex items-center gap-2">
-            <CelestialSunIcon className="h-9 w-9" />
+            <CelestialPlanetIcon className="h-9 w-9" />
             <span className="inline-block w-10 text-right tabular-nums">{dailyCelestial.suns}</span>
           </span>
         </p>
         <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
           Progression: {DAILY_DUST_PER_STAR} dust {'->'} 1 star; {DAILY_STARS_PER_MOON} stars {'->'} 1 moon;{' '}
-          {DAILY_MOONS_PER_SUN} moons {'->'} 1 sun.
+          {DAILY_MOONS_PER_SUN} moons {'->'} 1 planet.
         </p>
         {dailyTestStat.attempts > 0 ? (
           <div className="mt-3 rounded-md border border-violet-200/80 bg-white/70 p-3 dark:border-violet-800 dark:bg-zinc-900/40">
