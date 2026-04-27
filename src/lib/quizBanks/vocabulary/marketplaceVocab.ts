@@ -1,10 +1,22 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 
-/** No icon until SVGs exist under e.g. `public/flashcard-icons/marketplace/`. */
-function toFlashcardsWithoutIcon(
+function latinToSlug(latin: string): string {
+  return latin
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function toMarketplaceFlashcards(
   items: { latin: string; english: string }[],
 ): VocabularyFlashcard[] {
-  return items.map((e) => ({ ...e, icon: '' }));
+  return items.map((e) => {
+    const slug = latinToSlug(e.latin);
+    const icon = `/flashcard-icons/marketplace/${slug}.svg`;
+    return { ...e, icon };
+  });
 }
 
 /** In forō — places, roles, and people */
@@ -44,16 +56,16 @@ export const MARKETPLACE_EQUIPMENT: { latin: string; english: string }[] = [
   { latin: 'cōpiae', english: 'supplies / abundance (plural)' },
 ];
 
-export const MARKETPLACE_PLACES_PEOPLE_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(
+export const MARKETPLACE_PLACES_PEOPLE_CARDS: VocabularyFlashcard[] = toMarketplaceFlashcards(
   MARKETPLACE_PLACES_PEOPLE,
 );
-export const MARKETPLACE_MONEY_TRADE_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(
+export const MARKETPLACE_MONEY_TRADE_CARDS: VocabularyFlashcard[] = toMarketplaceFlashcards(
   MARKETPLACE_MONEY_TRADE,
 );
-export const MARKETPLACE_CARRYING_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(
+export const MARKETPLACE_CARRYING_CARDS: VocabularyFlashcard[] = toMarketplaceFlashcards(
   MARKETPLACE_CARRYING,
 );
-export const MARKETPLACE_EQUIPMENT_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(
+export const MARKETPLACE_EQUIPMENT_CARDS: VocabularyFlashcard[] = toMarketplaceFlashcards(
   MARKETPLACE_EQUIPMENT,
 );
 
