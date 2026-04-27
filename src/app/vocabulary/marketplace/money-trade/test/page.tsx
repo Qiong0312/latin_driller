@@ -1,5 +1,5 @@
 import { VocabBankQuizView } from "@/components/VocabBankQuizView";
-import { MARKETPLACE_MONEY_TRADE_QUIZ } from "@/lib/vocabulary/marketplaceCategoryQuestionBank";
+import { MARKETPLACE_MONEY_TRADE_QUIZ } from "@/lib/quizBanks/vocabulary/marketplaceCategoryQuestionBank";
 
 export default function MarketplaceMoneyTradeTestPage() {
   return (

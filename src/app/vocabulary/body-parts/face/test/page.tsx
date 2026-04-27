@@ -8,9 +8,9 @@ import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
-import { vocabBodyFaceQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabBodyFace';
+import { BODY_PARTS_FACE_QUIZ } from '@/lib/quizBanks/vocabulary/bodyPartsCategoryQuestionBank';
 
-const questions = vocabBodyFaceQuiz;
+const questions = BODY_PARTS_FACE_QUIZ;
 
 
 export default function FaceBodyPartsTestPage() {

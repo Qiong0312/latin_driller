@@ -1,5 +1,5 @@
 import { VocabBankQuizView } from "@/components/VocabBankQuizView";
-import { LANDSCAPE_LAND_QUIZ } from "@/lib/vocabulary/landscapeCategoryQuestionBank";
+import { LANDSCAPE_LAND_QUIZ } from "@/lib/quizBanks/vocabulary/landscapeCategoryQuestionBank";
 
 export default function LandscapeLandTestPage() {
   return (

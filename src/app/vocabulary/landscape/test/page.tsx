@@ -1,5 +1,5 @@
 import { CategoryVocabularyTest, CATEGORY_QUIZ_MAX_QUESTIONS } from "@/components/CategoryVocabularyTest";
-import { LANDSCAPE_CATEGORY_ALL_QUESTIONS } from "@/lib/vocabulary/landscapeCategoryQuestionBank";
+import { LANDSCAPE_CATEGORY_ALL_QUESTIONS } from "@/lib/quizBanks/vocabulary/landscapeCategoryQuestionBank";
 
 export default function LandscapeCategoryTestPage() {
   return (

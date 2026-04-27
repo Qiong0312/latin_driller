@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
-import { MARKETPLACE_EQUIPMENT } from "@/lib/vocabulary/marketplaceVocab";
+import { MARKETPLACE_EQUIPMENT } from "@/lib/quizBanks/vocabulary/marketplaceVocab";
 
 export default function MarketplaceEquipmentPage() {
   return (

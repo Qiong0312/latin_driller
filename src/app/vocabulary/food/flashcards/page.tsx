@@ -1,5 +1,5 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
-import { FOOD_ALL_FLASHCARDS } from '@/lib/vocabulary/categoryFlashcardsData';
+import { FOOD_ALL_FLASHCARDS } from '@/lib/quizBanks/vocabulary/categoryFlashcardsData';
 
 export default function FoodAllFlashcardsPage() {
   return (

@@ -1,5 +1,5 @@
 import { VocabBankQuizView } from "@/components/VocabBankQuizView";
-import { MARKETPLACE_CARRYING_QUIZ } from "@/lib/vocabulary/marketplaceCategoryQuestionBank";
+import { MARKETPLACE_CARRYING_QUIZ } from "@/lib/quizBanks/vocabulary/marketplaceCategoryQuestionBank";
 
 export default function MarketplaceCarryingTestPage() {
   return (

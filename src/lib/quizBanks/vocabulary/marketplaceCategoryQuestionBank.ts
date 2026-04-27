@@ -4,7 +4,7 @@ import {
   MARKETPLACE_EQUIPMENT,
   MARKETPLACE_MONEY_TRADE,
   MARKETPLACE_PLACES_PEOPLE,
-} from '@/lib/vocabulary/marketplaceVocab';
+} from '@/lib/quizBanks/vocabulary/marketplaceVocab';
 
 const PLACES_BUILT = buildVocabularyQuestionBank({
   categoryLabel: 'Marketplace: places & people',

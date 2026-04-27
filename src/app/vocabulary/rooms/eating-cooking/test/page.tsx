@@ -8,7 +8,7 @@ import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
-import { ROOMS_EATING_COOKING_QUIZ } from '@/lib/vocabulary/roomsSubLessonQuestionBanks';
+import { ROOMS_EATING_COOKING_QUIZ } from '@/lib/quizBanks/vocabulary/roomsCategoryQuestionBank';
 
 const questions = ROOMS_EATING_COOKING_QUIZ;
 

@@ -1,5 +1,5 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
-import { ROOMS_ALL_FLASHCARDS } from '@/lib/vocabulary/categoryFlashcardsData';
+import { ROOMS_ALL_FLASHCARDS } from '@/lib/quizBanks/vocabulary/categoryFlashcardsData';
 
 export default function RoomsAllFlashcardsPage() {
   return (

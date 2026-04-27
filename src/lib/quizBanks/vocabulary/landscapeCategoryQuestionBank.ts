@@ -6,7 +6,7 @@ import {
   LANDSCAPE_PLANTS,
   LANDSCAPE_SKY,
   LANDSCAPE_WATER,
-} from '@/lib/vocabulary/landscapeVocab';
+} from '@/lib/quizBanks/vocabulary/landscapeVocab';
 
 const LAND_BUILT = buildVocabularyQuestionBank({
   categoryLabel: 'Land & World',

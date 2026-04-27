@@ -8,7 +8,7 @@ import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
-import { grammaticalGenderQuiz } from '@/lib/quizBanks/lessonInlinePools/grammaticalGender';
+import { grammaticalGenderQuiz } from '@/lib/quizBanks/grammar/grammaticalGender';
 
 const QUESTIONS_PER_QUIZ = 10;
 

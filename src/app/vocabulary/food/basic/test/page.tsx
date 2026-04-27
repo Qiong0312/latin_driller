@@ -8,9 +8,9 @@ import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
-import { vocabFoodBasicQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodBasic';
+import { FOOD_BASIC_QUIZ } from '@/lib/quizBanks/vocabulary/foodCategoryQuestionBank';
 
-const questions = vocabFoodBasicQuiz;
+const questions = FOOD_BASIC_QUIZ;
 
 
 export default function BasicFoodsTestPage() {

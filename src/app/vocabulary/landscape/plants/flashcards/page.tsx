@@ -1,5 +1,5 @@
 import { VocabularyFlashcards } from "@/components/VocabularyFlashcards";
-import { withEmptyIcon, LANDSCAPE_PLANTS } from "@/lib/vocabulary/landscapeVocab";
+import { withEmptyIcon, LANDSCAPE_PLANTS } from "@/lib/quizBanks/vocabulary/landscapeVocab";
 
 const cards = withEmptyIcon(LANDSCAPE_PLANTS);
 

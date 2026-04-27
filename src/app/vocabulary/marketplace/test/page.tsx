@@ -1,5 +1,5 @@
 import { CategoryVocabularyTest, CATEGORY_QUIZ_MAX_QUESTIONS } from "@/components/CategoryVocabularyTest";
-import { MARKETPLACE_CATEGORY_ALL_QUESTIONS } from "@/lib/vocabulary/marketplaceCategoryQuestionBank";
+import { MARKETPLACE_CATEGORY_ALL_QUESTIONS } from "@/lib/quizBanks/vocabulary/marketplaceCategoryQuestionBank";
 
 export default function MarketplaceCategoryTestPage() {
   return (

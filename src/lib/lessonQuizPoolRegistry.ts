@@ -1,22 +1,28 @@
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
-import { grammaticalGenderQuiz } from '@/lib/quizBanks/lessonInlinePools/grammaticalGender';
-import { grammarCasesQuiz } from '@/lib/quizBanks/lessonInlinePools/grammarCases';
-import { grammarDeclensionsQuiz } from '@/lib/quizBanks/lessonInlinePools/grammarDeclensions';
-import { presentTenseActiveQuiz } from '@/lib/quizBanks/lessonInlinePools/presentTenseActive';
-import { grammarAdjectivesQuiz } from '@/lib/quizBanks/lessonInlinePools/grammarAdjectives';
-import { vocabAnimalsCommonQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsCommon';
-import { vocabAnimalsWildQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsWild';
-import { vocabAnimalsBirdsQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsBirds';
-import { vocabAnimalsSeaQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsSea';
-import { vocabAnimalsSmallQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsSmall';
-import { vocabFoodBasicQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodBasic';
-import { vocabFoodFruitsQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodFruits';
-import { vocabFoodVegetablesQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodVegetables';
-import { vocabFoodMeatQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodMeat';
-import { vocabFoodDrinksQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabFoodDrinks';
-import { vocabBodyBasicQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabBodyBasic';
-import { vocabBodyFaceQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabBodyFace';
-import { vocabBodyInternalQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabBodyInternal';
+import { grammarAdjectivesQuiz } from '@/lib/quizBanks/grammar/grammarAdjectives';
+import { grammarCasesQuiz } from '@/lib/quizBanks/grammar/grammarCases';
+import { grammarDeclensionsQuiz } from '@/lib/quizBanks/grammar/grammarDeclensions';
+import { grammaticalGenderQuiz } from '@/lib/quizBanks/grammar/grammaticalGender';
+import { presentTenseActiveQuiz } from '@/lib/quizBanks/grammar/presentTenseActive';
+import {
+  ANIMALS_BIRDS_QUIZ,
+  ANIMALS_COMMON_QUIZ,
+  ANIMALS_SEA_QUIZ,
+  ANIMALS_SMALL_QUIZ,
+  ANIMALS_WILD_QUIZ,
+} from '@/lib/quizBanks/vocabulary/animalsCategoryQuestionBank';
+import {
+  BODY_PARTS_BASIC_QUIZ,
+  BODY_PARTS_FACE_QUIZ,
+  BODY_PARTS_INTERNAL_QUIZ,
+} from '@/lib/quizBanks/vocabulary/bodyPartsCategoryQuestionBank';
+import {
+  FOOD_BASIC_QUIZ,
+  FOOD_DRINKS_QUIZ,
+  FOOD_FRUITS_QUIZ,
+  FOOD_MEAT_QUIZ,
+  FOOD_VEGETABLES_QUIZ,
+} from '@/lib/quizBanks/vocabulary/foodCategoryQuestionBank';
 import {
   LANDSCAPE_ELEMENTS_QUIZ,
   LANDSCAPE_LAND_QUIZ,
@@ -24,13 +30,13 @@ import {
   LANDSCAPE_PLANTS_QUIZ,
   LANDSCAPE_SKY_QUIZ,
   LANDSCAPE_WATER_QUIZ,
-} from '@/lib/vocabulary/landscapeCategoryQuestionBank';
+} from '@/lib/quizBanks/vocabulary/landscapeCategoryQuestionBank';
 import {
   MARKETPLACE_CARRYING_QUIZ,
   MARKETPLACE_EQUIPMENT_QUIZ,
   MARKETPLACE_MONEY_TRADE_QUIZ,
   MARKETPLACE_PLACES_PEOPLE_QUIZ,
-} from '@/lib/vocabulary/marketplaceCategoryQuestionBank';
+} from '@/lib/quizBanks/vocabulary/marketplaceCategoryQuestionBank';
 import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
@@ -38,7 +44,7 @@ import {
   ROOMS_OUTDOOR_QUIZ,
   ROOMS_STUDY_WORK_QUIZ,
   ROOMS_WASHING_QUIZ,
-} from '@/lib/vocabulary/roomsSubLessonQuestionBanks';
+} from '@/lib/quizBanks/vocabulary/roomsCategoryQuestionBank';
 
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
@@ -46,19 +52,19 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/declensions': grammarDeclensionsQuiz,
   '/grammar/present-tense-active': presentTenseActiveQuiz,
   '/grammar/adjectives': grammarAdjectivesQuiz,
-  '/vocabulary/animals/common': vocabAnimalsCommonQuiz,
-  '/vocabulary/animals/wild': vocabAnimalsWildQuiz,
-  '/vocabulary/animals/birds': vocabAnimalsBirdsQuiz,
-  '/vocabulary/animals/sea': vocabAnimalsSeaQuiz,
-  '/vocabulary/animals/small': vocabAnimalsSmallQuiz,
-  '/vocabulary/food/basic': vocabFoodBasicQuiz,
-  '/vocabulary/food/fruits': vocabFoodFruitsQuiz,
-  '/vocabulary/food/vegetables': vocabFoodVegetablesQuiz,
-  '/vocabulary/food/meat': vocabFoodMeatQuiz,
-  '/vocabulary/food/drinks': vocabFoodDrinksQuiz,
-  '/vocabulary/body-parts/basic': vocabBodyBasicQuiz,
-  '/vocabulary/body-parts/face': vocabBodyFaceQuiz,
-  '/vocabulary/body-parts/internal': vocabBodyInternalQuiz,
+  '/vocabulary/animals/common': ANIMALS_COMMON_QUIZ,
+  '/vocabulary/animals/wild': ANIMALS_WILD_QUIZ,
+  '/vocabulary/animals/birds': ANIMALS_BIRDS_QUIZ,
+  '/vocabulary/animals/sea': ANIMALS_SEA_QUIZ,
+  '/vocabulary/animals/small': ANIMALS_SMALL_QUIZ,
+  '/vocabulary/food/basic': FOOD_BASIC_QUIZ,
+  '/vocabulary/food/fruits': FOOD_FRUITS_QUIZ,
+  '/vocabulary/food/vegetables': FOOD_VEGETABLES_QUIZ,
+  '/vocabulary/food/meat': FOOD_MEAT_QUIZ,
+  '/vocabulary/food/drinks': FOOD_DRINKS_QUIZ,
+  '/vocabulary/body-parts/basic': BODY_PARTS_BASIC_QUIZ,
+  '/vocabulary/body-parts/face': BODY_PARTS_FACE_QUIZ,
+  '/vocabulary/body-parts/internal': BODY_PARTS_INTERNAL_QUIZ,
   '/vocabulary/rooms/living-sleeping': ROOMS_LIVING_SLEEPING_QUIZ,
   '/vocabulary/rooms/eating-cooking': ROOMS_EATING_COOKING_QUIZ,
   '/vocabulary/rooms/general': ROOMS_GENERAL_QUIZ,

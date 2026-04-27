@@ -8,7 +8,7 @@ import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
-import { presentTenseActiveQuiz } from '@/lib/quizBanks/lessonInlinePools/presentTenseActive';
+import { presentTenseActiveQuiz } from '@/lib/quizBanks/grammar/presentTenseActive';
 
 const QUESTIONS_PER_QUIZ = 10;
 

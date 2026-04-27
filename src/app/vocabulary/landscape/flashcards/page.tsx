@@ -1,5 +1,5 @@
 import { VocabularyFlashcards } from "@/components/VocabularyFlashcards";
-import { LANDSCAPE_ALL_FLASHCARDS } from "@/lib/vocabulary/landscapeVocab";
+import { LANDSCAPE_ALL_FLASHCARDS } from "@/lib/quizBanks/vocabulary/landscapeVocab";
 
 export default function LandscapeAllFlashcardsPage() {
   return (

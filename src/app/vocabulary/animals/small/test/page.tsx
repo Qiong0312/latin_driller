@@ -8,9 +8,9 @@ import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
-import { vocabAnimalsSmallQuiz } from '@/lib/quizBanks/lessonInlinePools/vocabAnimalsSmall';
+import { ANIMALS_SMALL_QUIZ } from '@/lib/quizBanks/vocabulary/animalsCategoryQuestionBank';
 
-const questions = vocabAnimalsSmallQuiz;
+const questions = ANIMALS_SMALL_QUIZ;
 
 
 export default function SmallCreaturesTestPage() {

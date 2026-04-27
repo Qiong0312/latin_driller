@@ -1,5 +1,5 @@
 import { VocabularyFlashcards } from "@/components/VocabularyFlashcards";
-import { MARKETPLACE_EQUIPMENT_CARDS } from "@/lib/vocabulary/marketplaceVocab";
+import { MARKETPLACE_EQUIPMENT_CARDS } from "@/lib/quizBanks/vocabulary/marketplaceVocab";
 
 export default function MarketplaceEquipmentFlashcardsPage() {
   return (

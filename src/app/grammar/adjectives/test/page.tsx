@@ -8,7 +8,7 @@ import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } 
 import { recordQuizResult } from '@/lib/localProgress';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
-import { grammarAdjectivesQuiz } from '@/lib/quizBanks/lessonInlinePools/grammarAdjectives';
+import { grammarAdjectivesQuiz } from '@/lib/quizBanks/grammar/grammarAdjectives';
 
 const QUESTIONS_PER_QUIZ = 10;
 

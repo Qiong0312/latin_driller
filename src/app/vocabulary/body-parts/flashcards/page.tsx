@@ -1,5 +1,5 @@
 import { VocabularyFlashcards } from '@/components/VocabularyFlashcards';
-import { BODY_PARTS_ALL_FLASHCARDS } from '@/lib/vocabulary/categoryFlashcardsData';
+import { BODY_PARTS_ALL_FLASHCARDS } from '@/lib/quizBanks/vocabulary/categoryFlashcardsData';
 
 export default function BodyPartsAllFlashcardsPage() {
   return (
