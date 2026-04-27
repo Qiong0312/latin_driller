@@ -370,7 +370,7 @@ export function LocalProgressSummary() {
           </span>
         </p>
         <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
-          Each daily test you finish adds stellar dust from that test’s score only: 0 below 70%; 1 at 70%+; 2 at 85%+; 3 at
+          Each daily test you finish adds stellar dust from that test’s score only: 0 below 70%; 1 at 70%+; 3 at 85%+; 5 at
           98%+.
         </p>
         <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-violet-700 dark:text-violet-300">

@@ -270,17 +270,17 @@ function defaultDailyCelestial(): DailyTestCelestialProgress {
 
 /**
  * Stellar dust earned for one daily test (highest band only). Under 70%: 0.
- * 70%+: 1, 85%+: 2, 98%+: 3.
+ * 70%+: 1, 85%+: 3, 98%+: 5.
  */
-export function dailyDustFromScorePercent(percent: number): 0 | 1 | 2 | 3 {
+export function dailyDustFromScorePercent(percent: number): 0 | 1 | 3 | 5 {
   if (percent < 70) {
     return 0;
   }
   if (percent >= 98) {
-    return 3;
+    return 5;
   }
   if (percent >= 85) {
-    return 2;
+    return 3;
   }
   return 1;
 }

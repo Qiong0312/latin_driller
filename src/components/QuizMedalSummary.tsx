@@ -96,7 +96,7 @@ export function QuizMedalSummary({ quizPath }: { quizPath: string | null }) {
           </span>
         </p>
         <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
-          Each daily test adds dust from that test’s score only: 0 below 70%; 1 at 70%+; 2 at 85%+; 3 at 98%+.
+          Each daily test adds dust from that test’s score only: 0 below 70%; 1 at 70%+; 3 at 85%+; 5 at 98%+.
         </p>
         <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-base font-bold text-violet-700 dark:text-violet-300">
           <span className="inline-block w-24 shrink-0">Dust bank:</span>
