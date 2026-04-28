@@ -94,6 +94,11 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
                 Marketplace
               </Link>
             </li>
+            <li>
+              <Link href="/vocabulary/family" className={linkClass}>
+                Family Members
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

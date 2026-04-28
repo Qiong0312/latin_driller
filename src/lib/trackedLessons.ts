@@ -40,6 +40,9 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/marketplace/money-trade',
   '/vocabulary/marketplace/carrying',
   '/vocabulary/marketplace/equipment',
+  '/vocabulary/family/immediate-family',
+  '/vocabulary/family/extended-family',
+  '/vocabulary/family/other-relations',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

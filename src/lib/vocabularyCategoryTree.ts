@@ -41,6 +41,11 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/marketplace/carrying',
     '/vocabulary/marketplace/equipment',
   ],
+  '/vocabulary/family': [
+    '/vocabulary/family/immediate-family',
+    '/vocabulary/family/extended-family',
+    '/vocabulary/family/other-relations',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

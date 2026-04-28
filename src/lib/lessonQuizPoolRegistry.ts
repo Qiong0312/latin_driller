@@ -38,6 +38,11 @@ import {
   MARKETPLACE_PLACES_PEOPLE_QUIZ,
 } from '@/lib/quizBanks/vocabulary/marketplaceCategoryQuestionBank';
 import {
+  FAMILY_EXTENDED_QUIZ,
+  FAMILY_IMMEDIATE_QUIZ,
+  FAMILY_OTHER_RELATIONS_QUIZ,
+} from '@/lib/quizBanks/vocabulary/familyCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -81,6 +86,9 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/marketplace/money-trade': MARKETPLACE_MONEY_TRADE_QUIZ,
   '/vocabulary/marketplace/carrying': MARKETPLACE_CARRYING_QUIZ,
   '/vocabulary/marketplace/equipment': MARKETPLACE_EQUIPMENT_QUIZ,
+  '/vocabulary/family/immediate-family': FAMILY_IMMEDIATE_QUIZ,
+  '/vocabulary/family/extended-family': FAMILY_EXTENDED_QUIZ,
+  '/vocabulary/family/other-relations': FAMILY_OTHER_RELATIONS_QUIZ,
 };
 
 export function getQuizPoolForLesson(lessonPath: string): QuizQuestion[] | null {
