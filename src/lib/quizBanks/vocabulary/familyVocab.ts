@@ -1,7 +1,41 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 
-function toFlashcardsWithoutIcon(items: { latin: string; english: string }[]): VocabularyFlashcard[] {
-  return items.map((e) => ({ ...e, icon: '' }));
+const FAMILY_ICON_SLUGS = new Set([
+  'familia',
+  'pater',
+  'mater',
+  'filius',
+  'filia',
+  'parens',
+  'frater',
+  'soror',
+  'avus',
+  'avia',
+  'patruus',
+  'avunculus',
+  'amita',
+  'matertera',
+  'liberi',
+  'infans',
+  'maritus',
+  'uxor',
+]);
+
+function latinToSlug(latin: string): string {
+  return latin
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function toFamilyFlashcards(items: { latin: string; english: string }[]): VocabularyFlashcard[] {
+  return items.map((e) => {
+    const slug = latinToSlug(e.latin);
+    const icon = FAMILY_ICON_SLUGS.has(slug) ? `/flashcard-icons/family-members/${slug}.svg` : '';
+    return { ...e, icon };
+  });
 }
 
 /** Familia: immediate members */
@@ -34,9 +68,9 @@ export const FAMILY_OTHER_RELATIONS: { latin: string; english: string }[] = [
   { latin: 'uxor', english: 'wife' },
 ];
 
-export const FAMILY_IMMEDIATE_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(FAMILY_IMMEDIATE);
-export const FAMILY_EXTENDED_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(FAMILY_EXTENDED);
-export const FAMILY_OTHER_RELATIONS_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(FAMILY_OTHER_RELATIONS);
+export const FAMILY_IMMEDIATE_CARDS: VocabularyFlashcard[] = toFamilyFlashcards(FAMILY_IMMEDIATE);
+export const FAMILY_EXTENDED_CARDS: VocabularyFlashcard[] = toFamilyFlashcards(FAMILY_EXTENDED);
+export const FAMILY_OTHER_RELATIONS_CARDS: VocabularyFlashcard[] = toFamilyFlashcards(FAMILY_OTHER_RELATIONS);
 
 export const FAMILY_ALL_FLASHCARDS: VocabularyFlashcard[] = [
   ...FAMILY_IMMEDIATE_CARDS,
