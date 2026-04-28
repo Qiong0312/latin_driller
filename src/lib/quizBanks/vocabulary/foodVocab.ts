@@ -37,5 +37,5 @@ function entries(cards: VocabularyFlashcard[]): VocabEntry[] {
 export const FOOD_BASIC_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(0, 5));
 export const FOOD_FRUITS_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(5, 11));
 export const FOOD_VEGETABLES_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(11, 17));
-export const FOOD_MEAT_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(17, 22));
-export const FOOD_DRINKS_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(22, 26));
+export const FOOD_MEAT_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(16, 21));
+export const FOOD_DRINKS_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(21, 26));

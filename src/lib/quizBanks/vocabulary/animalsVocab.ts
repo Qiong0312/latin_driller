@@ -42,6 +42,6 @@ function entries(cards: VocabularyFlashcard[]): VocabEntry[] {
 
 export const ANIMALS_COMMON_ENTRIES = entries(ANIMALS_ALL_FLASHCARDS.slice(0, 8));
 export const ANIMALS_WILD_ENTRIES = entries(ANIMALS_ALL_FLASHCARDS.slice(8, 15));
-export const ANIMALS_BIRDS_ENTRIES = entries(ANIMALS_ALL_FLASHCARDS.slice(15, 21));
-export const ANIMALS_SEA_ENTRIES = entries(ANIMALS_ALL_FLASHCARDS.slice(21, 25));
-export const ANIMALS_SMALL_ENTRIES = entries(ANIMALS_ALL_FLASHCARDS.slice(25, 31));
+export const ANIMALS_BIRDS_ENTRIES = entries(ANIMALS_ALL_FLASHCARDS.slice(15, 22));
+export const ANIMALS_SEA_ENTRIES = entries(ANIMALS_ALL_FLASHCARDS.slice(22, 26));
+export const ANIMALS_SMALL_ENTRIES = entries(ANIMALS_ALL_FLASHCARDS.slice(26, 31));

@@ -9,7 +9,7 @@ import {
 
 const BASIC = buildVocabularyQuestionBank({
   categoryLabel: 'Basic food',
-  outsideCategoryLatin: ['Canis', 'mālum', 'fluvius', 'mercātus', 'cūbiculum', 'pānis', 'lūna', 'cāput'],
+  outsideCategoryLatin: ['Canis', 'mālum', 'fluvius', 'mercātus', 'cūbiculum', 'lūna', 'cāput', 'equus'],
   entries: FOOD_BASIC_ENTRIES,
 });
 const FRUITS = buildVocabularyQuestionBank({
