@@ -8,29 +8,29 @@ function toFlashcardsWithoutIcon(items: { latin: string; english: string }[]): V
 export const FAMILY_IMMEDIATE: { latin: string; english: string }[] = [
   { latin: 'familia', english: 'family / household' },
   { latin: 'pater', english: 'father' },
-  { latin: 'mater', english: 'mother' },
-  { latin: 'filius', english: 'son' },
-  { latin: 'filia', english: 'daughter' },
-  { latin: 'parens', english: 'parent' },
+  { latin: 'māter', english: 'mother' },
+  { latin: 'fīlius', english: 'son' },
+  { latin: 'fīlia', english: 'daughter' },
+  { latin: 'parēns', english: 'parent' },
 ];
 
 /** Familia: extended family */
 export const FAMILY_EXTENDED: { latin: string; english: string }[] = [
-  { latin: 'frater', english: 'brother' },
+  { latin: 'frāter', english: 'brother' },
   { latin: 'soror', english: 'sister' },
   { latin: 'avus', english: 'grandfather' },
   { latin: 'avia', english: 'grandmother' },
-  { latin: 'patruus', english: "uncle (father's brother)" },
+  { latin: 'patrūus', english: "uncle (father's brother)" },
   { latin: 'avunculus', english: "uncle (mother's brother)" },
   { latin: 'amita', english: "aunt (father's sister)" },
-  { latin: 'matertera', english: "aunt (mother's sister)" },
+  { latin: 'mātertera', english: "aunt (mother's sister)" },
 ];
 
 /** Familia: other relations */
 export const FAMILY_OTHER_RELATIONS: { latin: string; english: string }[] = [
-  { latin: 'liberi', english: 'children (plural)' },
-  { latin: 'infans', english: 'baby' },
-  { latin: 'maritus', english: 'husband' },
+  { latin: 'līberī', english: 'children (plural)' },
+  { latin: 'infāns', english: 'baby' },
+  { latin: 'marītus', english: 'husband' },
   { latin: 'uxor', english: 'wife' },
 ];
 
