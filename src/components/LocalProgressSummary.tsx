@@ -29,7 +29,10 @@ import {
   VOCABULARY_LESSON_PATHS,
 } from '@/lib/trackedLessons';
 
-const STREAK_MILESTONES = [1, 3, 5, 10, 20, 30, 60, 100] as const;
+const MILESTONE_STEPS = [
+  1, 3, 5, 10, 20, 30, 60, 100, 150, 200, 250, 300, 400, 500, 600, 700, 800, 900, 1000,
+] as const;
+const STREAK_MILESTONES = [1, 3, 5, 10, 20, 30, 60, 100, 150, 200, 250, 300, 350] as const;
 
 type QuizNode = {
   attempts: number;
@@ -90,8 +93,8 @@ function lessonAchievement(done: number, total: number): { title: string; icon: 
   return { title: 'Novice Explorer', icon: '🧭', pct };
 }
 
-function nextMilestoneTarget(current: number): number | null {
-  for (const step of STREAK_MILESTONES) {
+function nextMilestoneTarget(current: number, steps: readonly number[]): number | null {
+  for (const step of steps) {
     if (current < step) return step;
   }
   return null;
@@ -198,8 +201,8 @@ export function LocalProgressSummary() {
 
   const streakHits = STREAK_MILESTONES.filter((m) => currentStreak >= m);
   const topStreakMilestone = streakHits[streakHits.length - 1] ?? 0;
-  const nextDaysMilestone = nextMilestoneTarget(daysUsed);
-  const nextStreakBadge = nextMilestoneTarget(currentStreak);
+  const nextDaysMilestone = nextMilestoneTarget(daysUsed, MILESTONE_STEPS);
+  const nextStreakBadge = nextMilestoneTarget(currentStreak, STREAK_MILESTONES);
 
   const quizTree: Record<string, QuizNode> = {};
   let totalLessonQuizAttempts = 0;
@@ -295,8 +298,8 @@ export function LocalProgressSummary() {
       <section className="rounded-lg border border-sky-200 bg-sky-50/70 p-4 dark:border-sky-900 dark:bg-sky-950/30">
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">3) Quiz Progress</h3>
         <p className="mt-2">Total quizzes taken: <strong>{totalLessonQuizAttempts}</strong></p>
-        <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
-          <span className="mr-1 inline-block w-24 shrink-0">Medals:</span>
+        <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300 sm:flex-nowrap">
+          <span className="inline-block w-full shrink-0 sm:mr-1 sm:w-24">Medals:</span>
           <span className="inline-flex items-center gap-2">
             <MedalIconImg tier="bronze" className="h-9 w-9" />
             <span className="inline-block w-10 text-right tabular-nums">{lessonMedalCounts.bronze}</span>
@@ -319,8 +322,8 @@ export function LocalProgressSummary() {
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
           One medal per lesson quiz path, based on average score: Bronze (70%+), Silver (85%+), Gold (98%+).
         </p>
-        <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300">
-          <span className="mr-1 inline-block w-24 shrink-0">Trophies:</span>
+        <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-sky-700 dark:text-sky-300 sm:flex-nowrap">
+          <span className="inline-block w-full shrink-0 sm:mr-1 sm:w-24">Trophies:</span>
           <span className="inline-flex items-center gap-2">
             <TrophyIconImg kind="bronze" className="h-9 w-9" />
             <span className="inline-block w-10 text-right tabular-nums">{lessonTrophyCounts.bronzeTrophies}</span>
@@ -373,8 +376,8 @@ export function LocalProgressSummary() {
           Each daily test you finish adds stellar dust from that test’s score only: 0 below 70%; 1 at 70%+; 3 at 85%+; 5 at
           98%+.
         </p>
-        <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-violet-700 dark:text-violet-300">
-          <span className="mr-1 inline-block w-24 shrink-0">Rewards:</span>
+        <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-violet-700 dark:text-violet-300 sm:flex-nowrap">
+          <span className="inline-block w-full shrink-0 sm:mr-1 sm:w-24">Rewards:</span>
           <span className="inline-flex items-center gap-2">
             <CelestialStarIcon className="h-9 w-9" />
             <span className="inline-block w-10 text-right tabular-nums">{dailyCelestial.stars}</span>
