@@ -6,6 +6,7 @@ import { grammaticalGenderQuiz } from '@/lib/quizBanks/grammar/grammaticalGender
 import { presentTenseActiveQuiz } from '@/lib/quizBanks/grammar/presentTenseActive';
 import { relativePronounQuiz } from '@/lib/quizBanks/grammar/relativePronoun';
 import { adjectivesAdverbialForceQuiz } from '@/lib/quizBanks/grammar/adjectivesAdverbialForce';
+import { imperativeQuiz } from '@/lib/quizBanks/grammar/imperative';
 import {
   ANIMALS_BIRDS_QUIZ,
   ANIMALS_COMMON_QUIZ,
@@ -68,6 +69,7 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/adjectives': grammarAdjectivesQuiz,
   '/grammar/relative-pronoun': relativePronounQuiz,
   '/grammar/adjectives-adverbial-force': adjectivesAdverbialForceQuiz,
+  '/grammar/imperative': imperativeQuiz,
   '/vocabulary/animals/common': ANIMALS_COMMON_QUIZ,
   '/vocabulary/animals/wild': ANIMALS_WILD_QUIZ,
   '/vocabulary/animals/birds': ANIMALS_BIRDS_QUIZ,

@@ -69,6 +69,11 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
                 Adjectives with adverbial force
               </Link>
             </li>
+            <li>
+              <Link href="/grammar/imperative" className={linkClass}>
+                Imperative
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

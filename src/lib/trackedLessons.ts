@@ -10,6 +10,7 @@ export const GRAMMAR_LESSON_PATHS = [
   '/grammar/adjectives',
   '/grammar/relative-pronoun',
   '/grammar/adjectives-adverbial-force',
+  '/grammar/imperative',
 ] as const;
 
 export const VOCABULARY_LESSON_PATHS = [
