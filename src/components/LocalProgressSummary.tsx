@@ -341,7 +341,7 @@ export function LocalProgressSummary() {
           </span>
         </p>
         <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
-          Trophy conversion: 20 gold medals {'->'} 1 bronze trophy; 10 bronze trophies {'->'} 1 silver trophy; 5
+          Trophy conversion: 20 gold medals {'->'} 1 bronze trophy; 5 bronze trophies {'->'} 1 silver trophy; 3
           silver trophies {'->'} 1 gold trophy.
         </p>
         <div className="mt-3 space-y-2">

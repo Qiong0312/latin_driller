@@ -420,8 +420,8 @@ export function getDailyTestRewardPanelSnapshot(): {
 /**
  * Trophy conversion:
  * - 20 gold medals => 1 bronze trophy
- * - 10 bronze trophies => 1 silver trophy
- * - 5 silver trophies => 1 gold trophy
+ * - 5 bronze trophies => 1 silver trophy
+ * - 3 silver trophies => 1 gold trophy
  */
 export function getQuizTrophyCounts(goldMedals: number): {
   bronzeTrophies: number;
@@ -429,8 +429,8 @@ export function getQuizTrophyCounts(goldMedals: number): {
   goldTrophies: number;
 } {
   const bronzeTrophies = Math.floor(goldMedals / 20);
-  const silverTrophies = Math.floor(bronzeTrophies / 10);
-  const goldTrophies = Math.floor(silverTrophies / 5);
+  const silverTrophies = Math.floor(bronzeTrophies / 5);
+  const goldTrophies = Math.floor(silverTrophies / 3);
   return { bronzeTrophies, silverTrophies, goldTrophies };
 }
 
