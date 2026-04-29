@@ -8,6 +8,7 @@ export const GRAMMAR_LESSON_PATHS = [
   '/grammar/declensions',
   '/grammar/present-tense-active',
   '/grammar/adjectives',
+  '/grammar/relative-pronoun',
 ] as const;
 
 export const VOCABULARY_LESSON_PATHS = [

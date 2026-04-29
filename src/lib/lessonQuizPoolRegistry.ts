@@ -4,6 +4,7 @@ import { grammarCasesQuiz } from '@/lib/quizBanks/grammar/grammarCases';
 import { grammarDeclensionsQuiz } from '@/lib/quizBanks/grammar/grammarDeclensions';
 import { grammaticalGenderQuiz } from '@/lib/quizBanks/grammar/grammaticalGender';
 import { presentTenseActiveQuiz } from '@/lib/quizBanks/grammar/presentTenseActive';
+import { relativePronounQuiz } from '@/lib/quizBanks/grammar/relativePronoun';
 import {
   ANIMALS_BIRDS_QUIZ,
   ANIMALS_COMMON_QUIZ,
@@ -64,6 +65,7 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/declensions': grammarDeclensionsQuiz,
   '/grammar/present-tense-active': presentTenseActiveQuiz,
   '/grammar/adjectives': grammarAdjectivesQuiz,
+  '/grammar/relative-pronoun': relativePronounQuiz,
   '/vocabulary/animals/common': ANIMALS_COMMON_QUIZ,
   '/vocabulary/animals/wild': ANIMALS_WILD_QUIZ,
   '/vocabulary/animals/birds': ANIMALS_BIRDS_QUIZ,
