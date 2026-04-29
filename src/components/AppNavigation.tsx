@@ -99,6 +99,11 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
                 Family Members
               </Link>
             </li>
+            <li>
+              <Link href="/vocabulary/occupations" className={linkClass}>
+                Occupations
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

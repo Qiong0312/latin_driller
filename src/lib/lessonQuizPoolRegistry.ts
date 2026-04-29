@@ -43,6 +43,13 @@ import {
   FAMILY_OTHER_RELATIONS_QUIZ,
 } from '@/lib/quizBanks/vocabulary/familyCategoryQuestionBank';
 import {
+  OCCUPATIONS_ARTS_ENTERTAINMENT_QUIZ,
+  OCCUPATIONS_CRAFTS_TRADES_QUIZ,
+  OCCUPATIONS_EDUCATION_QUIZ,
+  OCCUPATIONS_GENERAL_QUIZ,
+  OCCUPATIONS_MILITARY_GOVERNMENT_QUIZ,
+} from '@/lib/quizBanks/vocabulary/occupationsCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -89,6 +96,11 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/family/immediate-family': FAMILY_IMMEDIATE_QUIZ,
   '/vocabulary/family/extended-family': FAMILY_EXTENDED_QUIZ,
   '/vocabulary/family/other-relations': FAMILY_OTHER_RELATIONS_QUIZ,
+  '/vocabulary/occupations/general': OCCUPATIONS_GENERAL_QUIZ,
+  '/vocabulary/occupations/military-government': OCCUPATIONS_MILITARY_GOVERNMENT_QUIZ,
+  '/vocabulary/occupations/education': OCCUPATIONS_EDUCATION_QUIZ,
+  '/vocabulary/occupations/crafts-trades': OCCUPATIONS_CRAFTS_TRADES_QUIZ,
+  '/vocabulary/occupations/arts-entertainment': OCCUPATIONS_ARTS_ENTERTAINMENT_QUIZ,
 };
 
 export function getQuizPoolForLesson(lessonPath: string): QuizQuestion[] | null {

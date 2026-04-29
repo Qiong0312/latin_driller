@@ -43,6 +43,11 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/family/immediate-family',
   '/vocabulary/family/extended-family',
   '/vocabulary/family/other-relations',
+  '/vocabulary/occupations/general',
+  '/vocabulary/occupations/military-government',
+  '/vocabulary/occupations/education',
+  '/vocabulary/occupations/crafts-trades',
+  '/vocabulary/occupations/arts-entertainment',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

@@ -46,6 +46,13 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/family/extended-family',
     '/vocabulary/family/other-relations',
   ],
+  '/vocabulary/occupations': [
+    '/vocabulary/occupations/general',
+    '/vocabulary/occupations/military-government',
+    '/vocabulary/occupations/education',
+    '/vocabulary/occupations/crafts-trades',
+    '/vocabulary/occupations/arts-entertainment',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);
