@@ -103,6 +103,9 @@ function nextMilestoneTarget(current: number, steps: readonly number[]): number 
 const MILESTONE_STAMP_SRC = '/progress-icons/milestone.svg';
 const STREAK_STAMP_SRC = '/progress-icons/streak.svg';
 
+/** Quiz medals, trophies, dust bank, and celestial rewards — smaller tiles on small screens */
+const DASHBOARD_AWARD_TILE = 'h-9 w-9 shrink-0 sm:h-11 sm:w-11 lg:h-14 lg:w-14';
+
 function EffortStamp({ src, value, ariaLabel }: { src: string; value: number; ariaLabel: string }) {
   const digits = String(value);
   const textSize =
@@ -360,19 +363,19 @@ export function LocalProgressSummary() {
           <p className="text-lg font-bold text-sky-700 dark:text-sky-300">Medals:</p>
           <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
             <span className="inline-flex items-center gap-2">
-              <MedalIconImg tier="bronze" className="h-14 w-14 shrink-0" />
+              <MedalIconImg tier="bronze" className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
                 {lessonMedalCounts.bronze}
               </span>
             </span>
             <span className="inline-flex items-center gap-2">
-              <MedalIconImg tier="silver" className="h-14 w-14 shrink-0" />
+              <MedalIconImg tier="silver" className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
                 {lessonMedalCounts.silver}
               </span>
             </span>
             <span className="inline-flex items-center gap-2">
-              <MedalIconImg tier="gold" className="h-14 w-14 shrink-0" />
+              <MedalIconImg tier="gold" className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
                 {lessonMedalCounts.gold}
               </span>
@@ -386,19 +389,19 @@ export function LocalProgressSummary() {
           <p className="text-lg font-bold text-sky-700 dark:text-sky-300">Trophies:</p>
           <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
             <span className="inline-flex items-center gap-2">
-              <TrophyIconImg kind="bronze" className="h-14 w-14 shrink-0" />
+              <TrophyIconImg kind="bronze" className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
                 {lessonTrophyCounts.bronzeTrophies}
               </span>
             </span>
             <span className="inline-flex items-center gap-2">
-              <TrophyIconImg kind="silver" className="h-14 w-14 shrink-0" />
+              <TrophyIconImg kind="silver" className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
                 {lessonTrophyCounts.silverTrophies}
               </span>
             </span>
             <span className="inline-flex items-center gap-2">
-              <TrophyIconImg kind="gold" className="h-14 w-14 shrink-0" />
+              <TrophyIconImg kind="gold" className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
                 {lessonTrophyCounts.goldTrophies}
               </span>
@@ -429,7 +432,7 @@ export function LocalProgressSummary() {
         <div className="mt-3">
           <p className="text-lg font-bold text-violet-700 dark:text-violet-300">Dust bank:</p>
           <div className="mt-2 inline-flex flex-wrap items-center gap-2">
-            <StellarDustIcon className="h-14 w-14 shrink-0" />
+            <StellarDustIcon className={DASHBOARD_AWARD_TILE} />
             <span className="text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
               {dailyCelestial.dust}
               <span className="font-medium text-violet-600 dark:text-violet-300"> / {DAILY_DUST_PER_STAR}</span>
@@ -444,19 +447,19 @@ export function LocalProgressSummary() {
           <p className="text-lg font-bold text-violet-700 dark:text-violet-300">Rewards:</p>
           <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
             <span className="inline-flex items-center gap-2">
-              <CelestialStarIcon className="h-14 w-14 shrink-0" />
+              <CelestialStarIcon className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
                 {dailyCelestial.stars}
               </span>
             </span>
             <span className="inline-flex items-center gap-2">
-              <CelestialMoonIcon className="h-14 w-14 shrink-0" />
+              <CelestialMoonIcon className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
                 {dailyCelestial.moons}
               </span>
             </span>
             <span className="inline-flex items-center gap-2">
-              <CelestialPlanetIcon className="h-14 w-14 shrink-0" />
+              <CelestialPlanetIcon className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
                 {dailyCelestial.suns}
               </span>
