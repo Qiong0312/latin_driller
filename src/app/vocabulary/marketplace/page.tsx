@@ -6,16 +6,16 @@ import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 export default function MarketplaceVocabularyPage() {
   return (
     <div className="app-panel">
-      <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">
+      <h1 className="mb-4 text-center text-4xl font-bold text-black dark:text-zinc-50">
         Mercātus (Marketplace)
       </h1>
-      <p className="text-center text-lg text-zinc-600 dark:text-zinc-300 mb-6">
-        In forō / mercātū — words for the forum, trade, and shops
+      <p className="mb-8 text-center text-lg text-zinc-600 dark:text-zinc-300">
+        In forō / mercātū — the forum, trade, sellers, coins, sacks, amphorae, and more.
       </p>
-      <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-6">
+      <div className="space-y-6 text-lg leading-relaxed text-zinc-800 dark:text-zinc-200">
         <p>
-          Learn nouns for public commerce: the square, buyers and sellers, money, and what you bring home. Choose a
-          sub-topic, then use flashcards and the sub-lesson quiz, or try the all-lessons quiz for the full set.
+          Choose a sub-topic below. Use flashcards and the sub-lesson quiz for focused practice, or take the category
+          quiz at the bottom to drill every lesson in this topic combined.
         </p>
 
         <div className="space-y-4">

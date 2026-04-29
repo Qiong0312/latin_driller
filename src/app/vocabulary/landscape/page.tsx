@@ -6,13 +6,16 @@ import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 export default function LandscapeVocabularyPage() {
   return (
     <div className="app-panel">
-      <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">
+      <h1 className="mb-4 text-center text-4xl font-bold text-black dark:text-zinc-50">
         Terra (Land &amp; Landscape)
       </h1>
-      <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-6">
+      <p className="mb-8 text-center text-lg text-zinc-600 dark:text-zinc-300">
+        Land, water, mountains, plants, sky, weather, and natural elements.
+      </p>
+      <div className="space-y-6 text-lg leading-relaxed text-zinc-800 dark:text-zinc-200">
         <p>
-          Learn words for the natural world, weather, and outdoor spaces. Choose a sub-topic below, then use
-          flashcards and the sub-lesson quiz, or try the all-lessons quiz for the full set.
+          Choose a sub-topic below. Use flashcards and the sub-lesson quiz for focused practice, or take the category
+          quiz at the bottom to drill every lesson in this topic combined.
         </p>
 
         <div className="space-y-4">
