@@ -1,7 +1,31 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 
-function toFlashcardsWithoutIcon(items: { latin: string; english: string }[]): VocabularyFlashcard[] {
-  return items.map((e) => ({ ...e, icon: '' }));
+const OCCUPATIONS_ICON_OVERRIDES: Record<string, string> = {
+  pictor: '/flashcard-icons/occupations/painter.svg',
+  'faber ferrarius': '/flashcard-icons/occupations/faber ferrarius.svg',
+};
+
+function latinToSlug(latin: string): string {
+  return latin
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function toOccupationsFlashcards(items: { latin: string; english: string }[]): VocabularyFlashcard[] {
+  return items.map((e) => {
+    const normalizedLatin = e.latin
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+    const icon =
+      OCCUPATIONS_ICON_OVERRIDES[normalizedLatin] ??
+      `/flashcard-icons/occupations/${latinToSlug(e.latin)}.svg`;
+
+    return { ...e, icon };
+  });
 }
 
 /** Officia / Artēs: general occupations */
@@ -52,12 +76,12 @@ export const OCCUPATIONS_ARTS_ENTERTAINMENT: { latin: string; english: string }[
   { latin: 'histriō', english: 'actor' },
 ];
 
-export const OCCUPATIONS_GENERAL_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(OCCUPATIONS_GENERAL);
+export const OCCUPATIONS_GENERAL_CARDS: VocabularyFlashcard[] = toOccupationsFlashcards(OCCUPATIONS_GENERAL);
 export const OCCUPATIONS_MILITARY_GOVERNMENT_CARDS: VocabularyFlashcard[] =
-  toFlashcardsWithoutIcon(OCCUPATIONS_MILITARY_GOVERNMENT);
-export const OCCUPATIONS_EDUCATION_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(OCCUPATIONS_EDUCATION);
-export const OCCUPATIONS_CRAFTS_TRADES_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(OCCUPATIONS_CRAFTS_TRADES);
-export const OCCUPATIONS_ARTS_ENTERTAINMENT_CARDS: VocabularyFlashcard[] = toFlashcardsWithoutIcon(
+  toOccupationsFlashcards(OCCUPATIONS_MILITARY_GOVERNMENT);
+export const OCCUPATIONS_EDUCATION_CARDS: VocabularyFlashcard[] = toOccupationsFlashcards(OCCUPATIONS_EDUCATION);
+export const OCCUPATIONS_CRAFTS_TRADES_CARDS: VocabularyFlashcard[] = toOccupationsFlashcards(OCCUPATIONS_CRAFTS_TRADES);
+export const OCCUPATIONS_ARTS_ENTERTAINMENT_CARDS: VocabularyFlashcard[] = toOccupationsFlashcards(
   OCCUPATIONS_ARTS_ENTERTAINMENT,
 );
 
