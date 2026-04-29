@@ -64,6 +64,11 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
                 Relative Pronoun
               </Link>
             </li>
+            <li>
+              <Link href="/grammar/adjectives-adverbial-force" className={linkClass}>
+                Adjectives with adverbial force
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
