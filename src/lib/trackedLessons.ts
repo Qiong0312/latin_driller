@@ -11,6 +11,7 @@ export const GRAMMAR_LESSON_PATHS = [
   '/grammar/relative-pronoun',
   '/grammar/adjectives-adverbial-force',
   '/grammar/imperative',
+  '/grammar/ne-questions',
 ] as const;
 
 export const VOCABULARY_LESSON_PATHS = [

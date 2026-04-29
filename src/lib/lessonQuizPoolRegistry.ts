@@ -7,6 +7,7 @@ import { presentTenseActiveQuiz } from '@/lib/quizBanks/grammar/presentTenseActi
 import { relativePronounQuiz } from '@/lib/quizBanks/grammar/relativePronoun';
 import { adjectivesAdverbialForceQuiz } from '@/lib/quizBanks/grammar/adjectivesAdverbialForce';
 import { imperativeQuiz } from '@/lib/quizBanks/grammar/imperative';
+import { neQuestionsQuiz } from '@/lib/quizBanks/grammar/neQuestions';
 import {
   ANIMALS_BIRDS_QUIZ,
   ANIMALS_COMMON_QUIZ,
@@ -70,6 +71,7 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/relative-pronoun': relativePronounQuiz,
   '/grammar/adjectives-adverbial-force': adjectivesAdverbialForceQuiz,
   '/grammar/imperative': imperativeQuiz,
+  '/grammar/ne-questions': neQuestionsQuiz,
   '/vocabulary/animals/common': ANIMALS_COMMON_QUIZ,
   '/vocabulary/animals/wild': ANIMALS_WILD_QUIZ,
   '/vocabulary/animals/birds': ANIMALS_BIRDS_QUIZ,

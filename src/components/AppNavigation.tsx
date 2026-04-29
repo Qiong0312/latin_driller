@@ -74,6 +74,11 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
                 Imperative
               </Link>
             </li>
+            <li>
+              <Link href="/grammar/ne-questions" className={linkClass}>
+                -ne Questions
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
