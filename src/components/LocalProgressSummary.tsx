@@ -356,52 +356,56 @@ export function LocalProgressSummary() {
       <section className="rounded-lg border border-sky-200 bg-sky-50/70 p-4 dark:border-sky-900 dark:bg-sky-950/30">
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">3) Quiz Progress</h3>
         <p className="mt-2">Total quizzes taken: <strong>{totalLessonQuizAttempts}</strong></p>
-        <p className="mt-2 flex flex-nowrap items-center gap-x-1 gap-y-1 overflow-x-auto text-lg font-bold text-sky-700 dark:text-sky-300">
-          <span className="inline-block shrink-0 mr-1 w-24">Medals:</span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <MedalIconImg tier="bronze" className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{lessonMedalCounts.bronze}</span>
-          </span>
-          <span className="text-sky-400" aria-hidden>
-            |
-          </span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <MedalIconImg tier="silver" className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{lessonMedalCounts.silver}</span>
-          </span>
-          <span className="text-sky-400" aria-hidden>
-            |
-          </span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <MedalIconImg tier="gold" className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{lessonMedalCounts.gold}</span>
-          </span>
-        </p>
-        <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
+        <div className="mt-3">
+          <p className="text-lg font-bold text-sky-700 dark:text-sky-300">Medals:</p>
+          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="inline-flex items-center gap-2">
+              <MedalIconImg tier="bronze" className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
+                {lessonMedalCounts.bronze}
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <MedalIconImg tier="silver" className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
+                {lessonMedalCounts.silver}
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <MedalIconImg tier="gold" className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
+                {lessonMedalCounts.gold}
+              </span>
+            </span>
+          </div>
+        </div>
+        <p className="mt-2 text-xs text-sky-800/90 dark:text-sky-200/90">
           One medal per lesson quiz path, based on average score: Bronze (70%+), Silver (85%+), Gold (98%+).
         </p>
-        <p className="mt-1 flex flex-nowrap items-center gap-x-1 gap-y-1 overflow-x-auto text-lg font-bold text-sky-700 dark:text-sky-300">
-          <span className="inline-block shrink-0 mr-1 w-24">Trophies:</span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <TrophyIconImg kind="bronze" className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{lessonTrophyCounts.bronzeTrophies}</span>
-          </span>
-          <span className="text-sky-400" aria-hidden>
-            |
-          </span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <TrophyIconImg kind="silver" className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{lessonTrophyCounts.silverTrophies}</span>
-          </span>
-          <span className="text-sky-400" aria-hidden>
-            |
-          </span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <TrophyIconImg kind="gold" className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{lessonTrophyCounts.goldTrophies}</span>
-          </span>
-        </p>
-        <p className="text-xs text-sky-800/90 dark:text-sky-200/90">
+        <div className="mt-3">
+          <p className="text-lg font-bold text-sky-700 dark:text-sky-300">Trophies:</p>
+          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="inline-flex items-center gap-2">
+              <TrophyIconImg kind="bronze" className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
+                {lessonTrophyCounts.bronzeTrophies}
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <TrophyIconImg kind="silver" className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
+                {lessonTrophyCounts.silverTrophies}
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <TrophyIconImg kind="gold" className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
+                {lessonTrophyCounts.goldTrophies}
+              </span>
+            </span>
+          </div>
+        </div>
+        <p className="mt-2 text-xs text-sky-800/90 dark:text-sky-200/90">
           Trophy conversion: 20 gold medals {'->'} 1 bronze trophy; 5 bronze trophies {'->'} 1 silver trophy; 3
           silver trophies {'->'} 1 gold trophy.
         </p>
@@ -422,40 +426,44 @@ export function LocalProgressSummary() {
       <section className="rounded-lg border border-violet-200 bg-violet-50/70 p-4 dark:border-violet-900 dark:bg-violet-950/30">
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">4) Daily test</h3>
         <p className="mt-2">Total daily tests taken: <strong>{dailyTestStat.attempts}</strong></p>
-        <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-lg font-bold text-violet-700 dark:text-violet-300">
-          <span className="mr-1 inline-block w-24 shrink-0">Dust bank:</span>
-          <span className="inline-flex items-center gap-2">
-            <StellarDustIcon className="h-9 w-9" />
-            <span className="inline-block w-10 text-right tabular-nums">{dailyCelestial.dust}</span>
-            <span className="font-medium text-violet-600 dark:text-violet-300">/ {DAILY_DUST_PER_STAR}</span>
-          </span>
-        </p>
-        <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
+        <div className="mt-3">
+          <p className="text-lg font-bold text-violet-700 dark:text-violet-300">Dust bank:</p>
+          <div className="mt-2 inline-flex flex-wrap items-center gap-2">
+            <StellarDustIcon className="h-14 w-14 shrink-0" />
+            <span className="text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
+              {dailyCelestial.dust}
+              <span className="font-medium text-violet-600 dark:text-violet-300"> / {DAILY_DUST_PER_STAR}</span>
+            </span>
+          </div>
+        </div>
+        <p className="mt-2 text-xs text-violet-800/90 dark:text-violet-200/90">
           Each daily test you finish adds stellar dust from that test’s score only: 0 below 70%; 1 at 70%+; 3 at 85%+; 5 at
           98%+.
         </p>
-        <p className="mt-1 flex flex-nowrap items-center gap-x-1 gap-y-1 overflow-x-auto text-lg font-bold text-violet-700 dark:text-violet-300">
-          <span className="inline-block shrink-0 mr-1 w-24">Rewards:</span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <CelestialStarIcon className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{dailyCelestial.stars}</span>
-          </span>
-          <span className="text-violet-400" aria-hidden>
-            |
-          </span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <CelestialMoonIcon className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{dailyCelestial.moons}</span>
-          </span>
-          <span className="text-violet-400" aria-hidden>
-            |
-          </span>
-          <span className="inline-flex w-[4.5rem] items-center gap-1">
-            <CelestialPlanetIcon className="h-8 w-8" />
-            <span className="inline-block w-8 text-right tabular-nums">{dailyCelestial.suns}</span>
-          </span>
-        </p>
-        <p className="text-xs text-violet-800/90 dark:text-violet-200/90">
+        <div className="mt-3">
+          <p className="text-lg font-bold text-violet-700 dark:text-violet-300">Rewards:</p>
+          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="inline-flex items-center gap-2">
+              <CelestialStarIcon className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
+                {dailyCelestial.stars}
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <CelestialMoonIcon className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
+                {dailyCelestial.moons}
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <CelestialPlanetIcon className="h-14 w-14 shrink-0" />
+              <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
+                {dailyCelestial.suns}
+              </span>
+            </span>
+          </div>
+        </div>
+        <p className="mt-2 text-xs text-violet-800/90 dark:text-violet-200/90">
           Progression: {DAILY_DUST_PER_STAR} dust {'->'} 1 star; {DAILY_STARS_PER_MOON} stars {'->'} 1 moon;{' '}
           {DAILY_MOONS_PER_SUN} moons {'->'} 1 planet.
         </p>
