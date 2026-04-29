@@ -100,6 +100,34 @@ function nextMilestoneTarget(current: number, steps: readonly number[]): number 
   return null;
 }
 
+const MILESTONE_STAMP_SRC = '/progress-icons/milestone.svg';
+const STREAK_STAMP_SRC = '/progress-icons/streak.svg';
+
+function EffortStamp({ src, value, ariaLabel }: { src: string; value: number; ariaLabel: string }) {
+  const digits = String(value);
+  const textSize =
+    digits.length >= 3 ? 'text-[10px] leading-tight'
+    : digits.length === 2 ? 'text-xs sm:text-sm'
+    : 'text-sm sm:text-base';
+
+  return (
+    <div
+      className="relative inline-flex h-14 w-14 shrink-0 items-center justify-center drop-shadow-sm"
+      role="img"
+      aria-label={ariaLabel}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element -- static local stamp */}
+      <img src={src} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-contain" />
+      <span
+        aria-hidden
+        className={`relative z-10 px-0.5 text-center font-bold tabular-nums text-amber-950 dark:text-amber-50 ${textSize}`}
+      >
+        {digits}
+      </span>
+    </div>
+  );
+}
+
 function normalizeQuizStats(entry: QuizProgressEntry) {
   const attempts = entry.attempts || 0;
   const inferredTotal = attempts * (entry.lastTotal || 0);
@@ -199,8 +227,8 @@ export function LocalProgressSummary() {
     prev = now;
   }
 
-  const streakHits = STREAK_MILESTONES.filter((m) => currentStreak >= m);
-  const topStreakMilestone = streakHits[streakHits.length - 1] ?? 0;
+  const milestoneHits = MILESTONE_STEPS.filter((m) => daysUsed >= m);
+  const streakBadgeHits = STREAK_MILESTONES.filter((m) => bestStreak >= m);
   const nextDaysMilestone = nextMilestoneTarget(daysUsed, MILESTONE_STEPS);
   const nextStreakBadge = nextMilestoneTarget(currentStreak, STREAK_MILESTONES);
 
@@ -269,12 +297,26 @@ export function LocalProgressSummary() {
           <p>Current streak: <strong>{currentStreak} day(s)</strong></p>
           <p>Best streak: <strong>{bestStreak} day(s)</strong></p>
         </div>
-        <p className="mt-3 text-lg font-bold text-amber-700 dark:text-amber-300">
-          {topStreakMilestone > 0
-            ? `🎯 Milestone: ${topStreakMilestone} ${topStreakMilestone === 1 ? 'Day' : 'Days'}`
-            : '🎯 Milestone: Not reached yet'}
-        </p>
-        <p className="text-xs text-amber-800/90 dark:text-amber-200/90">
+        <div className="mt-3">
+          <p className="text-lg font-bold text-amber-700 dark:text-amber-300">
+            Milestones:
+          </p>
+          {milestoneHits.length === 0 ? (
+            <p className="mt-1 text-sm text-amber-800/90 dark:text-amber-200/90">Not reached yet.</p>
+          ) : (
+            <div className="mt-2 flex flex-wrap gap-2">
+              {milestoneHits.map((n) => (
+                <EffortStamp
+                  key={`milestone-${n}`}
+                  src={MILESTONE_STAMP_SRC}
+                  value={n}
+                  ariaLabel={`Milestone stamp: ${n} total ${n === 1 ? 'day' : 'days'} used`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        <p className="mt-2 text-xs text-amber-800/90 dark:text-amber-200/90">
           Milestone = total number of days you have used the app.
         </p>
         <p className="mt-1 text-xs text-amber-800/90 dark:text-amber-200/90">
@@ -282,11 +324,27 @@ export function LocalProgressSummary() {
             ? `Next milestone: ${nextDaysMilestone} days (${nextDaysMilestone - daysUsed} to go)`
             : 'Next milestone: All milestone tiers completed'}
         </p>
-        <p className="mt-1 text-lg font-bold text-amber-700 dark:text-amber-300">
-          {topStreakMilestone > 0 ? `🏅 Streak Badge: ${topStreakMilestone}-Day` : '🏅 Streak Badge: Not reached yet'}
-        </p>
-        <p className="text-xs text-amber-800/90 dark:text-amber-200/90">
-          Streak Badge = continuous days in a row. It resets when a day is missed.
+        <div className="mt-3">
+          <p className="text-lg font-bold text-amber-700 dark:text-amber-300">
+            Streak Badge:
+          </p>
+          {streakBadgeHits.length === 0 ? (
+            <p className="mt-1 text-sm text-amber-800/90 dark:text-amber-200/90">Not reached yet.</p>
+          ) : (
+            <div className="mt-2 flex flex-wrap gap-2">
+              {streakBadgeHits.map((n) => (
+                <EffortStamp
+                  key={`streak-${n}`}
+                  src={STREAK_STAMP_SRC}
+                  value={n}
+                  ariaLabel={`Streak badge: ${n} consecutive ${n === 1 ? 'day' : 'days'} achieved (personal best)`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        <p className="mt-2 text-xs text-amber-800/90 dark:text-amber-200/90">
+          Streak badge = continuous days in a row. It resets when a day is missed.
         </p>
         <p className="mt-1 text-xs text-amber-800/90 dark:text-amber-200/90">
           {nextStreakBadge
