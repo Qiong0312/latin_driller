@@ -624,8 +624,11 @@ export function hasAnyStoredProgress(): boolean {
   return Object.values(d.flashcards).some((f) => f.visits > 0);
 }
 
-export function clearAllLocalProgress(): void {
+export function clearAllLocalProgress(requireConfirm = true): void {
   if (typeof window === 'undefined') {
+    return;
+  }
+  if (requireConfirm && !window.confirm('Clear all local dashboard data for this browser?')) {
     return;
   }
   try {

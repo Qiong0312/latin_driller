@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useSyncExternalStore } from 'react';
+import { useMemo, useState, useSyncExternalStore } from 'react';
 import {
   CelestialMoonIcon,
   CelestialPlanetIcon,
@@ -182,6 +182,7 @@ function buildSnapshotKey(): string {
 
 export function LocalProgressSummary() {
   const hydrated = useIsHydrated();
+  const [confirmClearOpen, setConfirmClearOpen] = useState(false);
   const key = useSyncExternalStore(subscribe, buildSnapshotKey, () => SERVER_SNAPSHOT);
   const data = useMemo((): ProgressSnapshot => {
     if (!hydrated) {
@@ -486,11 +487,7 @@ export function LocalProgressSummary() {
         <div>
           <button
             type="button"
-            onClick={() => {
-              if (window.confirm('Clear all local dashboard data for this browser?')) {
-                clearAllLocalProgress();
-              }
-            }}
+            onClick={() => setConfirmClearOpen(true)}
             className="text-xs text-red-600 underline-offset-2 hover:underline dark:text-red-400"
           >
             Clear all local data
@@ -498,6 +495,36 @@ export function LocalProgressSummary() {
           <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
             Local to this browser only. Your data does not leave this device.
           </p>
+        </div>
+      )}
+      {confirmClearOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="w-full max-w-sm rounded-lg bg-white p-4 shadow-lg dark:bg-zinc-900">
+            <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Clear all local data?</p>
+            <p className="mt-2 text-xs text-zinc-600 dark:text-zinc-300">
+              This removes local lesson progress, quiz history, streaks, and rewards from this browser.
+              Once deleted, this data can no longer be retrieved.
+            </p>
+            <div className="mt-4 flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setConfirmClearOpen(false)}
+                className="rounded-md border border-zinc-300 px-3 py-1.5 text-xs text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  clearAllLocalProgress(false);
+                  setConfirmClearOpen(false);
+                }}
+                className="rounded-md bg-red-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-red-700"
+              >
+                Yes, clear all
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
