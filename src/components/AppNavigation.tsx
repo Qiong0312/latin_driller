@@ -1,6 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useSyncExternalStore } from "react";
+import { useIsHydrated } from "@/hooks/useIsHydrated";
+import { isLessonDone, loadProgress, PROGRESS_EVENT } from "@/lib/localProgress";
+import { getVocabularySubLessonsForCategory } from "@/lib/vocabularyCategoryTree";
 
 const linkClass =
   "block rounded p-2 text-black hover:bg-gray-100 dark:text-zinc-200 dark:hover:bg-gray-700";
@@ -9,7 +13,60 @@ type AppNavigationProps = {
   onLinkClick?: () => void;
 };
 
+const GRAMMAR_LINKS = [
+  { href: "/grammar/grammatical-gender", label: "Grammatical Gender" },
+  { href: "/grammar/cases", label: "Cases" },
+  { href: "/grammar/declensions", label: "Declensions" },
+  { href: "/grammar/present-tense-active", label: "Present Tense Active" },
+  { href: "/grammar/adjectives", label: "Adjectives" },
+  { href: "/grammar/relative-pronoun", label: "Relative Pronoun" },
+  { href: "/grammar/adjectives-adverbial-force", label: "Adjectives with adverbial force" },
+  { href: "/grammar/imperative", label: "Imperative" },
+  { href: "/grammar/ne-questions", label: "-ne Questions" },
+] as const;
+
+const VOCAB_LINKS = [
+  { href: "/vocabulary/animals", label: "Animals" },
+  { href: "/vocabulary/food", label: "Food" },
+  { href: "/vocabulary/body-parts", label: "Body Parts" },
+  { href: "/vocabulary/rooms", label: "Rooms" },
+  { href: "/vocabulary/landscape", label: "Land & landscape" },
+  { href: "/vocabulary/marketplace", label: "Marketplace" },
+  { href: "/vocabulary/family", label: "Family Members" },
+  { href: "/vocabulary/occupations", label: "Occupations" },
+] as const;
+
+function subscribe(onChange: () => void) {
+  if (typeof window === "undefined") {
+    return () => undefined;
+  }
+  const h = () => onChange();
+  window.addEventListener(PROGRESS_EVENT, h);
+  window.addEventListener("storage", h);
+  return () => {
+    window.removeEventListener(PROGRESS_EVENT, h);
+    window.removeEventListener("storage", h);
+  };
+}
+
+function ProgressMark({ done, inProgress }: { done: boolean; inProgress?: boolean }) {
+  if (done) {
+    return <span className="inline-block min-w-5 text-center text-emerald-600 dark:text-emerald-400">✓</span>;
+  }
+  if (inProgress) {
+    return <span className="inline-block min-w-5 text-center text-amber-600 dark:text-amber-400">◔</span>;
+  }
+  return <span className="inline-block min-w-5 text-center">&nbsp;</span>;
+}
+
 export function AppNavigation({ onLinkClick }: AppNavigationProps) {
+  const hydrated = useIsHydrated();
+  useSyncExternalStore(
+    subscribe,
+    () => (hydrated ? JSON.stringify(loadProgress().lessonsDone) : "{}"),
+    () => "{}",
+  );
+
   return (
     <nav
       onClick={(e) => {
@@ -20,109 +77,53 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
       <div className="space-y-4">
         <ul className="ml-4 space-y-1">
           <li>
-            <Link href="/dashboard" className={linkClass}>
-              🏅 My Progress
+            <Link href="/dashboard" className={`${linkClass} flex items-center gap-2`}>
+              <span className="inline-flex w-5 justify-center" aria-hidden>
+                🏅
+              </span>
+              <span>My Progress</span>
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/daily/test" className={linkClass}>
-              🎯 Daily test
+            <Link href="/dashboard/daily/test" className={`${linkClass} flex items-center gap-2`}>
+              <span className="inline-flex w-5 justify-center" aria-hidden>
+                🎯
+              </span>
+              <span>Daily test</span>
             </Link>
           </li>
         </ul>
         <div>
           <h3 className="mb-2 text-lg font-semibold text-black dark:text-zinc-50">Grammar</h3>
           <ul className="ml-4 space-y-1">
-            <li>
-              <Link href="/grammar/grammatical-gender" className={linkClass}>
-                Grammatical Gender
-              </Link>
-            </li>
-            <li>
-              <Link href="/grammar/cases" className={linkClass}>
-                Cases
-              </Link>
-            </li>
-            <li>
-              <Link href="/grammar/declensions" className={linkClass}>
-                Declensions
-              </Link>
-            </li>
-            <li>
-              <Link href="/grammar/present-tense-active" className={linkClass}>
-                Present Tense Active
-              </Link>
-            </li>
-            <li>
-              <Link href="/grammar/adjectives" className={linkClass}>
-                Adjectives
-              </Link>
-            </li>
-            <li>
-              <Link href="/grammar/relative-pronoun" className={linkClass}>
-                Relative Pronoun
-              </Link>
-            </li>
-            <li>
-              <Link href="/grammar/adjectives-adverbial-force" className={linkClass}>
-                Adjectives with adverbial force
-              </Link>
-            </li>
-            <li>
-              <Link href="/grammar/imperative" className={linkClass}>
-                Imperative
-              </Link>
-            </li>
-            <li>
-              <Link href="/grammar/ne-questions" className={linkClass}>
-                -ne Questions
-              </Link>
-            </li>
+            {GRAMMAR_LINKS.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className={`${linkClass} flex items-center justify-between gap-2`}>
+                  <span>{item.label}</span>
+                  <ProgressMark done={hydrated ? isLessonDone(item.href) : false} />
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <h3 className="mb-2 text-lg font-semibold text-black dark:text-zinc-50">Vocabulary</h3>
           <ul className="ml-4 space-y-1">
-            <li>
-              <Link href="/vocabulary/animals" className={linkClass}>
-                Animals
-              </Link>
-            </li>
-            <li>
-              <Link href="/vocabulary/food" className={linkClass}>
-                Food
-              </Link>
-            </li>
-            <li>
-              <Link href="/vocabulary/body-parts" className={linkClass}>
-                Body Parts
-              </Link>
-            </li>
-            <li>
-              <Link href="/vocabulary/rooms" className={linkClass}>
-                Rooms
-              </Link>
-            </li>
-            <li>
-              <Link href="/vocabulary/landscape" className={linkClass}>
-                Land &amp; landscape
-              </Link>
-            </li>
-            <li>
-              <Link href="/vocabulary/marketplace" className={linkClass}>
-                Marketplace
-              </Link>
-            </li>
-            <li>
-              <Link href="/vocabulary/family" className={linkClass}>
-                Family Members
-              </Link>
-            </li>
-            <li>
-              <Link href="/vocabulary/occupations" className={linkClass}>
-                Occupations
-              </Link>
-            </li>
+            {VOCAB_LINKS.map((item) => {
+              const subs = hydrated ? getVocabularySubLessonsForCategory(item.href) : [];
+              const doneCount = subs.filter((s) => isLessonDone(s)).length;
+              const done = subs.length > 0 && doneCount === subs.length;
+              const inProgress = doneCount > 0 && !done;
+
+              return (
+                <li key={item.href}>
+                  <Link href={item.href} className={`${linkClass} flex items-center justify-between gap-2`}>
+                    <span>{item.label}</span>
+                    <ProgressMark done={done} inProgress={inProgress} />
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
