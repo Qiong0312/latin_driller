@@ -115,7 +115,7 @@ function EffortStamp({ src, value, ariaLabel }: { src: string; value: number; ar
 
   return (
     <div
-      className="relative inline-flex h-14 w-14 shrink-0 items-center justify-center drop-shadow-sm"
+      className="relative inline-flex h-14 w-14 shrink-0 items-center justify-center sm:drop-shadow-sm"
       role="img"
       aria-label={ariaLabel}
     >
@@ -361,7 +361,7 @@ export function LocalProgressSummary() {
         <p className="mt-2">Total quizzes taken: <strong>{totalLessonQuizAttempts}</strong></p>
         <div className="mt-3">
           <p className="text-lg font-bold text-sky-700 dark:text-sky-300">Medals:</p>
-          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-6">
             <span className="inline-flex items-center gap-2">
               <MedalIconImg tier="bronze" className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
@@ -387,7 +387,7 @@ export function LocalProgressSummary() {
         </p>
         <div className="mt-3">
           <p className="text-lg font-bold text-sky-700 dark:text-sky-300">Trophies:</p>
-          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-6">
             <span className="inline-flex items-center gap-2">
               <TrophyIconImg kind="bronze" className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-sky-900 dark:text-sky-100">
@@ -445,7 +445,7 @@ export function LocalProgressSummary() {
         </p>
         <div className="mt-3">
           <p className="text-lg font-bold text-violet-700 dark:text-violet-300">Rewards:</p>
-          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-6">
             <span className="inline-flex items-center gap-2">
               <CelestialStarIcon className={DASHBOARD_AWARD_TILE} />
               <span className="min-w-[2ch] text-right text-base font-semibold tabular-nums text-violet-950 dark:text-violet-100">
