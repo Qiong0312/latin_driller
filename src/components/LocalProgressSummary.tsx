@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState, useSyncExternalStore } from 'react';
+import { useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import type { ChangeEventHandler } from 'react';
 import {
   CelestialMoonIcon,
   CelestialPlanetIcon,
@@ -14,10 +15,12 @@ import {
   DAILY_DUST_PER_STAR,
   DAILY_MOONS_PER_SUN,
   DAILY_STARS_PER_MOON,
+  exportLocalProgressJson,
   getDailyTestCelestialProgress,
   getLessonQuizMedalCounts,
   getQuizTrophyCounts,
   hasAnyStoredProgress,
+  importLocalProgressJson,
   isLessonDone,
   loadProgress,
   PROGRESS_EVENT,
@@ -183,6 +186,8 @@ function buildSnapshotKey(): string {
 export function LocalProgressSummary() {
   const hydrated = useIsHydrated();
   const [confirmClearOpen, setConfirmClearOpen] = useState(false);
+  const [transferMsg, setTransferMsg] = useState<string | null>(null);
+  const importInputRef = useRef<HTMLInputElement | null>(null);
   const key = useSyncExternalStore(subscribe, buildSnapshotKey, () => SERVER_SNAPSHOT);
   const data = useMemo((): ProgressSnapshot => {
     if (!hydrated) {
@@ -278,6 +283,31 @@ export function LocalProgressSummary() {
         : { dust: 0, stars: 0, moons: 0, suns: 0 },
     [hydrated, key],
   );
+
+  const handleExport = () => {
+    const raw = exportLocalProgressJson();
+    const blob = new Blob([raw], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const stamp = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = `latin_driller_progress_${stamp}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleImportClick = () => {
+    importInputRef.current?.click();
+  };
+
+  const handleImportChange: ChangeEventHandler<HTMLInputElement> = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const raw = await file.text();
+    const result = importLocalProgressJson(raw);
+    setTransferMsg(result.ok ? null : `Import failed: ${result.message}`);
+    e.target.value = '';
+  };
 
   return (
     <div className="space-y-4 text-left text-sm text-zinc-700 dark:text-zinc-200">
@@ -483,20 +513,49 @@ export function LocalProgressSummary() {
         )}
       </section>
 
-      {data.hasAny && (
-        <div>
+      <div className="rounded-md border border-zinc-200 bg-zinc-50/70 p-3 dark:border-zinc-800 dark:bg-zinc-900/40">
+        <p className="text-xs font-medium uppercase tracking-wide text-zinc-600 dark:text-zinc-300">Manage Local Data</p>
+        <div className="mt-2 flex flex-wrap gap-2">
           <button
             type="button"
-            onClick={() => setConfirmClearOpen(true)}
-            className="text-xs text-red-600 underline-offset-2 hover:underline dark:text-red-400"
+            onClick={handleExport}
+            className="rounded-md border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
           >
-            Clear all local data
+            Download backup
           </button>
-          <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
-            Local to this browser only. Your data does not leave this device.
-          </p>
+          <button
+            type="button"
+            onClick={handleImportClick}
+            className="rounded-md border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+          >
+            Restore backup
+          </button>
+          {data.hasAny && (
+            <button
+              type="button"
+              onClick={() => setConfirmClearOpen(true)}
+              className="rounded-md border border-red-300 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-50 dark:border-red-800 dark:text-red-300 dark:hover:bg-red-950/40"
+            >
+              Clear all local data
+            </button>
+          )}
+          <input
+            ref={importInputRef}
+            type="file"
+            accept="application/json,.json"
+            className="hidden"
+            onChange={handleImportChange}
+          />
         </div>
-      )}
+        <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+          “Done” for each lesson, plus any quiz/flash data, is stored in this browser only. It does not leave your
+          device.
+        </p>
+        <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+          To move your progress across browsers, download a backup file here and restore it in another browser.
+        </p>
+        {transferMsg && <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-300">{transferMsg}</p>}
+      </div>
       {confirmClearOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="w-full max-w-sm rounded-lg bg-white p-4 shadow-lg dark:bg-zinc-900">

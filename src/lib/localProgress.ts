@@ -638,3 +638,65 @@ export function clearAllLocalProgress(requireConfirm = true): void {
     /* ignore */
   }
 }
+
+export function exportLocalProgressJson(): string {
+  return JSON.stringify(loadProgress(), null, 2);
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function normalizeImportedProgress(input: unknown): LocalProgressV1 | null {
+  if (!isRecord(input)) {
+    return null;
+  }
+  if (input.version !== 1) {
+    return null;
+  }
+  if (!isRecord(input.quizzes) || !isRecord(input.flashcards)) {
+    return null;
+  }
+  if (input.lessonsDone !== undefined && !isRecord(input.lessonsDone)) {
+    return null;
+  }
+  if (input.activityDays !== undefined && !isRecord(input.activityDays)) {
+    return null;
+  }
+
+  const imported = input as Partial<LocalProgressV1>;
+  const celestial = imported.dailyTestCelestial ?? defaultDailyCelestial();
+
+  return {
+    version: 1,
+    quizzes: (imported.quizzes ?? {}) as Record<string, QuizProgressEntry>,
+    flashcards: (imported.flashcards ?? {}) as Record<string, FlashcardProgressEntry>,
+    lessonsDone: (imported.lessonsDone ?? {}) as Record<string, true>,
+    activityDays: (imported.activityDays ?? {}) as Record<string, true>,
+    dailyTestCelestial: {
+      dust: Number(celestial.dust) || 0,
+      stars: Number(celestial.stars) || 0,
+      moons: Number(celestial.moons) || 0,
+      suns: Number(celestial.suns) || 0,
+    },
+    profileName: typeof imported.profileName === 'string' ? imported.profileName : undefined,
+  };
+}
+
+export function importLocalProgressJson(raw: string): { ok: true } | { ok: false; message: string } {
+  if (typeof window === 'undefined') {
+    return { ok: false, message: 'Import is only available in the browser.' };
+  }
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    const normalized = normalizeImportedProgress(parsed);
+    if (!normalized) {
+      return { ok: false, message: 'Invalid progress file format.' };
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+    window.dispatchEvent(new CustomEvent(PROGRESS_EVENT));
+    return { ok: true };
+  } catch {
+    return { ok: false, message: 'Could not parse JSON file.' };
+  }
+}

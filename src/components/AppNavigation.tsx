@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ProgressStorageHint } from "@/components/ProgressStorageHint";
 
 const linkClass =
   "block rounded p-2 text-black hover:bg-gray-100 dark:text-zinc-200 dark:hover:bg-gray-700";
@@ -127,7 +126,6 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
           </ul>
         </div>
       </div>
-      <ProgressStorageHint />
     </nav>
   );
 }
