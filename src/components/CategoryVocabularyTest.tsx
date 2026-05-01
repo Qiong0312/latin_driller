@@ -9,6 +9,7 @@ import { QuizResultsSummary } from '@/components/QuizResultsSummary';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
+import { useScrollToTopWhenQuizRestarted } from '@/hooks/useScrollToTopWhenQuizRestarted';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 
 export type CategoryVocabularyTestProps = {
@@ -41,6 +42,7 @@ export function CategoryVocabularyTest({
   const [scored, setScored] = useState(false);
   const [score, setScore] = useState(0);
   const pathname = usePathname();
+  useScrollToTopWhenQuizRestarted(scored);
 
   useEffect(() => {
     const shuffled = prepareQuizDeck([...fullBank], maxQuestions);

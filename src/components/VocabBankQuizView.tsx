@@ -6,6 +6,7 @@ import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/Test
 import { QuizResultsSummary } from '@/components/QuizResultsSummary';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { recordQuizResult } from '@/lib/localProgress';
+import { useScrollToTopWhenQuizRestarted } from '@/hooks/useScrollToTopWhenQuizRestarted';
 import { FLASHCARD_FOOTER_ACTION_CLASS } from '@/lib/flashcardFooterStyles';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 
@@ -30,6 +31,7 @@ export function VocabBankQuizView({
   const [scored, setScored] = useState(false);
   const [score, setScore] = useState(0);
   const pathname = usePathname();
+  useScrollToTopWhenQuizRestarted(scored);
 
   useEffect(() => {
     const shuffled = prepareQuizDeck(questionBank);

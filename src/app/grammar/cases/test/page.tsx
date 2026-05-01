@@ -7,6 +7,7 @@ import { FLASHCARD_FOOTER_ACTION_CLASS } from '@/lib/flashcardFooterStyles';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
+import { useScrollToTopWhenQuizRestarted } from '@/hooks/useScrollToTopWhenQuizRestarted';
 import { recordQuizResult } from '@/lib/localProgress';
 import { grammarCasesQuiz } from '@/lib/quizBanks/grammar/grammarCases';
 
@@ -22,6 +23,7 @@ export default function CasesTestPage() {
   const [scored, setScored] = useState(false);
   const [score, setScore] = useState(0);
   const pathname = usePathname();
+  useScrollToTopWhenQuizRestarted(scored);
 
   useEffect(() => {
     const shuffled = prepareQuizDeck(questions, QUESTIONS_PER_QUIZ);

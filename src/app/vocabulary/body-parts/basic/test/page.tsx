@@ -7,6 +7,7 @@ import { FLASHCARD_FOOTER_ACTION_CLASS } from '@/lib/flashcardFooterStyles';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
+import { useScrollToTopWhenQuizRestarted } from '@/hooks/useScrollToTopWhenQuizRestarted';
 import { recordQuizResult } from '@/lib/localProgress';
 import { BODY_PARTS_BASIC_QUIZ } from '@/lib/quizBanks/vocabulary/bodyPartsCategoryQuestionBank';
 
@@ -20,6 +21,7 @@ export default function BasicBodyPartsTestPage() {
   const [scored, setScored] = useState(false);
   const [score, setScore] = useState(0);
   const pathname = usePathname();
+  useScrollToTopWhenQuizRestarted(scored);
 
   useEffect(() => {
     const shuffled = prepareQuizDeck(questions);

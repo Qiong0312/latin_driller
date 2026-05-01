@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useScrollToTopWhenQuizRestarted } from '@/hooks/useScrollToTopWhenQuizRestarted';
 import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/TestQuestionNav';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizResultsSummary } from '@/components/QuizResultsSummary';
@@ -22,6 +23,7 @@ export default function AdjectivesTestPage() {
   const [scored, setScored] = useState(false);
   const [score, setScore] = useState(0);
   const pathname = usePathname();
+  useScrollToTopWhenQuizRestarted(scored);
 
   useEffect(() => {
     const shuffled = prepareQuizDeck(questions, QUESTIONS_PER_QUIZ);

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { FLASHCARD_FOOTER_ACTION_CLASS } from "@/lib/flashcardFooterStyles";
 import { CategoryVocabularyTest } from "@/components/CategoryVocabularyTest";
 import { DAILY_TEST_MAX_QUESTIONS } from "@/lib/trackedLessons";
@@ -15,6 +15,19 @@ export default function DailyTestPage() {
   const [error, setError] = useState<"no_lessons_done" | "no_questions" | null>(null);
   /** Bumps key on `CategoryVocabularyTest` so another run reshuffles without leaving the page */
   const [dailyTestSession, setDailyTestSession] = useState(0);
+
+  useLayoutEffect(() => {
+    if (dailyTestSession === 0) {
+      return;
+    }
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    const main = document.querySelector("main");
+    if (main) {
+      main.scrollTop = 0;
+    }
+  }, [dailyTestSession]);
 
   useEffect(() => {
     if (!hydrated) {
