@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { GrammarLessonSeriesFooter } from "@/components/GrammarLessonSeriesFooter";
 
 export default function Cases() {
   return (
@@ -48,6 +49,7 @@ export default function Cases() {
         <LessonQuizMedalCard quizPath="/grammar/cases/test" />
         <LessonDoneButton lessonPath="/grammar/cases" />
       </div>
+      <GrammarLessonSeriesFooter lessonPath="/grammar/cases" />
     </div>
   );
 }

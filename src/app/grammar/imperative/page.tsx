@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { GrammarLessonSeriesFooter } from "@/components/GrammarLessonSeriesFooter";
 
 function DataTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -87,6 +88,7 @@ export default function ImperativePage() {
         <LessonQuizMedalCard quizPath="/grammar/imperative/test" />
         <LessonDoneButton lessonPath="/grammar/imperative" />
       </div>
+      <GrammarLessonSeriesFooter lessonPath="/grammar/imperative" />
     </div>
   );
 }

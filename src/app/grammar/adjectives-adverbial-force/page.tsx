@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { GrammarLessonSeriesFooter } from "@/components/GrammarLessonSeriesFooter";
 
 export default function AdjectivesAdverbialForcePage() {
   return (
@@ -56,6 +57,7 @@ export default function AdjectivesAdverbialForcePage() {
         <LessonQuizMedalCard quizPath="/grammar/adjectives-adverbial-force/test" />
         <LessonDoneButton lessonPath="/grammar/adjectives-adverbial-force" />
       </div>
+      <GrammarLessonSeriesFooter lessonPath="/grammar/adjectives-adverbial-force" />
     </div>
   );
 }

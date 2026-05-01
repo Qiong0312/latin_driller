@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { GrammarLessonSeriesFooter } from "@/components/GrammarLessonSeriesFooter";
 
 function DataTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -115,6 +116,7 @@ export default function DemonstrativePronounsIILesson() {
         <LessonQuizMedalCard quizPath="/grammar/demonstrative-pronouns-ii/test" />
         <LessonDoneButton lessonPath="/grammar/demonstrative-pronouns-ii" />
       </div>
+      <GrammarLessonSeriesFooter lessonPath="/grammar/demonstrative-pronouns-ii" />
     </div>
   );
 }

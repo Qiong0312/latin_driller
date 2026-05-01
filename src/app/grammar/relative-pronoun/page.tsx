@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { GrammarLessonSeriesFooter } from "@/components/GrammarLessonSeriesFooter";
 
 function DataTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -90,6 +91,7 @@ export default function RelativePronounLesson() {
         <LessonQuizMedalCard quizPath="/grammar/relative-pronoun/test" />
         <LessonDoneButton lessonPath="/grammar/relative-pronoun" />
       </div>
+      <GrammarLessonSeriesFooter lessonPath="/grammar/relative-pronoun" />
     </div>
   );
 }

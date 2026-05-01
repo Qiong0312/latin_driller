@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { GrammarLessonSeriesFooter } from "@/components/GrammarLessonSeriesFooter";
 
 function DataTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -113,6 +114,7 @@ export default function PresentTenseActivePage() {
         <LessonQuizMedalCard quizPath="/grammar/present-tense-active/test" />
         <LessonDoneButton lessonPath="/grammar/present-tense-active" />
       </div>
+      <GrammarLessonSeriesFooter lessonPath="/grammar/present-tense-active" />
     </div>
   );
 }

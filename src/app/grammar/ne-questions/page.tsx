@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { GrammarLessonSeriesFooter } from "@/components/GrammarLessonSeriesFooter";
 
 function DataTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -76,6 +77,7 @@ export default function NeQuestionsPage() {
         <LessonQuizMedalCard quizPath="/grammar/ne-questions/test" />
         <LessonDoneButton lessonPath="/grammar/ne-questions" />
       </div>
+      <GrammarLessonSeriesFooter lessonPath="/grammar/ne-questions" />
     </div>
   );
 }

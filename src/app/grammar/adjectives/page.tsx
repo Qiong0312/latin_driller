@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { GrammarLessonSeriesFooter } from "@/components/GrammarLessonSeriesFooter";
 
 function DataTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -99,6 +100,7 @@ export default function AdjectivesPage() {
         <LessonQuizMedalCard quizPath="/grammar/adjectives/test" />
         <LessonDoneButton lessonPath="/grammar/adjectives" />
       </div>
+      <GrammarLessonSeriesFooter lessonPath="/grammar/adjectives" />
     </div>
   );
 }
