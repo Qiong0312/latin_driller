@@ -10,6 +10,7 @@ import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
+
 export type CategoryVocabularyTestProps = {
   title: string;
   resultsHeading: string;

@@ -24,7 +24,7 @@ export type QuizResultsSummaryProps = {
   backLabel?: string;
   questions: readonly QuizQuestion[];
   answers: readonly number[];
-  /** Right-aligned on sm+ (e.g. {@link FLASHCARD_FOOTER_ACTION_CLASS} “New Quiz →”) */
+  /** Right-aligned on sm+ (e.g. secondary “New Quiz →” button) */
   secondaryAction?: ReactNode;
 };
 
