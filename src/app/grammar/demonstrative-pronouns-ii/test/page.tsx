@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
+import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
@@ -131,10 +131,8 @@ export default function DemonstrativePronounsIITestPage() {
             <TestNextQuestionButton onClick={nextQuestion} />
           ) : undefined
         }
-        renderBottom={
-          currentQuestion === shuffledQuestions.length - 1 ? (
-            <TestScoreSubmitButton onClick={calculateScore} />
-          ) : undefined
+        scoreFooterAction={
+          currentQuestion === shuffledQuestions.length - 1 ? calculateScore : undefined
         }
       >
         <div>

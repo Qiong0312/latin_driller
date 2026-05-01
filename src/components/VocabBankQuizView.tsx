@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
+import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { recordQuizResult } from '@/lib/localProgress';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
@@ -144,15 +144,14 @@ export function VocabBankQuizView({
       <TestQuestionNavLayout
         onPrev={prevQuestion}
         prevDisabled={currentQuestion === 0}
+        backHref={backToLessonHref}
         renderRight={
           currentQuestion < shuffledQuestions.length - 1 ? (
             <TestNextQuestionButton onClick={nextQuestion} />
           ) : undefined
         }
-        renderBottom={
-          currentQuestion === shuffledQuestions.length - 1 ? (
-            <TestScoreSubmitButton onClick={calculateScore} />
-          ) : undefined
+        scoreFooterAction={
+          currentQuestion === shuffledQuestions.length - 1 ? calculateScore : undefined
         }
       >
         <div>

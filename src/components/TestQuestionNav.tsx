@@ -1,6 +1,9 @@
 'use client';
 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
+import { backHrefFromQuizPathname } from '@/lib/backHrefFromQuizPathname';
 
 function ChevronLeftIcon() {
   return (
@@ -32,30 +35,45 @@ function ChevronRightIcon() {
   );
 }
 
-/** Invisible slot matching the next chevron so question text stays aligned when only bottom actions show */
+/** Invisible slot matching the next chevron so question text stays aligned on the last question */
 function NavRightSpacer() {
   return <div className="h-11 w-11 shrink-0 sm:h-12 sm:w-12" aria-hidden />;
 }
+
+const flashcardFooterLinkClass =
+  'text-sm text-zinc-600 underline-offset-4 transition hover:text-zinc-900 hover:underline dark:text-zinc-400 dark:hover:text-zinc-200';
+
+const flashcardFooterActionClass =
+  'text-sm font-medium text-sky-700 underline-offset-4 transition hover:underline dark:text-sky-400';
 
 type TestQuestionNavLayoutProps = {
   children: ReactNode;
   onPrev: () => void;
   prevDisabled: boolean;
-  /** Next-question chevron; omit on the final question when using `renderBottom` for Score Test */
+  /** Next-question chevron; omit on the final question (use `scoreFooterAction` in the footer) */
   renderRight?: ReactNode;
-  /** Centered under the question row (e.g. Score Test on the last question) */
-  renderBottom?: ReactNode;
+  /** Shown in the footer on the last question (flashcard “Take quiz →” style) */
+  scoreFooterAction?: () => void;
+  /** Override auto-detected back target from pathname */
+  backHref?: string;
+  /** Default matches vocabulary flashcard footer */
+  backLabel?: string;
 };
 
-/** Question body centered with circular prev/next aligned with flashcard nav; optional bottom bar for scoring */
+/** Question body with circular prev/next; flashcard-style footer for back + score on last item */
 export function TestQuestionNavLayout({
   children,
   onPrev,
   prevDisabled,
   renderRight,
-  renderBottom,
+  scoreFooterAction,
+  backHref: backHrefProp,
+  backLabel = '← Back to lesson',
 }: TestQuestionNavLayoutProps) {
-  const rightSlot = renderRight ?? (renderBottom != null ? <NavRightSpacer /> : null);
+  const pathname = usePathname();
+  const resolvedBackHref =
+    backHrefProp ?? (pathname ? backHrefFromQuizPathname(pathname) : '/dashboard');
+  const rightSlot = renderRight ?? (scoreFooterAction != null ? <NavRightSpacer /> : null);
 
   return (
     <div className="flex w-full flex-col items-stretch gap-4">
@@ -72,11 +90,21 @@ export function TestQuestionNavLayout({
         <div className="min-w-0 flex-1 max-w-2xl">{children}</div>
         <div className="flex shrink-0 items-center justify-center">{rightSlot}</div>
       </div>
-      {renderBottom != null ? (
-        <div className="flex w-full justify-center px-2">
-          <div className="w-full max-w-sm">{renderBottom}</div>
-        </div>
-      ) : null}
+      <footer className="mt-2 flex w-full flex-col items-start gap-3 border-t border-zinc-200 pt-6 dark:border-zinc-800 sm:flex-row sm:items-center sm:justify-between">
+        <Link href={resolvedBackHref} className={flashcardFooterLinkClass}>
+          {backLabel}
+        </Link>
+        {scoreFooterAction != null ? (
+          <button
+            type="button"
+            onClick={scoreFooterAction}
+            className={flashcardFooterActionClass}
+            aria-label="Score test"
+          >
+            Score test →
+          </button>
+        ) : null}
+      </footer>
     </div>
   );
 }
@@ -94,6 +122,7 @@ export function TestNextQuestionButton({ onClick }: { onClick: () => void }) {
   );
 }
 
+/** Full-width primary (e.g. results screens); not used in the question flow */
 export function TestScoreSubmitButton({ onClick }: { onClick: () => void }) {
   return (
     <button

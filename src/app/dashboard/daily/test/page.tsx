@@ -102,6 +102,7 @@ export default function DailyTestPage() {
       resultsHeading="Daily test — results"
       backToCategoryHref="/dashboard"
       backToCategoryLabel="Back to My Progress"
+      quizFooterBackLabel="← Back to My Progress"
       questions={bank}
       maxQuestions={DAILY_TEST_MAX_QUESTIONS}
       resultsSecondarySlot={

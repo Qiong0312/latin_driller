@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
-import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
+import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/TestQuestionNav';
 import { recordQuizResult } from '@/lib/localProgress';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
@@ -141,10 +141,8 @@ export default function AdjectivesTestPage() {
             <TestNextQuestionButton onClick={nextQuestion} />
           ) : undefined
         }
-        renderBottom={
-          currentQuestion === shuffledQuestions.length - 1 ? (
-            <TestScoreSubmitButton onClick={calculateScore} />
-          ) : undefined
+        scoreFooterAction={
+          currentQuestion === shuffledQuestions.length - 1 ? calculateScore : undefined
         }
       >
         <div>

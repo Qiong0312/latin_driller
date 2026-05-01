@@ -2,7 +2,7 @@
 
 import { useState, useEffect, type ReactNode } from 'react';
 import Link from 'next/link';
-import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
+import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
@@ -19,6 +19,8 @@ export type CategoryVocabularyTestProps = {
   maxQuestions: number; // e.g. CATEGORY_QUIZ_MAX_QUESTIONS
   /** Optional control shown on the results screen beside the back link (e.g. start another daily test). */
   resultsSecondarySlot?: ReactNode;
+  /** Flashcard-style footer link during questions (defaults to “← Back to lesson”). */
+  quizFooterBackLabel?: string;
 };
 
 export function CategoryVocabularyTest({
@@ -29,6 +31,7 @@ export function CategoryVocabularyTest({
   questions: fullBank,
   maxQuestions,
   resultsSecondarySlot,
+  quizFooterBackLabel = '← Back to lesson',
 }: CategoryVocabularyTestProps) {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -155,15 +158,15 @@ export function CategoryVocabularyTest({
       <TestQuestionNavLayout
         onPrev={prevQuestion}
         prevDisabled={currentQuestion === 0}
+        backHref={backToCategoryHref}
+        backLabel={quizFooterBackLabel}
         renderRight={
           currentQuestion < shuffledQuestions.length - 1 ? (
             <TestNextQuestionButton onClick={nextQuestion} />
           ) : undefined
         }
-        renderBottom={
-          currentQuestion === shuffledQuestions.length - 1 ? (
-            <TestScoreSubmitButton onClick={calculateScore} />
-          ) : undefined
+        scoreFooterAction={
+          currentQuestion === shuffledQuestions.length - 1 ? calculateScore : undefined
         }
       >
         <div>

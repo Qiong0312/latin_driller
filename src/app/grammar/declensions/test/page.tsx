@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
+import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { usePathname } from 'next/navigation';
@@ -143,10 +143,8 @@ export default function DeclensionsTestPage() {
             <TestNextQuestionButton onClick={nextQuestion} />
           ) : undefined
         }
-        renderBottom={
-          currentQuestion === shuffledQuestions.length - 1 ? (
-            <TestScoreSubmitButton onClick={calculateScore} />
-          ) : undefined
+        scoreFooterAction={
+          currentQuestion === shuffledQuestions.length - 1 ? calculateScore : undefined
         }
       >
         <div>
