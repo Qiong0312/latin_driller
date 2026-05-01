@@ -27,6 +27,7 @@ const GRAMMAR_LINKS = [
   { href: "/grammar/demonstrative-pronouns-i", label: "Demonstrative pronouns I" },
   { href: "/grammar/demonstrative-pronouns-ii", label: "Demonstrative pronouns II" },
   { href: "/grammar/demonstrative-pronouns-iii", label: "Demonstrative pronouns III" },
+  { href: "/grammar/demonstrative-pronouns-iv", label: "Demonstrative pronouns IV" },
 ] as const;
 
 function subscribe(onChange: () => void) {

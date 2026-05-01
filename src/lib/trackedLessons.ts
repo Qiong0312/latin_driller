@@ -15,6 +15,7 @@ export const GRAMMAR_LESSON_PATHS = [
   '/grammar/demonstrative-pronouns-i',
   '/grammar/demonstrative-pronouns-ii',
   '/grammar/demonstrative-pronouns-iii',
+  '/grammar/demonstrative-pronouns-iv',
 ] as const;
 
 export const VOCABULARY_LESSON_PATHS = [

@@ -11,6 +11,7 @@ import { neQuestionsQuiz } from '@/lib/quizBanks/grammar/neQuestions';
 import { demonstrativePronounsIQuiz } from '@/lib/quizBanks/grammar/demonstrativePronounsI';
 import { demonstrativePronounsIIQuiz } from '@/lib/quizBanks/grammar/demonstrativePronounsII';
 import { demonstrativePronounsIIIQuiz } from '@/lib/quizBanks/grammar/demonstrativePronounsIII';
+import { demonstrativePronounsIVQuiz } from '@/lib/quizBanks/grammar/demonstrativePronounsIV';
 import {
   ANIMALS_BIRDS_QUIZ,
   ANIMALS_COMMON_QUIZ,
@@ -78,6 +79,7 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/demonstrative-pronouns-i': demonstrativePronounsIQuiz,
   '/grammar/demonstrative-pronouns-ii': demonstrativePronounsIIQuiz,
   '/grammar/demonstrative-pronouns-iii': demonstrativePronounsIIIQuiz,
+  '/grammar/demonstrative-pronouns-iv': demonstrativePronounsIVQuiz,
   '/vocabulary/animals/common': ANIMALS_COMMON_QUIZ,
   '/vocabulary/animals/wild': ANIMALS_WILD_QUIZ,
   '/vocabulary/animals/birds': ANIMALS_BIRDS_QUIZ,
