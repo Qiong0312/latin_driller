@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { LessonDoneButton } from '@/components/LessonDoneButton';
 import { LessonQuizMedalCard } from '@/components/LessonQuizMedalCard';
+import { VocabularyNavFooter } from '@/components/VocabularyNavFooter';
 import { FAMILY_EXTENDED } from '@/lib/quizBanks/vocabulary/familyVocab';
 
 export default function FamilyExtendedPage() {
@@ -44,6 +45,7 @@ export default function FamilyExtendedPage() {
         <LessonQuizMedalCard quizPath="/vocabulary/family/extended-family/test" />
         <LessonDoneButton lessonPath="/vocabulary/family/extended-family" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/family/extended-family" />
     </div>
   );
 }

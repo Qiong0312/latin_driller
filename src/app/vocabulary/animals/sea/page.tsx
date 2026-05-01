@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 
 export default function SeaAnimals() {
   return (
@@ -37,6 +38,7 @@ export default function SeaAnimals() {
         <LessonQuizMedalCard quizPath="/vocabulary/animals/sea/test" />
         <LessonDoneButton lessonPath="/vocabulary/animals/sea" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/animals/sea" />
     </div>
   );
 }

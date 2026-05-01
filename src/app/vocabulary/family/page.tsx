@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { LessonDoneButton } from '@/components/LessonDoneButton';
 import { VocabularySubLessonCard } from '@/components/VocabularySubLessonCard';
 import { LessonQuizMedalCard } from '@/components/LessonQuizMedalCard';
+import { VocabularyNavFooter } from '@/components/VocabularyNavFooter';
 
 export default function FamilyVocabularyPage() {
   return (
@@ -65,6 +66,7 @@ export default function FamilyVocabularyPage() {
           <LessonQuizMedalCard quizPath="/vocabulary/family/test" />
           <LessonDoneButton lessonPath="/vocabulary/family" />
         </div>
+        <VocabularyNavFooter variant="category" categoryPath="/vocabulary/family" />
       </div>
     </div>
   );

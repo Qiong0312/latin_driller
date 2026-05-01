@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { LessonDoneButton } from '@/components/LessonDoneButton';
 import { LessonQuizMedalCard } from '@/components/LessonQuizMedalCard';
+import { VocabularyNavFooter } from '@/components/VocabularyNavFooter';
 import { OCCUPATIONS_GENERAL } from '@/lib/quizBanks/vocabulary/occupationsVocab';
 
 export default function OccupationsGeneralPage() {
@@ -44,6 +45,7 @@ export default function OccupationsGeneralPage() {
         <LessonQuizMedalCard quizPath="/vocabulary/occupations/general/test" />
         <LessonDoneButton lessonPath="/vocabulary/occupations/general" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/occupations/general" />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { VocabularySubLessonCard } from "@/components/VocabularySubLessonCard";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 
 export default function MarketplaceVocabularyPage() {
   return (
@@ -75,6 +76,7 @@ export default function MarketplaceVocabularyPage() {
           <LessonQuizMedalCard quizPath="/vocabulary/marketplace/test" />
           <LessonDoneButton lessonPath="/vocabulary/marketplace" />
         </div>
+        <VocabularyNavFooter variant="category" categoryPath="/vocabulary/marketplace" />
       </div>
     </div>
   );

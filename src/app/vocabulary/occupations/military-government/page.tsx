@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { LessonDoneButton } from '@/components/LessonDoneButton';
 import { LessonQuizMedalCard } from '@/components/LessonQuizMedalCard';
+import { VocabularyNavFooter } from '@/components/VocabularyNavFooter';
 import { OCCUPATIONS_MILITARY_GOVERNMENT } from '@/lib/quizBanks/vocabulary/occupationsVocab';
 
 export default function OccupationsMilitaryGovernmentPage() {
@@ -44,6 +45,7 @@ export default function OccupationsMilitaryGovernmentPage() {
         <LessonQuizMedalCard quizPath="/vocabulary/occupations/military-government/test" />
         <LessonDoneButton lessonPath="/vocabulary/occupations/military-government" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/occupations/military-government" />
     </div>
   );
 }

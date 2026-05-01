@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { LessonDoneButton } from '@/components/LessonDoneButton';
 import { LessonQuizMedalCard } from '@/components/LessonQuizMedalCard';
+import { VocabularyNavFooter } from '@/components/VocabularyNavFooter';
 import { OCCUPATIONS_CRAFTS_TRADES } from '@/lib/quizBanks/vocabulary/occupationsVocab';
 
 export default function OccupationsCraftsTradesPage() {
@@ -44,6 +45,7 @@ export default function OccupationsCraftsTradesPage() {
         <LessonQuizMedalCard quizPath="/vocabulary/occupations/crafts-trades/test" />
         <LessonDoneButton lessonPath="/vocabulary/occupations/crafts-trades" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/occupations/crafts-trades" />
     </div>
   );
 }

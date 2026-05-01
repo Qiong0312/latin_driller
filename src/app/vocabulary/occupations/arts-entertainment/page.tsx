@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { LessonDoneButton } from '@/components/LessonDoneButton';
 import { LessonQuizMedalCard } from '@/components/LessonQuizMedalCard';
+import { VocabularyNavFooter } from '@/components/VocabularyNavFooter';
 import { OCCUPATIONS_ARTS_ENTERTAINMENT } from '@/lib/quizBanks/vocabulary/occupationsVocab';
 
 export default function OccupationsArtsEntertainmentPage() {
@@ -46,6 +47,7 @@ export default function OccupationsArtsEntertainmentPage() {
         <LessonQuizMedalCard quizPath="/vocabulary/occupations/arts-entertainment/test" />
         <LessonDoneButton lessonPath="/vocabulary/occupations/arts-entertainment" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/occupations/arts-entertainment" />
     </div>
   );
 }

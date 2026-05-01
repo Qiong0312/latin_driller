@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 import { MARKETPLACE_PLACES_PEOPLE } from "@/lib/quizBanks/vocabulary/marketplaceVocab";
 
 export default function MarketplacePlacesPeoplePage() {
@@ -46,6 +47,7 @@ export default function MarketplacePlacesPeoplePage() {
         <LessonQuizMedalCard quizPath="/vocabulary/marketplace/places-people/test" />
         <LessonDoneButton lessonPath="/vocabulary/marketplace/places-people" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/marketplace/places-people" />
     </div>
   );
 }

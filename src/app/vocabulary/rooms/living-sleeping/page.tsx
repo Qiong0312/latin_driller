@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 
 export default function RoomsLivingSleeping() {
   return (
@@ -42,6 +43,7 @@ export default function RoomsLivingSleeping() {
         <LessonQuizMedalCard quizPath="/vocabulary/rooms/living-sleeping/test" />
         <LessonDoneButton lessonPath="/vocabulary/rooms/living-sleeping" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/rooms/living-sleeping" />
     </div>
   );
 }

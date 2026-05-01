@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 
 const items: [string, string][] = [
   ["caelum", "sky"],
@@ -53,6 +54,7 @@ export default function LandscapeSkyWeatherPage() {
         <LessonQuizMedalCard quizPath="/vocabulary/landscape/sky-weather/test" />
         <LessonDoneButton lessonPath="/vocabulary/landscape/sky-weather" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/landscape/sky-weather" />
     </div>
   );
 }

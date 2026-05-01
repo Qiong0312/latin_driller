@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { LessonDoneButton } from '@/components/LessonDoneButton';
 import { VocabularySubLessonCard } from '@/components/VocabularySubLessonCard';
 import { LessonQuizMedalCard } from '@/components/LessonQuizMedalCard';
+import { VocabularyNavFooter } from '@/components/VocabularyNavFooter';
 
 export default function OccupationsVocabularyPage() {
   return (
@@ -89,6 +90,7 @@ export default function OccupationsVocabularyPage() {
           <LessonQuizMedalCard quizPath="/vocabulary/occupations/test" />
           <LessonDoneButton lessonPath="/vocabulary/occupations" />
         </div>
+        <VocabularyNavFooter variant="category" categoryPath="/vocabulary/occupations" />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { VocabularySubLessonCard } from "@/components/VocabularySubLessonCard";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 
 export default function LandscapeVocabularyPage() {
   return (
@@ -91,6 +92,7 @@ export default function LandscapeVocabularyPage() {
           <LessonQuizMedalCard quizPath="/vocabulary/landscape/test" />
           <LessonDoneButton lessonPath="/vocabulary/landscape" />
         </div>
+        <VocabularyNavFooter variant="category" categoryPath="/vocabulary/landscape" />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { useSyncExternalStore } from "react";
 import { useIsHydrated } from "@/hooks/useIsHydrated";
 import { isLessonDone, loadProgress, PROGRESS_EVENT } from "@/lib/localProgress";
 import { getVocabularySubLessonsForCategory } from "@/lib/vocabularyCategoryTree";
+import { VOCABULARY_CATEGORY_NAV } from "@/lib/vocabularyLessonNavigation";
 
 const linkClass =
   "block rounded p-2 text-black hover:bg-gray-100 dark:text-zinc-200 dark:hover:bg-gray-700";
@@ -25,17 +26,6 @@ const GRAMMAR_LINKS = [
   { href: "/grammar/ne-questions", label: "-ne Questions" },
   { href: "/grammar/demonstrative-pronouns-i", label: "Demonstrative pronouns I" },
   { href: "/grammar/demonstrative-pronouns-ii", label: "Demonstrative pronouns II" },
-] as const;
-
-const VOCAB_LINKS = [
-  { href: "/vocabulary/animals", label: "Animals" },
-  { href: "/vocabulary/food", label: "Food" },
-  { href: "/vocabulary/body-parts", label: "Body Parts" },
-  { href: "/vocabulary/rooms", label: "Rooms" },
-  { href: "/vocabulary/landscape", label: "Land & landscape" },
-  { href: "/vocabulary/marketplace", label: "Marketplace" },
-  { href: "/vocabulary/family", label: "Family Members" },
-  { href: "/vocabulary/occupations", label: "Occupations" },
 ] as const;
 
 function subscribe(onChange: () => void) {
@@ -111,7 +101,7 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
         <div>
           <h3 className="mb-2 text-lg font-semibold text-black dark:text-zinc-50">Vocabulary</h3>
           <ul className="ml-4 space-y-1">
-            {VOCAB_LINKS.map((item) => {
+            {VOCABULARY_CATEGORY_NAV.map((item) => {
               const subs = hydrated ? getVocabularySubLessonsForCategory(item.href) : [];
               const doneCount = subs.filter((s) => isLessonDone(s)).length;
               const done = subs.length > 0 && doneCount === subs.length;

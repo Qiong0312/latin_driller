@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 
 export default function Meat() {
   return (
@@ -38,6 +39,7 @@ export default function Meat() {
         <LessonQuizMedalCard quizPath="/vocabulary/food/meat/test" />
         <LessonDoneButton lessonPath="/vocabulary/food/meat" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/food/meat" />
     </div>
   );
 }

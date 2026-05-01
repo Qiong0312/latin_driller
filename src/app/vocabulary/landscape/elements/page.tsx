@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 
 const items: [string, string][] = [
   ["ignis", "fire"],
@@ -49,6 +50,7 @@ export default function LandscapeElementsPage() {
         <LessonQuizMedalCard quizPath="/vocabulary/landscape/elements/test" />
         <LessonDoneButton lessonPath="/vocabulary/landscape/elements" />
       </div>
+      <VocabularyNavFooter variant="subLesson" lessonPath="/vocabulary/landscape/elements" />
     </div>
   );
 }

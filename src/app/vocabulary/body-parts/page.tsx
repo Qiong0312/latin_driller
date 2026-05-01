@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { VocabularySubLessonCard } from "@/components/VocabularySubLessonCard";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
+import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
 
 export default function BodyParts() {
   return (
@@ -69,6 +70,7 @@ export default function BodyParts() {
           <LessonQuizMedalCard quizPath="/vocabulary/body-parts/test" />
           <LessonDoneButton lessonPath="/vocabulary/body-parts" />
         </div>
+        <VocabularyNavFooter variant="category" categoryPath="/vocabulary/body-parts" />
       </div>
     </div>
   );
