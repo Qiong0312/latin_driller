@@ -70,7 +70,7 @@ export function buildVocabularyQuestionBank({
   for (const e of categoryCandidates) {
     const cat = buildOptions(e.latin, outsideCategoryLatin);
     bank.push({
-      question: `Which Latin word belong to ${categoryLabel}?`,
+      question: `Which Latin word belongs to ${categoryLabel}?`,
       options: cat.options,
       correct: cat.correct,
     });

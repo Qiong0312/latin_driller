@@ -36,6 +36,7 @@ function entries(cards: VocabularyFlashcard[]): VocabEntry[] {
 
 export const FOOD_BASIC_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(0, 5));
 export const FOOD_FRUITS_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(5, 11));
-export const FOOD_VEGETABLES_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(11, 17));
+/** Ends at mushroom; next card is meat (see FOOD_MEAT_ENTRIES). Flashcards duplicate this slice. */
+export const FOOD_VEGETABLES_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(11, 16));
 export const FOOD_MEAT_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(16, 21));
 export const FOOD_DRINKS_ENTRIES = entries(FOOD_ALL_FLASHCARDS.slice(21, 26));
