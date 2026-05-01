@@ -12,6 +12,7 @@ export const GRAMMAR_LESSON_PATHS = [
   '/grammar/adjectives-adverbial-force',
   '/grammar/imperative',
   '/grammar/ne-questions',
+  '/grammar/demonstrative-pronouns-i',
 ] as const;
 
 export const VOCABULARY_LESSON_PATHS = [

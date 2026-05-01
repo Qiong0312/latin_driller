@@ -23,6 +23,7 @@ const GRAMMAR_LINKS = [
   { href: "/grammar/adjectives-adverbial-force", label: "Adjectives with adverbial force" },
   { href: "/grammar/imperative", label: "Imperative" },
   { href: "/grammar/ne-questions", label: "-ne Questions" },
+  { href: "/grammar/demonstrative-pronouns-i", label: "Demonstrative pronouns I" },
 ] as const;
 
 const VOCAB_LINKS = [
