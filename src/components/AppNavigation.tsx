@@ -73,7 +73,7 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
           <li>
             <Link href="/dashboard" className={`${linkClass} flex items-center gap-2`}>
               <span className="inline-flex w-5 justify-center" aria-hidden>
-                🏅
+                🏆
               </span>
               <span>My Progress</span>
             </Link>
@@ -81,7 +81,7 @@ export function AppNavigation({ onLinkClick }: AppNavigationProps) {
           <li>
             <Link href="/dashboard/daily/test" className={`${linkClass} flex items-center gap-2`}>
               <span className="inline-flex w-5 justify-center" aria-hidden>
-                🎯
+                ✏️
               </span>
               <span>Daily test</span>
             </Link>
