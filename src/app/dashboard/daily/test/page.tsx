@@ -12,6 +12,8 @@ export default function DailyTestPage() {
   const hydrated = useIsHydrated();
   const [bank, setBank] = useState<QuizQuestion[] | null>(null);
   const [error, setError] = useState<"no_lessons_done" | "no_questions" | null>(null);
+  /** Bumps key on `CategoryVocabularyTest` so another run reshuffles without leaving the page */
+  const [dailyTestSession, setDailyTestSession] = useState(0);
 
   useEffect(() => {
     if (!hydrated) {
@@ -95,12 +97,22 @@ export default function DailyTestPage() {
 
   return (
     <CategoryVocabularyTest
+      key={dailyTestSession}
       title="Daily test"
       resultsHeading="Daily test — results"
       backToCategoryHref="/dashboard"
       backToCategoryLabel="Back to My Progress"
       questions={bank}
       maxQuestions={DAILY_TEST_MAX_QUESTIONS}
+      resultsSecondarySlot={
+        <button
+          type="button"
+          onClick={() => setDailyTestSession((n) => n + 1)}
+          className="inline-block rounded-lg border border-sky-300 bg-sky-100 px-6 py-3 text-sm font-medium text-sky-950 shadow-sm transition hover:bg-sky-200 dark:border-sky-600 dark:bg-sky-900 dark:text-sky-50 dark:hover:bg-sky-800"
+        >
+          New Daily Test
+        </button>
+      }
     />
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import Link from 'next/link';
 import { TestNextQuestionButton, TestQuestionNavLayout, TestScoreSubmitButton } from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
@@ -17,6 +17,8 @@ export type CategoryVocabularyTestProps = {
   questions: readonly QuizQuestion[] | QuizQuestion[];
   /** Random subset size; use {@link CATEGORY_QUIZ_MAX_QUESTIONS} (20) for full-category quizzes. */
   maxQuestions: number; // e.g. CATEGORY_QUIZ_MAX_QUESTIONS
+  /** Optional control shown on the results screen beside the back link (e.g. start another daily test). */
+  resultsSecondarySlot?: ReactNode;
 };
 
 export function CategoryVocabularyTest({
@@ -26,6 +28,7 @@ export function CategoryVocabularyTest({
   backToCategoryLabel,
   questions: fullBank,
   maxQuestions,
+  resultsSecondarySlot,
 }: CategoryVocabularyTestProps) {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -118,7 +121,10 @@ export function CategoryVocabularyTest({
             );
           })}
         </div>
-        <div className="text-center mt-8">
+        <div
+          className={`mt-8 flex flex-col items-center justify-center gap-3 ${resultsSecondarySlot ? 'sm:flex-row sm:flex-wrap' : ''}`}
+        >
+          {resultsSecondarySlot}
           <Link
             href={backToCategoryHref}
             className="inline-block rounded-lg bg-zinc-200 px-6 py-3 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
