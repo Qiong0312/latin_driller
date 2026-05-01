@@ -1,5 +1,5 @@
 /**
- * Target URL for quiz footers (“← Back to lesson”) from the current quiz route.
+ * Target URL for quiz footers (“← Back to Lesson”) from the current quiz route.
  * Lesson/sub-lesson quizzes live at `.../<segment>/test` → strip trailing `/test`.
  */
 export function backHrefFromQuizPathname(pathname: string): string {

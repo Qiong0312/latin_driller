@@ -22,7 +22,7 @@ export function VocabBankQuizView({
   quizHeading,
   resultsHeading,
   backToLessonHref,
-  backToLessonLabel = 'Back to lesson',
+  backToLessonLabel = 'Back to Lesson',
 }: VocabBankQuizViewProps) {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);

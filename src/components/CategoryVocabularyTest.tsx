@@ -2,12 +2,24 @@
 
 import { useState, useEffect, type ReactNode } from 'react';
 import Link from 'next/link';
-import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/TestQuestionNav';
+import {
+  FLASHCARD_FOOTER_LINK_CLASS,
+  TestNextQuestionButton,
+  TestQuestionNavLayout,
+} from '@/components/TestQuestionNav';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+
+function resultsBackFooterText(backToCategoryLabel: string): string {
+  const trimmed = backToCategoryLabel.trim();
+  if (trimmed.startsWith('←')) {
+    return trimmed;
+  }
+  return `← ${trimmed}`;
+}
 
 export type CategoryVocabularyTestProps = {
   title: string;
@@ -19,7 +31,7 @@ export type CategoryVocabularyTestProps = {
   maxQuestions: number; // e.g. CATEGORY_QUIZ_MAX_QUESTIONS
   /** Optional control shown on the results screen beside the back link (e.g. start another daily test). */
   resultsSecondarySlot?: ReactNode;
-  /** Flashcard-style footer link during questions (defaults to “← Back to lesson”). */
+  /** Flashcard-style footer link during questions (defaults to “← Back to Lesson”). */
   quizFooterBackLabel?: string;
 };
 
@@ -31,7 +43,7 @@ export function CategoryVocabularyTest({
   questions: fullBank,
   maxQuestions,
   resultsSecondarySlot,
-  quizFooterBackLabel = '← Back to lesson',
+  quizFooterBackLabel = '← Back to Lesson',
 }: CategoryVocabularyTestProps) {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -124,17 +136,14 @@ export function CategoryVocabularyTest({
             );
           })}
         </div>
-        <div
-          className={`mt-8 flex flex-col items-center justify-center gap-3 ${resultsSecondarySlot ? 'sm:flex-row sm:flex-wrap' : ''}`}
-        >
-          {resultsSecondarySlot}
-          <Link
-            href={backToCategoryHref}
-            className="inline-block rounded-lg bg-zinc-200 px-6 py-3 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
-          >
-            {backToCategoryLabel}
+        <footer className="mt-8 flex w-full flex-col gap-4 border-t border-zinc-200 pt-8 dark:border-zinc-800 sm:flex-row sm:items-start sm:justify-between">
+          <Link href={backToCategoryHref} className={FLASHCARD_FOOTER_LINK_CLASS}>
+            {resultsBackFooterText(backToCategoryLabel)}
           </Link>
-        </div>
+          {resultsSecondarySlot != null ? (
+            <div className="min-w-[10rem] sm:flex-1 sm:text-end">{resultsSecondarySlot}</div>
+          ) : null}
+        </footer>
       </div>
     );
   }

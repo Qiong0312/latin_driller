@@ -4,6 +4,15 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { backHrefFromQuizPathname } from '@/lib/backHrefFromQuizPathname';
+import {
+  FLASHCARD_FOOTER_ACTION_CLASS,
+  FLASHCARD_FOOTER_LINK_CLASS,
+} from '@/lib/flashcardFooterStyles';
+
+export {
+  FLASHCARD_FOOTER_ACTION_CLASS,
+  FLASHCARD_FOOTER_LINK_CLASS,
+} from '@/lib/flashcardFooterStyles';
 
 function ChevronLeftIcon() {
   return (
@@ -40,19 +49,13 @@ function NavRightSpacer() {
   return <div className="h-11 w-11 shrink-0 sm:h-12 sm:w-12" aria-hidden />;
 }
 
-const flashcardFooterLinkClass =
-  'text-sm text-zinc-600 underline-offset-4 transition hover:text-zinc-900 hover:underline dark:text-zinc-400 dark:hover:text-zinc-200';
-
-const flashcardFooterActionClass =
-  'text-sm font-medium text-sky-700 underline-offset-4 transition hover:underline dark:text-sky-400';
-
 type TestQuestionNavLayoutProps = {
   children: ReactNode;
   onPrev: () => void;
   prevDisabled: boolean;
   /** Next-question chevron; omit on the final question (use `scoreFooterAction` in the footer) */
   renderRight?: ReactNode;
-  /** Shown in the footer on the last question (flashcard “Take quiz →” style) */
+  /** Shown in the footer on the last question (flashcard “Take Quiz →” style) */
   scoreFooterAction?: () => void;
   /** Override auto-detected back target from pathname */
   backHref?: string;
@@ -68,7 +71,7 @@ export function TestQuestionNavLayout({
   renderRight,
   scoreFooterAction,
   backHref: backHrefProp,
-  backLabel = '← Back to lesson',
+  backLabel = '← Back to Lesson',
 }: TestQuestionNavLayoutProps) {
   const pathname = usePathname();
   const resolvedBackHref =
@@ -91,17 +94,17 @@ export function TestQuestionNavLayout({
         <div className="flex shrink-0 items-center justify-center">{rightSlot}</div>
       </div>
       <footer className="mt-2 flex w-full flex-col items-start gap-3 border-t border-zinc-200 pt-6 dark:border-zinc-800 sm:flex-row sm:items-center sm:justify-between">
-        <Link href={resolvedBackHref} className={flashcardFooterLinkClass}>
+        <Link href={resolvedBackHref} className={FLASHCARD_FOOTER_LINK_CLASS}>
           {backLabel}
         </Link>
         {scoreFooterAction != null ? (
           <button
             type="button"
             onClick={scoreFooterAction}
-            className={flashcardFooterActionClass}
-            aria-label="Score test"
+            className={FLASHCARD_FOOTER_ACTION_CLASS}
+            aria-label="Score Test"
           >
-            Score test →
+            Score Test →
           </button>
         ) : null}
       </footer>
@@ -134,3 +137,4 @@ export function TestScoreSubmitButton({ onClick }: { onClick: () => void }) {
     </button>
   );
 }
+

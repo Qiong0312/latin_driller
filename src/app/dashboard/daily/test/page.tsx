@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FLASHCARD_FOOTER_ACTION_CLASS } from "@/lib/flashcardFooterStyles";
 import { CategoryVocabularyTest } from "@/components/CategoryVocabularyTest";
 import { DAILY_TEST_MAX_QUESTIONS } from "@/lib/trackedLessons";
 import { getDailyTestFullBank } from "@/lib/buildDailyTestDeck";
@@ -109,9 +110,10 @@ export default function DailyTestPage() {
         <button
           type="button"
           onClick={() => setDailyTestSession((n) => n + 1)}
-          className="inline-block rounded-lg border border-sky-300 bg-sky-100 px-6 py-3 text-sm font-medium text-sky-950 shadow-sm transition hover:bg-sky-200 dark:border-sky-600 dark:bg-sky-900 dark:text-sky-50 dark:hover:bg-sky-800"
+          className={FLASHCARD_FOOTER_ACTION_CLASS}
+          aria-label="New Daily Test"
         >
-          New Daily Test
+          New Daily Test →
         </button>
       }
     />
