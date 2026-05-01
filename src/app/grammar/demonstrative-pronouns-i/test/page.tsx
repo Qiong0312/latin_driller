@@ -127,11 +127,14 @@ export default function DemonstrativePronounsITestPage() {
         onPrev={prevQuestion}
         prevDisabled={currentQuestion === 0}
         renderRight={
+          currentQuestion < shuffledQuestions.length - 1 ? (
+            <TestNextQuestionButton onClick={nextQuestion} />
+          ) : undefined
+        }
+        renderBottom={
           currentQuestion === shuffledQuestions.length - 1 ? (
             <TestScoreSubmitButton onClick={calculateScore} />
-          ) : (
-            <TestNextQuestionButton onClick={nextQuestion} />
-          )
+          ) : undefined
         }
       >
         <div>
