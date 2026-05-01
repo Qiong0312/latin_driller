@@ -6,12 +6,18 @@ import type { ReactNode } from 'react';
 import { backHrefFromQuizPathname } from '@/lib/backHrefFromQuizPathname';
 import {
   FLASHCARD_FOOTER_ACTION_CLASS,
+  FLASHCARD_FOOTER_ACTION_PAIR_CLASS,
+  FLASHCARD_FOOTER_DUAL_ROW_LAYOUT,
   FLASHCARD_FOOTER_LINK_CLASS,
+  FLASHCARD_FOOTER_LINK_PAIR_CLASS,
 } from '@/lib/flashcardFooterStyles';
 
 export {
   FLASHCARD_FOOTER_ACTION_CLASS,
   FLASHCARD_FOOTER_LINK_CLASS,
+  FLASHCARD_FOOTER_DUAL_ROW_LAYOUT,
+  FLASHCARD_FOOTER_LINK_PAIR_CLASS,
+  FLASHCARD_FOOTER_ACTION_PAIR_CLASS,
 } from '@/lib/flashcardFooterStyles';
 
 function ChevronLeftIcon() {
@@ -93,19 +99,25 @@ export function TestQuestionNavLayout({
         <div className="min-w-0 flex-1 max-w-2xl">{children}</div>
         <div className="flex shrink-0 items-center justify-center">{rightSlot}</div>
       </div>
-      <footer className="mt-2 flex w-full flex-col items-start gap-3 border-t border-zinc-200 pt-6 dark:border-zinc-800 sm:flex-row sm:items-center sm:justify-between">
-        <Link href={resolvedBackHref} className={FLASHCARD_FOOTER_LINK_CLASS}>
-          {backLabel}
-        </Link>
+      <footer
+        className={`mt-2 border-t border-zinc-200 pt-6 dark:border-zinc-800 ${FLASHCARD_FOOTER_DUAL_ROW_LAYOUT}`}
+      >
+        <div className="min-w-0 flex-1">
+          <Link href={resolvedBackHref} className={FLASHCARD_FOOTER_LINK_PAIR_CLASS}>
+            {backLabel}
+          </Link>
+        </div>
         {scoreFooterAction != null ? (
-          <button
-            type="button"
-            onClick={scoreFooterAction}
-            className={FLASHCARD_FOOTER_ACTION_CLASS}
-            aria-label="Score Test"
-          >
-            Score Test →
-          </button>
+          <div className="min-w-0 flex-1 text-end">
+            <button
+              type="button"
+              onClick={scoreFooterAction}
+              className={FLASHCARD_FOOTER_ACTION_PAIR_CLASS}
+              aria-label="Score Test"
+            >
+              Score Test →
+            </button>
+          </div>
         ) : null}
       </footer>
     </div>

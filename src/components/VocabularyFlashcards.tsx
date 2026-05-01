@@ -3,7 +3,11 @@
 import { useState, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FLASHCARD_FOOTER_ACTION_CLASS, FLASHCARD_FOOTER_LINK_CLASS } from '@/lib/flashcardFooterStyles';
+import {
+  FLASHCARD_FOOTER_ACTION_PAIR_CLASS,
+  FLASHCARD_FOOTER_DUAL_ROW_LAYOUT,
+  FLASHCARD_FOOTER_LINK_PAIR_CLASS,
+} from '@/lib/flashcardFooterStyles';
 import { recordFlashcardSession } from '@/lib/localProgress';
 
 export type VocabularyFlashcard = {
@@ -268,13 +272,19 @@ export function VocabularyFlashcards({
         </button>
       </div>
 
-      <footer className="mt-2 flex w-full flex-col items-center justify-between gap-3 border-t border-zinc-200 pt-6 dark:border-zinc-800 sm:flex-row sm:items-center">
-        <Link href={backToLessonHref} className={FLASHCARD_FOOTER_LINK_CLASS}>
-          ← Back to Lesson
-        </Link>
-        <Link href={quizHref} className={FLASHCARD_FOOTER_ACTION_CLASS}>
-          Take Quiz →
-        </Link>
+      <footer
+        className={`mt-2 border-t border-zinc-200 pt-6 dark:border-zinc-800 ${FLASHCARD_FOOTER_DUAL_ROW_LAYOUT}`}
+      >
+        <div className="min-w-0 flex-1">
+          <Link href={backToLessonHref} className={FLASHCARD_FOOTER_LINK_PAIR_CLASS}>
+            ← Back to Lesson
+          </Link>
+        </div>
+        <div className="min-w-0 flex-1 text-end">
+          <Link href={quizHref} className={FLASHCARD_FOOTER_ACTION_PAIR_CLASS}>
+            Take Quiz →
+          </Link>
+        </div>
       </footer>
     </div>
   );

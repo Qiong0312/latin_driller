@@ -4,7 +4,10 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { QuizMedalSummary } from '@/components/QuizMedalSummary';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
-import { FLASHCARD_FOOTER_LINK_CLASS } from '@/lib/flashcardFooterStyles';
+import {
+  FLASHCARD_FOOTER_DUAL_ROW_LAYOUT,
+  FLASHCARD_FOOTER_LINK_PAIR_CLASS,
+} from '@/lib/flashcardFooterStyles';
 
 function resultsBackFooterText(backLabel: string): string {
   const trimmed = backLabel.trim();
@@ -63,14 +66,18 @@ export function QuizResultsSummary({
           );
         })}
       </div>
-      <footer className="mt-8 flex w-full flex-col gap-4 border-t border-zinc-200 pt-8 dark:border-zinc-800 sm:flex-row sm:items-start sm:justify-between">
-        <div className="min-w-[10rem] sm:flex-1">
-          <Link href={backHref} className={FLASHCARD_FOOTER_LINK_CLASS}>
+      <footer
+        className={`mt-8 border-t border-zinc-200 pt-8 dark:border-zinc-800 ${FLASHCARD_FOOTER_DUAL_ROW_LAYOUT}`}
+      >
+        <div className="min-w-0 flex-1">
+          <Link href={backHref} className={FLASHCARD_FOOTER_LINK_PAIR_CLASS}>
             {resultsBackFooterText(backLabel)}
           </Link>
         </div>
         {secondaryAction != null ? (
-          <div className="min-w-[10rem] sm:flex-1 sm:text-end">{secondaryAction}</div>
+          <div className="min-w-0 flex-1 text-end [&_button]:whitespace-nowrap [&_button]:text-xs [&_button]:sm:text-sm">
+            {secondaryAction}
+          </div>
         ) : null}
       </footer>
     </>
