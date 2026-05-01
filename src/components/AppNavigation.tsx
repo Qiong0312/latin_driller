@@ -24,6 +24,7 @@ const GRAMMAR_LINKS = [
   { href: "/grammar/imperative", label: "Imperative" },
   { href: "/grammar/ne-questions", label: "-ne Questions" },
   { href: "/grammar/demonstrative-pronouns-i", label: "Demonstrative pronouns I" },
+  { href: "/grammar/demonstrative-pronouns-ii", label: "Demonstrative pronouns II" },
 ] as const;
 
 const VOCAB_LINKS = [

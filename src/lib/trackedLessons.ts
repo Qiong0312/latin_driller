@@ -13,6 +13,7 @@ export const GRAMMAR_LESSON_PATHS = [
   '/grammar/imperative',
   '/grammar/ne-questions',
   '/grammar/demonstrative-pronouns-i',
+  '/grammar/demonstrative-pronouns-ii',
 ] as const;
 
 export const VOCABULARY_LESSON_PATHS = [
