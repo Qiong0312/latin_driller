@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { TestNextQuestionButton, TestQuestionNavLayout } from '@/components/TestQuestionNav';
+import { QuizResultsSummary } from '@/components/QuizResultsSummary';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { recordQuizResult } from '@/lib/localProgress';
-import { QuizMedalSummary } from '@/components/QuizMedalSummary';
+import { FLASHCARD_FOOTER_ACTION_CLASS } from '@/lib/flashcardFooterStyles';
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 
 export type VocabBankQuizViewProps = {
@@ -69,6 +69,15 @@ export function VocabBankQuizView({
     }
   };
 
+  const restartQuiz = () => {
+    const shuffled = prepareQuizDeck(questionBank);
+    setShuffledQuestions(shuffled);
+    setAnswers(Array(shuffled.length).fill(-1));
+    setCurrentQuestion(0);
+    setScored(false);
+    setScore(0);
+  };
+
   const getCurrentQuestion = () => shuffledQuestions[currentQuestion];
 
   const getOptionClass = (optionIndex: number) => {
@@ -91,36 +100,21 @@ export function VocabBankQuizView({
   if (scored) {
     return (
       <div className="app-panel">
-        <h1 className="text-4xl font-bold text-center mb-8 text-black dark:text-zinc-50">{resultsHeading}</h1>
-        <p className="text-2xl font-bold text-center mb-8 text-black dark:text-zinc-50">
-          Score: {score} out of {shuffledQuestions.length}
-        </p>
-        <QuizMedalSummary quizPath={pathname} />
-        <div className="space-y-4">
-          {shuffledQuestions.map((q, index) => {
-            const isCorrect = answers[index] === q.correct;
-            return (
-              <div
-                key={index}
-                className={`p-4 rounded ${isCorrect ? 'bg-green-100 dark:bg-green-900' : 'bg-red-100 dark:bg-red-900'}`}
-              >
-                <p className="font-medium">
-                  {index + 1}. {q.question}
-                </p>
-                <p className="text-sm">Your answer: {q.options[answers[index]] || 'Not answered'}</p>
-                {!isCorrect && <p className="text-sm">Correct answer: {q.options[q.correct]}</p>}
-              </div>
-            );
-          })}
-        </div>
-        <div className="text-center mt-8">
-          <Link
-            href={backToLessonHref}
-            className="inline-block rounded-lg bg-zinc-200 px-6 py-3 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
-          >
-            {backToLessonLabel}
-          </Link>
-        </div>
+        <QuizResultsSummary
+          resultsHeading={resultsHeading}
+          score={score}
+          totalQuestions={shuffledQuestions.length}
+          quizPath={pathname}
+          backHref={backToLessonHref}
+          backLabel={backToLessonLabel}
+          questions={shuffledQuestions}
+          answers={answers}
+          secondaryAction={
+            <button type="button" onClick={restartQuiz} className={FLASHCARD_FOOTER_ACTION_CLASS} aria-label="New Quiz">
+              New Quiz →
+            </button>
+          }
+        />
       </div>
     );
   }
