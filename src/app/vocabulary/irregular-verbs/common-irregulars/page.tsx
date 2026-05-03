@@ -8,7 +8,7 @@ export default function IrregularVerbsCommonPage() {
   return (
     <div className="app-panel">
       <h1 className="mb-8 text-center text-4xl font-bold text-black dark:text-zinc-50">
-        🔹 Common High-Frequency Irregulars
+        📝 Common High-Frequency Irregulars
       </h1>
       <ul className="list-inside list-disc space-y-2 pl-4 text-lg text-zinc-800 dark:text-zinc-200">
         {IRREGULAR_VERBS_COMMON.map(({ latin, english }) => (

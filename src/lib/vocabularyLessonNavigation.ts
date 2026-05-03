@@ -14,6 +14,7 @@ export const VOCABULARY_CATEGORY_NAV = [
   { href: '/vocabulary/environment-interaction', label: 'Environment & Interaction' },
   { href: '/vocabulary/society-relationships', label: 'Society & Relationships' },
   { href: '/vocabulary/irregular-verbs', label: 'Irregular Verbs' },
+  { href: '/vocabulary/deponent-verbs', label: 'Deponent Verbs' },
 ] as const;
 
 /** Display titles in the same order as {@link VOCABULARY_LESSON_PATHS} */
@@ -74,6 +75,11 @@ const VOCABULARY_SUB_LESSON_LABELS = [
   'Essential Irregular Verbs',
   'Common High-Frequency Irregulars',
   'Compound Irregular Verbs',
+  'Communication & Speech',
+  'Movement & Action',
+  'Emotion & Thought',
+  'Social & Legal Actions',
+  'Semi-Deponent Verbs (Advanced)',
 ] as const satisfies readonly string[];
 
 if (

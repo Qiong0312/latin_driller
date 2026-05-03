@@ -26,7 +26,7 @@ export default function IrregularVerbsVocabularyPage() {
             lessonPath="/vocabulary/irregular-verbs/essential"
             cardClassName="cursor-pointer rounded-lg bg-indigo-50 p-4 transition hover:bg-indigo-100 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/50"
           >
-            <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🔹 Essential Irregular Verbs</h3>
+            <h3 className="text-xl font-semibold text-black dark:text-zinc-50">⚡ Essential Irregular Verbs</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Esse, posse, īre, velle, nōlle, mālle, ferre, fierī</p>
           </VocabularySubLessonCard>
           <VocabularySubLessonCard
@@ -34,7 +34,7 @@ export default function IrregularVerbsVocabularyPage() {
             lessonPath="/vocabulary/irregular-verbs/common-irregulars"
             cardClassName="cursor-pointer rounded-lg bg-amber-50 p-4 transition hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/50"
           >
-            <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🔹 Common High-Frequency Irregulars</h3>
+            <h3 className="text-xl font-semibold text-black dark:text-zinc-50">📝 Common High-Frequency Irregulars</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Dare, ēdere, inquam, aiō</p>
           </VocabularySubLessonCard>
           <VocabularySubLessonCard
@@ -42,7 +42,7 @@ export default function IrregularVerbsVocabularyPage() {
             lessonPath="/vocabulary/irregular-verbs/compound"
             cardClassName="cursor-pointer rounded-lg bg-teal-50 p-4 transition hover:bg-teal-100 dark:bg-teal-950/40 dark:hover:bg-teal-900/50"
           >
-            <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🔹 Compound Irregular Verbs</h3>
+            <h3 className="text-xl font-semibold text-black dark:text-zinc-50">🔗 Compound Irregular Verbs</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Abesse, adesse, redīre, offerre, referre, transferre</p>
           </VocabularySubLessonCard>
         </div>

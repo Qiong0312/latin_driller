@@ -80,6 +80,13 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/irregular-verbs/common-irregulars',
     '/vocabulary/irregular-verbs/compound',
   ],
+  '/vocabulary/deponent-verbs': [
+    '/vocabulary/deponent-verbs/communication-speech',
+    '/vocabulary/deponent-verbs/movement-action',
+    '/vocabulary/deponent-verbs/emotion-thought',
+    '/vocabulary/deponent-verbs/social-legal',
+    '/vocabulary/deponent-verbs/semi-deponent',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

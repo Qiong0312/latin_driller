@@ -75,6 +75,11 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/irregular-verbs/essential',
   '/vocabulary/irregular-verbs/common-irregulars',
   '/vocabulary/irregular-verbs/compound',
+  '/vocabulary/deponent-verbs/communication-speech',
+  '/vocabulary/deponent-verbs/movement-action',
+  '/vocabulary/deponent-verbs/emotion-thought',
+  '/vocabulary/deponent-verbs/social-legal',
+  '/vocabulary/deponent-verbs/semi-deponent',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

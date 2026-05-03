@@ -92,6 +92,13 @@ import {
   IRREGULAR_VERBS_COMPOUND_QUIZ,
   IRREGULAR_VERBS_ESSENTIAL_QUIZ,
 } from '@/lib/quizBanks/vocabulary/irregularVerbsCategoryQuestionBank';
+import {
+  DEPONENT_COMM_QUIZ,
+  DEPONENT_EMOTION_QUIZ,
+  DEPONENT_MOVEMENT_QUIZ,
+  DEPONENT_SEMI_QUIZ,
+  DEPONENT_SOCIAL_QUIZ,
+} from '@/lib/quizBanks/vocabulary/deponentVerbsCategoryQuestionBank';
 
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
@@ -163,6 +170,11 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/irregular-verbs/essential': IRREGULAR_VERBS_ESSENTIAL_QUIZ,
   '/vocabulary/irregular-verbs/common-irregulars': IRREGULAR_VERBS_COMMON_QUIZ,
   '/vocabulary/irregular-verbs/compound': IRREGULAR_VERBS_COMPOUND_QUIZ,
+  '/vocabulary/deponent-verbs/communication-speech': DEPONENT_COMM_QUIZ,
+  '/vocabulary/deponent-verbs/movement-action': DEPONENT_MOVEMENT_QUIZ,
+  '/vocabulary/deponent-verbs/emotion-thought': DEPONENT_EMOTION_QUIZ,
+  '/vocabulary/deponent-verbs/social-legal': DEPONENT_SOCIAL_QUIZ,
+  '/vocabulary/deponent-verbs/semi-deponent': DEPONENT_SEMI_QUIZ,
 };
 
 export function getQuizPoolForLesson(lessonPath: string): QuizQuestion[] | null {
