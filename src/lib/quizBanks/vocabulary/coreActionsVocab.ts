@@ -104,23 +104,11 @@ export const CORE_ACTIONS_EMOTION = normalizeLatinEnglishRows([
   { latin: 'rīdēre', english: 'to laugh' },
 ]);
 
-/** Core irregular infinitives */
-export const CORE_ACTIONS_IRREGULAR = normalizeLatinEnglishRows([
-  { latin: 'esse', english: 'to be' },
-  { latin: 'īre', english: 'to go' },
-  { latin: 'ferre', english: 'to carry / bring' },
-  { latin: 'posse', english: 'to be able / can' },
-  { latin: 'venīre', english: 'to come' },
-  { latin: 'dare', english: 'to give' },
-  { latin: 'facere', english: 'to do / make' },
-]);
-
 export const CORE_ACTIONS_DAILY_CARDS: VocabularyFlashcard[] = toFlashcards(CORE_ACTIONS_DAILY);
 export const CORE_ACTIONS_SENS_CARDS: VocabularyFlashcard[] = toFlashcards(CORE_ACTIONS_SENS);
 export const CORE_ACTIONS_COMM_CARDS: VocabularyFlashcard[] = toFlashcards(CORE_ACTIONS_COMM);
 export const CORE_ACTIONS_THINK_CARDS: VocabularyFlashcard[] = toFlashcards(CORE_ACTIONS_THINK);
 export const CORE_ACTIONS_EMOTION_CARDS: VocabularyFlashcard[] = toFlashcards(CORE_ACTIONS_EMOTION);
-export const CORE_ACTIONS_IRREGULAR_CARDS: VocabularyFlashcard[] = toFlashcards(CORE_ACTIONS_IRREGULAR);
 
 export const CORE_ACTIONS_ALL_FLASHCARDS: VocabularyFlashcard[] = [
   ...CORE_ACTIONS_DAILY_CARDS,
@@ -128,5 +116,4 @@ export const CORE_ACTIONS_ALL_FLASHCARDS: VocabularyFlashcard[] = [
   ...CORE_ACTIONS_COMM_CARDS,
   ...CORE_ACTIONS_THINK_CARDS,
   ...CORE_ACTIONS_EMOTION_CARDS,
-  ...CORE_ACTIONS_IRREGULAR_CARDS,
 ];

@@ -3,7 +3,6 @@ import {
   CORE_ACTIONS_COMM,
   CORE_ACTIONS_DAILY,
   CORE_ACTIONS_EMOTION,
-  CORE_ACTIONS_IRREGULAR,
   CORE_ACTIONS_SENS,
   CORE_ACTIONS_THINK,
 } from '@/lib/quizBanks/vocabulary/coreActionsVocab';
@@ -33,18 +32,12 @@ const EMOTION_BUILT = buildVocabularyQuestionBank({
   outsideCategoryLatin: ['stāre', 'rogāre', 'īre', 'ferre', 'cor', 'pater', 'sōl', 'pluvia'],
   entries: CORE_ACTIONS_EMOTION,
 });
-const IRREG_BUILT = buildVocabularyQuestionBank({
-  categoryLabel: 'Core actions: core irregular verbs',
-  outsideCategoryLatin: ['dormīre', 'spectāre', 'amāre', 'discere', 'canis', 'frūctus', 'mare', 'ager'],
-  entries: CORE_ACTIONS_IRREGULAR,
-});
 
 export const CORE_ACTIONS_DAILY_QUIZ: QuizQuestion[] = DAILY_BUILT;
 export const CORE_ACTIONS_SENS_QUIZ: QuizQuestion[] = SENS_BUILT;
 export const CORE_ACTIONS_COMM_QUIZ: QuizQuestion[] = COMM_BUILT;
 export const CORE_ACTIONS_THINK_QUIZ: QuizQuestion[] = THINK_BUILT;
 export const CORE_ACTIONS_EMOTION_QUIZ: QuizQuestion[] = EMOTION_BUILT;
-export const CORE_ACTIONS_IRREGULAR_QUIZ: QuizQuestion[] = IRREG_BUILT;
 
 export const CORE_ACTIONS_CATEGORY_ALL_QUESTIONS: QuizQuestion[] = [
   ...DAILY_BUILT,
@@ -52,5 +45,4 @@ export const CORE_ACTIONS_CATEGORY_ALL_QUESTIONS: QuizQuestion[] = [
   ...COMM_BUILT,
   ...THINK_BUILT,
   ...EMOTION_BUILT,
-  ...IRREG_BUILT,
 ];

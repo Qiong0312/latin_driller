@@ -61,7 +61,6 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/core-actions/communication',
   '/vocabulary/core-actions/thinking-knowing',
   '/vocabulary/core-actions/emotion-desire',
-  '/vocabulary/core-actions/irregular-verbs',
   '/vocabulary/environment-interaction/home-actions',
   '/vocabulary/environment-interaction/marketplace-money',
   '/vocabulary/environment-interaction/military-government',

@@ -9,7 +9,7 @@ export default function CoreActionsVocabularyPage() {
     <div className="app-panel">
       <h1 className="mb-4 text-center text-4xl font-bold text-black dark:text-zinc-50">Core Actions</h1>
       <p className="mb-8 text-center text-lg text-zinc-600 dark:text-zinc-300">
-        High-frequency Latin verbs: daily life, senses, speech, thought, feeling, and essential irregulars.
+        High-frequency Latin verbs: daily life, senses, speech, thought, and feeling.
       </p>
       <div className="space-y-6 text-lg leading-relaxed text-zinc-800 dark:text-zinc-200">
         <p>
@@ -63,14 +63,6 @@ export default function CoreActionsVocabularyPage() {
               ❤️ Emotion &amp; Desire (Affectūs et cupiditās)
             </h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Love, fear, hope, want, laugh, cry</p>
-          </VocabularySubLessonCard>
-          <VocabularySubLessonCard
-            href="/vocabulary/core-actions/irregular-verbs"
-            lessonPath="/vocabulary/core-actions/irregular-verbs"
-            cardClassName="cursor-pointer rounded-lg bg-indigo-50 p-4 transition hover:bg-indigo-100 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/50"
-          >
-            <h3 className="text-xl font-semibold text-black dark:text-zinc-50">⭐ Core Essential Irregular Verbs</h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Esse, īre, posse, velle, dare, facere, and more</p>
           </VocabularySubLessonCard>
         </div>
 

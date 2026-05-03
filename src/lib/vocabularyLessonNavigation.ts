@@ -61,7 +61,6 @@ const VOCABULARY_SUB_LESSON_LABELS = [
   'Communication (Cōnloquium)',
   'Thinking & Knowing (Cōgitātiō et scientia)',
   'Emotion & Desire (Affectūs et cupiditās)',
-  'Core Irregular Verbs',
   'Home Actions (Āctiōnēs Domūs)',
   'Marketplace & Money (Mercātus et Pecūnia)',
   'Military & Government (Mīlitia et Imperium)',
