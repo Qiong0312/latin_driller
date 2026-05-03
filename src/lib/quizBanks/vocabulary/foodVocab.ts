@@ -1,7 +1,8 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 import type { VocabEntry } from '@/lib/buildVocabularyQuestionBank';
+import { normalizeVocabularyFlashcards } from '@/lib/vocabularyText';
 
-export const FOOD_ALL_FLASHCARDS: VocabularyFlashcard[] = [
+export const FOOD_ALL_FLASHCARDS: VocabularyFlashcard[] = normalizeVocabularyFlashcards([
   { latin: 'pānis', english: 'Bread', icon: '/flashcard-icons/food/panis.svg' },
   { latin: 'cāseus', english: 'Cheese', icon: '/flashcard-icons/food/caseus.svg' },
   { latin: 'ōvum', english: 'Egg', icon: '/flashcard-icons/food/ovum.svg' },
@@ -28,7 +29,7 @@ export const FOOD_ALL_FLASHCARDS: VocabularyFlashcard[] = [
   { latin: 'vīnum', english: 'Wine', icon: '/flashcard-icons/food/vinum.svg' },
   { latin: 'mēl', english: 'Honey', icon: '/flashcard-icons/food/mel.svg' },
   { latin: 'sāl', english: 'Salt', icon: '/flashcard-icons/food/sal.svg' },
-];
+]);
 
 function entries(cards: VocabularyFlashcard[]): VocabEntry[] {
   return cards.map(({ latin, english }) => ({ latin, english }));

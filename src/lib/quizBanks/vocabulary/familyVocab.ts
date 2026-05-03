@@ -1,4 +1,5 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
+import { normalizeLatinEnglishRows } from '@/lib/vocabularyText';
 
 const FAMILY_ICON_SLUGS = new Set([
   'familia',
@@ -39,17 +40,17 @@ function toFamilyFlashcards(items: { latin: string; english: string }[]): Vocabu
 }
 
 /** Familia: immediate members */
-export const FAMILY_IMMEDIATE: { latin: string; english: string }[] = [
+export const FAMILY_IMMEDIATE = normalizeLatinEnglishRows([
   { latin: 'familia', english: 'family / household' },
   { latin: 'pater', english: 'father' },
   { latin: 'māter', english: 'mother' },
   { latin: 'fīlius', english: 'son' },
   { latin: 'fīlia', english: 'daughter' },
   { latin: 'parēns', english: 'parent' },
-];
+]);
 
 /** Familia: extended family */
-export const FAMILY_EXTENDED: { latin: string; english: string }[] = [
+export const FAMILY_EXTENDED = normalizeLatinEnglishRows([
   { latin: 'frāter', english: 'brother' },
   { latin: 'soror', english: 'sister' },
   { latin: 'avus', english: 'grandfather' },
@@ -58,15 +59,15 @@ export const FAMILY_EXTENDED: { latin: string; english: string }[] = [
   { latin: 'avunculus', english: "uncle (mother's brother)" },
   { latin: 'amita', english: "aunt (father's sister)" },
   { latin: 'mātertera', english: "aunt (mother's sister)" },
-];
+]);
 
 /** Familia: other relations */
-export const FAMILY_OTHER_RELATIONS: { latin: string; english: string }[] = [
+export const FAMILY_OTHER_RELATIONS = normalizeLatinEnglishRows([
   { latin: 'līberī', english: 'children (plural)' },
   { latin: 'infāns', english: 'baby' },
   { latin: 'marītus', english: 'husband' },
   { latin: 'uxor', english: 'wife' },
-];
+]);
 
 export const FAMILY_IMMEDIATE_CARDS: VocabularyFlashcard[] = toFamilyFlashcards(FAMILY_IMMEDIATE);
 export const FAMILY_EXTENDED_CARDS: VocabularyFlashcard[] = toFamilyFlashcards(FAMILY_EXTENDED);

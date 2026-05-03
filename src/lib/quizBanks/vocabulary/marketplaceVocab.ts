@@ -1,4 +1,5 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
+import { normalizeLatinEnglishRows } from '@/lib/vocabularyText';
 
 function latinToSlug(latin: string): string {
   return latin
@@ -20,7 +21,7 @@ function toMarketplaceFlashcards(
 }
 
 /** In forō — places, roles, and people */
-export const MARKETPLACE_PLACES_PEOPLE: { latin: string; english: string }[] = [
+export const MARKETPLACE_PLACES_PEOPLE = normalizeLatinEnglishRows([
   { latin: 'forum', english: 'marketplace / public square' },
   { latin: 'mercātus', english: 'market' },
   { latin: 'taberna', english: 'shop / stall' },
@@ -28,33 +29,33 @@ export const MARKETPLACE_PLACES_PEOPLE: { latin: string; english: string }[] = [
   { latin: 'venditor', english: 'seller' },
   { latin: 'ēmptor', english: 'buyer' },
   { latin: 'cliēns', english: 'customer / client' },
-];
+]);
 
 /** Money & trade */
-export const MARKETPLACE_MONEY_TRADE: { latin: string; english: string }[] = [
+export const MARKETPLACE_MONEY_TRADE = normalizeLatinEnglishRows([
   { latin: 'pecūnia', english: 'money' },
   { latin: 'nummus', english: 'coin' },
   { latin: 'pretium', english: 'price' },
   { latin: 'merx', english: 'goods / wares (gen. mercis)' },
   { latin: 'lībra', english: 'pound / balance' },
   { latin: 'pondus', english: 'weight' },
-];
+]);
 
 /** Carrying and personal items */
-export const MARKETPLACE_CARRYING: { latin: string; english: string }[] = [
+export const MARKETPLACE_CARRYING = normalizeLatinEnglishRows([
   { latin: 'crumēna', english: 'purse / money bag' },
   { latin: 'saccus', english: 'sack / bag' },
   { latin: 'marsuppium', english: 'purse / pouch' },
   { latin: 'loculus', english: 'small box / cash box' },
-];
+]);
 
 /** Equipment and setting */
-export const MARKETPLACE_EQUIPMENT: { latin: string; english: string }[] = [
+export const MARKETPLACE_EQUIPMENT = normalizeLatinEnglishRows([
   { latin: 'mēnsa', english: 'table / stall table' },
   { latin: 'dolium', english: 'jar / large container' },
   { latin: 'amphora', english: 'storage jar (for liquids)' },
   { latin: 'cōpiae', english: 'supplies / abundance (plural)' },
-];
+]);
 
 export const MARKETPLACE_PLACES_PEOPLE_CARDS: VocabularyFlashcard[] = toMarketplaceFlashcards(
   MARKETPLACE_PLACES_PEOPLE,

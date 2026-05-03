@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
+import { ANIMALS_SEA_ENTRIES } from "@/lib/quizBanks/vocabulary/animalsVocab";
 
 export default function SeaAnimals() {
   return (
@@ -11,10 +12,11 @@ export default function SeaAnimals() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>Piscis</strong> – Fish</li>
-          <li><strong>Delphīnus</strong> – Dolphin</li>
-          <li><strong>Cētus</strong> – Whale</li>
-          <li><strong>Canis mārīnus</strong> – Shark</li>
+          {ANIMALS_SEA_ENTRIES.map(({ latin, english }) => (
+            <li key={latin}>
+              <strong className="font-semibold text-zinc-900 dark:text-zinc-100">{latin}</strong> – {english}
+            </li>
+          ))}
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
+import { ANIMALS_BIRDS_ENTRIES } from "@/lib/quizBanks/vocabulary/animalsVocab";
 
 export default function Birds() {
   return (
@@ -11,13 +12,11 @@ export default function Birds() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>Āvis</strong> – Bird</li>
-          <li><strong>Aquila</strong> – Eagle</li>
-          <li><strong>Columba</strong> – Dove / Pigeon</li>
-          <li><strong>Corvus</strong> – Crow</li>
-          <li><strong>Passer</strong> – Sparrow</li>
-          <li><strong>Gallina</strong> – Hen</li>
-          <li><strong>Gallus</strong> – Rooster</li>
+          {ANIMALS_BIRDS_ENTRIES.map(({ latin, english }) => (
+            <li key={latin}>
+              <strong className="font-semibold text-zinc-900 dark:text-zinc-100">{latin}</strong> – {english}
+            </li>
+          ))}
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

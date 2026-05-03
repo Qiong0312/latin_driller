@@ -1,3 +1,5 @@
+import { normalizeVocabularyLessonText } from '@/lib/vocabularyText';
+
 export type QuizQuestion = {
   question: string;
   options: string[];
@@ -46,11 +48,17 @@ export function buildVocabularyQuestionBank({
   categoryLabel,
   outsideCategoryLatin,
 }: BuildVocabularyQuestionBankArgs): QuizQuestion[] {
-  const englishPool = entries.map((e) => e.english);
-  const latinPool = entries.map((e) => e.latin);
+  const normEntries = entries.map((e) => ({
+    latin: normalizeVocabularyLessonText(e.latin),
+    english: normalizeVocabularyLessonText(e.english),
+  }));
+  const outsideNorm = outsideCategoryLatin.map(normalizeVocabularyLessonText);
+
+  const englishPool = normEntries.map((e) => e.english);
+  const latinPool = normEntries.map((e) => e.latin);
   const bank: QuizQuestion[] = [];
 
-  for (const e of entries) {
+  for (const e of normEntries) {
     const enToLa = buildOptions(e.latin, latinPool);
     bank.push({
       question: `Given "${e.english}", what is the Latin word?`,
@@ -66,9 +74,9 @@ export function buildVocabularyQuestionBank({
     });
   }
 
-  const categoryCandidates = entries.slice(0, Math.min(entries.length, 6));
+  const categoryCandidates = normEntries.slice(0, Math.min(normEntries.length, 6));
   for (const e of categoryCandidates) {
-    const cat = buildOptions(e.latin, outsideCategoryLatin);
+    const cat = buildOptions(e.latin, outsideNorm);
     bank.push({
       question: `Which Latin word belongs to ${categoryLabel}?`,
       options: cat.options,

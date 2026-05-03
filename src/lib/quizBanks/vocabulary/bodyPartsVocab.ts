@@ -1,7 +1,8 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 import type { VocabEntry } from '@/lib/buildVocabularyQuestionBank';
+import { normalizeVocabularyFlashcards } from '@/lib/vocabularyText';
 
-export const BODY_PARTS_ALL_FLASHCARDS: VocabularyFlashcard[] = [
+export const BODY_PARTS_ALL_FLASHCARDS: VocabularyFlashcard[] = normalizeVocabularyFlashcards([
   { latin: 'corpus', english: 'Body', icon: '/flashcard-icons/body-parts/corpus.svg' },
   { latin: 'cāput', english: 'Head', icon: '/flashcard-icons/body-parts/caput.svg' },
   { latin: 'collum', english: 'Neck', icon: '/flashcard-icons/body-parts/collum.svg' },
@@ -27,7 +28,7 @@ export const BODY_PARTS_ALL_FLASHCARDS: VocabularyFlashcard[] = [
   { latin: 'pulmō', english: 'Lung', icon: '/flashcard-icons/body-parts/pulmo.svg' },
   { latin: 'hēpar', english: 'Liver', icon: '/flashcard-icons/body-parts/hepar.svg' },
   { latin: 'rēn', english: 'Kidney', icon: '/flashcard-icons/body-parts/ren.svg' },
-];
+]);
 
 function entries(cards: VocabularyFlashcard[]): VocabEntry[] {
   return cards.map(({ latin, english }) => ({ latin, english }));

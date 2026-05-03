@@ -8,6 +8,7 @@ import {
   FLASHCARD_FOOTER_DUAL_ROW_LAYOUT,
   FLASHCARD_FOOTER_LINK_PAIR_CLASS,
 } from '@/lib/flashcardFooterStyles';
+import { normalizeVocabularyFlashcards, normalizeVocabularyLessonText } from '@/lib/vocabularyText';
 import { recordFlashcardSession } from '@/lib/localProgress';
 
 export type VocabularyFlashcard = {
@@ -51,7 +52,12 @@ function shuffleArray<T>(array: T[]): T[] {
 
 /** Stable when card *content* is unchanged; avoids re-shuffle loops if `cards` is a new array every render. */
 function vocabularyCardsContentKey(cards: VocabularyFlashcard[]): string {
-  return cards.map((c) => `${c.latin}\u0000${c.english}\u0000${c.icon}`).join('\n');
+  return cards
+    .map(
+      (c) =>
+        `${normalizeVocabularyLessonText(c.latin)}\u0000${normalizeVocabularyLessonText(c.english)}\u0000${c.icon}`,
+    )
+    .join('\n');
 }
 
 export function VocabularyFlashcards({
@@ -62,7 +68,7 @@ export function VocabularyFlashcards({
 }: VocabularyFlashcardsProps) {
   const pathname = usePathname();
   // Same order on server and first client render — shuffling is random and must not run during SSR/initial state or hydration will mismatch.
-  const [deck, setDeck] = useState<VocabularyFlashcard[]>(initialCards);
+  const [deck, setDeck] = useState<VocabularyFlashcard[]>(() => normalizeVocabularyFlashcards(initialCards));
   const [index, setIndex] = useState(0);
   const [englishFirstMode, setEnglishFirstMode] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -72,8 +78,8 @@ export function VocabularyFlashcards({
     [initialCards]
   );
 
-  const cardsRef = useRef(initialCards);
-  cardsRef.current = initialCards;
+  const cardsRef = useRef(normalizeVocabularyFlashcards(initialCards));
+  cardsRef.current = normalizeVocabularyFlashcards(initialCards);
 
   // Depend only on `cardsContentKey`: the `cards` prop may be a new array every render, which would
   // retrigger this every time and can freeze the tab. Ref always holds the latest deck for shuffling.

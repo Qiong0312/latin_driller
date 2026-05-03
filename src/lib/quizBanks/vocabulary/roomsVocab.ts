@@ -1,7 +1,8 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 import type { VocabEntry } from '@/lib/buildVocabularyQuestionBank';
+import { normalizeVocabularyFlashcards } from '@/lib/vocabularyText';
 
-export const ROOMS_ALL_FLASHCARDS: VocabularyFlashcard[] = [
+export const ROOMS_ALL_FLASHCARDS: VocabularyFlashcard[] = normalizeVocabularyFlashcards([
   { latin: 'cūbiculum', english: 'bedroom', icon: '/flashcard-icons/rooms/cubiculum.svg' },
   { latin: 'dormitōrium', english: 'sleeping room / dormitory', icon: '/flashcard-icons/rooms/dormitorium.svg' },
   { latin: 'lēctus', english: 'bed', icon: '/flashcard-icons/rooms/lectus.svg' },
@@ -17,7 +18,7 @@ export const ROOMS_ALL_FLASHCARDS: VocabularyFlashcard[] = [
   { latin: 'officīna', english: 'workshop / workroom', icon: '/flashcard-icons/rooms/officina.svg' },
   { latin: 'hortus', english: 'garden', icon: '/flashcard-icons/rooms/hortus.svg' },
   { latin: 'peristȳlium', english: 'courtyard with columns', icon: '/flashcard-icons/rooms/peristylium.svg' },
-];
+]);
 
 function e(cards: VocabularyFlashcard[]): VocabEntry[] {
   return cards.map(({ latin, english }) => ({ latin, english }));

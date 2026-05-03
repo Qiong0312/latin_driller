@@ -1,4 +1,5 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
+import { normalizeVocabularyLessonText } from '@/lib/vocabularyText';
 
 /** Converts accented Latin into the corresponding SVG filename. */
 function toLandscapeIconSlug(latin: string): string {
@@ -17,7 +18,11 @@ function getLandscapeIconPath(latin: string): string {
 export function withEmptyIcon(
   items: { latin: string; english: string }[],
 ): VocabularyFlashcard[] {
-  return items.map((e) => ({ ...e, icon: getLandscapeIconPath(e.latin) }));
+  return items.map((e) => ({
+    latin: normalizeVocabularyLessonText(e.latin),
+    english: normalizeVocabularyLessonText(e.english),
+    icon: getLandscapeIconPath(e.latin),
+  }));
 }
 
 export const LANDSCAPE_LAND: { latin: string; english: string }[] = [

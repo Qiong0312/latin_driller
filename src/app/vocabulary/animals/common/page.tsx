@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LessonDoneButton } from "@/components/LessonDoneButton";
 import { LessonQuizMedalCard } from "@/components/LessonQuizMedalCard";
 import { VocabularyNavFooter } from "@/components/VocabularyNavFooter";
+import { ANIMALS_COMMON_ENTRIES } from "@/lib/quizBanks/vocabulary/animalsVocab";
 
 export default function CommonAnimals() {
   return (
@@ -11,14 +12,11 @@ export default function CommonAnimals() {
       </h1>
       <div className="text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 space-y-4">
         <ul className="list-disc list-inside space-y-3 pl-6">
-          <li><strong>Canis</strong> – Dog</li>
-          <li><strong>Fēlīs</strong> – Cat</li>
-          <li><strong>Equus</strong> – Horse</li>
-          <li><strong>Vacca</strong> – Cow</li>
-          <li><strong>Porcus</strong> – Pig</li>
-          <li><strong>Ovis</strong> – Sheep</li>
-          <li><strong>Capra</strong> – Goat</li>
-          <li><strong>Asīnus</strong> – Donkey</li>
+          {ANIMALS_COMMON_ENTRIES.map(({ latin, english }) => (
+            <li key={latin}>
+              <strong className="font-semibold text-zinc-900 dark:text-zinc-100">{latin}</strong> – {english}
+            </li>
+          ))}
         </ul>
       </div>
       <div className="mt-8 flex flex-col items-center gap-4">

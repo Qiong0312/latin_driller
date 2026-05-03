@@ -1,4 +1,5 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
+import { normalizeLatinEnglishRows } from '@/lib/vocabularyText';
 
 const OCCUPATIONS_ICON_OVERRIDES: Record<string, string> = {
   pictor: '/flashcard-icons/occupations/painter.svg',
@@ -29,7 +30,7 @@ function toOccupationsFlashcards(items: { latin: string; english: string }[]): V
 }
 
 /** Officia / Artēs: general occupations */
-export const OCCUPATIONS_GENERAL: { latin: string; english: string }[] = [
+export const OCCUPATIONS_GENERAL = normalizeLatinEnglishRows([
   { latin: 'agricola', english: 'farmer' },
   { latin: 'mercātor', english: 'merchant / trader' },
   { latin: 'nauta', english: 'sailor' },
@@ -37,28 +38,28 @@ export const OCCUPATIONS_GENERAL: { latin: string; english: string }[] = [
   { latin: 'dominus', english: 'master / lord' },
   { latin: 'rēx', english: 'king' },
   { latin: 'rēgīna', english: 'queen' },
-];
+]);
 
 /** Military & Government */
-export const OCCUPATIONS_MILITARY_GOVERNMENT: { latin: string; english: string }[] = [
+export const OCCUPATIONS_MILITARY_GOVERNMENT = normalizeLatinEnglishRows([
   { latin: 'mīles', english: 'soldier' },
   { latin: 'dux', english: 'leader / commander' },
   { latin: 'custōs', english: 'guard' },
   { latin: 'nūntius', english: 'messenger' },
-];
+]);
 
 /** Education & Knowledge */
-export const OCCUPATIONS_EDUCATION: { latin: string; english: string }[] = [
+export const OCCUPATIONS_EDUCATION = normalizeLatinEnglishRows([
   { latin: 'magister', english: 'teacher / master' },
   { latin: 'discipulus', english: 'student (male)' },
   { latin: 'discipula', english: 'student (female)' },
   { latin: 'scrība', english: 'scribe / secretary' },
   { latin: 'poēta', english: 'poet' },
   { latin: 'philosophus', english: 'philosopher' },
-];
+]);
 
 /** Crafts & Trades */
-export const OCCUPATIONS_CRAFTS_TRADES: { latin: string; english: string }[] = [
+export const OCCUPATIONS_CRAFTS_TRADES = normalizeLatinEnglishRows([
   { latin: 'faber', english: 'craftsman / smith' },
   { latin: 'faber ferrārius', english: 'blacksmith' },
   { latin: 'pistor', english: 'baker' },
@@ -67,14 +68,14 @@ export const OCCUPATIONS_CRAFTS_TRADES: { latin: string; english: string }[] = [
   { latin: 'pictor', english: 'painter' },
   { latin: 'medicus', english: 'doctor' },
   { latin: 'tonsor', english: 'barber' },
-];
+]);
 
 /** Arts & Entertainment */
-export const OCCUPATIONS_ARTS_ENTERTAINMENT: { latin: string; english: string }[] = [
+export const OCCUPATIONS_ARTS_ENTERTAINMENT = normalizeLatinEnglishRows([
   { latin: 'cantor', english: 'singer' },
   { latin: 'saltātor', english: 'dancer' },
   { latin: 'histriō', english: 'actor' },
-];
+]);
 
 export const OCCUPATIONS_GENERAL_CARDS: VocabularyFlashcard[] = toOccupationsFlashcards(OCCUPATIONS_GENERAL);
 export const OCCUPATIONS_MILITARY_GOVERNMENT_CARDS: VocabularyFlashcard[] =

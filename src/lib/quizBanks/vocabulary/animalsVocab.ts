@@ -1,8 +1,9 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 import type { VocabEntry } from '@/lib/buildVocabularyQuestionBank';
+import { normalizeVocabularyFlashcards } from '@/lib/vocabularyText';
 
 /** Single source for Animalia: flashcard decks and generated quizzes. */
-export const ANIMALS_ALL_FLASHCARDS: VocabularyFlashcard[] = [
+export const ANIMALS_ALL_FLASHCARDS: VocabularyFlashcard[] = normalizeVocabularyFlashcards([
   { latin: 'Canis', english: 'Dog', icon: '/flashcard-icons/animals/canis.svg' },
   { latin: 'Fēlīs', english: 'Cat', icon: '/flashcard-icons/animals/feles.svg' },
   { latin: 'Equus', english: 'Horse', icon: '/flashcard-icons/animals/equus.svg' },
@@ -34,7 +35,7 @@ export const ANIMALS_ALL_FLASHCARDS: VocabularyFlashcard[] = [
   { latin: 'Serpēns', english: 'Snake', icon: '/flashcard-icons/animals/serpens.svg' },
   { latin: 'Apis', english: 'Bee', icon: '/flashcard-icons/animals/apis.svg' },
   { latin: 'Formīca', english: 'Ant', icon: '/flashcard-icons/animals/formica.svg' },
-];
+]);
 
 function entries(cards: VocabularyFlashcard[]): VocabEntry[] {
   return cards.map(({ latin, english }) => ({ latin, english }));
