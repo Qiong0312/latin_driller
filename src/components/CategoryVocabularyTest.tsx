@@ -6,6 +6,7 @@ import {
   TestQuestionNavLayout,
 } from '@/components/TestQuestionNav';
 import { QuizResultsSummary } from '@/components/QuizResultsSummary';
+import { FLASHCARD_FOOTER_ACTION_CLASS } from '@/lib/flashcardFooterStyles';
 import { prepareQuizDeck } from '@/lib/prepareQuizDeck';
 import { usePathname } from 'next/navigation';
 import { recordQuizResult } from '@/lib/localProgress';
@@ -82,6 +83,15 @@ export function CategoryVocabularyTest({
     }
   };
 
+  const restartCategoryQuiz = () => {
+    const shuffled = prepareQuizDeck([...fullBank], maxQuestions);
+    setShuffledQuestions(shuffled);
+    setAnswers(Array(shuffled.length).fill(-1));
+    setCurrentQuestion(0);
+    setScored(false);
+    setScore(0);
+  };
+
   const getCurrentQuestion = () => {
     return shuffledQuestions[currentQuestion];
   };
@@ -115,7 +125,18 @@ export function CategoryVocabularyTest({
           backLabel={backToCategoryLabel}
           questions={shuffledQuestions}
           answers={answers}
-          secondaryAction={resultsSecondarySlot ?? undefined}
+          secondaryAction={
+            resultsSecondarySlot ?? (
+              <button
+                type="button"
+                onClick={restartCategoryQuiz}
+                className={FLASHCARD_FOOTER_ACTION_CLASS}
+                aria-label="New Quiz"
+              >
+                New Quiz →
+              </button>
+            )
+          }
         />
       </div>
     );
