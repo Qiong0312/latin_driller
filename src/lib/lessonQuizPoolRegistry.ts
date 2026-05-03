@@ -73,6 +73,13 @@ import {
   CORE_ACTIONS_SENS_QUIZ,
   CORE_ACTIONS_THINK_QUIZ,
 } from '@/lib/quizBanks/vocabulary/coreActionsCategoryQuestionBank';
+import {
+  ENV_INTERACTION_HOME_QUIZ,
+  ENV_INTERACTION_MARKETPLACE_QUIZ,
+  ENV_INTERACTION_MILITARY_QUIZ,
+  ENV_INTERACTION_NATURE_QUIZ,
+  ENV_INTERACTION_WEATHER_QUIZ,
+} from '@/lib/quizBanks/vocabulary/environmentInteractionCategoryQuestionBank';
 
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
@@ -131,6 +138,11 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/core-actions/thinking-knowing': CORE_ACTIONS_THINK_QUIZ,
   '/vocabulary/core-actions/emotion-desire': CORE_ACTIONS_EMOTION_QUIZ,
   '/vocabulary/core-actions/irregular-verbs': CORE_ACTIONS_IRREGULAR_QUIZ,
+  '/vocabulary/environment-interaction/home-actions': ENV_INTERACTION_HOME_QUIZ,
+  '/vocabulary/environment-interaction/marketplace-money': ENV_INTERACTION_MARKETPLACE_QUIZ,
+  '/vocabulary/environment-interaction/military-government': ENV_INTERACTION_MILITARY_QUIZ,
+  '/vocabulary/environment-interaction/nature-movement': ENV_INTERACTION_NATURE_QUIZ,
+  '/vocabulary/environment-interaction/weather-phenomena': ENV_INTERACTION_WEATHER_QUIZ,
 };
 
 export function getQuizPoolForLesson(lessonPath: string): QuizQuestion[] | null {

@@ -62,6 +62,11 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/core-actions/thinking-knowing',
   '/vocabulary/core-actions/emotion-desire',
   '/vocabulary/core-actions/irregular-verbs',
+  '/vocabulary/environment-interaction/home-actions',
+  '/vocabulary/environment-interaction/marketplace-money',
+  '/vocabulary/environment-interaction/military-government',
+  '/vocabulary/environment-interaction/nature-movement',
+  '/vocabulary/environment-interaction/weather-phenomena',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

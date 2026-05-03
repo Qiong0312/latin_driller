@@ -61,6 +61,13 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/core-actions/emotion-desire',
     '/vocabulary/core-actions/irregular-verbs',
   ],
+  '/vocabulary/environment-interaction': [
+    '/vocabulary/environment-interaction/home-actions',
+    '/vocabulary/environment-interaction/marketplace-money',
+    '/vocabulary/environment-interaction/military-government',
+    '/vocabulary/environment-interaction/nature-movement',
+    '/vocabulary/environment-interaction/weather-phenomena',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

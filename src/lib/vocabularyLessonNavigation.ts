@@ -11,6 +11,7 @@ export const VOCABULARY_CATEGORY_NAV = [
   { href: '/vocabulary/family', label: 'Family Members' },
   { href: '/vocabulary/occupations', label: 'Occupations' },
   { href: '/vocabulary/core-actions', label: 'Core Actions' },
+  { href: '/vocabulary/environment-interaction', label: 'Environment & Interaction' },
 ] as const;
 
 /** Display titles in the same order as {@link VOCABULARY_LESSON_PATHS} */
@@ -58,6 +59,11 @@ const VOCABULARY_SUB_LESSON_LABELS = [
   'Thinking & Knowing (Cōgitātiō et scientia)',
   'Emotion & Desire (Affectūs et cupiditās)',
   'Core Irregular Verbs',
+  'Home Actions (Āctiōnēs Domūs)',
+  'Marketplace & Money (Mercātus et Pecūnia)',
+  'Military & Government (Mīlitia et Imperium)',
+  'Nature & Movement (Nātūra et Mōtus)',
+  'Weather & Natural Phenomena (Tempestās et Nātūra)',
 ] as const satisfies readonly string[];
 
 if (
