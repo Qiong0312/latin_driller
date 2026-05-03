@@ -56,6 +56,12 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/occupations/education',
   '/vocabulary/occupations/crafts-trades',
   '/vocabulary/occupations/arts-entertainment',
+  '/vocabulary/core-actions/daily-actions',
+  '/vocabulary/core-actions/senses-perception',
+  '/vocabulary/core-actions/communication',
+  '/vocabulary/core-actions/thinking-knowing',
+  '/vocabulary/core-actions/emotion-desire',
+  '/vocabulary/core-actions/irregular-verbs',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

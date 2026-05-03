@@ -10,6 +10,7 @@ export const VOCABULARY_CATEGORY_NAV = [
   { href: '/vocabulary/marketplace', label: 'Marketplace' },
   { href: '/vocabulary/family', label: 'Family Members' },
   { href: '/vocabulary/occupations', label: 'Occupations' },
+  { href: '/vocabulary/core-actions', label: 'Core Actions' },
 ] as const;
 
 /** Display titles in the same order as {@link VOCABULARY_LESSON_PATHS} */
@@ -51,6 +52,12 @@ const VOCABULARY_SUB_LESSON_LABELS = [
   'Education & Knowledge',
   'Crafts & Trades',
   'Arts & Entertainment',
+  'Daily Actions (Āctiōnēs cotīdiānae)',
+  'Senses & Perception (Sēnsūs)',
+  'Communication (Cōnloquium)',
+  'Thinking & Knowing (Cōgitātiō et scientia)',
+  'Emotion & Desire (Affectūs et cupiditās)',
+  'Core Irregular Verbs',
 ] as const satisfies readonly string[];
 
 if (

@@ -53,6 +53,14 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/occupations/crafts-trades',
     '/vocabulary/occupations/arts-entertainment',
   ],
+  '/vocabulary/core-actions': [
+    '/vocabulary/core-actions/daily-actions',
+    '/vocabulary/core-actions/senses-perception',
+    '/vocabulary/core-actions/communication',
+    '/vocabulary/core-actions/thinking-knowing',
+    '/vocabulary/core-actions/emotion-desire',
+    '/vocabulary/core-actions/irregular-verbs',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

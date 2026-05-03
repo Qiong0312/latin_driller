@@ -65,6 +65,14 @@ import {
   ROOMS_STUDY_WORK_QUIZ,
   ROOMS_WASHING_QUIZ,
 } from '@/lib/quizBanks/vocabulary/roomsCategoryQuestionBank';
+import {
+  CORE_ACTIONS_COMM_QUIZ,
+  CORE_ACTIONS_DAILY_QUIZ,
+  CORE_ACTIONS_EMOTION_QUIZ,
+  CORE_ACTIONS_IRREGULAR_QUIZ,
+  CORE_ACTIONS_SENS_QUIZ,
+  CORE_ACTIONS_THINK_QUIZ,
+} from '@/lib/quizBanks/vocabulary/coreActionsCategoryQuestionBank';
 
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
@@ -117,6 +125,12 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/occupations/education': OCCUPATIONS_EDUCATION_QUIZ,
   '/vocabulary/occupations/crafts-trades': OCCUPATIONS_CRAFTS_TRADES_QUIZ,
   '/vocabulary/occupations/arts-entertainment': OCCUPATIONS_ARTS_ENTERTAINMENT_QUIZ,
+  '/vocabulary/core-actions/daily-actions': CORE_ACTIONS_DAILY_QUIZ,
+  '/vocabulary/core-actions/senses-perception': CORE_ACTIONS_SENS_QUIZ,
+  '/vocabulary/core-actions/communication': CORE_ACTIONS_COMM_QUIZ,
+  '/vocabulary/core-actions/thinking-knowing': CORE_ACTIONS_THINK_QUIZ,
+  '/vocabulary/core-actions/emotion-desire': CORE_ACTIONS_EMOTION_QUIZ,
+  '/vocabulary/core-actions/irregular-verbs': CORE_ACTIONS_IRREGULAR_QUIZ,
 };
 
 export function getQuizPoolForLesson(lessonPath: string): QuizQuestion[] | null {
