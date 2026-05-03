@@ -1,8 +1,44 @@
 import type { VocabularyFlashcard } from '@/components/VocabularyFlashcards';
 import { normalizeLatinEnglishRows } from '@/lib/vocabularyText';
 
+/** Slugs under `public/flashcard-icons/core-actions/{slug}.svg` (ASCII, no macrons). */
+const CORE_ACTIONS_ICON_SLUGS = new Set([
+  'ambulare',
+  'currere',
+  'sedere',
+  'stare',
+  'dormire',
+  'surgere',
+  'edere',
+  'bibere',
+  'laborare',
+  'ludere',
+  'portare',
+  'lavare',
+  'aperire',
+  'claudere',
+  'videre',
+  'audire',
+  'sentire',
+  'olfacere',
+  'tangere',
+  'spectare',
+]);
+
+function coreActionsIconPath(latin: string): string {
+  const slug = latin
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z]/g, '');
+  if (!CORE_ACTIONS_ICON_SLUGS.has(slug)) {
+    return '';
+  }
+  return `/flashcard-icons/core-actions/${slug}.svg`;
+}
+
 function toFlashcards(items: readonly { latin: string; english: string }[]): VocabularyFlashcard[] {
-  return items.map((e) => ({ ...e, icon: '' }));
+  return items.map((e) => ({ ...e, icon: coreActionsIconPath(e.latin) }));
 }
 
 /** Āctiōnēs cotīdiānae — daily verbs (infinitives) */
