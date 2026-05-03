@@ -72,6 +72,9 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/society-relationships/travel-exploration',
   '/vocabulary/society-relationships/religion-ritual',
   '/vocabulary/society-relationships/law-society',
+  '/vocabulary/irregular-verbs/essential',
+  '/vocabulary/irregular-verbs/common-irregulars',
+  '/vocabulary/irregular-verbs/compound',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

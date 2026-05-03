@@ -87,6 +87,11 @@ import {
   SOCIETY_RELIGION_QUIZ,
   SOCIETY_TRAVEL_QUIZ,
 } from '@/lib/quizBanks/vocabulary/societyRelationshipsCategoryQuestionBank';
+import {
+  IRREGULAR_VERBS_COMMON_QUIZ,
+  IRREGULAR_VERBS_COMPOUND_QUIZ,
+  IRREGULAR_VERBS_ESSENTIAL_QUIZ,
+} from '@/lib/quizBanks/vocabulary/irregularVerbsCategoryQuestionBank';
 
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
@@ -155,6 +160,9 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/society-relationships/travel-exploration': SOCIETY_TRAVEL_QUIZ,
   '/vocabulary/society-relationships/religion-ritual': SOCIETY_RELIGION_QUIZ,
   '/vocabulary/society-relationships/law-society': SOCIETY_LAW_QUIZ,
+  '/vocabulary/irregular-verbs/essential': IRREGULAR_VERBS_ESSENTIAL_QUIZ,
+  '/vocabulary/irregular-verbs/common-irregulars': IRREGULAR_VERBS_COMMON_QUIZ,
+  '/vocabulary/irregular-verbs/compound': IRREGULAR_VERBS_COMPOUND_QUIZ,
 };
 
 export function getQuizPoolForLesson(lessonPath: string): QuizQuestion[] | null {

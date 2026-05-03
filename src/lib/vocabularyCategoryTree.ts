@@ -75,6 +75,11 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/society-relationships/religion-ritual',
     '/vocabulary/society-relationships/law-society',
   ],
+  '/vocabulary/irregular-verbs': [
+    '/vocabulary/irregular-verbs/essential',
+    '/vocabulary/irregular-verbs/common-irregulars',
+    '/vocabulary/irregular-verbs/compound',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

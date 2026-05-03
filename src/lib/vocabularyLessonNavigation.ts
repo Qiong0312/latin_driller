@@ -13,6 +13,7 @@ export const VOCABULARY_CATEGORY_NAV = [
   { href: '/vocabulary/core-actions', label: 'Core Actions' },
   { href: '/vocabulary/environment-interaction', label: 'Environment & Interaction' },
   { href: '/vocabulary/society-relationships', label: 'Society & Relationships' },
+  { href: '/vocabulary/irregular-verbs', label: 'Irregular Verbs' },
 ] as const;
 
 /** Display titles in the same order as {@link VOCABULARY_LESSON_PATHS} */
@@ -70,6 +71,9 @@ const VOCABULARY_SUB_LESSON_LABELS = [
   'Travel & Exploration (Iter et Explōrātiō)',
   'Religion & Ritual (Relīgiō et Sacra)',
   'Law & Society (Lēx et Societās)',
+  'Essential Irregular Verbs',
+  'Common High-Frequency Irregulars',
+  'Compound Irregular Verbs',
 ] as const satisfies readonly string[];
 
 if (
