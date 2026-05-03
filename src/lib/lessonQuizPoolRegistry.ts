@@ -80,6 +80,13 @@ import {
   ENV_INTERACTION_NATURE_QUIZ,
   ENV_INTERACTION_WEATHER_QUIZ,
 } from '@/lib/quizBanks/vocabulary/environmentInteractionCategoryQuestionBank';
+import {
+  SOCIETY_FAMILY_QUIZ,
+  SOCIETY_LAW_QUIZ,
+  SOCIETY_LEARNING_QUIZ,
+  SOCIETY_RELIGION_QUIZ,
+  SOCIETY_TRAVEL_QUIZ,
+} from '@/lib/quizBanks/vocabulary/societyRelationshipsCategoryQuestionBank';
 
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
@@ -143,6 +150,11 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/environment-interaction/military-government': ENV_INTERACTION_MILITARY_QUIZ,
   '/vocabulary/environment-interaction/nature-movement': ENV_INTERACTION_NATURE_QUIZ,
   '/vocabulary/environment-interaction/weather-phenomena': ENV_INTERACTION_WEATHER_QUIZ,
+  '/vocabulary/society-relationships/family-relationships': SOCIETY_FAMILY_QUIZ,
+  '/vocabulary/society-relationships/learning-teaching': SOCIETY_LEARNING_QUIZ,
+  '/vocabulary/society-relationships/travel-exploration': SOCIETY_TRAVEL_QUIZ,
+  '/vocabulary/society-relationships/religion-ritual': SOCIETY_RELIGION_QUIZ,
+  '/vocabulary/society-relationships/law-society': SOCIETY_LAW_QUIZ,
 };
 
 export function getQuizPoolForLesson(lessonPath: string): QuizQuestion[] | null {

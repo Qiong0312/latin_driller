@@ -68,6 +68,13 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/environment-interaction/nature-movement',
     '/vocabulary/environment-interaction/weather-phenomena',
   ],
+  '/vocabulary/society-relationships': [
+    '/vocabulary/society-relationships/family-relationships',
+    '/vocabulary/society-relationships/learning-teaching',
+    '/vocabulary/society-relationships/travel-exploration',
+    '/vocabulary/society-relationships/religion-ritual',
+    '/vocabulary/society-relationships/law-society',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

@@ -67,6 +67,11 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/environment-interaction/military-government',
   '/vocabulary/environment-interaction/nature-movement',
   '/vocabulary/environment-interaction/weather-phenomena',
+  '/vocabulary/society-relationships/family-relationships',
+  '/vocabulary/society-relationships/learning-teaching',
+  '/vocabulary/society-relationships/travel-exploration',
+  '/vocabulary/society-relationships/religion-ritual',
+  '/vocabulary/society-relationships/law-society',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [
