@@ -16,6 +16,7 @@ const GRAMMAR_LESSON_LABELS = [
   'Demonstrative pronouns II',
   'Demonstrative pronouns III',
   'Demonstrative pronouns IV',
+  'Prepositions',
 ] as const satisfies readonly string[];
 
 if (
