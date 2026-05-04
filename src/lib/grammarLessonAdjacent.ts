@@ -4,6 +4,7 @@ import { GRAMMAR_LESSON_PATHS } from '@/lib/trackedLessons';
 const GRAMMAR_LESSON_LABELS = [
   'Grammatical Gender',
   'Cases',
+  'Ablative Case',
   'Declensions',
   'Present Tense Active',
   'Adjectives',

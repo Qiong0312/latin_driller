@@ -1,5 +1,6 @@
 import type { QuizQuestion } from '@/lib/buildVocabularyQuestionBank';
 import { grammarAdjectivesQuiz } from '@/lib/quizBanks/grammar/grammarAdjectives';
+import { grammarAblativeQuiz } from '@/lib/quizBanks/grammar/grammarAblative';
 import { grammarCasesQuiz } from '@/lib/quizBanks/grammar/grammarCases';
 import { grammarDeclensionsQuiz } from '@/lib/quizBanks/grammar/grammarDeclensions';
 import { grammaticalGenderQuiz } from '@/lib/quizBanks/grammar/grammaticalGender';
@@ -102,6 +103,7 @@ import {
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
   '/grammar/cases': grammarCasesQuiz,
+  '/grammar/ablative-case': grammarAblativeQuiz,
   '/grammar/declensions': grammarDeclensionsQuiz,
   '/grammar/present-tense-active': presentTenseActiveQuiz,
   '/grammar/adjectives': grammarAdjectivesQuiz,

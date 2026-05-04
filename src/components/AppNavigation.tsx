@@ -17,6 +17,7 @@ type AppNavigationProps = {
 const GRAMMAR_LINKS = [
   { href: "/grammar/grammatical-gender", label: "Grammatical Gender" },
   { href: "/grammar/cases", label: "Cases" },
+  { href: "/grammar/ablative-case", label: "Ablative Case" },
   { href: "/grammar/declensions", label: "Declensions" },
   { href: "/grammar/present-tense-active", label: "Present Tense Active" },
   { href: "/grammar/adjectives", label: "Adjectives" },

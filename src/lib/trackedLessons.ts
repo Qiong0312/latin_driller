@@ -5,6 +5,7 @@
 export const GRAMMAR_LESSON_PATHS = [
   '/grammar/grammatical-gender',
   '/grammar/cases',
+  '/grammar/ablative-case',
   '/grammar/declensions',
   '/grammar/present-tense-active',
   '/grammar/adjectives',
