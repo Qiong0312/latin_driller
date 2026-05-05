@@ -86,6 +86,14 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/deponent-verbs/social-legal',
     '/vocabulary/deponent-verbs/semi-deponent',
   ],
+  '/vocabulary/core-descriptions': [
+    '/vocabulary/core-descriptions/size-quantity',
+    '/vocabulary/core-descriptions/quality-value',
+    '/vocabulary/core-descriptions/physical-properties',
+    '/vocabulary/core-descriptions/condition-state',
+    '/vocabulary/core-descriptions/appearance-color',
+    '/vocabulary/core-descriptions/personality',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

@@ -83,6 +83,12 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/deponent-verbs/emotion-thought',
   '/vocabulary/deponent-verbs/social-legal',
   '/vocabulary/deponent-verbs/semi-deponent',
+  '/vocabulary/core-descriptions/size-quantity',
+  '/vocabulary/core-descriptions/quality-value',
+  '/vocabulary/core-descriptions/physical-properties',
+  '/vocabulary/core-descriptions/condition-state',
+  '/vocabulary/core-descriptions/appearance-color',
+  '/vocabulary/core-descriptions/personality',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

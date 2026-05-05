@@ -102,6 +102,14 @@ import {
   DEPONENT_SEMI_QUIZ,
   DEPONENT_SOCIAL_QUIZ,
 } from '@/lib/quizBanks/vocabulary/deponentVerbsCategoryQuestionBank';
+import {
+  CORE_DESCRIPTIONS_APPEARANCE_QUIZ,
+  CORE_DESCRIPTIONS_CONDITION_QUIZ,
+  CORE_DESCRIPTIONS_PERSONALITY_QUIZ,
+  CORE_DESCRIPTIONS_PHYSICAL_QUIZ,
+  CORE_DESCRIPTIONS_QUALITY_QUIZ,
+  CORE_DESCRIPTIONS_SIZE_QUIZ,
+} from '@/lib/quizBanks/vocabulary/coreDescriptionsCategoryQuestionBank';
 
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
@@ -163,6 +171,12 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/core-actions/communication': CORE_ACTIONS_COMM_QUIZ,
   '/vocabulary/core-actions/thinking-knowing': CORE_ACTIONS_THINK_QUIZ,
   '/vocabulary/core-actions/emotion-desire': CORE_ACTIONS_EMOTION_QUIZ,
+  '/vocabulary/core-descriptions/size-quantity': CORE_DESCRIPTIONS_SIZE_QUIZ,
+  '/vocabulary/core-descriptions/quality-value': CORE_DESCRIPTIONS_QUALITY_QUIZ,
+  '/vocabulary/core-descriptions/physical-properties': CORE_DESCRIPTIONS_PHYSICAL_QUIZ,
+  '/vocabulary/core-descriptions/condition-state': CORE_DESCRIPTIONS_CONDITION_QUIZ,
+  '/vocabulary/core-descriptions/appearance-color': CORE_DESCRIPTIONS_APPEARANCE_QUIZ,
+  '/vocabulary/core-descriptions/personality': CORE_DESCRIPTIONS_PERSONALITY_QUIZ,
   '/vocabulary/environment-interaction/home-actions': ENV_INTERACTION_HOME_QUIZ,
   '/vocabulary/environment-interaction/marketplace-money': ENV_INTERACTION_MARKETPLACE_QUIZ,
   '/vocabulary/environment-interaction/military-government': ENV_INTERACTION_MILITARY_QUIZ,
