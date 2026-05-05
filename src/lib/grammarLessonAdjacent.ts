@@ -7,6 +7,7 @@ const GRAMMAR_LESSON_LABELS = [
   'Ablative Case',
   'Declensions',
   'Present Tense Active',
+  'Present Tense Passive',
   'Adjectives',
   'Relative Pronoun',
   'Adjectives with adverbial force',

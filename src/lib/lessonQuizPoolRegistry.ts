@@ -6,6 +6,7 @@ import { grammarCasesQuiz } from '@/lib/quizBanks/grammar/grammarCases';
 import { grammarDeclensionsQuiz } from '@/lib/quizBanks/grammar/grammarDeclensions';
 import { grammaticalGenderQuiz } from '@/lib/quizBanks/grammar/grammaticalGender';
 import { presentTenseActiveQuiz } from '@/lib/quizBanks/grammar/presentTenseActive';
+import { presentTensePassiveQuiz } from '@/lib/quizBanks/grammar/presentTensePassive';
 import { relativePronounQuiz } from '@/lib/quizBanks/grammar/relativePronoun';
 import { adjectivesAdverbialForceQuiz } from '@/lib/quizBanks/grammar/adjectivesAdverbialForce';
 import { imperativeQuiz } from '@/lib/quizBanks/grammar/imperative';
@@ -108,6 +109,7 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/prepositions': grammarPrepositionsQuiz,
   '/grammar/declensions': grammarDeclensionsQuiz,
   '/grammar/present-tense-active': presentTenseActiveQuiz,
+  '/grammar/present-tense-passive': presentTensePassiveQuiz,
   '/grammar/adjectives': grammarAdjectivesQuiz,
   '/grammar/relative-pronoun': relativePronounQuiz,
   '/grammar/adjectives-adverbial-force': adjectivesAdverbialForceQuiz,

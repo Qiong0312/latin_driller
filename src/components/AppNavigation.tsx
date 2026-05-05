@@ -20,6 +20,7 @@ const GRAMMAR_LINKS = [
   { href: "/grammar/ablative-case", label: "Ablative Case" },
   { href: "/grammar/declensions", label: "Declensions" },
   { href: "/grammar/present-tense-active", label: "Present Tense Active" },
+  { href: "/grammar/present-tense-passive", label: "Present Tense Passive" },
   { href: "/grammar/adjectives", label: "Adjectives" },
   { href: "/grammar/relative-pronoun", label: "Relative Pronoun" },
   { href: "/grammar/adjectives-adverbial-force", label: "Adjectives with adverbial force" },

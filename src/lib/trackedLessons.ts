@@ -8,6 +8,7 @@ export const GRAMMAR_LESSON_PATHS = [
   '/grammar/ablative-case',
   '/grammar/declensions',
   '/grammar/present-tense-active',
+  '/grammar/present-tense-passive',
   '/grammar/adjectives',
   '/grammar/relative-pronoun',
   '/grammar/adjectives-adverbial-force',
