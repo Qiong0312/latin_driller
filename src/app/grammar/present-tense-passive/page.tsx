@@ -47,9 +47,7 @@ export default function PresentTensePassivePage() {
           endings for the passive voice are slightly different, but they follow a similar pattern for most verbs.
         </p>
 
-        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-          <span aria-hidden>✏️</span> Examples
-        </h2>
+        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Examples</h2>
         <ul className="list-disc space-y-2 pl-6">
           <li>
             <em>puer amātur</em> — &ldquo;the boy is loved&rdquo;
@@ -64,9 +62,7 @@ export default function PresentTensePassivePage() {
             <em>vōx audītur</em> — &ldquo;the voice is heard&rdquo;
           </li>
         </ul>
-        <p>
-          <span aria-hidden>👉</span> Notice: the subject is receiving the action, not doing it.
-        </p>
+        <p>Notice: the subject is receiving the action, not doing it.</p>
 
         <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Passive personal endings</h2>
         <DataTable
