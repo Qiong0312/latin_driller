@@ -8,6 +8,7 @@ const GRAMMAR_LESSON_LABELS = [
   'Declensions',
   'Present Tense Active',
   'Present Tense Passive',
+  'Perfect Tense Active',
   'Adjectives',
   'Relative Pronoun',
   'Adjectives with adverbial force',
