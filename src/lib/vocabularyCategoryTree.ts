@@ -94,6 +94,15 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/core-descriptions/appearance-color',
     '/vocabulary/core-descriptions/personality',
   ],
+  '/vocabulary/expanded-descriptions': [
+    '/vocabulary/expanded-descriptions/time-age',
+    '/vocabulary/expanded-descriptions/amount-degree',
+    '/vocabulary/expanded-descriptions/shape-form',
+    '/vocabulary/expanded-descriptions/position-direction',
+    '/vocabulary/expanded-descriptions/condition-quality',
+    '/vocabulary/expanded-descriptions/social-character',
+    '/vocabulary/expanded-descriptions/sensory-appearance',
+  ],
 } as const;
 
 const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`);

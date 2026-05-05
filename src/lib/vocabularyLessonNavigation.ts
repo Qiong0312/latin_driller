@@ -16,6 +16,7 @@ export const VOCABULARY_CATEGORY_NAV = [
   { href: '/vocabulary/irregular-verbs', label: 'Irregular Verbs' },
   { href: '/vocabulary/deponent-verbs', label: 'Deponent Verbs' },
   { href: '/vocabulary/core-descriptions', label: 'Core Descriptions' },
+  { href: '/vocabulary/expanded-descriptions', label: 'Expanded Description' },
 ] as const;
 
 /** Display titles in the same order as {@link VOCABULARY_LESSON_PATHS} */
@@ -86,6 +87,13 @@ const VOCABULARY_SUB_LESSON_LABELS = [
   'Condition & State (Status)',
   'Basic Appearance & Color (Aspectus)',
   'Simple Personality (Ingenium)',
+  'Time & Age (Tempus)',
+  'Amount & Degree (Quantitās)',
+  'Shape & Form (Fōrma)',
+  'Position & Direction (Locus)',
+  'Condition & Quality (Qualitās)',
+  'Social & Character (Ingenium)',
+  'Sensory & Appearance (Aspectus)',
 ] as const satisfies readonly string[];
 
 if (

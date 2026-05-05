@@ -89,6 +89,13 @@ export const VOCABULARY_LESSON_PATHS = [
   '/vocabulary/core-descriptions/condition-state',
   '/vocabulary/core-descriptions/appearance-color',
   '/vocabulary/core-descriptions/personality',
+  '/vocabulary/expanded-descriptions/time-age',
+  '/vocabulary/expanded-descriptions/amount-degree',
+  '/vocabulary/expanded-descriptions/shape-form',
+  '/vocabulary/expanded-descriptions/position-direction',
+  '/vocabulary/expanded-descriptions/condition-quality',
+  '/vocabulary/expanded-descriptions/social-character',
+  '/vocabulary/expanded-descriptions/sensory-appearance',
 ] as const;
 
 export const TRACKED_LESSON_PATHS: readonly string[] = [

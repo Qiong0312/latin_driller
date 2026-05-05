@@ -110,6 +110,15 @@ import {
   CORE_DESCRIPTIONS_QUALITY_QUIZ,
   CORE_DESCRIPTIONS_SIZE_QUIZ,
 } from '@/lib/quizBanks/vocabulary/coreDescriptionsCategoryQuestionBank';
+import {
+  EXPANDED_DESCRIPTIONS_AMOUNT_QUIZ,
+  EXPANDED_DESCRIPTIONS_CONDITION_QUIZ,
+  EXPANDED_DESCRIPTIONS_POSITION_QUIZ,
+  EXPANDED_DESCRIPTIONS_SENSORY_QUIZ,
+  EXPANDED_DESCRIPTIONS_SHAPE_QUIZ,
+  EXPANDED_DESCRIPTIONS_SOCIAL_QUIZ,
+  EXPANDED_DESCRIPTIONS_TIME_QUIZ,
+} from '@/lib/quizBanks/vocabulary/expandedDescriptionsCategoryQuestionBank';
 
 const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/grammar/grammatical-gender': grammaticalGenderQuiz,
@@ -177,6 +186,13 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/core-descriptions/condition-state': CORE_DESCRIPTIONS_CONDITION_QUIZ,
   '/vocabulary/core-descriptions/appearance-color': CORE_DESCRIPTIONS_APPEARANCE_QUIZ,
   '/vocabulary/core-descriptions/personality': CORE_DESCRIPTIONS_PERSONALITY_QUIZ,
+  '/vocabulary/expanded-descriptions/time-age': EXPANDED_DESCRIPTIONS_TIME_QUIZ,
+  '/vocabulary/expanded-descriptions/amount-degree': EXPANDED_DESCRIPTIONS_AMOUNT_QUIZ,
+  '/vocabulary/expanded-descriptions/shape-form': EXPANDED_DESCRIPTIONS_SHAPE_QUIZ,
+  '/vocabulary/expanded-descriptions/position-direction': EXPANDED_DESCRIPTIONS_POSITION_QUIZ,
+  '/vocabulary/expanded-descriptions/condition-quality': EXPANDED_DESCRIPTIONS_CONDITION_QUIZ,
+  '/vocabulary/expanded-descriptions/social-character': EXPANDED_DESCRIPTIONS_SOCIAL_QUIZ,
+  '/vocabulary/expanded-descriptions/sensory-appearance': EXPANDED_DESCRIPTIONS_SENSORY_QUIZ,
   '/vocabulary/environment-interaction/home-actions': ENV_INTERACTION_HOME_QUIZ,
   '/vocabulary/environment-interaction/marketplace-money': ENV_INTERACTION_MARKETPLACE_QUIZ,
   '/vocabulary/environment-interaction/military-government': ENV_INTERACTION_MILITARY_QUIZ,
