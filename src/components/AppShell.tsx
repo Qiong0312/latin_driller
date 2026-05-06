@@ -37,7 +37,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, [menuOpen]);
 
   return (
-    <div className="flex min-h-0 min-w-0 flex-1 flex-col md:flex-row">
+    <div className="flex min-h-0 min-w-0 flex-1 flex-col md:h-dvh md:max-h-dvh md:flex-row md:overflow-hidden">
       <header className="sticky top-0 z-30 flex h-12 shrink-0 items-center gap-2 border-b border-zinc-200 bg-white px-2 dark:border-zinc-800 dark:bg-gray-800 md:hidden">
         <button
           type="button"
@@ -84,11 +84,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      <aside className="hidden w-64 shrink-0 border-r border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-gray-800 md:block">
+      <aside className="hidden min-h-0 w-64 shrink-0 overflow-y-auto overscroll-contain border-r border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-gray-800 md:block">
         <AppNavigation />
       </aside>
 
-      <main className="min-w-0 flex-1 overflow-x-hidden p-2 sm:p-4">{children}</main>
+      <main className="min-w-0 flex-1 overflow-x-hidden p-2 sm:p-4 md:min-h-0 md:overflow-y-auto md:overscroll-contain">
+        {children}
+      </main>
     </div>
   );
 }
