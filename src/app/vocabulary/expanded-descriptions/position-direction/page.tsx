@@ -35,14 +35,6 @@ export default function ExpandedDescriptionsPositionDirectionPage() {
               Quiz
             </button>
           </Link>
-          <Link href="/vocabulary/expanded-descriptions">
-            <button
-              type="button"
-              className="rounded-lg bg-zinc-200 px-6 py-3 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
-            >
-              Back to Expanded Description
-            </button>
-          </Link>
         </div>
         <LessonQuizMedalCard quizPath="/vocabulary/expanded-descriptions/position-direction/test" />
         <LessonDoneButton lessonPath="/vocabulary/expanded-descriptions/position-direction" />

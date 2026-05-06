@@ -35,14 +35,6 @@ export default function CoreDescriptionsPersonalityPage() {
               Quiz
             </button>
           </Link>
-          <Link href="/vocabulary/core-descriptions">
-            <button
-              type="button"
-              className="rounded-lg bg-zinc-200 px-6 py-3 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
-            >
-              Back to Core Descriptions
-            </button>
-          </Link>
         </div>
         <LessonQuizMedalCard quizPath="/vocabulary/core-descriptions/personality/test" />
         <LessonDoneButton lessonPath="/vocabulary/core-descriptions/personality" />

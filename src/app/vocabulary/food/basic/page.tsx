@@ -30,11 +30,6 @@ export default function BasicFoods() {
               Quiz
             </button>
           </Link>
-          <Link href="/vocabulary/food">
-            <button className="px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600">
-              Back to Food
-            </button>
-          </Link>
         </div>
         <LessonQuizMedalCard quizPath="/vocabulary/food/basic/test" />
         <LessonDoneButton lessonPath="/vocabulary/food/basic" />

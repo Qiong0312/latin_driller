@@ -33,14 +33,6 @@ export default function ToolsSmallUsefulPage() {
               Quiz
             </button>
           </Link>
-          <Link href="/vocabulary/tools-objects">
-            <button
-              type="button"
-              className="rounded-lg bg-zinc-200 px-6 py-3 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
-            >
-              Back to Tools &amp; Objects
-            </button>
-          </Link>
         </div>
         <LessonQuizMedalCard quizPath="/vocabulary/tools-objects/small-useful-items/test" />
         <LessonDoneButton lessonPath="/vocabulary/tools-objects/small-useful-items" />

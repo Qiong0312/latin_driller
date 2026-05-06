@@ -35,14 +35,6 @@ export default function CoreActionsCommunicationPage() {
               Quiz
             </button>
           </Link>
-          <Link href="/vocabulary/core-actions">
-            <button
-              type="button"
-              className="rounded-lg bg-zinc-200 px-6 py-3 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
-            >
-              Back to Core Actions
-            </button>
-          </Link>
         </div>
         <LessonQuizMedalCard quizPath="/vocabulary/core-actions/communication/test" />
         <LessonDoneButton lessonPath="/vocabulary/core-actions/communication" />

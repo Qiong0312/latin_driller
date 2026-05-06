@@ -38,14 +38,6 @@ export default function DeponentSemiDeponentPage() {
               Quiz
             </button>
           </Link>
-          <Link href="/vocabulary/deponent-verbs">
-            <button
-              type="button"
-              className="rounded-lg bg-zinc-200 px-6 py-3 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600"
-            >
-              Back to Deponent Verbs
-            </button>
-          </Link>
         </div>
         <LessonQuizMedalCard quizPath="/vocabulary/deponent-verbs/semi-deponent/test" />
         <LessonDoneButton lessonPath="/vocabulary/deponent-verbs/semi-deponent" />

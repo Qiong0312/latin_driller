@@ -31,11 +31,6 @@ export default function Birds() {
               Quiz
             </button>
           </Link>
-          <Link href="/vocabulary/animals">
-            <button className="px-6 py-3 rounded-lg bg-zinc-200 text-zinc-900 shadow-sm transition hover:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600">
-              Back to Animals
-            </button>
-          </Link>
         </div>
         <LessonQuizMedalCard quizPath="/vocabulary/animals/birds/test" />
         <LessonDoneButton lessonPath="/vocabulary/animals/birds" />
