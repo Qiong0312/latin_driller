@@ -62,6 +62,13 @@ import {
   OCCUPATIONS_MILITARY_GOVERNMENT_QUIZ,
 } from '@/lib/quizBanks/vocabulary/occupationsCategoryQuestionBank';
 import {
+  TIME_BASIC_UNITS_QUIZ,
+  TIME_FREQUENCY_QUIZ,
+  TIME_LARGER_UNITS_QUIZ,
+  TIME_MOMENTS_PERIODS_QUIZ,
+  TIME_PARTS_OF_DAY_QUIZ,
+} from '@/lib/quizBanks/vocabulary/timeCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -175,6 +182,11 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/occupations/education': OCCUPATIONS_EDUCATION_QUIZ,
   '/vocabulary/occupations/crafts-trades': OCCUPATIONS_CRAFTS_TRADES_QUIZ,
   '/vocabulary/occupations/arts-entertainment': OCCUPATIONS_ARTS_ENTERTAINMENT_QUIZ,
+  '/vocabulary/time/basic-units': TIME_BASIC_UNITS_QUIZ,
+  '/vocabulary/time/larger-units': TIME_LARGER_UNITS_QUIZ,
+  '/vocabulary/time/parts-of-day': TIME_PARTS_OF_DAY_QUIZ,
+  '/vocabulary/time/moments-periods': TIME_MOMENTS_PERIODS_QUIZ,
+  '/vocabulary/time/frequency-occasion': TIME_FREQUENCY_QUIZ,
   '/vocabulary/core-actions/daily-actions': CORE_ACTIONS_DAILY_QUIZ,
   '/vocabulary/core-actions/senses-perception': CORE_ACTIONS_SENS_QUIZ,
   '/vocabulary/core-actions/communication': CORE_ACTIONS_COMM_QUIZ,

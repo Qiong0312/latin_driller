@@ -53,6 +53,13 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/occupations/crafts-trades',
     '/vocabulary/occupations/arts-entertainment',
   ],
+  '/vocabulary/time': [
+    '/vocabulary/time/basic-units',
+    '/vocabulary/time/larger-units',
+    '/vocabulary/time/parts-of-day',
+    '/vocabulary/time/moments-periods',
+    '/vocabulary/time/frequency-occasion',
+  ],
   '/vocabulary/core-actions': [
     '/vocabulary/core-actions/daily-actions',
     '/vocabulary/core-actions/senses-perception',
