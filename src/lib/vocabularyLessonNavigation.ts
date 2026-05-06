@@ -1,4 +1,8 @@
 import { VOCABULARY_LESSON_PATHS } from '@/lib/trackedLessons';
+import {
+  getVocabularyCategoryForSubLesson,
+  getVocabularySubLessonsForCategory,
+} from '@/lib/vocabularyCategoryTree';
 
 /** Same hubs and order as side nav (@see AppNavigation VOCAB_LINKS) */
 export const VOCABULARY_CATEGORY_NAV = [
@@ -146,23 +150,64 @@ export type VocabularyNavEntry = {
   label: string;
 };
 
+/** Sub-lesson footer: sibling lesson vs return to category hub at category bounds. */
+export type VocabularySubLessonAdjacentLink =
+  | { kind: 'lesson'; href: string; label: string }
+  | { kind: 'categoryHub'; href: string; label: string };
+
 export const VOCABULARY_SUB_LESSON_NAV: readonly VocabularyNavEntry[] = VOCABULARY_LESSON_PATHS.map((href, i) => ({
   href,
   label: VOCABULARY_SUB_LESSON_LABELS[i],
 }));
 
+function subLessonToNavEntry(href: string): VocabularySubLessonAdjacentLink | null {
+  const normalized = href.replace(/\/$/, '') || href;
+  const entry = VOCABULARY_SUB_LESSON_NAV.find((e) => e.href === normalized);
+  return entry ? { kind: 'lesson', href: entry.href, label: entry.label } : null;
+}
+
 export function getVocabularySubLessonAdjacent(
   lessonPath: string,
-): { prev: VocabularyNavEntry | null; next: VocabularyNavEntry | null } {
+): { prev: VocabularySubLessonAdjacentLink | null; next: VocabularySubLessonAdjacentLink | null } {
   const normalized = lessonPath.replace(/\/$/, '') || lessonPath;
   const i = VOCABULARY_SUB_LESSON_NAV.findIndex((e) => e.href === normalized);
   if (i === -1) {
     return { prev: null, next: null };
   }
-  return {
-    prev: i > 0 ? VOCABULARY_SUB_LESSON_NAV[i - 1] : null,
-    next: i < VOCABULARY_SUB_LESSON_NAV.length - 1 ? VOCABULARY_SUB_LESSON_NAV[i + 1] : null,
-  };
+
+  const categoryPath = getVocabularyCategoryForSubLesson(normalized);
+  if (categoryPath == null) {
+    return {
+      prev: i > 0 ? subLessonToNavEntry(VOCABULARY_SUB_LESSON_NAV[i - 1]!.href) : null,
+      next:
+        i < VOCABULARY_SUB_LESSON_NAV.length - 1
+          ? subLessonToNavEntry(VOCABULARY_SUB_LESSON_NAV[i + 1]!.href)
+          : null,
+    };
+  }
+
+  const subs = getVocabularySubLessonsForCategory(categoryPath);
+  const idxInCat = subs.indexOf(normalized);
+  if (idxInCat === -1) {
+    return { prev: null, next: null };
+  }
+
+  const categoryLabel =
+    (VOCABULARY_CATEGORY_NAV as readonly VocabularyNavEntry[]).find((e) => e.href === categoryPath)?.label ??
+    categoryPath;
+
+  const hubLink = (): VocabularySubLessonAdjacentLink => ({
+    kind: 'categoryHub',
+    href: categoryPath,
+    label: categoryLabel,
+  });
+
+  const prev =
+    idxInCat > 0 ? subLessonToNavEntry(subs[idxInCat - 1]!)! : hubLink();
+  const next =
+    idxInCat < subs.length - 1 ? subLessonToNavEntry(subs[idxInCat + 1]!)! : hubLink();
+
+  return { prev, next };
 }
 
 export function getVocabularyCategoryAdjacent(
