@@ -60,6 +60,12 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/time/moments-periods',
     '/vocabulary/time/frequency-occasion',
   ],
+  '/vocabulary/school-learning': [
+    '/vocabulary/school-learning/study-materials',
+    '/vocabulary/school-learning/language-content',
+    '/vocabulary/school-learning/learning-concepts',
+    '/vocabulary/school-learning/school-environment',
+  ],
   '/vocabulary/core-actions': [
     '/vocabulary/core-actions/daily-actions',
     '/vocabulary/core-actions/senses-perception',

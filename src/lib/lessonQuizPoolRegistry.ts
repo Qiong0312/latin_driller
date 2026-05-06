@@ -69,6 +69,12 @@ import {
   TIME_PARTS_OF_DAY_QUIZ,
 } from '@/lib/quizBanks/vocabulary/timeCategoryQuestionBank';
 import {
+  SCHOOL_ENVIRONMENT_QUIZ,
+  SCHOOL_LANGUAGE_CONTENT_QUIZ,
+  SCHOOL_LEARNING_CONCEPTS_QUIZ,
+  SCHOOL_STUDY_MATERIALS_QUIZ,
+} from '@/lib/quizBanks/vocabulary/schoolLearningCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -187,6 +193,10 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/time/parts-of-day': TIME_PARTS_OF_DAY_QUIZ,
   '/vocabulary/time/moments-periods': TIME_MOMENTS_PERIODS_QUIZ,
   '/vocabulary/time/frequency-occasion': TIME_FREQUENCY_QUIZ,
+  '/vocabulary/school-learning/study-materials': SCHOOL_STUDY_MATERIALS_QUIZ,
+  '/vocabulary/school-learning/language-content': SCHOOL_LANGUAGE_CONTENT_QUIZ,
+  '/vocabulary/school-learning/learning-concepts': SCHOOL_LEARNING_CONCEPTS_QUIZ,
+  '/vocabulary/school-learning/school-environment': SCHOOL_ENVIRONMENT_QUIZ,
   '/vocabulary/core-actions/daily-actions': CORE_ACTIONS_DAILY_QUIZ,
   '/vocabulary/core-actions/senses-perception': CORE_ACTIONS_SENS_QUIZ,
   '/vocabulary/core-actions/communication': CORE_ACTIONS_COMM_QUIZ,
