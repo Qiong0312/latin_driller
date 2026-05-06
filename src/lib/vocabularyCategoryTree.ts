@@ -74,6 +74,13 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/travel-roads/travel-conditions',
     '/vocabulary/travel-roads/transport-means',
   ],
+  '/vocabulary/city-buildings': [
+    '/vocabulary/city-buildings/general-city-terms',
+    '/vocabulary/city-buildings/buildings-structures',
+    '/vocabulary/city-buildings/building-parts',
+    '/vocabulary/city-buildings/public-places',
+    '/vocabulary/city-buildings/city-infrastructure',
+  ],
   '/vocabulary/core-actions': [
     '/vocabulary/core-actions/daily-actions',
     '/vocabulary/core-actions/senses-perception',

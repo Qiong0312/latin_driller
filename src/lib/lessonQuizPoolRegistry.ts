@@ -83,6 +83,13 @@ import {
   TRAVEL_TRANSPORT_MEANS_QUIZ,
 } from '@/lib/quizBanks/vocabulary/travelRoadsCategoryQuestionBank';
 import {
+  CITY_BUILDING_PARTS_QUIZ,
+  CITY_BUILDINGS_STRUCTURES_QUIZ,
+  CITY_GENERAL_TERMS_QUIZ,
+  CITY_INFRASTRUCTURE_QUIZ,
+  CITY_PUBLIC_PLACES_QUIZ,
+} from '@/lib/quizBanks/vocabulary/cityBuildingsCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -211,6 +218,11 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/travel-roads/directions-distance': TRAVEL_DIRECTIONS_DISTANCE_QUIZ,
   '/vocabulary/travel-roads/travel-conditions': TRAVEL_CONDITIONS_QUIZ,
   '/vocabulary/travel-roads/transport-means': TRAVEL_TRANSPORT_MEANS_QUIZ,
+  '/vocabulary/city-buildings/general-city-terms': CITY_GENERAL_TERMS_QUIZ,
+  '/vocabulary/city-buildings/buildings-structures': CITY_BUILDINGS_STRUCTURES_QUIZ,
+  '/vocabulary/city-buildings/building-parts': CITY_BUILDING_PARTS_QUIZ,
+  '/vocabulary/city-buildings/public-places': CITY_PUBLIC_PLACES_QUIZ,
+  '/vocabulary/city-buildings/city-infrastructure': CITY_INFRASTRUCTURE_QUIZ,
   '/vocabulary/core-actions/daily-actions': CORE_ACTIONS_DAILY_QUIZ,
   '/vocabulary/core-actions/senses-perception': CORE_ACTIONS_SENS_QUIZ,
   '/vocabulary/core-actions/communication': CORE_ACTIONS_COMM_QUIZ,
