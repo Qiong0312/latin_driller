@@ -88,6 +88,13 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/clothing/accessories',
     '/vocabulary/clothing/materials-parts',
   ],
+  '/vocabulary/tools-objects': [
+    '/vocabulary/tools-objects/general-tools',
+    '/vocabulary/tools-objects/cutting-work-tools',
+    '/vocabulary/tools-objects/household-objects',
+    '/vocabulary/tools-objects/everyday-objects',
+    '/vocabulary/tools-objects/small-useful-items',
+  ],
   '/vocabulary/core-actions': [
     '/vocabulary/core-actions/daily-actions',
     '/vocabulary/core-actions/senses-perception',

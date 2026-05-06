@@ -97,6 +97,13 @@ import {
   CLOTHING_OUTERWEAR_QUIZ,
 } from '@/lib/quizBanks/vocabulary/clothingCategoryQuestionBank';
 import {
+  TOOLS_CUTTING_WORK_QUIZ,
+  TOOLS_EVERYDAY_QUIZ,
+  TOOLS_GENERAL_QUIZ,
+  TOOLS_HOUSEHOLD_QUIZ,
+  TOOLS_SMALL_USEFUL_QUIZ,
+} from '@/lib/quizBanks/vocabulary/toolsObjectsCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -235,6 +242,11 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/clothing/footwear': CLOTHING_FOOTWEAR_QUIZ,
   '/vocabulary/clothing/accessories': CLOTHING_ACCESSORIES_QUIZ,
   '/vocabulary/clothing/materials-parts': CLOTHING_MATERIALS_PARTS_QUIZ,
+  '/vocabulary/tools-objects/general-tools': TOOLS_GENERAL_QUIZ,
+  '/vocabulary/tools-objects/cutting-work-tools': TOOLS_CUTTING_WORK_QUIZ,
+  '/vocabulary/tools-objects/household-objects': TOOLS_HOUSEHOLD_QUIZ,
+  '/vocabulary/tools-objects/everyday-objects': TOOLS_EVERYDAY_QUIZ,
+  '/vocabulary/tools-objects/small-useful-items': TOOLS_SMALL_USEFUL_QUIZ,
   '/vocabulary/core-actions/daily-actions': CORE_ACTIONS_DAILY_QUIZ,
   '/vocabulary/core-actions/senses-perception': CORE_ACTIONS_SENS_QUIZ,
   '/vocabulary/core-actions/communication': CORE_ACTIONS_COMM_QUIZ,
