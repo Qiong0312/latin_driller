@@ -66,6 +66,14 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/school-learning/learning-concepts',
     '/vocabulary/school-learning/school-environment',
   ],
+  '/vocabulary/travel-roads': [
+    '/vocabulary/travel-roads/journey-movement',
+    '/vocabulary/travel-roads/places-locations',
+    '/vocabulary/travel-roads/entry-passage',
+    '/vocabulary/travel-roads/directions-distance',
+    '/vocabulary/travel-roads/travel-conditions',
+    '/vocabulary/travel-roads/transport-means',
+  ],
   '/vocabulary/core-actions': [
     '/vocabulary/core-actions/daily-actions',
     '/vocabulary/core-actions/senses-perception',

@@ -75,6 +75,14 @@ import {
   SCHOOL_STUDY_MATERIALS_QUIZ,
 } from '@/lib/quizBanks/vocabulary/schoolLearningCategoryQuestionBank';
 import {
+  TRAVEL_CONDITIONS_QUIZ,
+  TRAVEL_DIRECTIONS_DISTANCE_QUIZ,
+  TRAVEL_ENTRY_PASSAGE_QUIZ,
+  TRAVEL_JOURNEY_MOVEMENT_QUIZ,
+  TRAVEL_PLACES_LOCATIONS_QUIZ,
+  TRAVEL_TRANSPORT_MEANS_QUIZ,
+} from '@/lib/quizBanks/vocabulary/travelRoadsCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -197,6 +205,12 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/school-learning/language-content': SCHOOL_LANGUAGE_CONTENT_QUIZ,
   '/vocabulary/school-learning/learning-concepts': SCHOOL_LEARNING_CONCEPTS_QUIZ,
   '/vocabulary/school-learning/school-environment': SCHOOL_ENVIRONMENT_QUIZ,
+  '/vocabulary/travel-roads/journey-movement': TRAVEL_JOURNEY_MOVEMENT_QUIZ,
+  '/vocabulary/travel-roads/places-locations': TRAVEL_PLACES_LOCATIONS_QUIZ,
+  '/vocabulary/travel-roads/entry-passage': TRAVEL_ENTRY_PASSAGE_QUIZ,
+  '/vocabulary/travel-roads/directions-distance': TRAVEL_DIRECTIONS_DISTANCE_QUIZ,
+  '/vocabulary/travel-roads/travel-conditions': TRAVEL_CONDITIONS_QUIZ,
+  '/vocabulary/travel-roads/transport-means': TRAVEL_TRANSPORT_MEANS_QUIZ,
   '/vocabulary/core-actions/daily-actions': CORE_ACTIONS_DAILY_QUIZ,
   '/vocabulary/core-actions/senses-perception': CORE_ACTIONS_SENS_QUIZ,
   '/vocabulary/core-actions/communication': CORE_ACTIONS_COMM_QUIZ,
