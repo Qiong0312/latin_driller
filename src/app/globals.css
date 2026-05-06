@@ -30,3 +30,43 @@ body {
     @apply mx-2 w-full max-w-4xl rounded-lg bg-white p-4 shadow-sm dark:bg-black sm:mx-4 sm:p-6 md:p-8 md:shadow-lg;
   }
 }
+
+/**
+ * Desktop OSes often draw permanent, high-contrast scrollbars (esp. Windows).
+ * iOS/iPadOS use overlay scrollbars that auto-hide — different native behavior.
+ * These rules align Chrome/Safari/Edge (WebKit) + Firefox with the app chrome.
+ */
+@layer utilities {
+  .app-scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(161 161 170) transparent;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .app-scrollable {
+      scrollbar-color: rgb(82 82 91) transparent;
+    }
+  }
+
+  .app-scrollable::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .app-scrollable::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .app-scrollable::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background-color: rgb(161 161 170);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .app-scrollable::-webkit-scrollbar-thumb {
+      background-color: rgb(82 82 91);
+    }
+  }
+}

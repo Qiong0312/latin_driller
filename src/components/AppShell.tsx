@@ -79,16 +79,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <CloseIcon />
           </button>
         </div>
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+        <div className="app-scrollable min-h-0 flex-1 overflow-y-auto overscroll-contain">
           <AppNavigation onLinkClick={() => setMenuOpen(false)} />
         </div>
       </div>
 
-      <aside className="hidden min-h-0 w-64 shrink-0 overflow-y-auto overscroll-contain border-r border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-gray-800 md:block">
+      <aside className="app-scrollable hidden min-h-0 w-64 shrink-0 overflow-y-auto overscroll-contain border-r border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-gray-800 md:block">
         <AppNavigation />
       </aside>
 
-      <main className="min-w-0 flex-1 overflow-x-hidden p-2 sm:p-4 md:min-h-0 md:overflow-y-auto md:overscroll-contain">
+      <main className="app-scrollable min-w-0 flex-1 overflow-x-hidden p-2 sm:p-4 md:min-h-0 md:overflow-y-auto md:overscroll-contain">
         {children}
       </main>
     </div>
