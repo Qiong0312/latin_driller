@@ -81,6 +81,13 @@ export const VOCABULARY_CATEGORY_TO_SUBLESSONS: Record<string, readonly string[]
     '/vocabulary/city-buildings/public-places',
     '/vocabulary/city-buildings/city-infrastructure',
   ],
+  '/vocabulary/clothing': [
+    '/vocabulary/clothing/basic-clothing',
+    '/vocabulary/clothing/outerwear',
+    '/vocabulary/clothing/footwear',
+    '/vocabulary/clothing/accessories',
+    '/vocabulary/clothing/materials-parts',
+  ],
   '/vocabulary/core-actions': [
     '/vocabulary/core-actions/daily-actions',
     '/vocabulary/core-actions/senses-perception',

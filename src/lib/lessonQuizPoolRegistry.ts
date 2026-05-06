@@ -90,6 +90,13 @@ import {
   CITY_PUBLIC_PLACES_QUIZ,
 } from '@/lib/quizBanks/vocabulary/cityBuildingsCategoryQuestionBank';
 import {
+  CLOTHING_ACCESSORIES_QUIZ,
+  CLOTHING_BASIC_QUIZ,
+  CLOTHING_FOOTWEAR_QUIZ,
+  CLOTHING_MATERIALS_PARTS_QUIZ,
+  CLOTHING_OUTERWEAR_QUIZ,
+} from '@/lib/quizBanks/vocabulary/clothingCategoryQuestionBank';
+import {
   ROOMS_EATING_COOKING_QUIZ,
   ROOMS_GENERAL_QUIZ,
   ROOMS_LIVING_SLEEPING_QUIZ,
@@ -223,6 +230,11 @@ const LESSON_TO_POOL: Record<string, QuizQuestion[]> = {
   '/vocabulary/city-buildings/building-parts': CITY_BUILDING_PARTS_QUIZ,
   '/vocabulary/city-buildings/public-places': CITY_PUBLIC_PLACES_QUIZ,
   '/vocabulary/city-buildings/city-infrastructure': CITY_INFRASTRUCTURE_QUIZ,
+  '/vocabulary/clothing/basic-clothing': CLOTHING_BASIC_QUIZ,
+  '/vocabulary/clothing/outerwear': CLOTHING_OUTERWEAR_QUIZ,
+  '/vocabulary/clothing/footwear': CLOTHING_FOOTWEAR_QUIZ,
+  '/vocabulary/clothing/accessories': CLOTHING_ACCESSORIES_QUIZ,
+  '/vocabulary/clothing/materials-parts': CLOTHING_MATERIALS_PARTS_QUIZ,
   '/vocabulary/core-actions/daily-actions': CORE_ACTIONS_DAILY_QUIZ,
   '/vocabulary/core-actions/senses-perception': CORE_ACTIONS_SENS_QUIZ,
   '/vocabulary/core-actions/communication': CORE_ACTIONS_COMM_QUIZ,
